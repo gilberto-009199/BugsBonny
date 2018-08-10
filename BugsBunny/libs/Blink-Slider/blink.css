@@ -32,15 +32,16 @@
 }
 
 .blink-control {
-  /* position: absolute;
-  right: 20px; bottom: 20px; */
+  position: absolute;
+  right: 20px; bottom: 20px;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   margin-top: -50px;
-  z-index: 999;
+  width: 100%;
+  z-index: 5;
 }
 
 .blink-control .button {

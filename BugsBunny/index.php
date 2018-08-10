@@ -7,7 +7,7 @@ try{
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br" dir="ltr">
     <head>
         <title>Home</title>
 <?php include_once './head.php';?>
@@ -58,11 +58,39 @@ try{
             
         </header>
         <div id="CaixaRedeSociais">
-            
+            <button id="prev">Preveiw</button>
+            <button id="next">Next</button>
         </div>
         <div id="CaixaSite">
-            <div role="banner">
-                
+            <div role="banner"style="margin:20px auto;width:800;background-color: black;">
+                <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
+                <script src="libs/Blink-Slider/jquery.blink.js"></script>
+                <section class="blink-slider">
+                    <div class="blink-view" id="blink">
+                      <div class="viewSlide">
+                          <div style="width: 100%;height:360px;background-color: grey;">
+                              <h2>Nossas Bancas</h2>
+                              <p>Estamos presentes em toda zona Oeste!</p>
+                              <button> Verificar minah região </button>
+                          </div>
+                      </div>
+
+                      <div class="viewSlide">
+                          <div style="width: 100%;height:360px;background-color: #4286f4;">
+                              
+                              
+                          </div>
+                      </div>
+                    </div>
+                    <div class="blink-control" id="blink-control">
+
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#blink").blink();
+                        });
+                    </script>
+                  </section>
             </div>
             <div id="main" role="main">
                 <div class="row">

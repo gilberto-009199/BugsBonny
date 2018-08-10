@@ -9,8 +9,8 @@ jQuery.fn.blink = function(options) {
     viewTime: 6000,
     items: true,
     navigation: true,
-    prevText: '◄ Prev',
-    nextText: 'Next ►'
+    prevText: '◄ ',
+    nextText: ' ►'
   }
   jQuery.extend(config, options);
 
@@ -80,8 +80,8 @@ jQuery.fn.blink = function(options) {
     }
     /* Add Navigation */
     if(config.navigation) {
-      $('#blink-control').prepend('<button class="button" id="prev">' + config.prevText + '</button>')
-      $('#blink-control').append('<button class="button" id="next">' + config.nextText + '</button>')
+      /*$('#blink-control').prepend('<button class="button" id="prev">' + config.prevText + '</button>')
+      $('#blink-control').append('<button class="button" id="next">' + config.nextText + '</button>')*/
       /* Next button */
       $('#next').click(function(){
         clearInterval(blinkLoop);
