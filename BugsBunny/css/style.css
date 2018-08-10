@@ -1,0 +1,43 @@
+/* 
+    Created on : 09/08/2018, 10:25:19
+    Author     : 16254850
+*/
+
+@import url("./elements.css");
+
+.row{
+    width: 100%;
+}
+.cold10,.cold9,.cold8,.cold7,.cold6,.cold5,.cold4,.cold3,.cold2,.cold1{
+    display: inline-block;
+}
+.cold10{
+    width: 95%;
+}
+.cold9{
+    width: 85%;
+}
+.cold8{
+    width: 75%;
+}
+.cold7{
+    width: 65%;
+}
+.cold6{
+    width: 55%;
+}
+.cold5{
+    width: 45%;
+}
+.cold4{
+    width: 35%;
+}
+.cold3{
+    width: 25%;
+}
+.cold2{
+    width: 15%;
+}
+.cold1{
+    width: 5%;
+}
