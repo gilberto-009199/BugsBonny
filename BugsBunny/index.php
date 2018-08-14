@@ -78,7 +78,7 @@ try{
                       <div class="viewSlide">
                           <div style="width: 100%; height:360px; background:url(img/slide/banca45.jpg); background-attachment: scroll; background-size: cover;background-repeat: no-repeat;">
                               
-                              
+                              sadas
                           </div>
                       </div>
                     </div>
