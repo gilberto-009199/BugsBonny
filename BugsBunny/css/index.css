@@ -11,6 +11,22 @@ div[role="banner"]{
     height: 390px;
     background-color: black;
 }
+div[data-style="MenuBar"]{
+    min-height:464px;
+    text-align: center;
+    outline: 1px solid black;
+    outline-offset: -1px;
+    float: left;
+    background-color: yellowgreen;
+}
+div[data-style="ProductBox"]{
+      min-height:464px;
+      text-align: center;
+      outline: 1px solid black;
+      outline-offset: -1px;
+      float: left;
+      background-color: yellowgreen;
+}
 .ItemSlider{
     padding-top: 10px;
     padding-bottom: 10px;

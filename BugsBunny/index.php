@@ -100,7 +100,7 @@ try{
             </div>
             <div id="main" role="main">
                 <div class="row">
-                    <div class="cold4" style="min-height:464px; text-align: center; outline: 1px solid black; outline-offset: -1px;float: left;background-color: yellowgreen;" >
+                    <div class="cold4" data-style="MenuBar" >
                         <p>jasb sdasdnjs</p>
                         <p>jasb sdasdnjs</p>
                         <p>jasb sdasdnjs</p>
@@ -109,7 +109,7 @@ try{
                         <p>jasb sdasdnjs</p>
                         <p>jasb sdasdnjs</p>
                     </div>
-                    <div class="cold7" style="min-height:464px;text-align: center;outline: 1px solid black; outline-offset: -1px; float: left;background-color: yellowgreen;">
+                    <div class="cold7" data-style="ProductBox">
                         <div class="Produto">
                             <div class="Titulo">Titulo</div>
                             <div class="Imagem">
