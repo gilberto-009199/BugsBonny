@@ -58,6 +58,12 @@ try{
             
         </header>
         <div id="CaixaRedeSociais">
+            <div class="ItemRedeSocial">
+                <p>Facebook</p>
+            </div>
+            <div class="ItemRedeSocial">
+                <p>Orkut</p>
+            </div>
         </div>
         <div id="CaixaSite">
             <div role="banner">
@@ -72,7 +78,7 @@ try{
                               <div  class="Painel">
                                   <h1> Ultimas Noticias:</h1>
                                   <p><a href="#"> Ponte desaba em Genova</a></p>
-                                  <p><a href="#"> Lula vira concorente á presidencia</a></p>
+                                  <p><a href="#"> Lula vira concorente a presidencia</a></p>
                                   <p><a href="#"> Marina vence as eleições 2018</a></p>
                               </div>
                           </div>
