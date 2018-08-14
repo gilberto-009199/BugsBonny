@@ -17,7 +17,7 @@ try{
             <div class="CaixaHeader">
                 <div class="ItemCaixaHeader">
                     <div class="Logo">
-                        <img alt=" Logo do site" title="logo" height="42"width="42" src="img/logo2.png">
+                        <img alt=" Logo do site" title="logo" height="42" width="42" src="img/logo2.png">
                        <p>BugBunny</p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ try{
         <div id="CaixaRedeSociais">
         </div>
         <div id="CaixaSite">
-            <div role="banner"style="margin:20px auto;width:800;background-color: black;">
+            <div role="banner">
                 <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
                 <script src="libs/Blink-Slider/jquery.blink.js"></script>
                 <section class="blink-slider">
@@ -68,17 +68,24 @@ try{
                     <button id="next">></button>
                     <div class="blink-view" id="blink">
                       <div class="viewSlide">
-                          <div style="width: 100%; height:360px; background:url(img/slide/banca.jpg); background-attachment: scroll; background-size: cover;background-repeat: no-repeat;">
-                              <h2>Nossas Bancas</h2>
-                              <p>Estamos presentes em toda zona Oeste!</p>
-                              <button> Verificar minah região </button>
+                          <div class="ItemSlider" style="background-image: url(img/slide/banca.jpg);">
+                              <div  class="Painel">
+                                  <h1> Ultimas Noticias:</h1>
+                                  <p><a href="#"> Ponte desaba em Genova</a></p>
+                                  <p><a href="#"> Lula vira concorente á presidencia</a></p>
+                                  <p><a href="#"> Marina vence as eleições 2018</a></p>
+                              </div>
                           </div>
                       </div>
 
                       <div class="viewSlide">
-                          <div style="width: 100%; height:360px; background:url(img/slide/banca45.jpg); background-attachment: scroll; background-size: cover;background-repeat: no-repeat;">
-                              
-                              sadas
+                          <div class="ItemSlider" style="background-image:url(img/slide/banca45.jpg);">
+                              <div  class="Painel">
+                                  <h1>  Ciência e Tecnologia:</h1>
+                                  <p><a href="#"> SpaceX aposta em viajem tripulada em 2019.</a></p>
+                                  <p><a href="#"> Estudo descobre a rota da chegada do virus zika ao brasil.</a></p>
+                                  <p><a href="#"> Após adiamento, Nasa lança sonda em direção ao sol.</a></p>
+                              </div>                              
                           </div>
                       </div>
                     </div>
@@ -103,25 +110,114 @@ try{
                         <p>jasb sdasdnjs</p>
                     </div>
                     <div class="cold7" style="min-height:464px;text-align: center;outline: 1px solid black; outline-offset: -1px; float: left;background-color: yellowgreen;">
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
+                        <div class="Produto">
+                            <div class="Titulo">Titulo</div>
+                            <div class="Imagem">
+                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                            </div>
+                            <div class="Descricao">Descrição</div>
+                            <div class="Preco">R$ 10,00</div>
+                            <div class="Detalhes"><a href="#">Detalhes</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
