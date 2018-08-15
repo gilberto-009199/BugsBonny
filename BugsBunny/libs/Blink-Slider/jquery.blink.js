@@ -4,9 +4,9 @@ Author: Fernando Mercadal https://fermercadal.github.io
 */
 jQuery.fn.blink = function(options) {
   var config = {
-    speedIn: 500,
+    speedIn: 200,
     speedOut: 300,
-    viewTime: 6000,
+    viewTime: 4000,
     items: true,
     navigation: true,
     prevText: '◄ ',
