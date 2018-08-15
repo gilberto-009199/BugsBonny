@@ -5,5 +5,6 @@
         <meta name="copyright" content="Senai-SP">
         <meta name="contactNetworkAddress" content="gilberto.tec@vivaldi.net">
         <script type="text/javascript" src="./libs/jquery/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="./js/lib.js"></script>
         <link rel="stylesheet" type="text/css" href="<?="./css/".$arquivo.".css"?>">
     
