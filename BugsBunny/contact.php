@@ -25,13 +25,43 @@
                     </div>
                 </div>
         </header>
-        <div role="banner"></div>
-        <div id="main" role="main"></div>
+        <div role="banner">
+            <script src="libs/Chart.js/Chart.js"></script>
+            <canvas id="Grafico" height="300" width="1000">
+                               
+            </canvas>
+            <script>
+            var canvas = document.getElementById("Grafico");
+            var myChart = new Chart(canvas, {
+                type: 'line',
+                data: {
+                    labels:["abril","maio","Junho","Julho","Agosto"],
+                    datasets:[{
+                            label:"Ultimos envios - 5 meses",
+                            data:[10,16,7,17,10],
+                            borderWidth:1,
+                            borderColor:"#00fffc",
+                            backgroundColor:"transparent",
+                    },{
+                            label:"Ultimos visitas - 5 meses",
+                            data:[18,22,10,29,28],
+                            borderWidth:1,
+                            borderColor:"blue",
+                            backgroundColor:"transparent",
+                    }]
+                },
+                options: {
+                    
+                }
+            });
+            </script>
+        </div>
+        <div id="main" role="main">
+            
+            
+        </div>
         <footer>
             
         </footer>
-            <?php
-        // put your code here
-        ?>
     </body>
 </html>

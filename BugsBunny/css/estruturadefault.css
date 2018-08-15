@@ -4,15 +4,20 @@
 */
 body{
     background-color:#2a2626;
+    margin: 0px;
+    padding: 0px;
 }
 
 header{
+    display: block;
     width: 100%;
-    height: 50px;
+    height: 60px;
     background: rgb(255,255,255);
     background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);
     position:fixed;
     padding-left: 20px;
+    margin-bottom: 10px;
+    top:0;
 }
 header .ItemCaixaHeader{
     padding-top: 13px;
@@ -33,7 +38,7 @@ header .ItemCaixaHeader .Logo{
     font-size: 12px;
     text-align: center;
     font-weight: bold;
-    margin-right: 20px;
+    margin-right: 24px;
     margin-top: -50px;
 }
 footer{
