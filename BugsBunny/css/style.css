@@ -63,3 +63,6 @@
 .cold1{
     width: 5%;
 }
+.BordaDireita{
+    border-right: solid 2px black;
+}

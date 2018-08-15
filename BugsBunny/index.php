@@ -24,12 +24,12 @@ try{
                 <div class="ItemCaixaHeader" >
                     <nav>
                         <div class="CaixaMenu">
-                            <div class="ItemMenu">Home</div>
-                            <div class="ItemMenu">Notícias</div>
-                            <div class="ItemMenu">Sobre</div>
-                            <div class="ItemMenu">Promoções</div>
-                            <div class="ItemMenu">Nossas Bancas</div>
-                            <div class="ItemMenu">Fale Conosco</div>
+                            <div class="ItemMenu" role="ItemMenu">Home</div>
+                            <div class="ItemMenu" role="ItemMenu">Notícias</div>
+                            <div class="ItemMenu" role="ItemMenu">Sobre</div>
+                            <div class="ItemMenu" role="ItemMenu">Promoções</div>
+                            <div class="ItemMenu" role="ItemMenu">Nossas Bancas</div>
+                            <div class="ItemMenu" role="ItemMenu">Fale Conosco</div>
                         </div>
                     </nav>
                 </div>
