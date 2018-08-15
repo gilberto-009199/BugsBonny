@@ -35,23 +35,26 @@
             var myChart = new Chart(canvas, {
                 type: 'line',
                 data: {
-                    labels:["abril","maio","Junho","Julho","Agosto"],
+                    labels:["janeiro","fevereiro","março","abril","maio","Junho","Julho","Agosto"],
                     datasets:[{
                             label:"Ultimos envios - 5 meses",
-                            data:[10,16,7,17,10],
-                            borderWidth:1,
-                            borderColor:"#00fffc",
+                            data:[12,24,13,9,10,16,7,17],
+                            borderWidth:7,
+                            borderColor:"#454df0",
                             backgroundColor:"transparent",
                     },{
-                            label:"Ultimos visitas - 5 meses",
-                            data:[18,22,10,29,28],
-                            borderWidth:1,
-                            borderColor:"blue",
-                            backgroundColor:"transparent",
+                            label:"Atentimentos - 5 meses",
+                            data:[12,10,13,8,11,10,2,15],
+                            borderWidth:7,
+                            borderColor:"#006D5C",
+                            backgroundColor:"#00ffeb",
                     }]
                 },
                 options: {
-                    
+                    title:{
+                        display:true,
+                        text:"Chamados"
+                    }
                 }
             });
             </script>

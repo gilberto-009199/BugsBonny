@@ -6,16 +6,17 @@
 @import url("estruturadefault.css");
 
 div[role="banner"]{
-    margin-top: 100px;
+    margin-top: 60px;
     width: 100%;
+    background: rgb(104,110,110);
+    background: linear-gradient(265deg, rgba(104,110,110,1) 38%, rgba(74,88,88,1) 67%);
 }
 div[role="banner"] canvas{
     display:block;
-    max-width: 512px;
-    height: 256px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    background-color: whitesmoke;
+    background-color: white;
     border: solid 4px black;
     border-radius: 10px;
 }
