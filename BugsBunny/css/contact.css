@@ -21,7 +21,7 @@ div[role="banner"] canvas{
     border-radius: 10px;
 }
 #main{
-    min-height: 400px;
+    min-height: 440px;
     height: auto;
     width: 1000px;
     margin-left: auto;
@@ -33,4 +33,31 @@ div[role="banner"] canvas{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: white;
+}
+form[name="frmTiket"]{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+input[name*="txt"]{
+    float: left;
+    font-size:15px;
+    height: 21px;
+    width: 180px;
+    border: solid 1px black;
+}
+#areaCritica{
+    resize: none;
+    border: solid 1px black;
+    padding: 4px;
+    width: 428px;
+}
+#btnSubmit{
+    float: right;
+    height: 40px;
+    width: 70px;
+    font-size: 17px;
+    background: rgb(33,35,35);
+    background: linear-gradient(360deg, rgba(33,35,35,1) 38%, rgba(0,0,0,1) 67%);
+    margin-right: -30px;
+    color:white;
 }

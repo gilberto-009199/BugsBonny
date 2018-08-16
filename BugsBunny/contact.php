@@ -65,34 +65,38 @@
                     <form name="frmTiket" method="POST">
                         <table>
                             <tr>
-                                <td><label>Nome:*</label></td>
-                                <td> <input type="text" name="txtNome" value="" /> </td>
+                                <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
+                                <td> <input id="txtNome" type="text" name="txtNome" value="" required/> </td>
                             </tr>
                             <tr>
-                                <td><label>Telefone:</label></td>
-                                <td> <input type="text" name="txtTelefone" value="" /> </td>
+                                <td><label  for="txtTelefone">Telefone:</label></td>
+                                <td> <input id="txtTelefone" type="text" name="txtTelefone" value="" /> </td>
                             </tr>
                             <tr>
-                                <td> <label> Celular:</label> </td>
-                                <td> <input type="text" name="txtCelular" value="" /> </td>
+                                <td> <label class="Obrigatorio" for="txtCelular"> Celular:*</label> </td>
+                                <td> <input id="txtCelular" type="text" name="txtCelular" value="" required/> </td>
                             </tr>
                             <tr>
-                                <td><label>Home Page:</label></td>
-                                <td> <input type="text" name="txtHomePage" value="" /> </td>
+                                <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
+                                <td> <input id="txtHomePage" type="text" name="txtHomePage" value="" required/> </td>
                             </tr>
                             <tr>
-                                <td><label> Link no Facebook:</label></td>
-                                <td> <input type="text" name="txtFacebook" value="" /> </td>
+                                <td><label for="txtHomePage">Home Page:</label></td>
+                                <td> <input id="txtHomePage" type="text" name="txtHomePage" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td><label for="txtFcebook"> Link no Facebook:</label></td>
+                                <td> <input id="txtFcebook" type="text" name="txtFacebook" value="" /> </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <table>
                                         <tr>
-                                            <td><label>Sugestão/Critica</label></td>
+                                            <td><label for="areaCritica">Sugestão/Critica</label></td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <textarea name="ariaCritica" rows="4" cols="20">
+                                                <textarea id="areaCritica" name="ariaCritica" rows="4" cols="20">
                                                 </textarea>
                                             </td>
                                         </tr>
@@ -100,34 +104,39 @@
                                 </td>                               
                             </tr>
                             <tr>
-                                <td><label>Informações de Produto </label></td>
-                                <td> <input type="text" name="txtProduto" value="" /> </td>
+                                <td><label for="txtProduto">Informações de Produto </label></td>
+                                <td> <input id="txtProduto" type="text" name="txtProduto" value="" /> </td>
                             </tr>
                             <tr>
-                                <td><label>Sexo:*</label></td>
+                                <td><label class="Obrigatorio" for="slcSexo">Sexo:*</label></td>
                                 <td>
-                                    <select>
-                                        <option>M</option>
-                                        <option>F</option>
+                                    <select id="slcSexo" name="slcSexo" required>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label>Profissão:*</label></td>
+                                <td><label class="Obrigatorio" for="slcProfissao">Profissão:*</label></td>
                                 <td>
-                                    <select>
-                                        <option>Cabeleireiro</option>
-                                        <option>Sapateiro</option>
-                                        <option>Vendedor</option>
-                                        <option>Motorista de Caminhão</option>
+                                    <select id="slcProfissao" name="slcProfissao" required>
+                                        <option value="cabeleireiro">Cabeleireiro</option>
+                                        <option value="sapateiro">Sapateiro</option>
+                                        <option value="vendedor">Vendedor</option>
+                                        <option value="motoristacaminhao">Motorista de Caminhão</option>
                                     </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input id="btnSubmit" type="submit" value="Enviar" />
                                 </td>
                             </tr>
                         </table>
                     </form>
                 </div>
                 <div class="cold3" style="float: left; padding-left: 20px;">
-                    Tipos de tiket
+                    Tipos de Ticket
                 </div>
             </div>            
         </div>

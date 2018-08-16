@@ -66,3 +66,6 @@
 .BordaDireita{
     border-right: solid 2px black;
 }
+.Obrigatorio{
+    color: blue;
+}
