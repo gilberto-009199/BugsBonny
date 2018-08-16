@@ -21,20 +21,20 @@ try{
                        <p>BugBunny</p>
                     </div>
                 </div>
-                <div class="ItemCaixaHeader" >
-                    <nav>
-                        <div class="CaixaMenu">
-                            <div class="ItemMenu" role="ItemMenu">Home</div>
-                            <div class="ItemMenu" role="ItemMenu">Notícias</div>
-                            <div class="ItemMenu" role="ItemMenu">Sobre</div>
-                            <div class="ItemMenu" role="ItemMenu">Promoções</div>
-                            <div class="ItemMenu" role="ItemMenu">Nossas Bancas</div>
-                            <div class="ItemMenu" role="ItemMenu">Fale Conosco</div>
+                <div class="ItemCaixaHeader" role="menubar">
+                    <nav aria-label="main navigation">
+                        <div class="CaixaMenu" role="menu">
+                            <div class="ItemMenu" role="menuitem">Home</div>
+                            <div class="ItemMenu" role="menuitem">Notícias</div>
+                            <div class="ItemMenu" role="menuitem">Sobre</div>
+                            <div class="ItemMenu" role="menuitem">Promoções</div>
+                            <div class="ItemMenu" role="menuitem">Nossas Bancas</div>
+                            <div class="ItemMenu" role="menuitem">Fale Conosco</div>
                         </div>
                     </nav>
                 </div>
                 <div class="ItemCaixaHeader" id="CaixaLogin">
-                    <form method="post" action="#">
+                    <form accept-charset="utf-8" method="post" action="#">
                         <div class="row">
                             <div class="cold4">
                                 
@@ -71,8 +71,8 @@ try{
                 <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
                 <script src="libs/Blink-Slider/jquery.blink.js"></script>
                 <section class="blink-slider">
-                    <button id="prev"><</button>
-                    <button id="next">></button>
+                    <button id="prev" aria-label="voltar Imagem">&lt;</button>
+                    <button id="next" aria-label="proxima Imagem">></button>
                     <div class="blink-view" id="blink">
                       <div class="viewSlide">
                           <div class="ItemSlider" style="background-image: url(img/slide/banca.jpg);">
