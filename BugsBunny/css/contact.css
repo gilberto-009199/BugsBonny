@@ -20,3 +20,17 @@ div[role="banner"] canvas{
     border: solid 4px black;
     border-radius: 10px;
 }
+#main{
+    min-height: 400px;
+    height: auto;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 17px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border: solid 1px black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+}

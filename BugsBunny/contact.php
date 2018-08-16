@@ -60,8 +60,76 @@
             </script>
         </div>
         <div id="main" role="main">
-            
-            
+            <div class="row">
+                <div class="cold6 BordaDireita" style="float: left;">
+                    <form name="frmTiket" method="POST">
+                        <table>
+                            <tr>
+                                <td><label>Nome:*</label></td>
+                                <td> <input type="text" name="txtNome" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td><label>Telefone:</label></td>
+                                <td> <input type="text" name="txtTelefone" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td> <label> Celular:</label> </td>
+                                <td> <input type="text" name="txtCelular" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td><label>Home Page:</label></td>
+                                <td> <input type="text" name="txtHomePage" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td><label> Link no Facebook:</label></td>
+                                <td> <input type="text" name="txtFacebook" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table>
+                                        <tr>
+                                            <td><label>Sugestão/Critica</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <textarea name="ariaCritica" rows="4" cols="20">
+                                                </textarea>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td><label>Informações de Produto </label></td>
+                                <td> <input type="text" name="txtProduto" value="" /> </td>
+                            </tr>
+                            <tr>
+                                <td><label>Sexo:*</label></td>
+                                <td>
+                                    <select>
+                                        <option>M</option>
+                                        <option>F</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Profissão:*</label></td>
+                                <td>
+                                    <select>
+                                        <option>Cabeleireiro</option>
+                                        <option>Sapateiro</option>
+                                        <option>Vendedor</option>
+                                        <option>Motorista de Caminhão</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="cold3" style="float: left; padding-left: 20px;">
+                    Tipos de tiket
+                </div>
+            </div>            
         </div>
         <footer>
             
