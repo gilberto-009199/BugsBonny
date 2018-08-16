@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head lang="pt-br" dir="ltr">
+<html lang="pt-br" dir="ltr">
+    <head>
         <title>Sobre a Banca </title>
 <?php include_once './head.php';?>
     </head>
@@ -8,13 +8,13 @@
         <header>
             <div class="ItemCaixaHeader">
                 <nav>
-                    <div class="CaixaMenu">
-                        <div class="ItemMenu BordaDireita" role="ItemMenu"> Home</div>
-                        <div class="ItemMenu BordaDireita" role="ItemMenu"> Notícias</div>
-                        <div class="ItemMenu BordaDireita" role="ItemMenu"> Sobre</div>
-                        <div class="ItemMenu BordaDireita" role="ItemMenu"> Promoções</div>
-                        <div class="ItemMenu BordaDireita" role="ItemMenu"> Nossas Bancas</div>
-                        <div class="ItemMenu" role="ItemMenu"> Fale Conosco</div>
+                    <div class="CaixaMenu" role="menu">
+                        <div class="ItemMenu BordaDireita" role="menuitem"> Home</div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"> Notícias</div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"> Sobre</div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"> Promoções</div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"> Nossas Bancas</div>
+                        <div class="ItemMenu" role="menuitem"> Fale Conosco</div>
                     </div>                    
                 </nav>
             </div>
