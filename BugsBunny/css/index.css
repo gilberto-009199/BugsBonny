@@ -17,7 +17,7 @@ div[data-style="MenuBar"]{
     outline: 1px solid black;
     outline-offset: -1px;
     float: left;
-    background-color: yellowgreen;
+    background: transparent;
 }
 div[data-style="ProductBox"]{
       min-height:464px;
@@ -25,7 +25,7 @@ div[data-style="ProductBox"]{
       outline: 1px solid black;
       outline-offset: -1px;
       float: left;
-      background-color: yellowgreen;
+      background:transparent;
 }
 .ItemSlider{
     padding-top: 10px;

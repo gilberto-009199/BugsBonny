@@ -114,4 +114,13 @@ div[role="banner"]{
     width: 100%;
     margin-bottom: 2px;
     border-bottom: solid 2px black;
+    background: rgb(255,255,255);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 73%, rgba(0,198,236,1) 77%);
+    /*background: rgb(255,255,255);
+    background: linear-gradient(117deg, rgba(255,255,255,1) 12%, rgba(157,240,240,1) 100%);*/
+    /*background: rgb(118,240,233);
+    background: linear-gradient(345deg, rgba(118,240,233,1) 12%, rgba(191,227,227,1) 53%);*/
+}
+.ItemCaixaHeader nav .CaixaMenu .ItemMenu:hover{
+  color:#006D5C;
 }

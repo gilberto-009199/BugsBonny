@@ -1,8 +1,7 @@
-<?php 
-try{
+<?php
+try {
     
-    
-}  catch (Exception $e){
+} catch (Exception $e) {
     
 }
 ?>
@@ -10,7 +9,7 @@ try{
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Home</title>
-<?php include_once './head.php';?>
+        <?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
@@ -18,7 +17,7 @@ try{
                 <div class="ItemCaixaHeader">
                     <div class="Logo">
                         <img alt=" Logo do site" title="logo" height="42" width="42" src="img/logo2.png">
-                       <p>BugBunny</p>
+                        <p>BugBunny</p>
                     </div>
                 </div>
                 <div class="ItemCaixaHeader" role="menubar">
@@ -37,7 +36,7 @@ try{
                     <form accept-charset="utf-8" method="post" action="#">
                         <div class="row">
                             <div class="cold4">
-                                
+
                                 <label>Usuario:</label>
                                 <div class="row">
                                     <input type="text">
@@ -56,7 +55,7 @@ try{
                     </form>
                 </div>
             </div>
-            
+
         </header>
         <div id="CaixaRedeSociais">
             <div class="ItemRedeSocial">
@@ -74,47 +73,63 @@ try{
                     <button id="prev" aria-label="voltar Imagem">&lt;</button>
                     <button id="next" aria-label="proxima Imagem">></button>
                     <div class="blink-view" id="blink">
-                      <div class="viewSlide">
-                          <div class="ItemSlider" style="background-image: url(img/slide/banca.jpg);">
-                              <div  class="Painel">
-                                  <h1> Ultimas Noticias:</h1>
-                                  <p><a href="#"> Ponte desaba em Genova</a></p>
-                                  <p><a href="#"> Lula vira concorente a presidencia</a></p>
-                                  <p><a href="#"> Marina vence as eleições 2018</a></p>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="viewSlide">
+                            <div class="ItemSlider" style="background-image: url(img/slide/banca.jpg);">
+                                <div  class="Painel">
+                                    <h1> Ultimas Noticias:</h1>
+                                    <p><a href="#"> Ponte desaba em Genova</a></p>
+                                    <p><a href="#"> Lula vira concorente a presidencia</a></p>
+                                    <p><a href="#"> Marina vence as eleições 2018</a></p>
+                                </div>
+                            </div>
+                        </div>
 
-                      <div class="viewSlide">
-                          <div class="ItemSlider" style="background-image:url(img/slide/banca45.jpg);">
-                              <div  class="Painel">
-                                  <h1>  Ciência e Tecnologia:</h1>
-                                  <p><a href="#"> SpaceX aposta em viajem tripulada em 2019.</a></p>
-                                  <p><a href="#"> Estudo descobre a rota da chegada do virus zika ao brasil.</a></p>
-                                  <p><a href="#"> Após adiamento, Nasa lança sonda em direção ao sol.</a></p>
-                              </div>                              
-                          </div>
-                      </div>
+                        <div class="viewSlide">
+                            <div class="ItemSlider" style="background-image:url(img/slide/banca45.jpg);">
+                                <div  class="Painel">
+                                    <h1>  Ciência e Tecnologia:</h1>
+                                    <p><a href="#"> SpaceX aposta em viajem tripulada em 2019.</a></p>
+                                    <p><a href="#"> Estudo descobre a rota da chegada do virus zika ao brasil.</a></p>
+                                    <p><a href="#"> Após adiamento, Nasa lança sonda em direção ao sol.</a></p>
+                                </div>                              
+                            </div>
+                        </div>
                     </div>
                     <div class="blink-control" id="blink-control">
                     </div>
                     <script type="text/javascript">
-                        $(document).ready(function(){
+                        $(document).ready(function () {
                             $("#blink").blink();
                         });
                     </script>
-                  </section>
+                </section>
             </div>
             <div id="main" role="main">
                 <div class="row">
                     <div class="cold4" data-style="MenuBar" >
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
-                        <p>jasb sdasdnjs</p>
+                        <style>
+                            .ItemMenuBar{
+                                width: 100%;
+                                margin-left: auto;
+                                margin-right: auto;
+                                min-height: 20px;
+                                padding-top: 4px;
+                                text-align: center;
+                                background: rgb(227,227,227);
+                                background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
+                                display:block;
+                                font-weight: bold;
+                            }
+                            .ItemMenuBar:hover{
+                                color:#006D5C;
+                            }
+
+
+                        </style>
+                        <span class="ItemMenuBar">Revistas</span>
+                        <span class="ItemMenuBar">Jornais</span>
+                        <span class="ItemMenuBar">Videos</span>
+                        <span class="ItemMenuBar">Assinaturas</span>
                     </div>
                     <div class="cold7" data-style="ProductBox">
                         <div class="Produto">
@@ -171,7 +186,7 @@ try{
                             <div class="Preco">R$ 10,00</div>
                             <div class="Detalhes"><a href="#">Detalhes</a></div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
