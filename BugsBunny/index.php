@@ -23,13 +23,13 @@ try {
                 <div class="ItemCaixaHeader" role="menubar">
                     <nav aria-label="main navigation">
                         <div class="CaixaMenu" role="menu">
-                            <div class="ItemMenu" role="menuitem">Home</div>
-                            <div class="ItemMenu" role="menuitem">Notícias</div>
-                            <div class="ItemMenu" role="menuitem">Sobre</div>
-                            <div class="ItemMenu" role="menuitem">Promoções</div>
-                            <div class="ItemMenu" role="menuitem">Nossas Bancas</div>
-                            <div class="ItemMenu" role="menuitem">Fale Conosco</div>
-                        </div>
+                        <a href="./index.php"><div class="ItemMenu" role="menuitem"> Home</div></a>
+                        <a href="./news.php"><div class="ItemMenu" role="menuitem"> Notícias</div></a>
+                        <a href="./about.php"><div class="ItemMenu" role="menuitem"> Sobre</div></a>
+                        <a href="./offers.php"><div class="ItemMenu" role="menuitem"> Promoções</div></a>
+                        <a href="./stalls.php"><div class="ItemMenu" role="menuitem"> Nossas Bancas</div></a>
+                        <a href="contact.php"><div class="ItemMenu" role="menuitem"> Fale Conosco</div></a>
+                    </div>
                     </nav>
                 </div>
                 <div class="ItemCaixaHeader" id="CaixaLogin">
