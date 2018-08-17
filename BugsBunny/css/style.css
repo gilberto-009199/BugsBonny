@@ -65,6 +65,7 @@
 }
 .BordaDireita{
     border-right: solid 2px black;
+    border-right-width: 3px;
 }
 .Obrigatorio{
     color: blue;

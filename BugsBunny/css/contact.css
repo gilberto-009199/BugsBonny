@@ -34,6 +34,16 @@ div[role="banner"] canvas{
     border-top-right-radius: 10px;
     background-color: white;
 }
+div[data-style="CaixaDireita"]{
+    border-right-style: inset;
+    float: left;
+}
+div[data-style="CaixaEsquerda"]{
+    width: 211px;
+    float: left;
+    padding-left: 20px;
+    text-align: center;
+}
 form[name="frmTiket"]{
     padding-left: 20px;
     padding-right: 20px;
@@ -60,4 +70,19 @@ input[name*="txt"]{
     background: linear-gradient(360deg, rgba(33,35,35,1) 38%, rgba(0,0,0,1) 67%);
     margin-right: -30px;
     color:white;
+}
+.ItemTicket{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 20px;
+    padding-top: 4px;
+    text-align: center;
+    background: rgb(227,227,227);
+    background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
+    display:block;
+    font-weight: bold;
+}
+.ItemTicket:hover{
+    color:#006D5C;
 }
