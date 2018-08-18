@@ -2,6 +2,30 @@
     Created on : 09/08/2018, 11:16:40
     Author     : 16254850
 */
+section{
+    background-color: white;
+    padding-bottom: 7px;
+    border-bottom: solid 1px #ddd;
+}
+section h1{
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 7px;
+    padding-bottom: 3px;
+}
+article{
+    border-right: solid 3px #006D5C;
+}
+article h1,h2,h3,h4{
+    border-bottom: solid 1px #0b2144;
+    margin-left: 17px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+}
+article p{
+    text-indent: 24px;
+    padding-top: 3px;
+}
 div .Produto{
     float: left;
     display: table-cell;

@@ -1,5 +1,5 @@
 <?php $arquivo=basename($_SERVER['PHP_SELF'],'.php');?>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="generator" content="netbeans">
         <meta name="author" content="Gilberto Oliveira">
         <meta name="copyright" content="Senai-SP">

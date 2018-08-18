@@ -9,12 +9,12 @@
             <div class="ItemCaixaHeader">
                 <nav>
                     <div class="CaixaMenu" role="menu">
-                        <a href="./index.php"><div class="ItemMenu BordaDireita" role="menuitem"> Home</div></a>
-                        <a href="./news.php"><div class="ItemMenu BordaDireita" role="menuitem"> Notícias</div></a>
-                        <a href="./about.php"><div class="ItemMenu BordaDireita" role="menuitem"> Sobre</div></a>
-                        <a href="./offers.php"><div class="ItemMenu BordaDireita" role="menuitem"> Promoções</div></a>
-                        <a href="./stalls.php"><div class="ItemMenu BordaDireita" role="menuitem"> Nossas Bancas</div></a>
-                        <a href="contact.php"><div class="ItemMenu" role="menuitem"> Fale Conosco</div></a>
+                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./index.php">Home</a></div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./news.php">Notícias</a></div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./about.php">Sobre</a></div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./offers.php">Promoções</a></div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
+                        <div class="ItemMenu" role="menuitem"><a href="contact.php">Fale Conosco</a></div>
                     </div>                    
                 </nav>
             </div>
