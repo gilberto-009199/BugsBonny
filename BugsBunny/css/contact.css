@@ -66,10 +66,10 @@ input[name*="txt"]{
     height: 40px;
     width: 70px;
     font-size: 17px;
-    background: rgb(33,35,35);
-    background: linear-gradient(360deg, rgba(33,35,35,1) 38%, rgba(0,0,0,1) 67%);
+    background-color: transparent;
+    border:solid 1px #ddd;
     margin-right: -30px;
-    color:white;
+    color:#006D5C;
 }
 .ItemTicket{
     width: 100%;
@@ -85,4 +85,7 @@ input[name*="txt"]{
 }
 .ItemTicket:hover{
     color:#006D5C;
+}
+#btnSubmit:hover{
+    color:black;
 }

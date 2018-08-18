@@ -67,3 +67,17 @@ div[data-style="ProductBox"]{
 #next{
     float: right;
 }
+#btnLogin{
+    width: 50px;
+    height: 22px;
+    border:solid 1px;
+    background-color: transparent;
+    color:#006D5C;
+    
+}
+#txtUser{
+    width:151px;
+}
+#txtPasswrd{
+    width:151px;
+}

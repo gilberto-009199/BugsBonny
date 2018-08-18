@@ -37,19 +37,19 @@ try {
                         <div class="row">
                             <div class="cold4">
 
-                                <label>Usuario:</label>
+                                <label for="txtUser">Usuario:</label>
                                 <div class="row">
-                                    <input type="text">
+                                    <input id="txtUser" type="text">
                                 </div>
                             </div>
                             <div class="cold4">
-                                <label>Senha:</label>
+                                <label for="txtPasswrd">Senha:</label>
                                 <div class="row">
-                                    <input type="password" style="">
+                                    <input id="txtPasswrd" type="password">
                                 </div>
                             </div>
                             <div class="cold1">
-                                <input type="submit" value="ok">
+                                <input id="btnLogin" type="submit" value="ok">
                             </div>
                         </div>
                     </form>
