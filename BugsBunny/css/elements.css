@@ -6,15 +6,19 @@ section{
     background-color: white;
     padding-bottom: 7px;
     border-bottom: solid 1px #ddd;
+    border-right: solid 3px #006D5C;
 }
 section h1{
     text-align: center;
     font-weight: bolder;
+    font-size: 32px;
     padding-top: 7px;
     padding-bottom: 3px;
 }
 article{
-    border-right: solid 3px #006D5C;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 7px;
 }
 article h1,h2,h3,h4{
     border-bottom: solid 1px #0b2144;
@@ -23,6 +27,7 @@ article h1,h2,h3,h4{
     padding-bottom: 3px;
 }
 article p{
+    font-family: comic,serif,ubuntu;
     text-indent: 24px;
     padding-top: 3px;
 }

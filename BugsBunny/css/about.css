@@ -16,7 +16,7 @@ div[role="banner"]{
     background-repeat: no-repeat;
 }
 #main{
-    min-height: 700px;
+    min-height: 400px;
     width: 100%;
     background-color: white;
 }

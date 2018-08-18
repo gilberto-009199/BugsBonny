@@ -33,17 +33,23 @@
                 <h1>BugsBunny</h1>
                 <article>
                     <h2>Fundação da Bugsbunny</h2>
-                    
                     <div class="CaixaTexto" style="padding-left: 10px; color: black; padding-top: 20px; text-align: justify; margin-left: auto; margin-right: auto;"> 
-                        <p> A origem da nossa empresa vem de um banca criada em 1990, nessa epóca 
-                        a empresa era dirigida somente pelo nosso amado João bunny Mel.</p>
+                        <p>A origem da nossa empresa vem de um banca de jornal criada em 1990, nessa época a empresa era dirigida somente pelo nosso amado Daffy Duck, fundador e dono da empresa.</p>
+                        <p>Depois da morte da sua esposa e filhos se dedicou as empresas de sua região, fornecendo aos administradores assinaturas de revistas e jornais para seus empregados. Com crescimento brasileiro de 2006, abriu mais 3 bancas de jornal na Zona Oeste de São Paulo.</p>
                     </div>
                 </article>
-                
+                <article>
+                    <h2>Bugsbunny na grande São Paulo</h2>
+                    <div class="CaixaTexto" style="padding-left: 10px; color: black; padding-top: 20px; text-align: justify; margin-left: auto; margin-right: auto;"> 
+                        <p>Em 2012 nossa empresa alcançou a marca de 32 bancas de jornal, arrecadando R$ 1.000.00,00 por ano. O abrangente portfólio da empresa inclui mais de 1.000 revistas e jornais nacionais e internacionais, graças a preferencia das empresas por distribuidoras licenciadas.</p>
+                        <p>Hoje a empresa possui o Prêmio MPE Brasil, ganho pela excelência na gestão e logística da nossa empresa.</p>
+                        
+                    </div>
+                </article>
             </section>            
         </div>
         <footer>
-            
+            <p>Copyright© Senai 2018</p>
         </footer>
     </body>
 </html>

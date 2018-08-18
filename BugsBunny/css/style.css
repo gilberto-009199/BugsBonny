@@ -21,8 +21,12 @@
     src: url(../fonts/ubuntu/Ubuntu-Italic.ttf);
     font-style:italic;
 }
+@font-face {
+    font-family: comic;
+    src: url(../fonts/comic-sans/comic-sans-ms.ttf);
+}
 * {
-  font-family: ubuntu,Verdana,Helvetica;
+  font-family: ubuntu,Verdana,Helvetica,comic;
   margin: 0px;
   padding: 0px;
 }

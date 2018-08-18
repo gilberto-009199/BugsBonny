@@ -96,8 +96,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <textarea id="areaCritica" value="" name="ariaCritica" rows="4" cols="20">
-                                                </textarea>
+                                                <textarea id="areaCritica" value="" name="ariaCritica" rows="4" cols="20"></textarea>
                                             </td>
                                         </tr>
                                     </table>
