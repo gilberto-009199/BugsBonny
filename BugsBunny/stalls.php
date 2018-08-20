@@ -36,7 +36,12 @@
             //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
             var mymap = L.map('mapid').setView([-23.512052, -46.881924], 13);
             //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
-            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ', maxZoom: 18, id: 'mapbox.streets', accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(mymap);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
+            {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ',
+                maxZoom: 18,/* mandando o zom padram como parametro*/
+                id: 'mapbox.streets-satellite',/* Passado como parametro ao mapbox.com  o tipo de mapa que nos queremos
+                                        https://www.mapbox.com/api-documentation/#maps   */
+                accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(mymap);
             //L.marker([-23.512052, -46.881924]) adicionando um markert no mapa
             var banca1 = L.marker([-23.512839, -46.874156]).addTo(mymap);
             banca1.bindPopup("<h4 id='banca1'>Banca Santa Rica lotes:73/24/90</h4>\n\
@@ -49,9 +54,10 @@
                             <p>Av. Carmine Gragnano n°457, Centro, Jandira</p>");
         </script>
         <div id="main" role="main">
-            <a href="#banca1" onclick="mymap.setView([-23.512839, -46.874156], 13);">banca 1</a>
-            <a href="#banca2" onclick="mymap.setView([-23.502056, -46.86523], 13);">banca 2</a>
-            <a href="#banca3" onclick="mymap.setView([-23.512052, -46.881924], 13);">banca 3</a>
+            <!--    Enviando o visor do mapa para uma posição especifica com 14 de zoom    -->
+            <a href="#banca1" onclick="mymap.setView([-23.512839, -46.874156], 14);">banca 1</a>
+            <a href="#banca2" onclick="mymap.setView([-23.502056, -46.86523], 14);">banca 2</a>
+            <a href="#banca3" onclick="mymap.setView([-23.512052, -46.881924], 14);">banca 3</a>
         </div>
         <footer>
 
