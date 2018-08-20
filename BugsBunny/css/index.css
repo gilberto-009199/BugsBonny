@@ -20,12 +20,12 @@ div[data-style="MenuBar"]{
     background: transparent;
 }
 div[data-style="ProductBox"]{
-      min-height:464px;
-      text-align: center;
-      outline: 1px solid black;
-      outline-offset: -1px;
-      float: left;
-      background:transparent;
+    min-height:464px;
+    text-align: center;
+    outline: 1px solid black;
+    outline-offset: -1px;
+    float: left;
+    background:transparent;
 }
 .ItemSlider{
     padding-top: 10px;
@@ -57,7 +57,7 @@ div[data-style="ProductBox"]{
     margin-top: 140px;
     background: linear-gradient(265deg, rgba(55,53,53,1) 31%, rgba(0,0,0,1) 73%);
     color: white;
-    
+
     border: 0;
     box-shadow: 2px 3px 2px black;
 }
@@ -73,11 +73,26 @@ div[data-style="ProductBox"]{
     border:solid 1px;
     background-color: transparent;
     color:#006D5C;
-    
+
 }
 #txtUser{
     width:151px;
 }
 #txtPasswrd{
     width:151px;
+}
+.ItemMenuBar{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 20px;
+    padding-top: 4px;
+    text-align: center;
+    background: rgb(227,227,227);
+    background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
+    display:block;
+    font-weight: bold;
+}
+.ItemMenuBar:hover{
+    color:#006D5C;
 }

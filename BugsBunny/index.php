@@ -107,25 +107,6 @@ try {
             <div id="main" role="main">
                 <div class="row">
                     <div class="cold4" data-style="MenuBar" >
-                        <style>
-                            .ItemMenuBar{
-                                width: 100%;
-                                margin-left: auto;
-                                margin-right: auto;
-                                min-height: 20px;
-                                padding-top: 4px;
-                                text-align: center;
-                                background: rgb(227,227,227);
-                                background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
-                                display:block;
-                                font-weight: bold;
-                            }
-                            .ItemMenuBar:hover{
-                                color:#006D5C;
-                            }
-
-
-                        </style>
                         <span class="ItemMenuBar">Revistas</span>
                         <span class="ItemMenuBar">Jornais</span>
                         <span class="ItemMenuBar">Videos</span>
@@ -144,7 +125,7 @@ try {
                         <div class="Produto">
                             <div class="Titulo">Titulo</div>
                             <div class="Imagem">
-                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                                <img alt="Imagem de Produto" src="img/assents/computer64x64.png">
                             </div>
                             <div class="Descricao">Descrição</div>
                             <div class="Preco">R$ 10,00</div>
