@@ -2,6 +2,7 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Promoções</title>
+        <meta	name="revisit-after" content="1 days">
 <?php include_once './head.php';?>
     </head>
     <body>

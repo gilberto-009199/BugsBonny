@@ -1,0 +1,22 @@
+User-agent: *
+
+Disallow: ./img/
+Disallow: ./fonts/
+Disallow: ./js/
+Disallow: ./lib/
+Disallow: ./css/
+Disallow: ./*.pdf$
+Disallow: ./*.jpg$
+Disallow: ./*.png$
+Disallow: ./*.css$
+Disallow: ./head.php
+
+Allow: ./about.php
+Allow: ./celebrities.php
+Allow: ./contact.php
+Allow: ./index.php
+Allow: ./news.php
+Allow: ./offers.php
+Allow: ./stalls.php
+
+sitemap: http://127.0.0.1:80/sitemap.xml

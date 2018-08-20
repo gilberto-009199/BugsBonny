@@ -2,7 +2,8 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Fale Conosco</title>
-        <?php include_once './head.php'; ?>
+        <meta	name="revisit-after" content="6 month">
+<?php include_once './head.php'; ?>
     </head>
     <body>
         <header>

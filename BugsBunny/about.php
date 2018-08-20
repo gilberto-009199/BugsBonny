@@ -2,6 +2,7 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Sobre a Banca </title>
+        <meta name="revisit-after" content="9 month">
 <?php include_once './head.php';?>
     </head>
     <body>

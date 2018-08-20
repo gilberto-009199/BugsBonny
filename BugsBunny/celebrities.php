@@ -2,6 +2,7 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>A sua celebridade está aqui</title>
+        <meta	name="revisit-after" content="7 days">
 <?php include_once './head.php';?>
     </head>
     <body>

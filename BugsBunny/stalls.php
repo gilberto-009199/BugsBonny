@@ -29,7 +29,7 @@
         <div id="mapa" role="banner" style="margin-top: 80px; height: 260px; width: 100%; background-color: white;">
 
         </div>
-        <link rel="stylesheet" href="./libs/leaflet/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="">
+        <link rel="stylesheet" href="./libs/leaflet/leaflet.css">
         <script src="./libs/leaflet/leaflet.js"></script>
 
         <script>
@@ -49,9 +49,16 @@
             var banca2 = L.marker([-23.502056, -46.86523]).addTo(map);
             banca2.bindPopup("<h4 id='banca2'>Banca Monica lotes:70/10/32</h4>\n\
                             <p>Rua Topázio n°21, Aldeia, Barueri</p>");
-            var banca3 = L.marker([-23.512052, -46.881924]).addTo(map);
+            var banca3 = L.marker([-23.529327, -46.901504]).addTo(map);
             banca3.bindPopup("<h4 id='banca3'>Banca Maria José</h4>\n\
                             <p>Av. Carmine Gragnano n°457, Centro, Jandira</p>");
+            var banca4 = L.marker([-23.5267, -46.895324]).addTo(map);
+            banca4.bindPopup("<h4 id='banca4'>Banca Eduardo 51 </h4>\n\
+                            <p>Av. Carmine Gragnano n°29, Centro, Jandira</p>");
+            var banca5 = L.marker([-23.534747, -46.88319]).addTo(map);
+            banca4.bindPopup("<h4 id='banca4'>Banca Rei João </h4>\n\
+                            <p>Via TUPI n°11, Jd. Silveira, Barueri</p>");
+            
         </script>
         <div id="main" role="main">
             <!--    Enviando o visor do mapa para uma posição especifica com 14 de zoom    -->
