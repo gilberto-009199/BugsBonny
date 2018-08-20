@@ -29,8 +29,8 @@
         <div id="mapid" role="banner" style="margin-top: 80px; height: 260px; width: 100%; background-color: white;">
 
         </div>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="">
-        <script src="./js/leaflet.js"></script>
+        <link rel="stylesheet" href="./libs/leaflet/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="">
+        <script src="./libs/leaflet/leaflet.js"></script>
         
          <script>
            var mymap = L.map('mapid').setView([-23.512052, -46.881924], 13);
