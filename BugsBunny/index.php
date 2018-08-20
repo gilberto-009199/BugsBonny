@@ -9,7 +9,7 @@ try {
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Home</title>
-        <?php include_once './head.php'; ?>
+<?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
