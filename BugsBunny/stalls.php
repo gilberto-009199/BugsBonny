@@ -40,7 +40,7 @@
             //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
                     {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ',
-                        maxZoom: 18, /* mandando o zom padram como parametro*/
+                        maxZoom: 18, /* mandando o zom padrão como parametro*/
                         id: 'mapbox.streets-satellite', /* Passado como parametro ao mapbox.com  o tipo de mapa que nos queremos
                          https://www.mapbox.com/api-documentation/#maps   */
                         accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(map);
@@ -68,7 +68,7 @@
             <a href="#banca2" onclick="map.setView([-23.502056, -46.86523], 14);">banca 2</a>
             <a href="#banca3" onclick="map.setView([-23.512052, -46.881924], 14);">banca 3</a>-->
             <div class="row">
-                <div class="cold3" role="menu" style="overflow-y: scroll;  float:left; padding-top:10px; background: linear-gradient(197deg, rgba(255,255,255,1) 25%, rgba(228,228,246,1) 68%); height:490px;" title="Menu da Pagina">
+                <div class="cold3" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santana</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Aldeia</span>

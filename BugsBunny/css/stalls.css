@@ -11,7 +11,14 @@ div[role="banner"]{
     width: 100%;
     background-image:url(../img/mapa.png);
 }
-
+div[data-style="CaixaBancas"]{
+    overflow-y: scroll;
+    min-width: 230px;
+    float:left;
+    padding-top:10px;
+    background: linear-gradient(197deg, rgba(255,255,255,1) 25%, rgba(228,228,246,1) 68%);
+    height:490px;
+}
 #main{
     margin-top:30px;
     background-color:white;
@@ -25,8 +32,9 @@ div[role="banner"]{
     width: 100%;
     text-align:center;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 1.3em;
+    cursor: pointer;
 }
-.ItemMenuBanca:hover{
+.ItemMenuBanca:hover,:focus{
     color:#006D5C;
 }
