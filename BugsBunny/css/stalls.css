@@ -5,3 +5,10 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+#main{
+	margin-top:30px;
+	background-color:white;
+	width:100%;
+	text-align:center;
+	min-height:400px;
+}

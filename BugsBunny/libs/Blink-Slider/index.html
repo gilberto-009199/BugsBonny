@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="blink.css">
+  </head>
+  <body>
+    <div class="contenedor" style="margin:150px auto; max-width:600px;">
+      <section class="blink-slider">
+        <div class="blink-view" id="blink">
+          <div class="viewSlide">
+              <img class="fullImg" src="../../img/slide/banca.jpg" id="foto1" />
+		<p>hello word!</p>
+          </div>
+
+          <div class="viewSlide">
+              <img class="fullImg" src="../../img/slide/banca45.jpg" id="foto2" />
+          </div>
+        </div>
+        <div class="blink-control" id="blink-control">
+
+        </div>
+
+      </section>
+    </div>
+
+    <script src="jquery-3.3.1.js"></script>
+    <script src="jquery.blink.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#blink").blink();
+      });
+    </script>
+  </body>
+</html>
