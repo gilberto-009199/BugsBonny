@@ -8,6 +8,12 @@
 div[role="banner"]{
     width: 100%;
     margin-top: 62px;
-    min-height: 100px;
-    background-color: white;
+    min-height: 200px;
+    background-color: #000000;
+}
+#CaixaSlider{
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 330px;
 }

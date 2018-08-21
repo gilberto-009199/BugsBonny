@@ -179,5 +179,10 @@ try {
                 <p>Copyright© Senai 2018</p>
             </footer>
         </div>
+        <script>
+         $(function(){
+            $("#CaixaSite").slideUp(1).slideDown(500);
+         });
+        </script>
     </body>
 </html>

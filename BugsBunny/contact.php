@@ -6,7 +6,7 @@
         <meta name="description" content="Pagina contendo as informações para contato com a BugBunny empresa">
         <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
-<?php include_once './head.php'; ?>
+        <?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
@@ -156,5 +156,10 @@
         <footer>
 
         </footer>
+        <script>
+            $(function () {
+                $("#main").slideUp(1).slideDown(2500);
+            });
+        </script>
     </body>
 </html>

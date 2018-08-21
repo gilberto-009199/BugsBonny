@@ -5,7 +5,7 @@
         <meta name="keywords" content="BugBunnySA, Bancas, Franquias, Localização, Telefone, Endereço"><!-- Definindo palavras chaves para motores de busca -->
         <meta name="description" content="Pagina referente as Franguias(bancas) da empresa BugBunny">
         <meta name="abstract" content="Franquias e seus endereços e telefones">
-<?php include_once './head.php'; ?>
+        <?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
@@ -100,5 +100,10 @@
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
+        <script>
+            $(function () {
+                $("#main").slideUp(1).slideDown(2500);
+            });
+        </script>
     </body>
 </html>
