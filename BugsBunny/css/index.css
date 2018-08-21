@@ -25,6 +25,7 @@ div[data-style="ProductBox"]{
     outline: 1px solid black;
     outline-offset: -1px;
     float: left;
+    align-items: center;
     background:transparent;
 }
 .ItemSlider{

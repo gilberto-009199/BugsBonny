@@ -35,7 +35,7 @@ div .Produto{
     float: left;
     margin: 4px;
     width: 160px;
-    display: grid;
+    display: inline-table;
     min-height: 100px;
     height: auto;
     border: solid 1px white;
