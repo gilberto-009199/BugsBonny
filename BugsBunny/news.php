@@ -2,6 +2,9 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Notícias em Destaque</title>
+        <meta name="keywords" content="BugBunnySA, Artigos, Matérias, Notícias, destaques"><!-- Definindo palavras chaves para motores de busca -->
+        <meta name="description" content="Pagina referente a matérias e novas notícias">
+        <meta name="abstract" content="Notícias que são destaques da semana">
         <meta	name="revisit-after" content="7 days">
 <?php include_once './head.php';?>
     </head>

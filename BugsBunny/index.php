@@ -9,7 +9,11 @@ try {
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Home</title>
-<?php include_once './head.php'; ?>
+        <meta name="keywords" content="Site BugBunnySA, Apresentação, oficial"><!-- Definindo palavras chaves para motores de busca -->
+        <meta name="description" content="catalogo eletronico da galeria de livros,revistas, jornais,etc de gêneros">
+        <meta name="abstract" content="Pagina de apresentação da Empresa BugBunny">
+        <meta name="revisit-after" content="5 days">
+        <?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
@@ -23,13 +27,13 @@ try {
                 <div class="ItemCaixaHeader" role="menubar">
                     <nav aria-label="main navigation">
                         <div class="CaixaMenu" role="menu">
-                        <div class="ItemMenu" role="menuitem"><a href="./index.php">Home</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="./news.php">Notícias</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="./about.php">Sobre</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="./offers.php">Promoções</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="./contact.php">Fale Conosco</a></div>
-                    </div>
+                            <div class="ItemMenu" role="menuitem"><a href="./index.php">Home</a></div>
+                            <div class="ItemMenu" role="menuitem"><a href="./news.php">Notícias</a></div>
+                            <div class="ItemMenu" role="menuitem"><a href="./about.php">Sobre</a></div>
+                            <div class="ItemMenu" role="menuitem"><a href="./offers.php">Promoções</a></div>
+                            <div class="ItemMenu" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
+                            <div class="ItemMenu" role="menuitem"><a href="./contact.php">Fale Conosco</a></div>
+                        </div>
                     </nav>
                 </div>
                 <div class="ItemCaixaHeader" id="CaixaLogin">

@@ -2,6 +2,9 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Nossas Bancas</title>
+         <meta name="keywords" content="BugBunnySA, Bancas, Franquias, Localização, Telefone, Endereço"><!-- Definindo palavras chaves para motores de busca -->
+        <meta name="description" content="Pagina referente as Franguias(bancas) da empresa BugBunny">
+        <meta name="abstract" content="Franquias e seus endereços e telefones">
 <?php include_once './head.php'; ?>
     </head>
     <body>

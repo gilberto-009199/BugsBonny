@@ -2,6 +2,9 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Fale Conosco</title>
+        <meta name="keywords" content="BugBunnySA, telefone, e-mail, contato,informações"><!-- Definindo palavras chaves para motores de busca -->
+        <meta name="description" content="Pagina contendo as informações para contato com a BugBunny empresa">
+        <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
 <?php include_once './head.php'; ?>
     </head>

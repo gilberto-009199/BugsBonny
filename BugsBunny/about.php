@@ -2,6 +2,9 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Sobre a Banca </title>
+        <meta name="keywords" content="BugBunnySA, História,Origem"><!-- Definindo palavras chaves para motores de busca -->
+        <meta name="description" content="Informações históricas sobre a banca de jornal “Bugs Bunny SA”">
+        <meta name="abstract" content="História da empresa">
         <meta name="revisit-after" content="9 month">
 <?php include_once './head.php';?>
     </head>

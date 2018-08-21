@@ -2,6 +2,9 @@
 <html lang="pt-br" dir="ltr">
     <head>
         <title>Promoções</title>
+        <meta name="keywords" content="BugBunnySA, Ofertas, Produtos, Promoções"><!-- Definindo palavras chaves para motores de busca -->
+        <meta name="description" content="Pagina referente a matérias sobre os atores nacionais que são capas de revistas ou filmes do mês">
+        <meta name="abstract" content="Matérias sobre Famosos">
         <meta	name="revisit-after" content="1 days">
 <?php include_once './head.php';?>
     </head>
