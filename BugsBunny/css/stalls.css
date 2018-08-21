@@ -5,10 +5,28 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+div[role="banner"]{
+    margin-top: 80px;
+    height: 300px;
+    width: 100%;
+    background-image:url(../img/mapa.png);
+}
+
 #main{
-	margin-top:30px;
-	background-color:white;
-	width:100%;
-	text-align:center;
-	min-height:400px;
+    margin-top:30px;
+    background-color:white;
+    width:100%;
+    text-align:center;
+    min-height:400px;
+}
+.ItemMenuBanca{
+    background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
+    display: block;
+    width: 100%;
+    text-align:center;
+    font-weight: bold;
+    font-size: 22px;
+}
+.ItemMenuBanca:hover{
+    color:#006D5C;
 }

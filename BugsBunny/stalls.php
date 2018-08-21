@@ -29,12 +29,11 @@
             </div>
         </header>
 
-        <div id="mapa" role="banner" style="margin-top: 80px; height: 300px; width: 100%; background-image:url(./img/mapa.png);">
+        <div id="mapa" role="banner">
 
         </div>
         <link rel="stylesheet" href="./libs/leaflet/leaflet.css">
         <script src="./libs/leaflet/leaflet.js"></script>
-
         <script>
             //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
             var map = L.map('mapa').setView([-23.512052, -46.881924], 13);
@@ -70,19 +69,6 @@
             <a href="#banca3" onclick="map.setView([-23.512052, -46.881924], 14);">banca 3</a>-->
             <div class="row">
                 <div class="cold3" role="menu" style="overflow-y: scroll;  float:left; padding-top:10px; background: linear-gradient(197deg, rgba(255,255,255,1) 25%, rgba(228,228,246,1) 68%); height:490px;" title="Menu da Pagina">
-                    <style>
-                        .ItemMenuBanca{
-                            background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
-                            display: block;
-                            width: 100%;
-                            text-align:center;
-                            font-weight: bold;
-                            font-size: 22px;
-                        }
-                        .ItemMenuBanca:hover{
-                            color:#006D5C;
-                        }
-                    </style>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santana</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Aldeia</span>
