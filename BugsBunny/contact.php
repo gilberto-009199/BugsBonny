@@ -134,7 +134,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input id="btnSubmit" type="submit" value="Enviar" />
+                                    <input class="btn" id="btnSubmit" type="submit" value="Enviar" />
                                 </td>
                             </tr>
                         </table>

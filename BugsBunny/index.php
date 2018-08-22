@@ -53,7 +53,7 @@ try {
                                 </div>
                             </div>
                             <div class="cold1">
-                                <input id="btnLogin" type="submit" value="ok">
+                                <input class="btn"  id="btnLogin" type="submit" value="ok">
                             </div>
                         </div>
                     </form>

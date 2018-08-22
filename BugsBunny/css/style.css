@@ -74,10 +74,24 @@
 .Obrigatorio{
     color: blue;
 }
+.btn{
+    border:solid 1px #D2D2D2;
+    color: #006D5C;
+    font-weight: 500;
+    margin-right: 1em;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    font-size: 0.7em;
+    background-color: white;
+}
 a{
     color:black;
     text-decoration: none;
 }
 a:hover{
     color: #006D5C;
+}
+.btn:hover{
+    color: black;
 }

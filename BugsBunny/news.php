@@ -5,8 +5,9 @@
         <meta name="keywords" content="BugBunnySA, Artigos, Matérias, Notícias, destaques"><!-- Definindo palavras chaves para motores de busca -->
         <meta name="description" content="Pagina referente a matérias e novas notícias">
         <meta name="abstract" content="Notícias que são destaques da semana">
-        <meta	name="revisit-after" content="7 days">
-        <?php include_once './head.php'; ?>
+        <meta name="revisit-after" content="7 days">
+        <link rel="stylesheet" type="text/css" href="fonts/awesome/all.css">
+<?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
@@ -34,7 +35,7 @@
                 <style>
                     div[data-style="BarraPesquisa"]{
                         background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);
-                        height: 60px;
+                        height: 50px;
                         margin-bottom: 10px;
                     }
                     div[data-style="CaixaPesquisa"]{
@@ -46,24 +47,50 @@
                 </style>
                 <div class="row" data-style="BarraPesquisa" style="">
                     <div data-style="CaixaPesquisa">
+                        <style>
+                            i[data-style="CaixaMenuPesquisa"] nav {
+                                display:none;
+                            }
+                            i[data-style="CaixaMenuPesquisa"]:hover{
+                                color:#006D5C;
+                            }
+                            i[data-style="CaixaMenuPesquisa"]:hover>nav{
+                                display:block;
+                                position: absolute;
+                                left: 0;
+                                width: 100%;
+                                z-index: 999;
+                                border-top: solid 2px;
+                                box-shadow: 2px 2px 2px black;
+                                background-color: white;
+                            }
+                        </style>
                         <div class="cold3" style="float: left;">
-                            Menu Mobile
+                            <i class="fas fa-align-justify" data-style="CaixaMenuPesquisa" style="border-radius: 14px; font-size: 28px; margin-top: 8px; padding: 4px; background-color: white;">
+                                <nav>
+                                    <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Política</div>
+                                    <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Economia</div>
+                                    <div class="ItemMenuPesquisa"><i class="fas fa-globe" style="margin-right: 4px;"></i>Internacional</div>
+                                    <div class="ItemMenuPesquisa"><i class="fas fa-cogs" style="margin-right: 4px;"></i>Tecnologia</div>
+                                    <div class="ItemMenuPesquisa"><i class="fas fa-dove" style="margin-right: 4px;"></i>Segurança</div>
+                                </nav>
+                            </i>
                         </div>
                         <div class="cold8" style="float: right;">
                             <div class="row">
                                 <div class="cold7" style="float:right;">
                                     <div class="row">
-                                        <form role="search">
-                                            <div class="cold4">
+                                        <form role="search" style="float: right;">
+                                            <div class="cold6">
                                                 <div class="row">
-                                                    <label for="txtPesquisa">Pesquisa</label>
+                                                    <i class="fas fa-search"><label for="txtPesquisa">Pesquisar</label></i>
                                                 </div>
                                                 <div class="row">
-                                                    <input type="search" id="txtPesquisa" name="txtPesquisa">
+                                                    <input style="width:100%;" type="search" id="txtPesquisa" name="txtPesquisa">
                                                 </div>
                                             </div>
                                             <div class="cold3">
-                                                <input type="submit">
+                                                <input  class="btn" type="submit">
                                             </div>
                                         </form>
                                     </div>
