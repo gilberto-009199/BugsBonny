@@ -58,9 +58,9 @@ div[data-style="ProductBox"]{
     margin-top: 140px;
     background: linear-gradient(265deg, rgba(55,53,53,1) 31%, rgba(0,0,0,1) 73%);
     color: white;
-
     border: 0;
     box-shadow: 2px 3px 2px black;
+    opacity: 0.7;
 }
 #prev{
     float: left;
