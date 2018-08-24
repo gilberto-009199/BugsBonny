@@ -14,8 +14,9 @@ div[role="banner"]{
 #CaixaSlider{
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    width: auto;
     height: 330px;
+    overflow: hidden;
 }
 .ItemMenuPesquisa{
     width: 100%;

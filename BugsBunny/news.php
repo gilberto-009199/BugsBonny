@@ -7,7 +7,7 @@
         <meta name="abstract" content="Notícias que são destaques da semana">
         <meta name="revisit-after" content="7 days">
         <link rel="stylesheet" type="text/css" href="fonts/awesome/all.css">
-<?php include_once './head.php'; ?>
+        <?php include_once './head.php'; ?>
     </head>
     <body>
         <header>
@@ -41,41 +41,41 @@
                     div[data-style="CaixaPesquisa"]{
                         margin-left: auto;
                         margin-right: auto;
-                        width: 1200px;
+                        width: 1000px;
                         height: auto;
                     }
                 </style>
-                <div class="row" data-style="BarraPesquisa" style="">
+                <div class="row" data-style="BarraPesquisa">
+                    <style>
+                        i[data-style="MenuPesquisa"] nav {
+                            display:none;
+                        }
+                        i[data-style="MenuPesquisa"]:hover{
+                            color:#006D5C;
+                        }
+                        i[data-style="MenuPesquisa"]:hover>nav{
+                            display:block;
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            z-index: 999;
+                            border-top: solid 2px;
+                            box-shadow: 2px 2px 2px black;
+                            background-color: white;
+                        }
+                    </style>
+                    <div class="cold3" style="float: left;">
+                        <i class="fas fa-align-justify" data-style="MenuPesquisa" style="border-radius: 14px; font-size: 28px; margin-top: 8px; margin-left:20px; padding: 4px; background-color: white;">
+                            <nav>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Política</div>
+                                <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Economia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-globe" style="margin-right: 4px;"></i>Internacional</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-cogs" style="margin-right: 4px;"></i>Tecnologia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-dove" style="margin-right: 4px;"></i>Segurança</div>
+                            </nav>
+                        </i>
+                    </div>
                     <div data-style="CaixaPesquisa">
-                        <style>
-                            i[data-style="CaixaMenuPesquisa"] nav {
-                                display:none;
-                            }
-                            i[data-style="CaixaMenuPesquisa"]:hover{
-                                color:#006D5C;
-                            }
-                            i[data-style="CaixaMenuPesquisa"]:hover>nav{
-                                display:block;
-                                position: absolute;
-                                left: 0;
-                                width: 100%;
-                                z-index: 999;
-                                border-top: solid 2px;
-                                box-shadow: 2px 2px 2px black;
-                                background-color: white;
-                            }
-                        </style>
-                        <div class="cold3" style="float: left;">
-                            <i class="fas fa-align-justify" data-style="CaixaMenuPesquisa" style="border-radius: 14px; font-size: 28px; margin-top: 8px; padding: 4px; background-color: white;">
-                                <nav>
-                                    <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Política</div>
-                                    <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Economia</div>
-                                    <div class="ItemMenuPesquisa"><i class="fas fa-globe" style="margin-right: 4px;"></i>Internacional</div>
-                                    <div class="ItemMenuPesquisa"><i class="fas fa-cogs" style="margin-right: 4px;"></i>Tecnologia</div>
-                                    <div class="ItemMenuPesquisa"><i class="fas fa-dove" style="margin-right: 4px;"></i>Segurança</div>
-                                </nav>
-                            </i>
-                        </div>
                         <div class="cold8" style="float: right;">
                             <div class="row">
                                 <div class="cold7" style="float:right;">
@@ -99,41 +99,51 @@
                         </div>
                     </div>                    
                 </div>
-                <div class="cold5">
-                    <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
-                    <div id="CaixaSlider" style="margin-left: 21px;">
-                        <section class="blink-slider">            
-                            <button id="prev" aria-label="voltar Imagem" style="position: absolute; z-index: 990; height: 91px; margin-top: 110px;">&lt;</button>
-                            <button id="next" aria-label="proxima Imagem"style="position: absolute; z-index: 990; height: 91px; margin-top: 110px; right: 0;">></button>
-                            <div class="blink-view cold5" id="blink">
-                                <div class="viewSlide cold5">
-                                    <div class="ItemSlider" style="height: 300px; background-image: url(img/slide/banca.jpg);">
+                <div class="row">
+                    <div class="cold5">
+                        <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
+                        <div id="CaixaSlider" style="margin-left: 21px;">
+                            <section class="blink-slider">            
+                                <button id="prev" aria-label="voltar Imagem" style="position: absolute; z-index: 990; height: 91px; margin-top: 110px;">&lt;</button>
+                                <button id="next" aria-label="proxima Imagem"style="position: absolute; z-index: 990; height: 91px; margin-top: 110px; right: 0;">></button>
+                                <div class="blink-view" id="blink">
+                                    <div class="viewSlide">
+                                        <div class="ItemSlider" style="height: 300px; background-image: url(img/slide/banca.jpg);">
 
+                                        </div>
+                                    </div>
+
+                                    <div class="viewSlide">
+                                        <div class="ItemSlider" style="height: 300px;  background-image:url(img/slide/banca45.jpg);">
+
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="viewSlide cold5">
-                                    <div class="ItemSlider" style="height: 300px;  background-image:url(img/slide/banca45.jpg);">
-
-                                    </div>
+                                <div class="blink-control" id="blink-control">
                                 </div>
-                            </div>
-                            <div class="blink-control" id="blink-control">
-                            </div>
-                            <script src="libs/Blink-Slider/jquery.blink.js"></script>
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#blink").blink();
-                                });
-                            </script>
+                                <script src="libs/Blink-Slider/jquery.blink.js"></script>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        $("#blink").blink();
+                                    });
+                                </script>
+                            </section>
+                        </div>
+                        <p> Olá </p>
+                    </div>
+                    <div class="cold5" style=" float: left; background-color:white; height: 330px;">
+                        <section>
+                            <h1> Ultimos topicos!</h1>
+                            <p>Lula Perde jugamento</p>
+                            <p>Bolsonaro perde para Ciro Gomes</p>
+                            <p>Banco Centralk declara falencia!!</p>
+                            <p>Numero de Desenpregados sobe para 19 milhões</p>
+                            <p>Donald Tramp é morto por milicia norte-coreana</p>
+                            <p>Ditador Chichaum e morto por ministro das armas</p>
                         </section>
+
                     </div>
                 </div>
-                <div class="cold5">
-
-
-                </div>
-
             </div>
         </div>
         <div id="main" role="main">
