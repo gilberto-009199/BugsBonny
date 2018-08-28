@@ -55,6 +55,7 @@ div[data-style="MenuProdutos"]{
 div[data-style="PainelProdutos"]{
     align-items: center;
     outline: solid 1px #000000;
+    align-items: center;
 }
 .Produto{
     float: left;

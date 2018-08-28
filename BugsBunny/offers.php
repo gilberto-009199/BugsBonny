@@ -169,13 +169,13 @@
                     <span class="ItemMenuProduto">Revista Veja</span>
                 </div>
                 <div class="cold7" data-style="PainelProdutos">
-                   <div class="Produto">
+                    <div class="Produto">
                         <div class="Titulo">Titulo</div>
                         <div class="Imagem">
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                     <div class="Produto">
@@ -184,7 +184,7 @@
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                     <div class="Produto">
@@ -193,7 +193,7 @@
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                     <div class="Produto">
@@ -202,7 +202,7 @@
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                     <div class="Produto">
@@ -211,7 +211,7 @@
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                     <div class="Produto">
@@ -220,7 +220,7 @@
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                     <div class="Produto">
@@ -229,7 +229,16 @@
                             <img alt="Imagem de Produto" src="img/assents/user32x32.png">
                         </div>
                         <div class="Descricao">Descrição</div>
-                        <div class="Preco">R$ 9,00 por <span class="destaque">R$8,00</span></div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
+                        <div class="Detalhes"><a href="#">Detalhes</a></div>
+                    </div>
+                    <div class="Produto">
+                        <div class="Titulo">Titulo</div>
+                        <div class="Imagem">
+                            <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                        </div>
+                        <div class="Descricao">Descrição</div>
+                        <div class="Preco"><span class="riscado">R$ 9,00</span> por <span class="destaque">R$8,00</span></div>
                         <div class="Detalhes"><a href="#">Detalhes</a></div>
                     </div>
                 </div>
