@@ -201,5 +201,10 @@
         <footer>
 
         </footer>
+        <script>
+            $(function () {
+                $("#main").slideUp(1).slideDown(200);
+            });
+        </script>
     </body>
 </html>
