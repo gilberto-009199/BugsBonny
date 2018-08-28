@@ -6,6 +6,7 @@
         <meta name="description" content="Pagina referente a matérias sobre os atores nacionais que são capas de revistas ou filmes do mês">
         <meta name="abstract" content="Matérias sobre Famosos">
         <meta	name="revisit-after" content="7 days">
+        <link rel="stylesheet" href="./fonts/awesome/all.css">
 <?php include_once './head.php';?>
     </head>
     <body>
@@ -17,6 +18,7 @@
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./news.php">Notícias</a></div>
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./about.php">Sobre</a></div>
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./offers.php">Promoções</a></div>
+                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
                         <div class="ItemMenu" role="menuitem"><a href="contact.php">Fale Conosco</a></div>
                     </div>                    
@@ -30,7 +32,11 @@
                 </div>
         </header>
         <div role="banner">
-            
+            <p style="font-size: 32px; color:black; text-align: right; margin-right: 10px;">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+            </p>
         </div>
         <div id="main" role="main">
             

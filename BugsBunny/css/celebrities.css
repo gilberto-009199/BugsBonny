@@ -4,3 +4,10 @@
 */
 @import url("style.css");
 @import url("estruturadefault.css");
+
+div[role="banner"]{
+    width: 100%;
+    margin-top: 62px;
+    height: 300px;
+    background-color: white;
+}
