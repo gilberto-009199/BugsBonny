@@ -6,10 +6,22 @@
 @import url("estruturadefault.css");
 
 div[role="banner"]{
-    width: 100%;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 62px;
     min-height: 200px;
+    height: 400px;
     background-color: #000000;
+}
+#main{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 200px;
+    min-height: 400px;
+    background-color: #fff;
+    
 }
 #CaixaSlider{
     margin-left: auto;
