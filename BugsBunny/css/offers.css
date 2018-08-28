@@ -4,3 +4,58 @@
 */
 @import url("style.css");
 @import url("estruturadefault.css");
+
+div[role="banner"]{
+    width: 100%;
+    margin-top: 62px;
+    min-height: 500px;
+    height: auto;
+    background-color: black;
+}
+.ItemMenuPesquisa{
+    width: 100%;
+    border-bottom: solid 1px;
+    font-weight: bolder;
+    font-size: 20px;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    color:black;
+    text-align: center;
+    background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);
+}
+.ItemMenuPesquisa:hover{
+    color: #006D5C;
+}
+#main{
+    margin-left:auto;
+    margin-right: auto;
+    background-color: white;
+    width: 1200px;
+    min-height:300px; 
+}
+.ItemMenuProduto{
+     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 20px;
+    padding-top: 4px;
+    text-align: center;
+    background: rgb(227,227,227);
+    background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
+    display:block;
+    font-weight: bold;
+}
+div[data-style="MenuProdutos"]{
+    float: left;
+    border-bottom: solid 1px #000000;
+    border-top:solid 2px #000000;
+    overflow: scroll;
+    max-height: 300px;
+}
+div[data-style="PainelProdutos"]{
+    align-items: center;
+    outline: solid 1px #000000;
+}
+.Produto{
+    float: left;
+}

@@ -35,23 +35,25 @@ div .Produto{
     float: left;
     margin: 4px;
     width: 160px;
-    display: inline-table;
+    /*display: inline-table;*/
     min-height: 100px;
     height: auto;
-    border: solid 1px white;
+    border: solid 1px black;
     background-color: #dbdbdb;
 }
 div .Produto .Titulo{
     width: 100%;
     background-color: black;
     color: white;
+    font-weight: bold;
     font-size: 22px;
     text-align: center;
 }
 div .Produto .Imagem{
+    text-align: center;
     width: 100%;
     margin-top: 1px;
-    background-color: #0b2144;
+    background-color: white;
     max-height: 80px;
     overflow-y: hidden;
 }
@@ -68,8 +70,25 @@ div .Produto .Preco{
     font-style: oblique;
     font-size: 19px;
 }
-div .Produto .Detalhes{
+.Produto .Preco .destaque{
+    width: 100%;
+    background: rgb(58,52,255);
+    background: linear-gradient(0deg, rgba(58,52,255,1) 45%, rgba(128,133,231,1) 100%);
+    font-size: 22px;
+    display: block;
+    color:white;
     text-align: right;
+}
+div .Produto .Detalhes{
+    text-align: center;
+    background: rgb(181,202,231);
+    background: linear-gradient(0deg, rgba(181,202,231,1) 42%, rgba(95,110,195,1) 100%);
+    width: 100px;
+    font-size: 22px;
+    float: right;
+    margin-top: 2px;
+    margin-bottom: 2px;
+   border-radius: 3px;
 }
 article .CaixaTexto{
     padding-left: 10px;
@@ -79,3 +98,4 @@ article .CaixaTexto{
     margin-left: auto;
     margin-right: auto;
 }
+
