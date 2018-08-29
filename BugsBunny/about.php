@@ -39,7 +39,7 @@
             </div>
             <div class="Painel"></div>
         </div>
-        <div id="main" role="main">
+        <div id="main" role="main" class="arredonda">
             <section>
                 <h1>BugsBunny</h1>
                 <article>

@@ -70,7 +70,7 @@ try {
                 <p>Orkut</p>
             </div>
         </div>
-        <div id="CaixaSite">
+        <div id="CaixaSite" class="arredonda">
             <div role="banner">
                 <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
                 <script src="libs/Blink-Slider/jquery.blink.js"></script>
@@ -82,20 +82,20 @@ try {
                             <div class="ItemSlider" style="background-image: url(img/slide/banca.jpg);">
                                 <div  class="Painel">
                                     <h1> Ultimas Noticias:</h1>
-                                    <p><a href="#"> Ponte desaba em Genova</a></p>
-                                    <p><a href="#"> Lula vira concorente a presidencia</a></p>
-                                    <p><a href="#"> Marina vence as eleições 2018</a></p>
+                                    <p class="sublinhado"><a href="#"> Ponte desaba em Genova</a></p>
+                                    <p class="sublinhado"><a href="#"> Lula vira concorente a presidencia</a></p>
+                                    <p class="sublinhado"><a href="#"> Marina vence as eleições 2018</a></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="viewSlide">
-                            <div class="ItemSlider" style="background-image:url(img/slide/banca45.jpg);">
+                            <div class="ItemSlider" style="background-image:url(img/slide/tec.jpg);">
                                 <div  class="Painel">
                                     <h1>  Ciência e Tecnologia:</h1>
-                                    <p><a href="#"> SpaceX aposta em viajem tripulada em 2019.</a></p>
-                                    <p><a href="#"> Estudo descobre a rota da chegada do virus zika ao brasil.</a></p>
-                                    <p><a href="#"> Após adiamento, Nasa lança sonda em direção ao sol.</a></p>
+                                    <p class="sublinhado"><a href="#"> SpaceX aposta em viajem tripulada em 2019.</a></p>
+                                    <p class="sublinhado"><a href="#"> Estudo descobre a rota da chegada do virus zika ao brasil.</a></p>
+                                    <p class="sublinhado"><a href="#"> Após adiamento, Nasa lança sonda em direção ao sol.</a></p>
                                 </div>                              
                             </div>
                         </div>

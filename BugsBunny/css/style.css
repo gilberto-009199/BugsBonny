@@ -92,8 +92,14 @@ a{
 .riscado{
     text-decoration: line-through;
 }
+.sublinhado{
+    text-decoration: underline;
+}
 .Direita{
     float:right;
+}
+.arredonda{
+    border-radius: 7px;
 }
 a:hover{
     color: #006D5C;

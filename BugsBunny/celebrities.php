@@ -72,7 +72,7 @@
                 </section>
             </div>
         </div>
-        <div id="main" role="main">
+        <div id="main" role="main" class="arredonda">
             <section>
                 <h1>Entrevistas</h1>
                 <article>

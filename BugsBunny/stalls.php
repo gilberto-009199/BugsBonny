@@ -69,13 +69,13 @@
                                                 <p>Via TUPI n°11, Jd. Silveira, Barueri</p>");
 
         </script>
-        <div id="main" role="main">
+        <div id="main" role="main" class="arredonda">
             <!--    Enviando o visor do mapa para uma posição especifica com 14 de zoom    -->
             <!--<a href="#banca1" onclick="map.setView([-23.512839, -46.874156], 14);">banca 1</a>
             <a href="#banca2" onclick="map.setView([-23.502056, -46.86523], 14);">banca 2</a>
             <a href="#banca3" onclick="map.setView([-23.512052, -46.881924], 14);">banca 3</a>-->
-            <div class="row">
-                <div class="cold3" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
+            <div class="row" class="arredonda">
+                <div class="cold3 arredonda" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santana</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Aldeia</span>
@@ -90,7 +90,7 @@
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Chácaras Marco</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Monte Castelo Centro</span>
                 </div>
-                <div class="cold8" style="background: linear-gradient(141deg, rgba(255,255,255,1) 90%, rgba(0,0,255,1) 93%); height:500px;">
+                <div class="cold8 arredonda" style="background: linear-gradient(141deg, rgba(255,255,255,1) 90%, rgba(0,0,255,1) 93%); height:500px;">
                     <section>
                         <h2>Bancas</h2>
                         <article>

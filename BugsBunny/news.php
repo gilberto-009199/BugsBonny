@@ -127,8 +127,8 @@
                 </div>
             </div>
         </div>
-        <div id="main" role="main">
-            <section>
+        <div id="main" role="main" class="arredonda">
+            <section class="arredonda">
                 <h1>Ultimas Notícias</h1>
                 <article>
                     <h2>Asteroide maior do que Grande Pirâmide egípcia está se aproximando da Terra</h2>

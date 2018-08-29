@@ -137,7 +137,7 @@
                 </script>
             </div>
         </div>
-        <div id="main" role="main">
+        <div id="main" role="main" class="arredonda">
             <div class="row BordaDireita">
                 <div class="cold4" data-style="MenuProdutos">
                     <span class="ItemMenuProduto">Revista Veja</span>
@@ -153,7 +153,7 @@
                     <span class="ItemMenuProduto">Revista Courrier Internacional</span>
                     <span class="ItemMenuProduto">Revista Veja</span>
                 </div>
-                <div class="cold7" data-style="PainelProdutos">
+                <div class="cold7" class="arredonda" data-style="PainelProdutos">
                     <div class="Produto">
                         <div class="Titulo">Titulo</div>
                         <div class="Imagem">
