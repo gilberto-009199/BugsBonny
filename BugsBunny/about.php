@@ -6,6 +6,7 @@
         <meta name="description" content="Informações históricas sobre a banca de jornal “Bugs Bunny SA”">
         <meta name="abstract" content="História da empresa">
         <meta name="revisit-after" content="9 month">
+        <link rel="stylesheet" href="./fonts/awesome/all.css">
 <?php include_once './head.php';?>
     </head>
     <body>
@@ -31,6 +32,11 @@
                 </div>
         </header>
         <div role="banner">
+            <div class="CaixaRedesSociais">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+            </div>
             <div class="Painel"></div>
         </div>
         <div id="main" role="main">

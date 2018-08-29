@@ -6,6 +6,7 @@
         <meta name="description" content="Pagina contendo as informações para contato com a BugBunny empresa">
         <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
+        <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
     </head>
     <body>
@@ -31,6 +32,11 @@
             </div>
         </header>
         <div role="banner">
+            <div class="CaixaRedesSociais">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+            </div>
             <script src="libs/Chart.js/Chart.js"></script>
             <canvas id="Grafico" height="300" width="1000">
 
@@ -100,8 +106,8 @@
                                             <td><label for="areaCritica">Sugestão/Critica</label></td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <textarea id="areaCritica" value="" name="ariaCritica" rows="4" cols="20"></textarea>
+                                            <td> 
+                                                <textarea id="areaCritica" name="ariaCritica" rows="4" cols="20"></textarea>
                                             </td>
                                         </tr>
                                     </table>
@@ -155,7 +161,7 @@
             </div>            
         </div>
         <footer>
-
+            <p>Copyright© Senai 2018</p>
         </footer>
         <script>
             $(function () {

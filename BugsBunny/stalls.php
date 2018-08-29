@@ -5,6 +5,7 @@
         <meta name="keywords" content="BugBunnySA, Bancas, Franquias, Localização, Telefone, Endereço"><!-- Definindo palavras chaves para motores de busca -->
         <meta name="description" content="Pagina referente as Franguias(bancas) da empresa BugBunny">
         <meta name="abstract" content="Franquias e seus endereços e telefones">
+        <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
     </head>
     <body>
@@ -31,7 +32,12 @@
         </header>
 
         <div id="mapa" role="banner">
-
+            <div class="CaixaRedesSociais">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            
         </div>
         <link rel="stylesheet" href="./libs/leaflet/leaflet.css">
         <script src="./libs/leaflet/leaflet.js"></script>

@@ -20,3 +20,34 @@ div[role="banner"]{
     min-height: 500px;
     background-color: white;
 }
+#CaixaSlider{
+    width: 1000px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#prev{
+    position: absolute;
+    z-index: 990;
+    height: 91px;
+    margin-top: 110px;
+    background: white;
+    color: black;
+    font-weight: bolder;
+    font-size: 22px;
+    border: none;
+    opacity: 0.2;
+}
+#next{
+    position: absolute;
+    z-index: 990;
+    height: 91px;
+    margin-top: 110px;
+    right: 0;
+    background: white;
+    color: black;
+    font-weight: bolder;
+    font-size: 22px;
+    border: none;
+    opacity: 0.2;
+}

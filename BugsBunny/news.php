@@ -32,50 +32,24 @@
             </div>
         </header>
         <div role="banner">
+            <div class="CaixaRedesSociais">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+            </div>
             <div class="row">
-                <style>
-                    div[data-style="BarraPesquisa"]{
-                        background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);
-                        height: 50px;
-                        margin-bottom: 10px;
-                    }
-                    div[data-style="CaixaPesquisa"]{
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 1000px;
-                        height: auto;
-                    }
-                </style>
                 <div class="row" data-style="BarraPesquisa">
-                    <style>
-                        i[data-style="MenuPesquisa"] nav {
-                            display:none;
-                        }
-                        i[data-style="MenuPesquisa"]:hover{
-                            color:#006D5C;
-                        }
-                        i[data-style="MenuPesquisa"]:hover>nav{
-                            display:block;
-                            position: absolute;
-                            max-width: 100%;
-                            margin-left: -24px;
-                            width: 1200px;
-                            z-index: 999;
-                            border-top: solid 2px;
-                            box-shadow: 2px 2px 2px black;
-                            background-color: white;
-                        }
-                    </style>
                     <div class="cold3" style="float: left;">
-                        <i class="fas fa-align-justify" data-style="MenuPesquisa" style="border-radius: 14px; font-size: 28px; margin-top: 8px; margin-left:20px; padding: 4px; background-color: white;">
-                            <nav>
+                        <nav data-style="MenuPesquisa">
+                            <i class="fas fa-align-justify" style="border-radius: 14px; font-size: 28px; margin-top: 8px; margin-left:20px; padding: 4px; background-color: white;"></i>
+                            <div data-style="SubMenu">
                                 <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Política</div>
                                 <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Economia</div>
                                 <div class="ItemMenuPesquisa"><i class="fas fa-globe" style="margin-right: 4px;"></i>Internacional</div>
                                 <div class="ItemMenuPesquisa"><i class="fas fa-cogs" style="margin-right: 4px;"></i>Tecnologia</div>
                                 <div class="ItemMenuPesquisa"><i class="fas fa-dove" style="margin-right: 4px;"></i>Segurança</div>
-                            </nav>
-                        </i>
+                            </div>
+                        </nav>
                     </div>
                     <div data-style="CaixaPesquisa">
                         <div class="cold8" style="float: right;">
@@ -106,28 +80,8 @@
                         <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
                         <div id="CaixaSlider" style="margin-left: 21px;">
                             <section class="blink-slider">            
-                                <button id="prev" aria-label="voltar Imagem" style="    position: absolute;
-                                        z-index: 990;
-                                        height: 91px;
-                                        margin-top: 110px;
-                                        background: white;
-                                        color: black;
-                                        font-weight: bolder;
-                                        font-size: 22px;
-                                        border: none;
-                                        opacity: 0.2;
-                                        }">&lt;</button>
-                                <button id="next" aria-label="proxima Imagem" style=" position: absolute;
-                                        z-index: 990;
-                                        height: 91px;
-                                        margin-top: 110px;
-                                        right: 0;
-                                        background: white;
-                                        color: black;
-                                        font-weight: bolder;
-                                        font-size: 22px;
-                                        border: none;
-                                        opacity: 0.2;">></button>
+                                <button id="prev" aria-label="voltar Imagem">&lt;</button>
+                                <button id="next" aria-label="proxima Imagem">></button>
                                 <div class="blink-view" id="blink">
                                     <div class="viewSlide">
                                         <div class="ItemSlider" style="background-repeat: no-repeat; background-size: cover; height: 300px; background-image: url(img/noticias/24rohingya-rakhine-1-threeByTwoSmallAt2X.jpg);">
@@ -158,15 +112,15 @@
                             </section>
                         </div>
                     </div>
-                    <div class="cold4" style="padding-left: 10px; margin-left: 82px;  float:left; background-color:white; height: 330px;">
+                    <div class="cold4" data-style="CaixaTopicos">
                         <section>
                             <h1> Ultimos topicos!</h1>
-                            <p><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Lula perde jugamento</p>
-                            <p><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Bolsonaro perde para Ciro Gomes</p>
-                            <p><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Banco Central declara falencia!!</p>
-                            <p><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Numero de Desenpregados sobe para 19 milhões</p>
-                            <p><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Donald Tramp é morto por milicia norte-coreana</p>
-                            <p><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Ditador Chichaum e morto por ministro das armas</p>
+                            <p><i class="fas fa-balance-scale"></i>Lula perde jugamento</p>
+                            <p><i class="fas fa-balance-scale"></i>Bolsonaro perde para Ciro Gomes</p>
+                            <p><i class="far fa-money-bill-alt"></i>Banco Central declara falencia!!</p>
+                            <p><i class="far fa-money-bill-alt"></i>Numero de Desenpregados sobe para 19 milhões</p>
+                            <p><i class="fas fa-balance-scale"></i>Donald Tramp é morto por milicia norte-coreana</p>
+                            <p><i class="fas fa-balance-scale"></i>Ditador Chichaum e morto por ministro das armas</p>
                         </section>
 
                     </div>
@@ -199,7 +153,7 @@
             </section>  
         </div>
         <footer>
-
+            <p>Copyright© Senai 2018</p>
         </footer>
         <script>
             $(function () {

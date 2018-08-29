@@ -89,12 +89,15 @@ a{
     color:black;
     text-decoration: none;
 }
+.riscado{
+    text-decoration: line-through;
+}
+.Direita{
+    float:right;
+}
 a:hover{
     color: #006D5C;
 }
 .btn:hover{
     color: black;
-}
-.riscado{
-    text-decoration: line-through;
 }

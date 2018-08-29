@@ -32,49 +32,34 @@
             </div>
         </header>
         <div role="banner">
+            <div class="CaixaRedesSociais">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+            </div>
             <div class="row">
-                <style>
-                    div[data-style="BarraPesquisa"]{
-                        background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);
-                        height: 50px;
-                        margin-bottom: 10px;
-                    }
-                    div[data-style="CaixaPesquisa"]{
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 1000px;
-                        height: auto;
-                    }
-                </style>
                 <div class="row" data-style="BarraPesquisa">
-                    <style>
-                        i[data-style="MenuPesquisa"] nav {
-                            display:none;
-                        }
-                        i[data-style="MenuPesquisa"]:hover{
-                            color:#006D5C;
-                        }
-                        i[data-style="MenuPesquisa"]:hover>nav{
-                            display:block;
-                            position: absolute;
-                            max-width: 100%;
-                            margin-left: -24px;
-                            width: 100%;
-                            z-index: 999;
-                            border-top: solid 2px;
-                            box-shadow: 2px 2px 2px black;
-                            background-color: white;
-                        }
-                    </style>
                     <div class="cold3" style="float: left;">
-                        <i class="fas fa-align-justify" data-style="MenuPesquisa" style="border-radius: 14px; font-size: 28px; margin-top: 8px; margin-left:20px; padding: 4px; background-color: white;">
+                        <nav data-style="MenuPesquisa">
+                            <i class="fas fa-align-justify"></i>
+                            <div data-style="SubMenu">
+                                <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Política</div>
+                                <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Economia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-globe" style="margin-right: 4px;"></i>Internacional</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-cogs" style="margin-right: 4px;"></i>Tecnologia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-dove" style="margin-right: 4px;"></i>Segurança</div>
+                            </div>
+                        </nav>
+                        
+                        
+                        <!--<i class="fas fa-align-justify" data-style="MenuPesquisa">
                             <nav>
-                                <div class="ItemMenuPesquisa"><i class="far fa-file-alt" style="margin-right: 4px;"></i>Revistas</div>
-                                <div class="ItemMenuPesquisa"><i class="far fa-newspaper" style="margin-right: 4px;"></i>Jornais</div>
-                                <div class="ItemMenuPesquisa"><i class="fas fa-file-alt" style="margin-right: 4px;"></i>Revistas Internacionais</div>
-                                <div class="ItemMenuPesquisa"><i class="fas fa-newspaper" style="margin-right: 4px;"></i>Jornais Internacionais</div>
+                                <div class="ItemMenuPesquisa"><i class="far fa-file-alt"></i>Revistas</div>
+                                <div class="ItemMenuPesquisa"><i class="far fa-newspaper"></i>Jornais</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-file-alt"></i>Revistas Internacionais</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-newspaper"></i>Jornais Internacionais</div>
                             </nav>
-                        </i>
+                        </i>-->
                     </div>
                     <div data-style="CaixaPesquisa">
                         <div class="cold8" style="float: right;">
@@ -101,7 +86,7 @@
                     </div>                    
                 </div>
                 <script src="libs/Chart.js/Chart.js"></script>
-                <div style="height: 300px; width: 860px; margin-left: auto; margin-right: auto;">
+                <div data-style="CaixaGrafico">
                     <canvas id="Grafico" height="300" width="600" style="background-color: white;"></canvas>
                 </div>
                 <script>
