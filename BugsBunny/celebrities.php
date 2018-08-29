@@ -32,7 +32,7 @@
             </div>
         </header>
         <div role="banner">
-            <p style="font-size: 32px; color:black; text-align: right; position: absolute; z-index: 995; background-color: white; padding: 6px; right: 0;">
+            <p style="font-size: 32px; color:black; text-align: right; position: fixed; z-index: 995; background-color: white; padding: 6px; right: 0;">
                 <i class="fab fa-twitter"></i>
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-facebook-f"></i>
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div id="main" role="main">
-            <p>  Conteudo da Pagina</p>
+            <p>Conteudo da Pagina</p>
             
         </div>
         <footer>
