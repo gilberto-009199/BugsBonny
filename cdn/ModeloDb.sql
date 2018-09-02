@@ -107,3 +107,4 @@ insert into tbl_Profissao(profissao)values('Bombeiro Industrial');
 insert into tbl_Profissao(profissao)values('Borracheiro');
 
 select * from tbl_Profissao;
+

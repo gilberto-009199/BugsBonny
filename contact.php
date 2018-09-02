@@ -8,6 +8,7 @@
         <meta	name="revisit-after" content="6 month">
         <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
+        <?php require_once './cdn/resorces.php'; ?>
     </head>
     <body>
         <header>
@@ -132,10 +133,14 @@
                                 <td>
                                     <select id="slcProfissao" name="slcProfissao" required>
                                         <option value="" selected>Profissão</option>
-                                        <option value="cabeleireiro">Cabeleireiro</option>
-                                        <option value="sapateiro">Sapateiro</option>
-                                        <option value="vendedor">Vendedor</option>
-                                        <option value="motoristacaminhao">Motorista de Caminhão</option>
+                                        <?php
+                                        $ListaProfissoes = getProfissoes(conect());
+                                       
+                                        for ($i = 1; $i < count($ListaProfissoes); $i++) {
+                                            ?>
+                                            <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
+                                        <?php } ?>
+
                                     </select>
                                 </td>
                             </tr>
