@@ -74,7 +74,7 @@
         <div id="main" role="main">
             <div class="row">
                 <div data-style="CaixaDireita" class="cold8 BordaDireita">
-                    <form name="frmTiket" method="POST">
+                    <form name="frmTiket" method="GET">
                         <table>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
@@ -135,7 +135,7 @@
                                         <option value="" selected>Profissão</option>
                                         <?php
                                         $ListaProfissoes = getProfissoes(conect());
-                                       
+
                                         for ($i = 1; $i < count($ListaProfissoes); $i++) {
                                             ?>
                                             <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
@@ -154,6 +154,13 @@
                 </div>
                 <div data-style="CaixaEsquerda">
                     Tipos de Tickets
+                    <?php
+                    $ListaProfissoes = getProfissoes(conect());
+
+                    for ($i = 1; $i < count($ListaProfissoes); $i++) {
+                        ?>
+                        <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
+                    <?php } ?>
                     <span class="ItemTicket">Consulta</span>
                     <span class="ItemTicket">Reportar Erro</span>
                     <span class="ItemTicket">Pedido de Atualização</span>
