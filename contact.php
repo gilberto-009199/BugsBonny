@@ -155,12 +155,13 @@
                 <div data-style="CaixaEsquerda">
                     Tipos de Tickets
                     <?php
+                    /*
                     $ListaProfissoes = getProfissoes(conect());
 
                     for ($i = 1; $i < count($ListaProfissoes); $i++) {
                         ?>
                         <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
-                    <?php } ?>
+                    <?php }*/ ?>
                     <span class="ItemTicket">Consulta</span>
                     <span class="ItemTicket">Reportar Erro</span>
                     <span class="ItemTicket">Pedido de Atualização</span>
