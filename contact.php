@@ -126,19 +126,19 @@ try {
                             </tr>
                             <tr>
                                 <td> <label class="Obrigatorio" for="txtCelular"> Celular:*</label> </td>
-                                <td> <input id="txtCelular" type="text" name="txtCelular" value="" required/> </td>
+                                <td> <input id="txtCelular" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="" required/> </td>
                             </tr>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
-                                <td> <input id="txtEmail" type="text" name="txtEmail" value="" required/> </td>
+                                <td> <input id="txtEmail" type="email" name="txtEmail" value="" required/> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtHomePage">Home Page:</label></td>
-                                <td> <input id="txtHomePage" type="text" name="txtHomePage" value="" /> </td>
+                                <td> <input id="txtHomePage" type="url" name="txtHomePage" value="" /> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtFcebook"> Link no Facebook:</label></td>
-                                <td> <input id="txtFcebook" type="text" name="txtFacebook" value="" /> </td>
+                                <td> <input id="txtFcebook" pattern="^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$" type="text" name="txtFacebook" value="" /> </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
