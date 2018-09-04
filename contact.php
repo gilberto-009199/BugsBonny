@@ -29,9 +29,9 @@ try {
         $frmChamado['tipo'] = $tipo;
         $frmChamado = (object) $frmChamado;
 
-        if(gravarPedido($frmChamado)) {
+        if (gravarPedido($frmChamado)) {
             // area para importar o dialog de success
-        }else{
+        } else {
             // area para importar o dialog de error
         }
     }
@@ -49,6 +49,7 @@ try {
         <meta	name="revisit-after" content="6 month">
         <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
+        <script src="./libs/jqueryMask/jquery.mask.js"></script>
     </head>
     <body>
         <header>
@@ -83,32 +84,32 @@ try {
 
             </canvas>
             <script>
-    var canvas = document.getElementById("Grafico");
-    var myChart = new Chart(canvas, {
-        type: 'line',
-        data: {
-            labels: ["janeiro", "fevereiro", "março", "abril", "maio", "Junho", "Julho", "Agosto"],
-            datasets: [{
-                    label: "Ultimos envios - 5 meses",
-                    data: [12, 24, 13, 9, 10, 16, 7, 17],
-                    borderWidth: 7,
-                    borderColor: "#454df0",
-                    backgroundColor: "transparent",
-                }, {
-                    label: "Atentimentos - 5 meses",
-                    data: [12, 10, 13, 8, 11, 10, 2, 15],
-                    borderWidth: 7,
-                    borderColor: "#006D5C",
-                    backgroundColor: "#00ffeb",
-                }]
-        },
-        options: {
-            title: {
-                display: true,
-                text: "Chamados"
-            }
-        }
-    });
+                var canvas = document.getElementById("Grafico");
+                var myChart = new Chart(canvas, {
+                    type: 'line',
+                    data: {
+                        labels: ["janeiro", "fevereiro", "março", "abril", "maio", "Junho", "Julho", "Agosto"],
+                        datasets: [{
+                                label: "Ultimos envios - 5 meses",
+                                data: [12, 24, 13, 9, 10, 16, 7, 17],
+                                borderWidth: 7,
+                                borderColor: "#454df0",
+                                backgroundColor: "transparent",
+                            }, {
+                                label: "Atentimentos - 5 meses",
+                                data: [12, 10, 13, 8, 11, 10, 2, 15],
+                                borderWidth: 7,
+                                borderColor: "#006D5C",
+                                backgroundColor: "#00ffeb",
+                            }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "Chamados"
+                        }
+                    }
+                });
             </script>
         </div>
         <div id="main" role="main">
@@ -122,11 +123,11 @@ try {
                             </tr>
                             <tr>
                                 <td><label  for="txtTelefone">Telefone:</label></td>
-                                <td> <input id="txtTelefone" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$" type="text" name="txtTelefone" value="" /> </td>
+                                <td> <input id="txtTelefone" placeholder="(11)2930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$" type="text" name="txtTelefone" value="" /> </td>
                             </tr>
                             <tr>
                                 <td> <label class="Obrigatorio" for="txtCelular"> Celular:*</label> </td>
-                                <td> <input id="txtCelular" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="" required/> </td>
+                                <td> <input id="txtCelular" placeholder="(11)92930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="" required/> </td>
                             </tr>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
@@ -209,6 +210,8 @@ try {
         <script>
             $(function () {
                 $("#main").slideUp(1).slideDown(2500);
+                jQuery("#txtTelefone").mask("(99)9999-9999");
+                jQuery("#txtCelular").mask("(99)99999-9999");
             });
         </script>
     </body>
