@@ -1,7 +1,7 @@
 <?php require_once './cdn/resorces.php'; ?>
 <?php
 try {
-    if (isset($_GET['btnEnviar'])) {
+    if (isset($_GET['btnEnviar'])) {// Verifica se o formulario foi submetido
         $nome = strip_tags($_GET['txtNome']);
         $telefone = strip_tags($_GET['txtTelefone']);
         $celular = strip_tags($_GET['txtCelular']);
@@ -14,12 +14,17 @@ try {
         $profissao = strip_tags($_GET['slcProfissao']);
         $tipo = strip_tags($_GET['txtTipo']);
         $dataCriacao = date('Y-m-d H:i:s');
-        
-        $ValidaTamanho  = strlen($nome)<=100 && strlen($critica)<=1024
-                        &&strlen($telefone)<=16 && strlen($celular)<=17
-                        &&strlen($email)<=100 && strlen($website)<=256
-                        &&strlen($facebook)<=126 && strlen($produto)<=128;
-        if($ValidaTamanho) {
+        //Valida os Dados caso o usuario esteja usando um browser que não limita campos ou erros Incomuns
+        $ValidaTamanho = strlen($nome) <= 100 && strlen($critica) <= 1024 && strlen($telefone) <= 16 && strlen($celular) <= 17 && strlen($email) <= 100 && strlen($website) <= 256 && strlen($facebook) <= 126 && strlen($produto) <= 128;
+        //Valida os Dados caso o usuario esteja usando um browser sem patterns
+        $ValidaDados = preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome) && preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone) && preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/', $celular) && preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email) && (trim($website) == "" || preg_match('/^((http://|https://|)([a-z]*)(.[a-z]+)(/|))+$/', $website)) && (trim($facebook) == "" || preg_match('/^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$/', $facebook)) && preg_match('/^[0-9]+$/', $tipo) && preg_match('/^[0-9]+$/', $profissao);
+        //if(preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome) )echo"Ok Nome: $nome <br/>"; else echo ' ERRO NOME ';
+        //if(preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone))echo"Ok Telefone: $telefone<br/>"; else echo ' ERRO no Telefone';
+        //if(preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/',$celular))echo"Ok Celular: $celular <br/>"; else echo ' ERRO no Celular';
+        //if(preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email))echo"Ok E-mail: $email <br/>"; else echo ' ERRO no E-mail';
+        //if(trim($website)=="" || preg_match('/^((http://|https://|)([a-z]*)(.[a-z]+)(/|))+$/',$website) )echo"Ok HomePage: $website <br/>"; else echo ' ERRO no Website';
+        //if(trim($facebook)=="" || preg_match('/^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$/',$facebook))echo"Ok Facebook: $facebook <br/>"; else echo ' ERRO no Facebook';
+        if ($ValidaTamanho && $ValidaDados) { //Inicia o Processo de gravação do formulario caso o formulario seja formado corretamente 
             $frmChamado['nome'] = $nome;
             $frmChamado['telefone'] = $telefone;
             $frmChamado['celular'] = $celular;
@@ -32,20 +37,23 @@ try {
             $frmChamado['profissao'] = $profissao;
             $frmChamado['dataCriacao'] = $dataCriacao;
             $frmChamado['tipo'] = $tipo;
-            $frmChamado = (object) $frmChamado;
+            $frmChamado = (object) $frmChamado; //tranforma a array em uM oBJECT ATRAVES DO CASH
 
             if (gravarPedido($frmChamado)) {
                 // area para importar o dialog de success
                 $msgAlertaSucess = "<p>Sucesso!! Ticket inserido com sucesso.</p>";
             } else {
-                $msgAlertaErro ="Erro ao gravar Tickets!";
+                //area para importar o dialog de falha ao gravar no banco
+                $msgAlertaErro = "Erro ao gravar Tickets!Por favor verifique se nenhum campo teve OverFlouw(estourou)";
             }
-        }else{
-            $msgAlertaErro ="Erro ao gerar Tickets!";
+        } else {
+            //area para importar o dialog de falha ao gerar o formulario
+            $msgAlertaErro = "Erro ao gerar Ticket!Por favor verifique se o dados estão corretos!";
         }
     }
 } catch (Exception $e) {
-    
+    //area para importar o dialog de falha
+    $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
@@ -57,7 +65,7 @@ try {
         <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
         <link rel="stylesheet" href="./fonts/awesome/all.css">
-        <?php include_once './head.php'; ?>
+<?php include_once './head.php'; ?>
         <script src="./libs/jqueryMask/jquery.mask.js"></script>
     </head>
     <body>
@@ -183,19 +191,19 @@ try {
                                 <td>
                                     <select id="slcProfissao" name="slcProfissao" required>
                                         <option value="" selected>Profissão</option>
-                                        <?php
-                                        $ListaProfissoes = getProfissoes(conect());
-                                        for ($i = 1; $i < count($ListaProfissoes); $i++) {
-                                            ?>
+<?php
+$ListaProfissoes = getProfissoes(conect());
+for ($i = 1; $i < count($ListaProfissoes); $i++) {
+    ?>
                                             <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
-                                        <?php } ?>
+<?php } ?>
 
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="text" name="txtTipo" style=" display:none; " value="1">
+                                    <input type="text" id="txtTipoForm" name="txtTipo" style=" display:none; " value="1">
                                     <input class="btn" id="btnSubmit" name="btnEnviar" type="submit" value="Enviar" />
                                 </td>
                             </tr>
@@ -204,11 +212,14 @@ try {
                 </div>
                 <div data-style="CaixaEsquerda">
                     Tipos de Tickets
+                    <script>
+
+                    </script>
                     <?php
                     $ListaTickets = getTickets(conect());
                     for ($i = 1; $i < count($ListaTickets); $i++) {
                         ?>
-                        <span class="ItemTicket" data-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
+                        <span class="ItemTicket" data-tipo-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
                     <?php } ?>
                 </div>
             </div>            
@@ -216,19 +227,22 @@ try {
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
-        <?php
-            if(isset($msgAlertaErro)){
-                include './elements/Alerta.php';
-            }
-            if(isset($msgAlertaSucess)){
-                include './elements/AlertaDefault.php';
-            }
-        ?>
+                    <?php
+                    if (isset($msgAlertaErro)) {
+                        include './elements/Alerta.php';
+                    }
+                    if (isset($msgAlertaSucess)) {
+                        include './elements/AlertaDefault.php';
+                    }
+                    ?>
         <script>
             $(function () {
                 $("#main").slideUp(1).slideDown(2500);
                 jQuery("#txtTelefone").mask("(99)9999-9999");
                 jQuery("#txtCelular").mask("(99)99999-9999");
+                $(".ItemTicket").click(function () {
+                   $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
+                });
             });
         </script>
     </body>

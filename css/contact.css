@@ -81,6 +81,7 @@ input[name*="txt"]{
     background: rgb(227,227,227);
     background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
     display:block;
+    cursor: pointer;
     font-weight: bold;
 }
 .ItemTicket:hover{
