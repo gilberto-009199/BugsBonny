@@ -135,11 +135,10 @@
                                         <option value="" selected>Profissão</option>
                                         <?php
                                         $ListaProfissoes = getProfissoes(conect());
-
                                         for ($i = 1; $i < count($ListaProfissoes); $i++) {
                                             ?>
                                             <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
-                                        <?php } ?>
+<?php } ?>
 
                                     </select>
                                 </td>
@@ -155,21 +154,10 @@
                 <div data-style="CaixaEsquerda">
                     Tipos de Tickets
                     <?php
-                    /*
-                    $ListaProfissoes = getProfissoes(conect());
-
-                    for ($i = 1; $i < count($ListaProfissoes); $i++) {
-                        ?>
-                        <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
-                    <?php }*/ ?>
-                    <span class="ItemTicket">Consulta</span>
-                    <span class="ItemTicket">Reportar Erro</span>
-                    <span class="ItemTicket">Pedido de Atualização</span>
-                    <span class="ItemTicket">Pedido de Alteração</span>
-                    <span class="ItemTicket">Contactar ADM</span>
-                    <span class="ItemTicket">Promoções</span>
-                    <span class="ItemTicket">Recuperar Boleto/2°via</span>
-                    <span class="ItemTicket">Reportar falha na Entrega</span>
+                    $ListaTickets = getTickets(conect());
+                    for ($i = 1; $i < count($ListaTickets); $i++) {?>
+<span class="ItemTicket" data-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
+                    <?php } ?>
                 </div>
             </div>            
         </div>
