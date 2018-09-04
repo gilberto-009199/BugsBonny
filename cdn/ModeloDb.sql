@@ -19,7 +19,7 @@ CREATE table IF NOT EXISTS tbl_Profissao(id int primary key auto_increment,profi
 CREATE TABLE IF NOT EXISTS tbl_tickets(id int primary key auto_increment,idTipo int not null, nome varchar(100)not null,
  telefone varchar(14)null, celular varchar(14) not null,email varchar(100) not null,
  website varchar(100) null, facebook varchar(100) not null,critica TEXT(1024) not null,
- infoPedido varchar(128) null,sexo char(2)not null, idProfissao int not null,
+ infoPedido varchar(128) null,sexo char(2)not null, idProfissao int not null,dataCriacao datetime not null,
  FOREIGN KEY (`idTipo`) REFERENCES `tbl_tipos_tickets` (`id`),
  FOREIGN KEY (`idProfissao`) REFERENCES `tbl_Profissao` (`id`));
  
@@ -42,7 +42,7 @@ insert into tbl_Profissao(profissao)values('Açougueiro');
 insert into tbl_Profissao(profissao)values('Advogado');
 insert into tbl_Profissao(profissao)values('Alfaiate');
 insert into tbl_Profissao(profissao)values('Aprendiz');
-insert into tbl_Profissao(profissao)values('AtendenteAtor');
+insert into tbl_Profissao(profissao)values('Atendente');
 insert into tbl_Profissao(profissao)values('DBA');
 insert into tbl_Profissao(profissao)values('Dentista');
 insert into tbl_Profissao(profissao)values('Desenhista');
@@ -106,5 +106,12 @@ insert into tbl_Profissao(profissao)values('Bombeiro Civil');
 insert into tbl_Profissao(profissao)values('Bombeiro Industrial');
 insert into tbl_Profissao(profissao)values('Borracheiro');
 
-select * from tbl_Profissao;
+select * from tbl_profissao;
 
+INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES
+(1,'gil','4303-6886','11947581604','gilberto.tec@vivaldi.net','','facebook.com/gilberto.ramos1999','Acresentar a Revista SOAP','Revistas','M','19','2018-09-04 10:10:01');
+
+INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES
+(1,'Gilberto Ramos','83734-242342','11 946289463','gilbert.tec@vivaldi.net','','facebook.com/gilberto.ramos1999','Adicionar Jornal New York Times','Jornal','M','43','2018-09-04 14:36:18');
+
+select * from tbl_tickets; 

@@ -1,4 +1,5 @@
 <?php
+
 function conect() {
     $hostname = "127.0.0.1";
     $user = "userbugbunny";
@@ -32,4 +33,19 @@ function getTickets($conexao) {
     }
     return $Tickets;
 }
+
+function gravarPedido($frmPedidoTmp) {
+
+    $sql = "INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES($frmPedidoTmp->tipo,'$frmPedidoTmp->nome','$frmPedidoTmp->telefone','$frmPedidoTmp->celular','$frmPedidoTmp->email','$frmPedidoTmp->website','$frmPedidoTmp->facebook','$frmPedidoTmp->critica','$frmPedidoTmp->produto','$frmPedidoTmp->sexo','$frmPedidoTmp->profissao','$frmPedidoTmp->dataCriacao');";
+
+    $con = conect();
+    if(!$con){
+        return false;
+    }else{
+        mysqli_query($con, $sql);
+        return true;
+    }
+    
+}
+
 ?>
