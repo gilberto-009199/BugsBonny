@@ -113,10 +113,10 @@ INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,crit
 (1,'Gilberto Ramos','(11)4587-8541','(11)98578-5764','gilbert.tec@vivaldi.net','','facebook.com/gilberto.tec','Adicionar Jornal New York Times','Jornal','M','43','2018-09-04 14:36:18');
 
 INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES
-(1,'Elizabeth Alves de Moraes','(11)4588-8541','(11)98298-5617','elizabeth58@reno.com','','en.facebook.com/elizabeth58','Adicionar Jornal New York Times','Jornal','M','43','2018-09-03 10:10:18');
+(4,'Elizabeth Alves de Moraes','(11)4588-8541','(11)98298-5617','elizabeth58@reno.com','','en.facebook.com/elizabeth58','Adicionar Jornal New York Times','Jornal','M','43','2018-09-03 10:10:18');
 
 
 select * from tbl_tickets;
 
-select t.nome, p.profissao, tt.tipo from tbl_tickets as t, tbl_profissao as p, tbl_tipos_tickets as tt where t.idProfissao=p.id and t.idTipo=tt.id;
+select t.*, p.profissao, tt.tipo from tbl_tickets as t, tbl_profissao as p, tbl_tipos_tickets as tt where t.idProfissao=p.id and t.idTipo=tt.id;
 
