@@ -65,7 +65,7 @@ try {
         <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
         <link rel="stylesheet" href="./fonts/awesome/all.css">
-<?php include_once './head.php'; ?>
+        <?php include_once './head.php'; ?>
         <script src="./libs/jqueryMask/jquery.mask.js"></script>
     </head>
     <body>
@@ -191,12 +191,12 @@ try {
                                 <td>
                                     <select id="slcProfissao" name="slcProfissao" required>
                                         <option value="" selected>Profissão</option>
-<?php
-$ListaProfissoes = getProfissoes(conect());
-for ($i = 1; $i < count($ListaProfissoes); $i++) {
-    ?>
+                                        <?php
+                                        $ListaProfissoes = getProfissoes(conect());
+                                        for ($i = 1; $i < count($ListaProfissoes); $i++) {
+                                            ?>
                                             <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
-<?php } ?>
+                                        <?php } ?>
 
                                     </select>
                                 </td>
@@ -227,21 +227,21 @@ for ($i = 1; $i < count($ListaProfissoes); $i++) {
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
-                    <?php
-                    if (isset($msgAlertaErro)) {
-                        include './elements/Alerta.php';
-                    }
-                    if (isset($msgAlertaSucess)) {
-                        include './elements/AlertaDefault.php';
-                    }
-                    ?>
+        <?php
+        if (isset($msgAlertaErro)) {
+            include './elements/Alerta.php';
+        }
+        if (isset($msgAlertaSucess)) {
+            include './elements/AlertaDefault.php';
+        }
+        ?>
         <script>
             $(function () {
                 $("#main").slideUp(1).slideDown(2500);
                 jQuery("#txtTelefone").mask("(99)9999-9999");
                 jQuery("#txtCelular").mask("(99)99999-9999");
                 $(".ItemTicket").click(function () {
-                   $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
+                    $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
                 });
             });
         </script>
