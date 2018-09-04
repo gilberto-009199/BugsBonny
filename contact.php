@@ -14,25 +14,34 @@ try {
         $profissao = strip_tags($_GET['slcProfissao']);
         $tipo = strip_tags($_GET['txtTipo']);
         $dataCriacao = date('Y-m-d H:i:s');
+        
+        $ValidaTamanho  = strlen($nome)<=100 && strlen($critica)<=1024
+                        &&strlen($telefone)<=16 && strlen($celular)<=17
+                        &&strlen($email)<=100 && strlen($website)<=256
+                        &&strlen($facebook)<=126 && strlen($produto)<=128;
+        if($ValidaTamanho) {
+            $frmChamado['nome'] = $nome;
+            $frmChamado['telefone'] = $telefone;
+            $frmChamado['celular'] = $celular;
+            $frmChamado['email'] = $email;
+            $frmChamado['website'] = $website;
+            $frmChamado['facebook'] = $facebook;
+            $frmChamado['critica'] = $critica;
+            $frmChamado['produto'] = $produto;
+            $frmChamado['sexo'] = $sexo;
+            $frmChamado['profissao'] = $profissao;
+            $frmChamado['dataCriacao'] = $dataCriacao;
+            $frmChamado['tipo'] = $tipo;
+            $frmChamado = (object) $frmChamado;
 
-        $frmChamado['nome'] = $nome;
-        $frmChamado['telefone'] = $telefone;
-        $frmChamado['celular'] = $celular;
-        $frmChamado['email'] = $email;
-        $frmChamado['website'] = $website;
-        $frmChamado['facebook'] = $facebook;
-        $frmChamado['critica'] = $critica;
-        $frmChamado['produto'] = $produto;
-        $frmChamado['sexo'] = $sexo;
-        $frmChamado['profissao'] = $profissao;
-        $frmChamado['dataCriacao'] = $dataCriacao;
-        $frmChamado['tipo'] = $tipo;
-        $frmChamado = (object) $frmChamado;
-
-        if (gravarPedido($frmChamado)) {
-            // area para importar o dialog de success
-        } else {
-            // area para importar o dialog de error
+            if (gravarPedido($frmChamado)) {
+                // area para importar o dialog de success
+                $msgAlertaSucess = "<p>Sucesso!! Ticket inserido com sucesso.</p>";
+            } else {
+                $msgAlertaErro ="Erro ao gravar Tickets!";
+            }
+        }else{
+            $msgAlertaErro ="Erro ao gerar Tickets!";
         }
     }
 } catch (Exception $e) {
@@ -119,37 +128,37 @@ try {
                         <table>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
-                                <td> <input id="txtNome" type="text" pattern="[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*" name="txtNome" value="" required/> </td>
+                                <td> <input id="txtNome" maxlength="100" type="text" pattern="[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*" name="txtNome" value="" required/> </td>
                             </tr>
                             <tr>
                                 <td><label  for="txtTelefone">Telefone:</label></td>
-                                <td> <input id="txtTelefone" placeholder="(11)2930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$" type="text" name="txtTelefone" value="" /> </td>
+                                <td> <input id="txtTelefone" maxlength="13" placeholder="(11)2930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$" type="text" name="txtTelefone" value="" /> </td>
                             </tr>
                             <tr>
                                 <td> <label class="Obrigatorio" for="txtCelular"> Celular:*</label> </td>
-                                <td> <input id="txtCelular" placeholder="(11)92930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="" required/> </td>
+                                <td> <input id="txtCelular" maxlength="14" placeholder="(11)92930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="" required/> </td>
                             </tr>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
-                                <td> <input id="txtEmail" type="email" name="txtEmail" value="" required/> </td>
+                                <td> <input id="txtEmail" maxlength="100" type="email" name="txtEmail" value="" required/> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtHomePage">Home Page:</label></td>
-                                <td> <input id="txtHomePage" type="url" name="txtHomePage" value="" /> </td>
+                                <td> <input id="txtHomePage" maxlength="100" type="url" name="txtHomePage" value="" /> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtFcebook"> Link no Facebook:</label></td>
-                                <td> <input id="txtFcebook" pattern="^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$" type="text" name="txtFacebook" value="" /> </td>
+                                <td> <input id="txtFcebook" maxlength="100" pattern="^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$" type="text" name="txtFacebook" value="" /> </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <table>
                                         <tr>
-                                            <td><label for="areaCritica">Sugestão/Critica</label></td>
+                                            <td><label for="areaCritica">Sugestão/Critica:</label></td>
                                         </tr>
                                         <tr>
                                             <td> 
-                                                <textarea id="areaCritica" name="ariaCritica" rows="4" cols="20"></textarea>
+                                                <textarea id="areaCritica" name="ariaCritica" rows="6" ></textarea>
                                             </td>
                                         </tr>
                                     </table>
@@ -207,6 +216,14 @@ try {
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
+        <?php
+            if(isset($msgAlertaErro)){
+                include './elements/Alerta.php';
+            }
+            if(isset($msgAlertaSucess)){
+                include './elements/AlertaDefault.php';
+            }
+        ?>
         <script>
             $(function () {
                 $("#main").slideUp(1).slideDown(2500);

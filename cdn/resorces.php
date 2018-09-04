@@ -14,7 +14,7 @@ function conect() {
 
 function getProfissoes($conexao) {
     $Profissoes [] = array();
-    $sqlQuery = "SELECT * FROM tbl_Profissao order by profissao asc";
+    $sqlQuery = "SELECT * FROM tbl_profissao order by profissao asc";
     $query = mysqli_query($conexao, $sqlQuery);
     while ($rsProfissao = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
         //exemplo $rsContatos
@@ -42,7 +42,9 @@ function gravarPedido($frmPedidoTmp) {
     if(!$con){
         return false;
     }else{
-        mysqli_query($con, $sql);
+        if(!mysqli_query($con, $sql)){
+            return false;
+        }
         return true;
     }
     
