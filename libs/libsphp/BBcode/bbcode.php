@@ -18,10 +18,10 @@ function BBcode($textoBBcode){
       "/\[livro\]\[nome\](.*?)\[\/nome\]\[capa\](.*?)\[\/capa\]\[\/livro\]/is"//Item Livro bbcode
    );
    $b = array(
-      "<i>$1</i>",
-      "<b>$1</b>",
-      "<u>$1</u>",
-      "<img src='$1' />",
+      "<span style='font-style:italic; '>$1</span>",
+      "<span style='font-weight: bold; '>$1</span>",
+      "<span style='text-decoration: underline;'>$1</span>",
+      "<img src='$1' alt='$1'/>",
       "<a href='$1' target='_blank'>$2</a>",
       "<p style='text-align: center;'>$1</p>",
       "<span style='color:$1;'>$2</span>",
@@ -45,3 +45,11 @@ $texto = "[i]italico[/i]".
 
 <?=BBcode($texto)?>
 
+<style>
+    p{
+        
+        font-weight: bold;
+    }
+    
+    
+</style>
