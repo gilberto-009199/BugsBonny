@@ -13,6 +13,7 @@ try {
         <meta name="description" content="catalogo eletronico da galeria de livros,revistas, jornais,etc de gêneros">
         <meta name="abstract" content="Pagina de apresentação da Empresa BugBunny">
         <meta name="revisit-after" content="5 days">
+        <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
     </head>
     <body>
@@ -42,13 +43,13 @@ try {
                         <div class="row">
                             <div class="cold4">
 
-                                <label for="txtUser">Usuario:</label>
+                                <label for="txtUser"><i class="fas fa-user">Usuario:</i></label>
                                 <div class="row">
                                     <input id="txtUser" type="text">
                                 </div>
                             </div>
                             <div class="cold4">
-                                <label for="txtPasswrd">Senha:</label>
+                                <label for="txtPasswrd"><i class="fas fa-key">Senha:</i></label>
                                 <div class="row">
                                     <input id="txtPasswrd" type="password">
                                 </div>
@@ -75,8 +76,8 @@ try {
                 <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
                 <script src="libs/Blink-Slider/jquery.blink.js"></script>
                 <section class="blink-slider">
-                    <button id="prev" aria-label="voltar Imagem">&lt;</button>
-                    <button id="next" aria-label="proxima Imagem">></button>
+                    <button id="prev" aria-label="voltar Imagem"><i class="far fa-arrow-alt-circle-left"></i></button>
+                    <button id="next" aria-label="proxima Imagem"><i class="far fa-arrow-alt-circle-right"></i></button>
                     <div class="blink-view" id="blink">
                         <div class="viewSlide">
                             <div class="ItemSlider" style="background-image: url(img/slide/banca.jpg);">

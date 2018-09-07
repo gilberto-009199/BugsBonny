@@ -40,8 +40,8 @@
             <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
             <div id="CaixaSlider">
                 <section class="blink-slider">            
-                    <button id="prev" aria-label="voltar Imagem">&lt;</button>
-                    <button id="next" aria-label="proxima Imagem">></button>
+                    <button id="prev" aria-label="voltar Imagem"><i class="far fa-arrow-alt-circle-left"></i></button>
+                    <button id="next" aria-label="proxima Imagem"><i class="far fa-arrow-alt-circle-right"></i></button>
                     <div class="blink-view" id="blink">
                         <div class="viewSlide">
                             <div class="ItemSlider" style="background-repeat: no-repeat; background-size: cover; height: 500px; background-image: url(img/celebridades/aprendiz_RobertoJusto.png);">
@@ -75,6 +75,48 @@
         <div id="main" role="main" class="arredonda">
             <section>
                 <h1>Entrevistas</h1>
+                <article>
+                    <h2>Entrevista com Roberto Justos</h2>
+                    <div class="CaixaTexto"> 
+                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
+                        <button class="Direita">Ver Mais+</button>
+                    </div>
+                </article>
+                <article>
+                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
+                    <div class="CaixaTexto"> 
+                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Embreve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
+                        <button class="Direita">Ver Mais+</button>
+                    </div>
+                </article>
+                <article>
+                    <h2>Entrevista com Roberto Justos</h2>
+                    <div class="CaixaTexto"> 
+                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
+                        <button class="Direita">Ver Mais+</button>
+                    </div>
+                </article>
+                <article>
+                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
+                    <div class="CaixaTexto"> 
+                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Embreve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
+                        <button class="Direita">Ver Mais+</button>
+                    </div>
+                </article>
+                <article>
+                    <h2>Entrevista com Roberto Justos</h2>
+                    <div class="CaixaTexto"> 
+                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
+                        <button class="Direita">Ver Mais+</button>
+                    </div>
+                </article>
+                <article>
+                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
+                    <div class="CaixaTexto"> 
+                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Embreve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
+                        <button class="Direita">Ver Mais+</button>
+                    </div>
+                </article>
                 <article>
                     <h2>Entrevista com Roberto Justos</h2>
                     <div class="CaixaTexto"> 
