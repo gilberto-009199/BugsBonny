@@ -14,7 +14,7 @@ function conect() {
 
 function getProfissoes($conexao) {
     $Profissoes [] = array();
-    $sqlQuery = "SELECT * FROM tbl_profissao order by profissao asc";
+    $sqlQuery = "SELECT * FROM tbl_profissao order by profissao asc;";
     $query = mysqli_query($conexao, $sqlQuery);
     while ($rsProfissao = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
         //exemplo $rsContatos
@@ -25,13 +25,22 @@ function getProfissoes($conexao) {
 
 function getTickets($conexao) {
     $Tickets[] = array();
-    $sqlQuery = "SELECT * FROM tbl_tipos_tickets order by tipo asc";
+    $sqlQuery = "SELECT * FROM tbl_tipos_tickets order by tipo asc;";
     $query = mysqli_query($conexao, $sqlQuery);
     while ($rsTicket = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
         //exemplo $rsContatos
         $Tickets [] = $rsTicket;
     }
     return $Tickets;
+}
+function getBancas($conexao){
+    $bancas[] = array();
+    $sqlQuery = "Select b.*,d.nome as dono from tbl_bancas as b, tbl_donos as d where b.idDono = d.id;";
+    $query = mysqli_query($conexao, $sqlQuery);
+    while($rsBancas= mysqli_fetch_object($query)){
+        $bancas []= $rsBancas;
+    }
+    return $bancas;
 }
 
 function gravarPedido($frmPedidoTmp) {

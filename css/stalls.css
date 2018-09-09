@@ -25,6 +25,7 @@ div[data-style="CaixaBancas"]{
     width:100%;
     text-align:center;
     min-height:400px;
+    padding-bottom: 32px;
 }
 .ItemMenuBanca{
     background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);

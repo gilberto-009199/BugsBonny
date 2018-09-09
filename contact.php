@@ -71,15 +71,15 @@ try {
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav>
+                <nav aria-label="main navigation">
                     <div class="CaixaMenu" role="menu">
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./index.php">Home</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./news.php">Notícias</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./about.php">Sobre</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./offers.php">Promoções</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="contact.php">Fale Conosco</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./about.php">Sobre</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./offers.php">Promoções</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
+                        <div class="ItemMenu"   role="menuitem"><a href="contact.php">Fale Conosco</a></div>
                     </div>                    
                 </nav>
             </div>
@@ -132,7 +132,11 @@ try {
         <div id="main" role="main">
             <div class="row">
                 <div data-style="CaixaDireita" class="cold8 BordaDireita">
-                    <form name="frmTiket" method="GET">
+                    <form name="frmTiket" method="GET" aria-labelledby="infofrm">
+                        <div aria-hidden="true" id="infofrm" class="hidden">
+                            formulario de contato, formulario para designado para Consulta
+                        </div>
+                        <div aria-live="polite" aria-relevant="all" id="tipoFrm" style="margin-left: 516px;  position: absolute; font-size: 18px; border-bottom: solid 1px; width: 212px; text-align: center;" >Consulta</div>
                         <table>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
@@ -197,14 +201,14 @@ try {
                                             ?>
                                             <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
                                         <?php } ?>
-
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="text" id="txtTipoForm" name="txtTipo" style=" display:none; " value="1">
-                                    <input class="btn" id="btnSubmit" name="btnEnviar" type="submit" value="Enviar" />
+                                    <input class="hidden" type="text" aria-hidden="true" id="txtTipoForm" name="txtTipo" value="1">
+                                    <button class="btn" id="btnSubmit" name="btnEnviar" type="submit"><i class="far fa-share-square"></i> Enviar</button>
+                                    
                                 </td>
                             </tr>
                         </table>
@@ -219,7 +223,7 @@ try {
                     $ListaTickets = getTickets(conect());
                     for ($i = 1; $i < count($ListaTickets); $i++) {
                         ?>
-                        <span class="ItemTicket" data-tipo-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
+                    <span class="ItemTicket" tabindex="0" data-tipo-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
                     <?php } ?>
                 </div>
             </div>            
@@ -236,14 +240,15 @@ try {
         }
         ?>
         <script>
-            $(function () {
-                $("#main").slideUp(1).slideDown(2500);
-                jQuery("#txtTelefone").mask("(99)9999-9999");
-                jQuery("#txtCelular").mask("(99)99999-9999");
-                $(".ItemTicket").click(function () {
-                    $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
-                });
+            $("#main").slideUp(1).slideDown(2500);
+            jQuery("#txtTelefone").mask("(99)9999-9999");
+            jQuery("#txtCelular").mask("(99)99999-9999");
+            $(".ItemTicket").click(function () {
+                $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
+                $("#tipoFrm").html($(this).text());
+                $("#infofrm").html("formulario de contato, formulario para designado para "+$(this).text());
             });
+
         </script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 $idAlerta = (int) rand(100, 1000);
 ?>
-<div class="Alert" id="<?= $idAlerta ?>">
+<div role="dialog" class="Alert" id="<?= $idAlerta ?>">
     <script>
         function FechaJanela(idElemento) {
             document.getElementById(idElemento).style.display = "none";

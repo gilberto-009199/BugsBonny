@@ -27,7 +27,7 @@ div[role="banner"] canvas{
     margin-left: auto;
     margin-right: auto;
     padding-top: 17px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     padding-left: 10px;
     border: solid 1px black;
     border-top-left-radius: 10px;
@@ -64,10 +64,10 @@ input[name*="txt"]{
 #btnSubmit{
     float: right;
     height: 40px;
-    width: 70px;
+    width: 90px;
     font-size: 17px;
     background-color: transparent;
-    border:solid 1px #ddd;
+    border: solid 1px #BFBFBF;
     margin-right: -30px;
     color:#006D5C;
 }
@@ -84,9 +84,9 @@ input[name*="txt"]{
     cursor: pointer;
     font-weight: bold;
 }
-.ItemTicket:hover{
+.ItemTicket:hover,:focus{
     color:#006D5C;
 }
-#btnSubmit:hover{
+#btnSubmit:hover,:focus{
     color:black;
 }

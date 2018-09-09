@@ -12,15 +12,15 @@
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav>
+                <nav aria-label="main navigation">
                     <div class="CaixaMenu" role="menu">
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./index.php">Home</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./news.php">Notícias</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./about.php">Sobre</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./offers.php">Promoções</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="contact.php">Fale Conosco</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./about.php">Sobre</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./offers.php">Promoções</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
+                        <div class="ItemMenu"   role="menuitem"><a href="contact.php">Fale Conosco</a></div>
                     </div>                    
                 </nav>
             </div>

@@ -1,3 +1,13 @@
+<?php require_once './cdn/resorces.php'; ?>
+<?php require_once './libs/libsphp/BBcode/bbcode.php'; ?>
+<?php
+try {
+
+    $bancas = getBancas(conect());
+} catch (Exception $e) {
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
     <head>
@@ -11,15 +21,15 @@
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav>
+                <nav aria-label="main navigation">
                     <div class="CaixaMenu" role="menu">
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./index.php">Home</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./news.php">Notícias</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./about.php">Sobre</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./offers.php">Promoções</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
-                        <div class="ItemMenu BordaDireita" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
-                        <div class="ItemMenu" role="menuitem"><a href="contact.php">Fale Conosco</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./about.php">Sobre</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./offers.php">Promoções</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
+                        <div class="ItemMenu"   role="menuitem"><a href="contact.php">Fale Conosco</a></div>
                     </div>                    
                 </nav>
             </div>
@@ -37,13 +47,13 @@
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-facebook-f"></i>
             </div>
-            
+
         </div>
         <link rel="stylesheet" href="./libs/leaflet/leaflet.css">
         <script src="./libs/leaflet/leaflet.js"></script>
         <script>
             //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
-            var map = L.map('mapa').setView([-23.512052, -46.881924], 13);
+            var map = L.map('mapa').setView([-23.531884, -46.792231], 13);
             //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
                     {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ',
@@ -52,54 +62,49 @@
                          https://www.mapbox.com/api-documentation/#maps   */
                         accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(map);
             //L.marker([-23.512052, -46.881924]) adicionando um markert no mapa
-            var banca1 = L.marker([-23.512839, -46.874156]).addTo(map);
-            banca1.bindPopup("<h4 id='banca1'>Banca Santa Rica lotes:73/24/90</h4>\n\
-                                                <p>Estrada Municiapal n°123, centro, Barueri</p>");
-            var banca2 = L.marker([-23.502056, -46.86523]).addTo(map);
-            banca2.bindPopup("<h4 id='banca2'>Banca Monica lotes:70/10/32</h4>\n\
-                                                <p>Rua Topázio n°21, Aldeia, Barueri</p>");
-            var banca3 = L.marker([-23.529327, -46.901504]).addTo(map);
-            banca3.bindPopup("<h4 id='banca3'>Banca Maria José</h4>\n\
-                                                <p>Av. Carmine Gragnano n°457, Centro, Jandira</p>");
-            var banca4 = L.marker([-23.5267, -46.895324]).addTo(map);
-            banca4.bindPopup("<h4 id='banca4'>Banca Eduardo 51 </h4>\n\
-                                                <p>Av. Carmine Gragnano n°29, Centro, Jandira</p>");
-            var banca5 = L.marker([-23.534747, -46.88319]).addTo(map);
-            banca4.bindPopup("<h4 id='banca4'>Banca Rei João </h4>\n\
-                                                <p>Via TUPI n°11, Jd. Silveira, Barueri</p>");
-
+<?php for ($i = 1; $i < count($bancas); $i++) { ?>
+                var bancatmp<?= $i ?> = L.marker([<?= $bancas[$i]->location ?>]).addTo(map);
+                bancatmp<?= $i ?>.bindPopup("<?= "<h3>" . $bancas[$i]->nome . "</h3>" . $bancas[$i]->logradouro . " " . $bancas[$i]->bairro . " " . $bancas[$i]->cidade . " " . $bancas[$i]->uf ?>");
+<?php } ?>
         </script>
         <div id="main" role="main" class="arredonda">
             <!--    Enviando o visor do mapa para uma posição especifica com 14 de zoom    -->
             <!--<a href="#banca1" onclick="map.setView([-23.512839, -46.874156], 14);">banca 1</a>
             <a href="#banca2" onclick="map.setView([-23.502056, -46.86523], 14);">banca 2</a>
             <a href="#banca3" onclick="map.setView([-23.512052, -46.881924], 14);">banca 3</a>-->
-            <div class="row" class="arredonda">
+            <div class="row">
                 <div class="cold3 arredonda" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
+                    <?php for ($i = 0; $i < count($bancas); $i++) { ?>
+                        <span class="ItemMenuBanca" role="menuitem"><a href="#banca<?= $bancas[$i]->id ?>"><?= $bancas[$i]->nome ?></a></span>
+                    <?php } ?>
+                    <!--<span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Santana</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Aldeia</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Osasco Vila dos Remédios</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Osasco Centro</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de São Paulo Jd. Itaquerá</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de São Paulo Anhangüera</span>
-
                     <span class="ItemMenuBanca" role="menuitem"> Banca de São Paulo Aclimação </span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Osaco Continental</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Alphaville Industrial</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Chácaras Marco</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Monte Castelo Centro</span>
+                    <span class="ItemMenuBanca" role="menuitem"> Banca de Monte Castelo Centro</span>-->
                 </div>
                 <div class="cold8 arredonda" style="background: linear-gradient(141deg, rgba(255,255,255,1) 90%, rgba(0,0,255,1) 93%); height:500px;">
                     <section>
-                        <h2>Bancas</h2>
-                        <article>
-                            <h3>Nome da banca </h3>
-                            <p>Dono da banca: João da Cunha</p>
-                            <p>Endereço: Rua XXXXXX N°XXXX, Bairro: XXXX, Cidade:XXX,UF:XX</p>
-                        </article>  
-                        <p>Descrição: Uma descrição da banca </p>
-                        <p>Horario:9h ate 18h</p>
+                        <h2>Bancas:</h2>
+                        <?php for ($i = 1; $i < count($bancas); $i++) { ?>
+                            <article id="banca<?= $bancas[$i]->id ?>">
+                                <h3>Banca: <?= $bancas[$i]->nome ?></h3>
+                                <p>Dono da banca: <?= $bancas[$i]->dono ?>, Horario:<?= $bancas[$i]->horario ?></p>
+                                <p>Endereço: <a href="#mapa" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);"><?= $bancas[$i]->logradouro . " " . $bancas[$i]->bairro . " " . $bancas[$i]->cidade . " " . $bancas[$i]->uf ?></a></p>
+                            </article>
+                            <button class="Direita" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);">Ver no mapa</button>
+                            <p>Descrição:</p>
+                            <div style="border: solid 1px black;margin-top: 20px;">
+                                <?= BBcode($bancas[$i]->descrisao) ?>
+                            </div>
+                        <?php } ?>
                     </section>
                 </div>
             </div>
@@ -110,6 +115,13 @@
         <script>
             $(function () {
                 $("#main").slideUp(1).slideDown(2500);
+                var $doc = $('html, body');
+                $('a').click(function () {
+                    $doc.animate({
+                        scrollTop: $($.attr(this, 'href')).offset().top
+                    }, 500);
+                    return false;
+                });
             });
         </script>
     </body>

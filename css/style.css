@@ -101,9 +101,12 @@ a{
 .arredonda{
     border-radius: 7px;
 }
-a:hover{
+.hidden{
+    display:none;
+}
+a:hover,:focus{
     color: #006D5C;
 }
-.btn:hover{
+.btn:hover:focus{
     color: black;
 }

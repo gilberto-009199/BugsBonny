@@ -4,7 +4,8 @@
  * 
 */
 function BBcode($textoBBcode){
-   $a = array(
+   $textoBBcode = htmlentities($textoBBcode);
+    $a = array(
       "/\[i\](.*?)\[\/i\]/is",//italico
       "/\[b\](.*?)\[\/b\]/is",//negrito
       "/\[u\](.*?)\[\/u\]/is",//sublinhado
@@ -14,6 +15,7 @@ function BBcode($textoBBcode){
       "/\[color=(.*?)\](.*?)\[\/color\]/is",// coloca cor
       //Criando BBCode proprio
       "/\[titulo\](.*?)\[\/titulo\]/is",//titulo
+      "/\[justificado\](.*?)\[\/justificado\]/is",
       //BBCode criado para o site
       "/\[livro\]\[nome\](.*?)\[\/nome\]\[capa\](.*?)\[\/capa\]\[\/livro\]/is"//Item Livro bbcode
    );
@@ -26,13 +28,14 @@ function BBcode($textoBBcode){
       "<p style='text-align: center;'>$1</p>",
       "<span style='color:$1;'>$2</span>",
       "<h3>$1</h3>",
+      "<p style='text-align: justify;'>$1</p>",
       "<div style='border:solid 1px; width:110px; min-height:110px; padding:0;'><h4 style='margin-top:0; width:100%; background-color:black; color:white;'>$1</h4><img style='display: block; margin-left: auto; margin-right: auto;' src='$2'></div>"//Item Livro html 
    );
    $textoBBcode = preg_replace($a, $b, $textoBBcode);
    $textoBBcode = nl2br($textoBBcode);
    return $textoBBcode;
 } 
-$texto = "[i]italico[/i]".
+/*$texto = "[i]italico[/i]".
          "[b]negrito[/b]".
          "[u]sublinhado[/u]".
          "[img]/img/logo.png[/img]".
@@ -41,15 +44,5 @@ $texto = "[i]italico[/i]".
          "[color=green]verde[/color]". 
          "[titulo]titulo[/titulo]".
          "[livro][nome]O Peregrino[/nome][capa]/img/logo.png[/capa][/livro]";
-?>
-
-<?=BBcode($texto)?>
-
-<style>
-    p{
-        
-        font-weight: bold;
-    }
-    
-    
-</style>
+*/
+ ?>
