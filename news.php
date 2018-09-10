@@ -1,3 +1,10 @@
+<?php
+/**
+* @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
+* @version 1.0 
+* @copyright  unlicense <http://unlicense.org/>
+*/ 
+?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
     <head>

@@ -1,4 +1,9 @@
 <?php
+/**
+* @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
+* @version 1.0 
+* @copyright  unlicense <http://unlicense.org/>
+*/ 
 
 function conect() {
     $hostname = "127.0.0.1";

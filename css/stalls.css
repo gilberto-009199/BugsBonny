@@ -28,6 +28,16 @@ div[data-style="DescricaoBancas"]{
     margin-top: 20px;
     padding-bottom: 30px;
 }
+div[data-style="DescricaoBancas"] h3,h4,h5{
+    margin-left: 0px;
+    background-color: black;
+    color:white;
+}
+div[data-style="DescricaoBancas"] p{
+    padding-left: 15px;
+    padding-right: 20px;
+    margin-top: 9px;
+}
 #main{
     margin-top:30px;
     background-color:white;

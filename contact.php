@@ -1,5 +1,12 @@
 <?php require_once './cdn/resorces.php'; ?>
 <?php
+/**
+* @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
+* @version 1.0 
+* @copyright  unlicense <http://unlicense.org/>
+*/ 
+?>
+<?php
 try {
     if (isset($_GET['btnEnviar'])) {// Verifica se o formulario foi submetido
         $nome = strip_tags($_GET['txtNome']);

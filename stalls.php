@@ -1,11 +1,18 @@
 <?php require_once './cdn/resorces.php'; ?>
 <?php require_once './libs/libsphp/BBcode/bbcode.php'; ?>
 <?php
+/**
+* @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
+* @version 1.0 
+* @copyright  unlicense <http://unlicense.org/>
+*/ 
+?>
+<?php
 try {
 
     $bancas = getBancas(conect());
 } catch (Exception $e) {
-    
+    $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
@@ -95,7 +102,7 @@ try {
                         <h2>Bancas:</h2>
                         <?php for ($i = 1; $i < count($bancas); $i++) { ?>
                             <article id="banca<?= $bancas[$i]->id ?>">
-                                <h3>Banca: <?= $bancas[$i]->nome ?></h3>
+                                <h2>Banca: <?= $bancas[$i]->nome ?></h2>
                                 <p>Dono da banca: <?= $bancas[$i]->dono ?>, Horario:<?= $bancas[$i]->horario ?></p>
                                 <p>Endereço: <a href="#mapa" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);"><?= $bancas[$i]->logradouro . " " . $bancas[$i]->bairro . " " . $bancas[$i]->cidade . " " . $bancas[$i]->uf ?></a></p>
                             </article>
@@ -112,6 +119,11 @@ try {
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
+        <?php
+        if (isset($msgAlertaErro)) {
+            include './elements/Alerta.php';
+        }
+        ?>
         <script>
             $(function () {
                 $("#main").slideUp(1).slideDown(2500);
