@@ -49,11 +49,20 @@ try {
             if (gravarPedido($frmChamado)) {
                 // area para importar o dialog de success
                 $msgAlertaSucess = "<p>Sucesso!! Ticket inserido com sucesso.</p>";
-            } else {
+                //Limpando espacos de memoria não mais necessarios
+                unset($nome);
+                unset($email);
+                unset($celular);
+                unset($critica);
+                unset($website);
+                unset($facebook);
+                unset($produto);
+                unset($telefone);
+            }else{
                 //area para importar o dialog de falha ao gravar no banco
                 $msgAlertaErro = "Erro ao gravar Tickets!Por favor verifique se nenhum campo teve OverFlouw(estourou)";
             }
-        } else {
+        }else{
             //area para importar o dialog de falha ao gerar o formulario
             $msgAlertaErro = "Erro ao gerar Ticket!Por favor verifique se o dados estão corretos!";
         }
