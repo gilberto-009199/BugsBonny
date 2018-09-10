@@ -74,7 +74,7 @@ try {
             <a href="#banca3" onclick="map.setView([-23.512052, -46.881924], 14);">banca 3</a>-->
             <div class="row">
                 <div class="cold3 arredonda" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
-                    <?php for ($i = 0; $i < count($bancas); $i++) { ?>
+                    <?php for ($i = 1; $i < count($bancas); $i++) { ?>
                         <span class="ItemMenuBanca" role="menuitem"><a href="#banca<?= $bancas[$i]->id ?>"><?= $bancas[$i]->nome ?></a></span>
                     <?php } ?>
                     <!--<span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
