@@ -19,13 +19,23 @@ div[data-style="CaixaBancas"]{
     background: linear-gradient(197deg, rgba(255,255,255,1) 25%, rgba(228,228,246,1) 68%);
     height:490px;
 }
+div[data-style="CaixaBancasSelect"]{
+    background: linear-gradient(141deg, rgba(255,255,255,1) 90%, rgba(0,0,255,1) 93%); 
+    height:500px;
+}
+div[data-style="DescricaoBancas"]{
+    border: solid 1px black;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
 #main{
     margin-top:30px;
     background-color:white;
     width:100%;
     text-align:center;
     min-height:400px;
-    padding-bottom: 32px;
+    height: auto;
+    padding-bottom: 62px;
 }
 .ItemMenuBanca{
     background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);

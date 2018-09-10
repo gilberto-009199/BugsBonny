@@ -98,6 +98,9 @@ a{
 .Direita{
     float:right;
 }
+.Esquerda{
+    float:left;
+}
 .arredonda{
     border-radius: 7px;
 }

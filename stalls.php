@@ -90,7 +90,7 @@ try {
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Chácaras Marco</span>
                     <span class="ItemMenuBanca" role="menuitem"> Banca de Monte Castelo Centro</span>-->
                 </div>
-                <div class="cold8 arredonda" style="background: linear-gradient(141deg, rgba(255,255,255,1) 90%, rgba(0,0,255,1) 93%); height:500px;">
+                <div class="cold8 arredonda" data-style="CaixaBancasSelect">
                     <section>
                         <h2>Bancas:</h2>
                         <?php for ($i = 1; $i < count($bancas); $i++) { ?>
@@ -101,7 +101,7 @@ try {
                             </article>
                             <button class="Direita" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);">Ver no mapa</button>
                             <p>Descrição:</p>
-                            <div style="border: solid 1px black;margin-top: 20px;">
+                            <div data-style="DescricaoBancas">
                                 <?= BBcode($bancas[$i]->descrisao) ?>
                             </div>
                         <?php } ?>

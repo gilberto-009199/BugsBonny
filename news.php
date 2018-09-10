@@ -41,22 +41,22 @@
                 <div class="row" data-style="BarraPesquisa">
                     <div class="cold3" style="float: left;">
                         <nav data-style="MenuPesquisa">
-                            <i class="fas fa-align-justify" style="border-radius: 14px; font-size: 28px; margin-top: 8px; margin-left:20px; padding: 4px; background-color: white;"></i>
+                            <i class="fas fa-align-justify" data-style="IconMenu"></i>
                             <div data-style="SubMenu">
-                                <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" style="margin-right: 4px;"></i>Política</div>
-                                <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" style="margin-right: 4px;"></i>Economia</div>
-                                <div class="ItemMenuPesquisa"><i class="fas fa-globe" style="margin-right: 4px;"></i>Internacional</div>
-                                <div class="ItemMenuPesquisa"><i class="fas fa-cogs" style="margin-right: 4px;"></i>Tecnologia</div>
-                                <div class="ItemMenuPesquisa"><i class="fas fa-dove" style="margin-right: 4px;"></i>Segurança</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" data-style="margenIcone"></i>Política</div>
+                                <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" data-style="margenIcone" ></i>Economia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-globe" data-style="margenIcone"></i>Internacional</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-cogs" data-style="margenIcone"></i>Tecnologia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-dove" data-style="margenIcone"></i>Segurança</div>
                             </div>
                         </nav>
                     </div>
                     <div data-style="CaixaPesquisa">
-                        <div class="cold8" style="float: right;">
+                        <div class="cold8 Direita">
                             <div class="row">
-                                <div class="cold7" style="float:right;">
+                                <div class="cold7 Direita">
                                     <div class="row">
-                                        <form role="search" style="float: right;">
+                                        <form role="search" class="Direita">
                                             <div class="cold6">
                                                 <div class="row">
                                                     <i class="fas fa-search"><label for="txtPesquisa">Pesquisar</label></i>
@@ -76,7 +76,7 @@
                     </div>                    
                 </div>
                 <div class="row">
-                    <div class="cold6" style="float:left;">
+                    <div class="cold6 Esquerda">
                         <link rel="stylesheet" href="libs/Blink-Slider/blink.css">
                         <div id="CaixaSlider" style="margin-left: 21px;">
                             <section class="blink-slider">            

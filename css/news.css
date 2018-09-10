@@ -55,6 +55,17 @@ div[data-style="CaixaPesquisa"]{
 nav[data-style="MenuPesquisa"] div[data-style="SubMenu"]{
     display:none;
 }
+i[data-style="IconMenu"]{
+    border-radius: 14px;
+    font-size: 28px;
+    margin-top: 8px;
+    margin-left:20px; 
+    padding: 4px;
+    background-color: white;
+}
+i[data-style="margenIcone"]{
+    margin-right: 4px;
+}
 #prev{
     position: absolute;
     z-index: 990;

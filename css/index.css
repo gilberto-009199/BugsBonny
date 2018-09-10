@@ -51,7 +51,7 @@ div[data-style="ProductBox"]{
     opacity: 1;
 }
 #prev ,#next{
-    height: 51px;
+    height: 47px;
     font-size: 43px;
     z-index: 7;
     position: relative;
@@ -61,7 +61,7 @@ div[data-style="ProductBox"]{
     color: black;
     border: 0;
     opacity: 0.7;
-    border-radius: 42px;
+    border-radius: 47px;
 }
 #prev{
     float: left;

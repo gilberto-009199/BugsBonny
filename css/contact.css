@@ -11,6 +11,14 @@ div[role="banner"]{
     background: rgb(104,110,110);
     background: linear-gradient(265deg, rgba(104,110,110,1) 38%, rgba(74,88,88,1) 67%);
 }
+#tipoFrm{
+    margin-left: 516px;
+    position: absolute;
+    font-size: 18px; 
+    border-bottom: solid 1px;
+    width: 212px; 
+    text-align: center;
+}
 div[role="banner"] canvas{
     display:block;
     max-width: 1000px;

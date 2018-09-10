@@ -71,7 +71,9 @@ div[data-style="CaixaPesquisa"]{
     width: 1000px;
     height: auto;
 }
-
+i[data-style="margenIcone"]{
+    margin-right: 4px;
+}
 nav[data-style="MenuPesquisa"]{
     border-radius: 14px;
     width: 26px;

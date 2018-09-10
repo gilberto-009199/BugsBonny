@@ -136,7 +136,7 @@ try {
                         <div aria-hidden="true" id="infofrm" class="hidden">
                             formulario de contato, formulario para designado para Consulta
                         </div>
-                        <div aria-live="polite" aria-relevant="all" id="tipoFrm" style="margin-left: 516px;  position: absolute; font-size: 18px; border-bottom: solid 1px; width: 212px; text-align: center;" >Consulta</div>
+                        <div aria-live="polite" aria-relevant="all" id="tipoFrm">Consulta</div>
                         <table>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
