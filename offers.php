@@ -160,7 +160,7 @@
                     <span class="ItemMenuProduto">Revista Courrier Internacional</span>
                     <span class="ItemMenuProduto">Revista Veja</span>
                 </div>
-                <div class="cold7" class="arredonda" data-style="PainelProdutos">
+                <div class="cold7 arredonda" data-style="PainelProdutos">
                     <div class="Produto">
                         <div class="Titulo">Titulo</div>
                         <div class="Imagem">
