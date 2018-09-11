@@ -9,7 +9,7 @@ $idAlerta = (int) rand(1000,100000);
     </script>
     <div class="AlertTitulo">Atenção</div>
     <div class="Alertcontent">
-        <p> Sucesso:</p>
+        <p>Sucesso :</p>
         <?php
         if (isset($msgAlertaSucess)) {
             echo $msgAlertaSucess;

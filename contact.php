@@ -5,8 +5,7 @@
 * @version 1.0 
 * @copyright  unlicense <http://unlicense.org/>
 */ 
-?>
-<?php
+
 try {
     if (isset($_GET['btnEnviar'])) {// Verifica se o formulario foi submetido
         $nome = strip_tags($_GET['txtNome']);
@@ -302,7 +301,12 @@ try {
                 $("#tipoFrm").html($(this).text());
                 $("#infofrm").html("formulario de contato, formulario para designado para "+$(this).text());
             });
-
+            $(".ItemTicketDialog").click(function () {
+                $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
+                $("#tipoFrm").html($(this).text());
+                $("#infofrm").html("formulario de contato, formulario para designado para "+$(this).text());
+                alert('Formulario foi designado para '+$(this).text());
+            });
         </script>
     </body>
 </html>

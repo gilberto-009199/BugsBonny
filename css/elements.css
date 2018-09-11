@@ -114,12 +114,54 @@ article .CaixaTexto{
     z-index: 999;
     background-color: white;
 }
+.ConfirmDiolog{
+    width: 256px;
+    min-height: 135px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px black;
+    border-radius: 10px;
+    padding-bottom: 4px;   
+}
+.ConfirmDiolog .titulo{
+    background-color: black;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: white;
+    text-align: center;
+}
+.ConfirmDiolog .msg{
+    padding: 4px;
+}
+.ConfirmDiolog .btnConfirm{
+    color: #fff;
+    background-color: #28a745;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    border: none;
+    height: 32px;
+    width: 64px;
+    margin: 4px;
+}
+.ConfirmDiolog .btnRevoke{
+    background-color: #d9534f;
+    border: none;
+    height: 32px;
+    width: 64px;
+    margin: 4px;
+    color: #fff;
+}
+.ConfirmDiolog .btnConfirm,.btnRevoke{
+    margin-top:32px;
+}
 .Alert .AlertTitulo{
     min-width: 100%;
     max-width: 100%;
     background-color: black;
     color:white;
     padding-top: 2px;
+    font-size: 19px;
     text-align-last: center;
 }
 .Alert .Alertcontent{
@@ -132,21 +174,21 @@ article .CaixaTexto{
     box-shadow: -9px 0px 26px #000;
 }
 .DialogoEscolha .ItemTicketDialog{
-     height: 22px;
-     min-width: 32px;
-     border-radius: 10px;
-     background: rgb(207,207,207);
-     background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
-     display: inline-block;
-     padding: 3px;
-     padding-right: 4px;
-     padding-left: 4px;
-     padding-top: 10px;
-     color: black;
-     font-weight: bolder;
-     border: solid 2px #D2D2D2;
+    height: 22px;
+    min-width: 32px;
+    border-radius: 10px;
+    background: rgb(207,207,207);
+    background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
+    display: inline-block;
+    padding: 3px;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 10px;
+    color: black;
+    font-weight: bolder;
+    border: solid 2px #D2D2D2;
 }
-.ItemTicketDialog:hover,:focus{
+.DialogoEscolha .ItemTicketDialog:hover,:focus{
     color: #006D5C;
     background: rgb(207,207,207);
     background: linear-gradient(0deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
