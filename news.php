@@ -121,11 +121,11 @@
                     </div>
                     <div class="cold4" data-style="CaixaTopicos">
                         <section>
-                            <h1> Ultimos topicos!</h1>
-                            <p><i class="fas fa-balance-scale"></i>Lula perde jugamento</p>
+                            <h1> Últimos tópicos!</h1>
+                            <p><i class="fas fa-balance-scale"></i>Lula perde julgamento</p>
                             <p><i class="fas fa-balance-scale"></i>Bolsonaro perde para Ciro Gomes</p>
-                            <p><i class="far fa-money-bill-alt"></i>Banco Central declara falencia!!</p>
-                            <p><i class="far fa-money-bill-alt"></i>Numero de Desenpregados sobe para 19 milhões</p>
+                            <p><i class="far fa-money-bill-alt"></i>Banco Central declara falência!!</p>
+                            <p><i class="far fa-money-bill-alt"></i>Numero de Desempregados sobe para 19 milhões</p>
                             <p><i class="fas fa-balance-scale"></i>Donald Tramp é morto por milicia norte-coreana</p>
                             <p><i class="fas fa-balance-scale"></i>Ditador Chichaum e morto por ministro das armas</p>
                         </section>
@@ -152,7 +152,7 @@
                     <div class="CaixaTexto"> 
                         <p>Se o ritmo atual de crescimento da obesidade no Brasil for mantido, o país poderá apresentar em 2020 uma tendência de prevalência semelhante à dos Estados Unidos e do México, com excesso de peso em 35% da população.</p>
                         <p>A avaliação foi feita por pesquisadores participantes do evento com o tema “Obesidade” no Ciclo de Palestras ILP-FAPESP, realizado no dia 20 de agosto na Assembleia Legislativa do Estado de São Paulo (Alesp).</p>
-                        <p>A prevalência de obesidade no Brasil se intensificou a partir dos anos 2000 e mudanças no padrão alimentar da população contribuem para a escalada do problema. Nas últimas décadas, o brasileiro passou a substituir alimentos tradicionais, como arroz, feijão e salada, por preparações ultraprocessadas.</p>
+                        <p>A prevalência de obesidade no Brasil se intensificou a partir dos anos 2000 e mudanças no padrão alimentar da população contribuem para a escalada do problema. Nas últimas décadas, o brasileiro passou a substituir alimentos tradicionais, como arroz, feijão e salada, por preparações multiprocessadas.</p>
                         <p>“Houve uma intensificação de um ambiente alimentar obesogênico [que causa obesidade] que influenciou o estilo de vida e contribuiu para o aumento do problema no país”, disse Patricia Constante Jaime, professora do Departamento de Nutrição da Faculdade de Saúde Pública da Universidade de São Paulo (FSP-USP).</p>
                         <p>De acordo com a mais recente Pesquisa Nacional de Saúde publicada pelo Instituto Brasileiro de Geografia e Estatística (IBGE), 20,8% da população adulta brasileira – 26 milhões de pessoas – está obesa. A prevalência desse problema de saúde tem sido registrada em todas as faixas etárias e níveis de renda e em maior proporção em mulheres do que homens.</p>
                     </div>
