@@ -1,11 +1,10 @@
 <?php require_once './cdn/resorces.php'; ?>
 <?php
 /**
-* @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
-* @version 1.0 
-* @copyright  unlicense <http://unlicense.org/>
-*/ 
-
+ * @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
+ * @version 1.0 
+ * @copyright  unlicense <http://unlicense.org/>
+ */
 try {
     if (isset($_GET['btnEnviar'])) {// Verifica se o formulario foi submetido
         $nome = strip_tags($_GET['txtNome']);
@@ -57,25 +56,25 @@ try {
                 unset($facebook);
                 unset($produto);
                 unset($telefone);
-            }else{
+            } else {
                 //area para importar o dialog de falha ao gravar no banco
                 $msgAlertaErro = "Erro ao gravar Tickets!Por favor verifique se nenhum campo teve OverFlouw(estourou)";
             }
-        }else{
+        } else {
             //area para importar o dialog de falha ao gerar o formulario
             $msgAlertaErro = "Erro ao gerar Ticket!Por favor verifique se o dados estão corretos!";
         }
-    }else{
-        $msgAlertaSucess="<div class='DialogoEscolha'><h3>Por favor, escolha o tipo de consulta</h3>";
+    } else {
+        $msgAlertaSucess = "<div class='DialogoEscolha'><h3>Por favor, escolha o tipo de consulta</h3>";
         $ListaTickets = getTickets(conect());
 
         for ($i = 1; $i < count($ListaTickets); $i++) {
-                $ListaId=$ListaTickets[$i]->id;
-                $ListaTipo=$ListaTickets[$i]->tipo;
-                $msgAlertaSucess.="<div class='ItemTicketDialog' data-tipo-id='$ListaId'> $ListaTipo</div>";
+            $ListaId = $ListaTickets[$i]->id;
+            $ListaTipo = $ListaTickets[$i]->tipo;
+            $msgAlertaSucess .= "<div class='ItemTicketDialog' data-tipo-id='$ListaId'> $ListaTipo</div>";
         }
-       $msgAlertaSucess.="</div>";
-       /*echo($msgAlertaSucess);*/
+        $msgAlertaSucess .= "</div>";
+        /* echo($msgAlertaSucess); */
     }
 } catch (Exception $e) {
     //area para importar o dialog de falha
@@ -90,38 +89,37 @@ try {
         <meta name="description" content="Pagina contendo as informações para contato com a BugBunny empresa">
         <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
-        <link rel="stylesheet" href="./css/elements.css">
         <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
         <script src="./libs/jqueryMask/jquery.mask.js"></script>
     </head>
     <body>
-    <style>
-        .DialogoEscolha .ItemTicketDialog{
-     height: 22px;
-     min-width: 32px;
-     border-radius: 10px;
-     background: rgb(207,207,207);
-     background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
-     display: inline-block;
-     margin:2px;
-     margin-bottom:4px;
-     padding: 3px;
-     padding-right: 4px;
-     padding-left: 4px;
-     padding-top: 10px;
-     color: black;
-     font-weight: bolder;
-     border: solid 2px #D2D2D2;
-}
-.ItemTicketDialog:hover,:focus{
-    color: #006D5C;
-    background: rgb(207,207,207);
-    background: linear-gradient(0deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
-}
+        <style>
+            .DialogoEscolha .ItemTicketDialog{
+                height: 22px;
+                min-width: 32px;
+                border-radius: 10px;
+                background: rgb(207,207,207);
+                background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
+                display: inline-block;
+                margin:2px;
+                margin-bottom:4px;
+                padding: 3px;
+                padding-right: 4px;
+                padding-left: 4px;
+                padding-top: 10px;
+                color: black;
+                font-weight: bolder;
+                border: solid 2px #D2D2D2;
+            }
+            .ItemTicketDialog:hover,:focus{
+                color: #006D5C;
+                background: rgb(207,207,207);
+                background: linear-gradient(0deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
+            }
 
 
-    </style>
+        </style>
         <header>
             <div class="ItemCaixaHeader">
                 <nav aria-label="main navigation">
@@ -193,27 +191,27 @@ try {
                         <table>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
-                                <td> <input id="txtNome" maxlength="100" type="text" pattern="[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*" name="txtNome" value="<?=@$nome?>" required/> </td>
+                                <td> <input id="txtNome" maxlength="100" type="text" pattern="[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*" name="txtNome" value="<?= @$nome ?>" required/> </td>
                             </tr>
                             <tr>
                                 <td><label  for="txtTelefone">Telefone:</label></td>
-                                <td> <input id="txtTelefone" maxlength="13" placeholder="(11)2930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$" type="text" name="txtTelefone" value="<?=@$telefone?>" /> </td>
+                                <td> <input id="txtTelefone" maxlength="13" placeholder="(11)2930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$" type="text" name="txtTelefone" value="<?= @$telefone ?>" /> </td>
                             </tr>
                             <tr>
                                 <td> <label class="Obrigatorio" for="txtCelular"> Celular:*</label> </td>
-                                <td> <input id="txtCelular" maxlength="14" placeholder="(11)92930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="<?=@$celular?>" required/> </td>
+                                <td> <input id="txtCelular" maxlength="14" placeholder="(11)92930-9683" pattern="^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$" type="text" name="txtCelular" value="<?= @$celular ?>" required/> </td>
                             </tr>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
-                                <td> <input id="txtEmail" maxlength="100" type="email" name="txtEmail" value="<?=@$email?>" required/> </td>
+                                <td> <input id="txtEmail" maxlength="100" type="email" name="txtEmail" value="<?= @$email ?>" required/> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtHomePage">Home Page:</label></td>
-                                <td> <input id="txtHomePage" maxlength="100" type="url" name="txtHomePage" value="<?=@$website?>" /> </td>
+                                <td> <input id="txtHomePage" maxlength="100" type="url" name="txtHomePage" value="<?= @$website ?>" /> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtFcebook"> Link no Facebook:</label></td>
-                                <td> <input id="txtFcebook" maxlength="100" pattern="^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$" type="text" name="txtFacebook" value="<?=@$facebook?>" /> </td>
+                                <td> <input id="txtFcebook" maxlength="100" pattern="^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$" type="text" name="txtFacebook" value="<?= @$facebook ?>" /> </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -223,7 +221,7 @@ try {
                                         </tr>
                                         <tr>
                                             <td> 
-                                                <textarea id="areaCritica" name="ariaCritica" rows="6" ><?=@$critica?></textarea>
+                                                <textarea id="areaCritica" name="ariaCritica" rows="6" ><?= @$critica ?></textarea>
                                             </td>
                                         </tr>
                                     </table>
@@ -231,7 +229,7 @@ try {
                             </tr>
                             <tr>
                                 <td><label for="txtProduto">Informações de Produto </label></td>
-                                <td> <input id="txtProduto" type="text" name="txtProduto" value="<?=@$produto?>" /> </td>
+                                <td> <input id="txtProduto" type="text" name="txtProduto" value="<?= @$produto ?>" /> </td>
                             </tr>
                             <tr>
                                 <td><label class="Obrigatorio" for="slcSexo">Sexo:*</label></td>
@@ -261,7 +259,7 @@ try {
                                 <td colspan="2">
                                     <input class="hidden" type="text" aria-hidden="true" id="txtTipoForm" name="txtTipo" value="1">
                                     <button class="btn" id="btnSubmit" name="btnEnviar" type="submit"><i class="far fa-share-square"></i> Enviar</button>
-                                    
+
                                 </td>
                             </tr>
                         </table>
@@ -276,7 +274,7 @@ try {
                     $ListaTickets = getTickets(conect());
                     for ($i = 1; $i < count($ListaTickets); $i++) {
                         ?>
-                    <span class="ItemTicket" tabindex="0" data-tipo-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
+                        <span class="ItemTicket" tabindex="0" data-tipo-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>
                     <?php } ?>
                 </div>
             </div>            
@@ -299,13 +297,30 @@ try {
             $(".ItemTicket").click(function () {
                 $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
                 $("#tipoFrm").html($(this).text());
-                $("#infofrm").html("formulario de contato, formulario para designado para "+$(this).text());
+                $("#infofrm").html("formulario de contato, formulario para designado para " + $(this).text());
             });
             $(".ItemTicketDialog").click(function () {
-                $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
-                $("#tipoFrm").html($(this).text());
-                $("#infofrm").html("formulario de contato, formulario para designado para "+$(this).text());
-                alert('Formulario foi designado para '+$(this).text());
+                DialogoConfirmacao=null;
+                $(".ConfirmDiolog").remove();//destruindo o dialogo anterior
+                var tipoFormulario = ' '+$(this).text()
+                var IdTipoFormulario = $(this).attr('data-Tipo-id');
+                var success = function(){
+                    $("#txtTipoForm").attr("value", IdTipoFormulario);
+                    $("#tipoFrm").html(tipoFormulario);
+                    $("#infofrm").html("formulario de contato, formulario para designado para " + tipoFormulario);
+                    $(".ConfirmDiolog").remove();//destruindo o dialogo atual pois ele já foi completado
+                    $(".Alert").remove();
+                }
+                var error = function(){
+                    $("#txtTipoForm").attr("value", '1');
+                    $("#tipoFrm").html("Consulta");
+                    $("#infofrm").html("formulario de contato, formulario para designado para Consulta");
+                    alert('Por favor! Escolha uma opção!');
+                    $(".ConfirmDiolog").remove();//destruindo o dialogo atual pois ele já foi cancelado
+                }
+                var msgDialog ="Você selecionou:<span style='color:#690; font-size:16px;'>"+$(this).text()+"</span>";
+                var DialogoConfirmacao =  new DialogConfirm(success, error);
+                DialogoConfirmacao.view(msgDialog,'Confirme a Opção: ');
             });
         </script>
     </body>

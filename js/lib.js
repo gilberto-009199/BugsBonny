@@ -7,19 +7,21 @@ function include(file) {
 }
 function DialogConfirm(success, error) {
     this.success = success;
-    this.error = error;
-    this.view = function () {
+    this.error = error; // Envia a frase padrão caso uma menssagem não seja passada por parametro
+    this.view = function (msg ='A informação confere?',titulo='Confirma') {
         var janela = document.createElement("div");
         //janela.style="position:fixed; height:100px; width:100px; display:block; background-color:black;";
         document.body.appendChild(janela);
-        $(janela).load('../elements/ConfirmDiolog.php', function (responseText, statusText, xhr)
+        $(janela).load('../elements/ConfirmDiolog.php', function (sresponseText, statusText, xhr)
         {//função de retorno função callback ocorre quando acaba dando erro ou dando certo
             if (statusText == "success") {
                 $('#btnConfirm').click(success);
                 $('#btnRevoke').click(error);
+                $('#msgDiolog').html(' '+msg+' ');
+                $('#titulo').html(' '+titulo+' ');
             }
             if (statusText == "error") {
-                alert("An error occurred: " + xhr.status + " - " + xhr.statusText);
+                alert("ATenção um erro Ocorreu: " + xhr.status + " - " + xhr.statusText);
             }
         });
 
