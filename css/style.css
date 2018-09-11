@@ -110,6 +110,6 @@ a{
 a:hover,:focus{
     color: #006D5C;
 }
-.btn:hover:focus{
+.btn:hover,:focus{
     color: black;
 }

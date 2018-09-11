@@ -106,7 +106,7 @@ try {
                                 <p>Dono da banca: <?= $bancas[$i]->dono ?>, Horario:<?= $bancas[$i]->horario ?></p>
                                 <p>Endereço: <a href="#mapa" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);"><?= $bancas[$i]->logradouro . " " . $bancas[$i]->bairro . " " . $bancas[$i]->cidade . " " . $bancas[$i]->uf ?></a></p>
                             </article>
-                            <button class="Direita" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);">Ver no mapa</button>
+                            <button class="btn Direita" style="padding-left:2px; padding-right:2px;" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);">Ver no mapa</button>
                             <p>Descrição:</p>
                             <div data-style="DescricaoBancas">
                                 <?= BBcode($bancas[$i]->descrisao) ?>
