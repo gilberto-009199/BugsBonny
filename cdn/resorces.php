@@ -6,6 +6,7 @@
 */ 
 
 function conect() {
+    /* Função responsavel por fornecer a conecxão com o banco de dados  */
     $hostname = "127.0.0.1";
     $user = "userbugbunny";
     $password = "abracadabra127";
@@ -18,6 +19,7 @@ function conect() {
 }
 
 function getProfissoes($conexao) {
+    /* Função responsavel por fornecer uma array contendo as profissoes existentes no banco de dados*/
     $Profissoes [] = array();
     $sqlQuery = "SELECT * FROM tbl_profissao order by profissao asc;";
     $query = mysqli_query($conexao, $sqlQuery);

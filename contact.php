@@ -66,6 +66,17 @@ try {
             //area para importar o dialog de falha ao gerar o formulario
             $msgAlertaErro = "Erro ao gerar Ticket!Por favor verifique se o dados estão corretos!";
         }
+    }else{
+        $msgAlertaSucess="<div class='DialogoEscolha'><h3>Por favor, escolha o tipo de consulta</h3>";
+        $ListaTickets = getTickets(conect());
+
+        for ($i = 1; $i < count($ListaTickets); $i++) {
+                $ListaId=$ListaTickets[$i]->id;
+                $ListaTipo=$ListaTickets[$i]->tipo;
+                $msgAlertaSucess.="<div class='ItemTicketDialog' data-tipo-id='$ListaId'> $ListaTipo</div>";
+        }
+       $msgAlertaSucess.="</div>";
+       /*echo($msgAlertaSucess);*/
     }
 } catch (Exception $e) {
     //area para importar o dialog de falha
@@ -80,11 +91,38 @@ try {
         <meta name="description" content="Pagina contendo as informações para contato com a BugBunny empresa">
         <meta name="abstract" content="Contatos da BugBunny">
         <meta	name="revisit-after" content="6 month">
+        <link rel="stylesheet" href="./css/elements.css">
         <link rel="stylesheet" href="./fonts/awesome/all.css">
         <?php include_once './head.php'; ?>
         <script src="./libs/jqueryMask/jquery.mask.js"></script>
     </head>
     <body>
+    <style>
+        .DialogoEscolha .ItemTicketDialog{
+     height: 22px;
+     min-width: 32px;
+     border-radius: 10px;
+     background: rgb(207,207,207);
+     background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
+     display: inline-block;
+     margin:2px;
+     margin-bottom:4px;
+     padding: 3px;
+     padding-right: 4px;
+     padding-left: 4px;
+     padding-top: 10px;
+     color: black;
+     font-weight: bolder;
+     border: solid 2px #D2D2D2;
+}
+.ItemTicketDialog:hover,:focus{
+    color: #006D5C;
+    background: rgb(207,207,207);
+    background: linear-gradient(0deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
+}
+
+
+    </style>
         <header>
             <div class="ItemCaixaHeader">
                 <nav aria-label="main navigation">

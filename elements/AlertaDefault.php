@@ -18,6 +18,6 @@ $idAlerta = (int) rand(1000,100000);
         }
         ?>
         <p></p>
-        <button onclick="FechaJanela('<?= $idAlerta ?>')">Fechar</button>
+        <button class="Direita" style="height:32px; margin:8px; margin-right:16px;" onclick="FechaJanela('<?= $idAlerta ?>')">Fechar</button>
     </div>
 </div>
