@@ -113,13 +113,23 @@ div[role="banner"]{
 #main{
     min-height: 464px;
     height: auto;
+    overflow: hidden;
     width: 100%;
     margin-bottom: 2px;
     border-bottom: solid 2px black;
     background: rgb(255,255,255);
     background: linear-gradient(135deg, rgba(255,255,255,1) 73%, rgba(0,198,236,1) 77%);
 }
+footer{
+    overflow: hidden;
+}
 .ItemCaixaHeader nav .CaixaMenu .ItemMenu:hover{
   color:#006D5C;
   border-bottom: solid 1px;
+}
+footer:before{
+    content: url(../img/logos/senai.png);
+    float: left;
+    margin-right: 16px;
+    margin-top:2px;
 }

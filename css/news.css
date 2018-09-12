@@ -101,6 +101,13 @@ div[data-style="CaixaTopicos"]{
 div[data-style="CaixaTopicos"] i {
     margin-right: 4px;
 }
+.blink-slider:hover>#prev,:hover>#next{
+    opacity: 1.0;
+    background-color: black;
+    color:white;
+}
+
+
 .ItemMenuPesquisa:hover{
     color: #006D5C;
 }

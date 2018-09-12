@@ -45,6 +45,7 @@ div[data-style="DescricaoBancas"] p{
     text-align:center;
     min-height:400px;
     height: auto;
+    overflow: hidden;
     padding-bottom: 62px;
 }
 .ItemMenuBanca{
