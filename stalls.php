@@ -2,10 +2,10 @@
 <?php require_once './libs/libsphp/BBcode/bbcode.php'; ?>
 <?php
 /**
-* @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
-* @version 1.0 
-* @copyright  unlicense <http://unlicense.org/>
-*/ 
+ * @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
+ * @version 1.0 
+ * @copyright  unlicense <http://unlicense.org/>
+ */
 ?>
 <?php
 try {
@@ -60,7 +60,7 @@ try {
         <script src="./libs/leaflet/leaflet.js"></script>
         <script>
             //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
-            var map = L.map('mapa').setView([-23.531884, -46.792231], 13);
+            var map = L.map('mapa').setView([-23.53755, -46.802616], 13);
             //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
                     {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ',
@@ -68,34 +68,20 @@ try {
                         id: 'mapbox.streets-satellite', /* Passado como parametro ao mapbox.com  o tipo de mapa que nos queremos
                          https://www.mapbox.com/api-documentation/#maps   */
                         accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(map);
-            //L.marker([-23.512052, -46.881924]) adicionando um markert no mapa
+
+
 <?php for ($i = 1; $i < count($bancas); $i++) { ?>
-                var bancatmp<?= $i ?> = L.marker([<?= $bancas[$i]->location ?>]).addTo(map);
-                bancatmp<?= $i ?>.bindPopup("<?= "<h3>" . $bancas[$i]->nome . "</h3>" . $bancas[$i]->logradouro . " " . $bancas[$i]->bairro . " " . $bancas[$i]->cidade . " " . $bancas[$i]->uf ?>");
+                var bancatmp<?= $bancas[$i]->id ?> = L.marker([<?= $bancas[$i]->location ?>]).addTo(map);
+                bancatmp<?= $bancas[$i]->id ?>.bindPopup("<?= "<h3>" . $bancas[$i]->nome . "</h3>" . $bancas[$i]->logradouro . ", " . $bancas[$i]->bairro . ", " . $bancas[$i]->cidade . ", " . $bancas[$i]->uf ?>");
 <?php } ?>
         </script>
         <div id="main" role="main" class="arredonda">
-            <!--    Enviando o visor do mapa para uma posição especifica com 14 de zoom    -->
-            <!--<a href="#banca1" onclick="map.setView([-23.512839, -46.874156], 14);">banca 1</a>
-            <a href="#banca2" onclick="map.setView([-23.502056, -46.86523], 14);">banca 2</a>
-            <a href="#banca3" onclick="map.setView([-23.512052, -46.881924], 14);">banca 3</a>-->
             <div class="row">
                 <div class="cold3 arredonda" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
                     <?php for ($i = 1; $i < count($bancas); $i++) { ?>
                         <span class="ItemMenuBanca" role="menuitem"><a href="#banca<?= $bancas[$i]->id ?>"><?= $bancas[$i]->nome ?></a></span>
                     <?php } ?>
-                    <!--<span class="ItemMenuBanca" role="menuitem"> Banca de Santo Amaro</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Santana</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Aldeia</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Osasco Vila dos Remédios</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Osasco Centro</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de São Paulo Jd. Itaquerá</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de São Paulo Anhangüera</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de São Paulo Aclimação </span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Osaco Continental</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Alphaville Industrial</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Barueri Chácaras Marco</span>
-                    <span class="ItemMenuBanca" role="menuitem"> Banca de Monte Castelo Centro</span>-->
+
                 </div>
                 <div class="cold8 arredonda" data-style="CaixaBancasSelect">
                     <section>
@@ -106,7 +92,9 @@ try {
                                 <p>Dono da banca: <?= $bancas[$i]->dono ?>, Horario:<?= $bancas[$i]->horario ?></p>
                                 <p>Endereço: <a href="#mapa" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);"><?= $bancas[$i]->logradouro . " " . $bancas[$i]->bairro . " " . $bancas[$i]->cidade . " " . $bancas[$i]->uf ?></a></p>
                             </article>
-                            <button class="Direita" style="padding-left:5px; padding-right:5px;" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);">Ver no mapa</button>
+                            <button class="Direita" style="padding-left:5px; padding-right:5px;" onclick="map.setView([<?= $bancas[$i]->location ?>], 14);
+                                        location.href = '#mapa';
+                                        bancatmp<?= $bancas[$i]->id ?>.openPopup();">Ver no mapa</button>
                             <p>Descrição:</p>
                             <div data-style="DescricaoBancas">
                                 <?= BBcode($bancas[$i]->descrisao) ?>
@@ -134,6 +122,29 @@ try {
                     }, 500);
                     return false;
                 });
+                var GeoSuccess = function (position) {//fução obscura que executa após  usuario aceitar
+                    map.setView([position.coords.latitude, position.coords.longitude], 13);//seta a localização do usuario atual
+                    var IconLocation = L.icon({
+                        iconUrl: './img/assents/gps_icon.png',
+                        shadowUrl: '',
+
+                        iconSize: [26, 26], // size of the icon
+                        shadowSize: [0, 0], // size of the shadow
+                        iconAnchor: [32, 32], // point of the icon which will correspond to marker's location
+                        shadowAnchor: [0, 0], // the same for the shadow
+                        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                    });
+                    var markettmp = L.marker([position.coords.latitude, position.coords.longitude], {icon: IconLocation}).addTo(map);
+                    markettmp..bindPopup('Localização');
+                };
+                var GeoError = function (error) {//fução obscura que executa se o usuario rejeitar algun erro
+                    if (error.code == 0 && error.code == 2) {
+                        alert('Erro na ao capturar Localização!!');
+                    }
+                    map.setView([-23.53755, -46.802616], 13);//seta a localização padrão no mapa 
+                };
+                //passando as funções 
+                navigator.geolocation.getCurrentPosition(GeoSuccess, GeoError);
             });
         </script>
     </body>
