@@ -94,32 +94,6 @@ try {
         <script src="./libs/jqueryMask/jquery.mask.js"></script>
     </head>
     <body>
-        <style>
-            .DialogoEscolha .ItemTicketDialog{
-                height: 22px;
-                min-width: 32px;
-                border-radius: 10px;
-                background: rgb(207,207,207);
-                background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
-                display: inline-block;
-                margin:2px;
-                margin-bottom:4px;
-                padding: 3px;
-                padding-right: 4px;
-                padding-left: 4px;
-                padding-top: 10px;
-                color: black;
-                font-weight: bolder;
-                border: solid 2px #D2D2D2;
-            }
-            .ItemTicketDialog:hover,:focus{
-                color: #006D5C;
-                background: rgb(207,207,207);
-                background: linear-gradient(0deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
-            }
-
-
-        </style>
         <header>
             <div class="ItemCaixaHeader">
                 <nav aria-label="main navigation">
