@@ -260,6 +260,7 @@ try {
         }
         ?>
         <script>
+            $('.Alert').draggable();//tornando os alertas arrastaveis;
             $("#main").slideUp(1).slideDown(2500);
             jQuery("#txtTelefone").mask("(99)9999-9999");
             jQuery("#txtCelular").mask("(99)99999-9999");
@@ -273,7 +274,7 @@ try {
                 /* Define o formulario como sendo o tipo de ticket selecionado no Dialogo */
                 DialogoConfirmacao=null;
                 $(".ConfirmDialog").remove();//destruindo o dialogo anterior
-                var tipoFormulario = ' '+$(this).text()
+                var tipoFormulario = ' '+$(this).text();
                 var IdTipoFormulario = $(this).attr('data-Tipo-id');
                 var success = function(){
                     /* Função que ocorre quando o usuario clica no btn Ok(confirma a escolha) */
@@ -293,6 +294,7 @@ try {
                 }
                 var msgDialog ="Você selecionou:<span style='color:#690; font-size:16px;'>"+$(this).text()+"</span>";
                 var DialogoConfirmacao =  new DialogConfirm(success, error);
+                /* Mostra o Dialogo de Confirmação que possu o botão ok e cancelar */
                 DialogoConfirmacao.view(msgDialog,'Confirme a Opção: ');
             });
         </script>

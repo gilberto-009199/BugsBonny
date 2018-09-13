@@ -6,12 +6,14 @@ function include(file) {
     document.body.appendChild(script);
 }
 function DialogConfirm(success, error) {
+    /* Pseudo-classe responsavel por carregar um dialogo na tela*/
     this.success = success;
     this.error = error; // Envia a frase padrão caso uma menssagem não seja passada por parametro
     this.view = function (msg ='A informação confere?',titulo='Confirma') {
         var janela = document.createElement("div");
         //janela.style="position:fixed; height:100px; width:100px; display:block; background-color:black;";
         document.body.appendChild(janela);
+        
         $(janela).load('../elements/ConfirmDialog.php', function (sresponseText, statusText, xhr)
         {//função de retorno função callback ocorre quando acaba dando erro ou dando certo
             if (statusText == "success") {
@@ -19,9 +21,10 @@ function DialogConfirm(success, error) {
                 $('#btnRevoke').click(error);
                 $('#msgDialog').html(' '+msg+' ');
                 $('#titulo').html(' '+titulo+' ');
+                $('.ConfirmDialog').draggable();
             }
             if (statusText == "error") {
-                alert("ATenção um erro Ocorreu: " + xhr.status + " - " + xhr.statusText);
+                alert("Atenção um erro Ocorreu: " + xhr.status + " - " + xhr.statusText);
             }
         });
 
