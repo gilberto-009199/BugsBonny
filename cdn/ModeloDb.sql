@@ -116,6 +116,77 @@ insert into tbl_profissao(profissao)values('Blogueiro');
 insert into tbl_profissao(profissao)values('Bombeiro');
 insert into tbl_profissao(profissao)values('Borracheiro');
 
+insert into tbl_profissao(profissao)values('Acrilista');
+insert into tbl_profissao(profissao)values('Adestrador');
+insert into tbl_profissao(profissao)values('Administrador');
+insert into tbl_profissao(profissao)values('Agente');
+insert into tbl_profissao(profissao)values('Analista Tributário');
+insert into tbl_profissao(profissao)values('Antropólogo');
+insert into tbl_profissao(profissao)values('Aquarista');
+insert into tbl_profissao(profissao)values('Arqueólogo');
+insert into tbl_profissao(profissao)values('Arquivista');
+insert into tbl_profissao(profissao)values('Artista');/*kkkkkkk*/
+insert into tbl_profissao(profissao)values('Ascensorista');
+insert into tbl_profissao(profissao)values('Assessor');
+insert into tbl_profissao(profissao)values('Ator');
+insert into tbl_profissao(profissao)values('Avaliador');
+insert into tbl_profissao(profissao)values('Azulejista');
+insert into tbl_profissao(profissao)values('Caixa');
+insert into tbl_profissao(profissao)values('Camareiro');
+insert into tbl_profissao(profissao)values('Carpinteiro');
+insert into tbl_profissao(profissao)values('Carteiro');
+insert into tbl_profissao(profissao)values('Chaveiro');
+insert into tbl_profissao(profissao)values('Comissário');
+insert into tbl_profissao(profissao)values('Comprador');
+insert into tbl_profissao(profissao)values('Confeiteiro');
+insert into tbl_profissao(profissao)values('Consultor');
+insert into tbl_profissao(profissao)values('Contador');
+insert into tbl_profissao(profissao)values('Controlador');
+insert into tbl_profissao(profissao)values('Coordenador');
+insert into tbl_profissao(profissao)values('Cozinheiro');
+insert into tbl_profissao(profissao)values('Costureiro');
+insert into tbl_profissao(profissao)values('Cuidador');
+insert into tbl_profissao(profissao)values('Curador');
+insert into tbl_profissao(profissao)values('Dançarino');
+insert into tbl_profissao(profissao)values('Decorador');
+insert into tbl_profissao(profissao)values('Divulgador');
+insert into tbl_profissao(profissao)values('Economista');
+insert into tbl_profissao(profissao)values('Eletricista');
+insert into tbl_profissao(profissao)values('Embalador');
+insert into tbl_profissao(profissao)values('Encanador');
+insert into tbl_profissao(profissao)values('Empacotador');
+insert into tbl_profissao(profissao)values('Ciêntista');
+insert into tbl_profissao(profissao)values('Entregador');
+insert into tbl_profissao(profissao)values('Estatístico');
+insert into tbl_profissao(profissao)values('Etiquetador');
+insert into tbl_profissao(profissao)values('Farmacêutico');
+insert into tbl_profissao(profissao)values('Ferramenteiro');
+insert into tbl_profissao(profissao)values('Ferreiro');
+insert into tbl_profissao(profissao)values('Fiscal');
+insert into tbl_profissao(profissao)values('Fisioterapeuta');
+insert into tbl_profissao(profissao)values('Florista');
+insert into tbl_profissao(profissao)values('Fotógrafo');
+insert into tbl_profissao(profissao)values('Funileiro');
+insert into tbl_profissao(profissao)values('Fresador');
+insert into tbl_profissao(profissao)values('Fundidor de Metais');
+insert into tbl_profissao(profissao)values('Gastrônomo');
+insert into tbl_profissao(profissao)values('Astronomo');
+insert into tbl_profissao(profissao)values('Governanta');
+insert into tbl_profissao(profissao)values('Gesseiro');
+insert into tbl_profissao(profissao)values('Impressor');
+insert into tbl_profissao(profissao)values('Ilustrador');
+insert into tbl_profissao(profissao)values('Inspetor');
+insert into tbl_profissao(profissao)values('Segurança');
+insert into tbl_profissao(profissao)values('Instrumentista');
+insert into tbl_profissao(profissao)values('Intérprete');
+insert into tbl_profissao(profissao)values('Instalador');
+insert into tbl_profissao(profissao)values('Lavador');
+insert into tbl_profissao(profissao)values('Limpador');
+
+
+
+
+
 select * from tbl_profissao;
 
 INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES
