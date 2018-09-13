@@ -115,7 +115,6 @@ insert into tbl_profissao(profissao)values('Biotecnólogo');
 insert into tbl_profissao(profissao)values('Blogueiro');
 insert into tbl_profissao(profissao)values('Bombeiro');
 insert into tbl_profissao(profissao)values('Borracheiro');
-
 insert into tbl_profissao(profissao)values('Acrilista');
 insert into tbl_profissao(profissao)values('Adestrador');
 insert into tbl_profissao(profissao)values('Administrador');
@@ -182,6 +181,20 @@ insert into tbl_profissao(profissao)values('Intérprete');
 insert into tbl_profissao(profissao)values('Instalador');
 insert into tbl_profissao(profissao)values('Lavador');
 insert into tbl_profissao(profissao)values('Limpador');
+insert into tbl_profissao(profissao)values('Manicure');
+insert into tbl_profissao(profissao)values('Maquiador');
+insert into tbl_profissao(profissao)values('Marceneiro');
+insert into tbl_profissao(profissao)values('Mecânico');
+insert into tbl_profissao(profissao)values('Matematico');
+insert into tbl_profissao(profissao)values('Montador');
+insert into tbl_profissao(profissao)values('Motoboy');
+insert into tbl_profissao(profissao)values('Soldado');
+insert into tbl_profissao(profissao)values('Padeiro');
+insert into tbl_profissao(profissao)values('Pedreiro');
+insert into tbl_profissao(profissao)values('Pintor');
+insert into tbl_profissao(profissao)values('Repórter');
+insert into tbl_profissao(profissao)values('Webmaster');
+
 
 
 
