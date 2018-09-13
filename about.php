@@ -4,8 +4,6 @@
 * @version 1.0 
 * @copyright  unlicense <http://unlicense.org/>
 */ 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">

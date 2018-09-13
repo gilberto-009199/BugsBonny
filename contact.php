@@ -7,6 +7,7 @@
  */
 try {
     if (isset($_GET['btnEnviar'])) {// Verifica se o formulario foi submetido
+        // Usando strip_tags para remover possiveis tags html dentro do formulario
         $nome = strip_tags($_GET['txtNome']);
         $telefone = strip_tags($_GET['txtTelefone']);
         $celular = strip_tags($_GET['txtCelular']);
@@ -23,12 +24,7 @@ try {
         $ValidaTamanho = strlen($nome) <= 100 && strlen($critica) <= 1024 && strlen($telefone) <= 16 && strlen($celular) <= 17 && strlen($email) <= 100 && strlen($website) <= 256 && strlen($facebook) <= 126 && strlen($produto) <= 128;
         //Valida os Dados caso o usuario esteja usando um browser sem patterns
         $ValidaDados = preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome) && preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone) && preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/', $celular) && preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email) && (trim($website) == "" || preg_match('/^((http://|https://|)([a-z]*)(.[a-z]+)(/|))+$/', $website)) && (trim($facebook) == "" || preg_match('/^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$/', $facebook)) && preg_match('/^[0-9]+$/', $tipo) && preg_match('/^[0-9]+$/', $profissao);
-        //if(preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome) )echo"Ok Nome: $nome <br/>"; else echo ' ERRO NOME ';
-        //if(preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone))echo"Ok Telefone: $telefone<br/>"; else echo ' ERRO no Telefone';
-        //if(preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/',$celular))echo"Ok Celular: $celular <br/>"; else echo ' ERRO no Celular';
-        //if(preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email))echo"Ok E-mail: $email <br/>"; else echo ' ERRO no E-mail';
-        //if(trim($website)=="" || preg_match('/^((http://|https://|)([a-z]*)(.[a-z]+)(/|))+$/',$website) )echo"Ok HomePage: $website <br/>"; else echo ' ERRO no Website';
-        //if(trim($facebook)=="" || preg_match('/^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$/',$facebook))echo"Ok Facebook: $facebook <br/>"; else echo ' ERRO no Facebook';
+       // Cria o Formulario caso o tamanho e os dados estiverem de acordo
         if ($ValidaTamanho && $ValidaDados) { //Inicia o Processo de gravação do formulario caso o formulario seja formado corretamente 
             $frmChamado['nome'] = $nome;
             $frmChamado['telefone'] = $telefone;
@@ -42,7 +38,7 @@ try {
             $frmChamado['profissao'] = $profissao;
             $frmChamado['dataCriacao'] = $dataCriacao;
             $frmChamado['tipo'] = $tipo;
-            $frmChamado = (object) $frmChamado; //tranforma a array em uM oBJECT ATRAVES DO CASH
+            $frmChamado = (object) $frmChamado; //tranforma a array em UM oBJECT ATRAVES DO CASH
 
             if (gravarPedido($frmChamado)) {
                 // area para importar o dialog de success
@@ -268,16 +264,19 @@ try {
             jQuery("#txtTelefone").mask("(99)9999-9999");
             jQuery("#txtCelular").mask("(99)99999-9999");
             $(".ItemTicket").click(function () {
+                /* Define o formulario como sendo o tipo do ticket clicado */
                 $("#txtTipoForm").attr("value", $(this).attr('data-Tipo-id'));
                 $("#tipoFrm").html($(this).text());
                 $("#infofrm").html("formulario de contato, formulario para designado para " + $(this).text());
             });
             $(".ItemTicketDialog").click(function () {
+                /* Define o formulario como sendo o tipo de ticket selecionado no Dialogo */
                 DialogoConfirmacao=null;
                 $(".ConfirmDialog").remove();//destruindo o dialogo anterior
                 var tipoFormulario = ' '+$(this).text()
                 var IdTipoFormulario = $(this).attr('data-Tipo-id');
                 var success = function(){
+                    /* Função que ocorre quando o usuario clica no btn Ok(confirma a escolha) */
                     $("#txtTipoForm").attr("value", IdTipoFormulario);
                     $("#tipoFrm").html(tipoFormulario);
                     $("#infofrm").html("formulario de contato, formulario para designado para " + tipoFormulario);
@@ -285,6 +284,7 @@ try {
                     $(".Alert").remove();
                 }
                 var error = function(){
+                    /* Função que ocorre quando o usuario clica no btn Revogar(cancela a escolha) */
                     $("#txtTipoForm").attr("value", '1');
                     $("#tipoFrm").html("Consulta");
                     $("#infofrm").html("formulario de contato, formulario para designado para Consulta");
