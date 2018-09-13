@@ -2,6 +2,7 @@
     Created on : 09/08/2018, 11:16:40
     Author     : 16254850
 */
+/*	CSS dos elemetos	*/
 #main section{
     background-color: white;
     padding-bottom: 30px;
@@ -31,12 +32,12 @@ article p{
     text-indent: 24px;
     padding-top: 3px;
 }
+/*  CSS do elemento Produto */
 div .Produto{
     float: left;
     margin: 4px;
     margin-left: 13px;
     width: 160px;
-    /*display: inline-table;*/
     min-height: 128px;
     height: auto;
     border: solid 1px black;
@@ -99,7 +100,7 @@ article .CaixaTexto{
     margin-left: auto;
     margin-right: auto;
 }
-
+/*  CSS do elemento Alerta */
 .Alert{
     position: fixed;
     left:50%;
@@ -114,7 +115,23 @@ article .CaixaTexto{
     z-index: 998;
     background-color: white;
 }
-.ConfirmDiolog{
+.Alert .AlertTitulo{
+    min-width: 100%;
+    max-width: 100%;
+    background-color: black;
+    color:white;
+    padding-top: 2px;
+    font-size: 19px;
+    text-align-last: center;
+}
+.Alert .Alertcontent{
+    text-align: center;
+    width: 100%;
+    padding-top: 6px;
+    font-size: 22px;
+}
+/*  CSS do elemento ConfirmDiolog*/
+.ConfirmDialog{
     background-color: white;
     position: fixed;
     left:25%;
@@ -132,7 +149,7 @@ article .CaixaTexto{
     padding-bottom: 4px;
     box-shadow: 8px 3px 16px #8B8B8B;
 }
-.ConfirmDiolog .titulo{
+.ConfirmDialog .titulo{
     background-color: black;
     width: 100%;
     border-top-left-radius: 6px;
@@ -140,10 +157,10 @@ article .CaixaTexto{
     color: white;
     text-align: center;
 }
-.ConfirmDiolog .msg{
+.ConfirmDialog .msg{
     padding: 4px;
 }
-.ConfirmDiolog .btnConfirm{
+.ConfirmDialog .btnConfirm{
     color: #fff;
     background-color: #28a745;
     background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
@@ -152,7 +169,7 @@ article .CaixaTexto{
     width: 64px;
     margin: 4px;
 }
-.ConfirmDiolog .btnRevoke{
+.ConfirmDialog .btnRevoke{
     background-color: #d9534f;
     border: none;
     height: 32px;
@@ -160,49 +177,11 @@ article .CaixaTexto{
     margin: 4px;
     color: #fff;
 }
-.ConfirmDiolog .btnConfirm,.btnRevoke{
+.ConfirmDialog .btnConfirm,.btnRevoke{
     margin-top:32px;
-}
-.Alert .AlertTitulo{
-    min-width: 100%;
-    max-width: 100%;
-    background-color: black;
-    color:white;
-    padding-top: 2px;
-    font-size: 19px;
-    text-align-last: center;
-}
-.Alert .Alertcontent{
-    text-align: center;
-    width: 100%;
-    padding-top: 6px;
-    font-size: 22px;
 }
 .Produto:hover{
     box-shadow: -9px 0px 26px #000;
-}
-.DialogoEscolha .ItemTicketDialog{
-    height: 22px;
-    min-width: 32px;
-    border-radius: 10px;
-    background: rgb(207,207,207);
-    background: linear-gradient(180deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
-    display: inline-block;
-    margin: 2px;
-    margin-bottom: 4px;
-    padding-right: 4px;
-    padding-left: 4px;
-    padding-top: 10px;
-    padding-bottom: 8px;
-    color: black;
-    font-weight: bolder;
-    border: solid 2px #808080;
-    padding-bottom: 8px;    
-}
-.DialogoEscolha .ItemTicketDialog:hover,:focus{
-    color: #006D5C;
-    background: rgb(207,207,207);
-    background: linear-gradient(0deg, rgba(207,207,207,1) 45%, rgba(255,255,255,1) 100%);
 }
 .Produto .Detalhes:hover{
     border-left: solid 1px black;

@@ -12,12 +12,12 @@ function DialogConfirm(success, error) {
         var janela = document.createElement("div");
         //janela.style="position:fixed; height:100px; width:100px; display:block; background-color:black;";
         document.body.appendChild(janela);
-        $(janela).load('../elements/ConfirmDiolog.php', function (sresponseText, statusText, xhr)
+        $(janela).load('../elements/ConfirmDialog.php', function (sresponseText, statusText, xhr)
         {//função de retorno função callback ocorre quando acaba dando erro ou dando certo
             if (statusText == "success") {
                 $('#btnConfirm').click(success);
                 $('#btnRevoke').click(error);
-                $('#msgDiolog').html(' '+msg+' ');
+                $('#msgDialog').html(' '+msg+' ');
                 $('#titulo').html(' '+titulo+' ');
             }
             if (statusText == "error") {

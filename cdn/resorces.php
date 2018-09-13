@@ -5,6 +5,7 @@
 * @copyright  unlicense <http://unlicense.org/>
 */ 
 
+/* lib temporario de funções para o funcionamento interno do sistema  */
 function conect() {
     /* Função responsavel por fornecer a conecxão com o banco de dados  */
     $hostname = "127.0.0.1";
@@ -31,6 +32,7 @@ function getProfissoes($conexao) {
 }
 
 function getTickets($conexao) {
+    /* Função responsavel por fornecer uma array contendo dos tipos de tickets existentes sistema */
     $Tickets[] = array();
     $sqlQuery = "SELECT * FROM tbl_tipos_tickets order by tipo asc;";
     $query = mysqli_query($conexao, $sqlQuery);
@@ -41,6 +43,7 @@ function getTickets($conexao) {
     return $Tickets;
 }
 function getBancas($conexao){
+    /* Função responsavel por fornecer uma array contendo as Bancas existentes sistema */
     $bancas[] = array();
     $sqlQuery = "Select b.*,d.nome as dono from tbl_bancas as b, tbl_donos as d where b.idDono = d.id;";
     $query = mysqli_query($conexao, $sqlQuery);
@@ -51,7 +54,7 @@ function getBancas($conexao){
 }
 
 function gravarPedido($frmPedidoTmp) {
-
+    /* Função responsavel por gravar no db do sistema os tickets(chamandos) */
     $sql = "INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES($frmPedidoTmp->tipo,'$frmPedidoTmp->nome','$frmPedidoTmp->telefone','$frmPedidoTmp->celular','$frmPedidoTmp->email','$frmPedidoTmp->website','$frmPedidoTmp->facebook','$frmPedidoTmp->critica','$frmPedidoTmp->produto','$frmPedidoTmp->sexo','$frmPedidoTmp->profissao','$frmPedidoTmp->dataCriacao');";
 
     $con = conect();

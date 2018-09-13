@@ -74,7 +74,6 @@ try {
             $msgAlertaSucess .= "<div class='ItemTicketDialog' data-tipo-id='$ListaId'> $ListaTipo</div>";
         }
         $msgAlertaSucess .= "</div>";
-        /* echo($msgAlertaSucess); */
     }
 } catch (Exception $e) {
     //area para importar o dialog de falha
@@ -275,14 +274,14 @@ try {
             });
             $(".ItemTicketDialog").click(function () {
                 DialogoConfirmacao=null;
-                $(".ConfirmDiolog").remove();//destruindo o dialogo anterior
+                $(".ConfirmDialog").remove();//destruindo o dialogo anterior
                 var tipoFormulario = ' '+$(this).text()
                 var IdTipoFormulario = $(this).attr('data-Tipo-id');
                 var success = function(){
                     $("#txtTipoForm").attr("value", IdTipoFormulario);
                     $("#tipoFrm").html(tipoFormulario);
                     $("#infofrm").html("formulario de contato, formulario para designado para " + tipoFormulario);
-                    $(".ConfirmDiolog").remove();//destruindo o dialogo atual pois ele já foi completado
+                    $(".ConfirmDialog").remove();//destruindo o dialogo atual pois ele já foi completado
                     $(".Alert").remove();
                 }
                 var error = function(){
@@ -290,7 +289,7 @@ try {
                     $("#tipoFrm").html("Consulta");
                     $("#infofrm").html("formulario de contato, formulario para designado para Consulta");
                     alert('Por favor! Escolha uma opção!');
-                    $(".ConfirmDiolog").remove();//destruindo o dialogo atual pois ele já foi cancelado
+                    $(".ConfirmDialog").remove();//destruindo o dialogo atual pois ele já foi cancelado
                 }
                 var msgDialog ="Você selecionou:<span style='color:#690; font-size:16px;'>"+$(this).text()+"</span>";
                 var DialogoConfirmacao =  new DialogConfirm(success, error);

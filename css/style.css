@@ -2,7 +2,7 @@
     Created on : 09/08/2018, 10:25:19
     Author     : 16254850
 */
-
+/* Importando o css dos elementos(Dialog,Alertas e etc) do site manipulados por php e js */
 @import url("./elements.css");
 
 /*	Propriedades pertencentes ao estilo default dos itens das paginas do site.	*/
@@ -21,6 +21,7 @@
     src: url(../fonts/ubuntu/Ubuntu-Italic.ttf);
     font-style:italic;
 }
+/*	Declarando a Fonte MS Comic Sans	*/
 @font-face {
     font-family: comic;
     src: url(../fonts/comic-sans/comic-sans-ms.ttf);

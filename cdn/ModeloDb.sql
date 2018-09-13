@@ -4,6 +4,8 @@
 * @copyright  unlicense <http://unlicense.org/>
 */ 
 
+/* Banco de dados Modelo */
+
 CREATE DATABASE IF NOT EXISTS bugbunny;
 
 CREATE USER 'userbugbunny'@'%' IDENTIFIED BY 'abracadabra127';
