@@ -127,15 +127,14 @@ try {
                     var IconLocation = L.icon({
                         iconUrl: './img/assents/gps_icon.png',
                         shadowUrl: '',
-
                         iconSize: [26, 26], // size of the icon
                         shadowSize: [0, 0], // size of the shadow
-                        iconAnchor: [32, 32], // point of the icon which will correspond to marker's location
+                        iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
                         shadowAnchor: [0, 0], // the same for the shadow
-                        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                        popupAnchor: [10, 0] // point from which the popup should open relative to the iconAnchor
                     });
                     var markettmp = L.marker([position.coords.latitude, position.coords.longitude], {icon: IconLocation}).addTo(map);
-                    markettmp..bindPopup('Localização');
+                    markettmp.bindPopup('Localização');
                 };
                 var GeoError = function (error) {//fução obscura que executa se o usuario rejeitar algun erro
                     if (error.code == 0 && error.code == 2) {
