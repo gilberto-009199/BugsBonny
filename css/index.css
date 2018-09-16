@@ -29,6 +29,12 @@ div[data-style="ProductBox"]{
     align-items: center;
     background:transparent;
 }
+#main{
+    margin-bottom: 2px;
+    border-bottom: solid 2px black;
+    background: rgb(255,255,255);
+    background: linear-gradient(18deg, rgba(255,255,255,1) 21%, rgba(210,242,244,1) 77%);
+}
 .ItemSlider{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -43,9 +49,10 @@ div[data-style="ProductBox"]{
     height: 300px;
     position: relative;
     margin-left: 60px;
-    padding: 6px;
+    padding: 23px;
     background-color: black;
     opacity: 0.7;
+    border-radius: 64px;
 }
 .ItemSlider .Painel * {
     color:white;
@@ -57,9 +64,8 @@ div[data-style="ProductBox"]{
     z-index: 7;
     position: relative;
     margin-top: 140px;
-    background: rgb(255,255,255);
-    background: linear-gradient(259deg, rgba(255,255,255,1) 21%, rgba(235,235,235,1) 77%);
-    color: black;
+    background:transparent;
+    color: #F207F3;
     border: 0;
     opacity: 0.7;
     border-radius: 47px;
@@ -93,8 +99,12 @@ div[data-style="ProductBox"]{
     text-align: center;
     background: rgb(227,227,227);
     background: linear-gradient(360deg, rgba(227,227,227,1) 38%, rgba(255,255,255,1) 67%);
-    display:block;
+    display: block;
+    color: black;
     font-weight: bold;
+    font-size: 39px;
+    padding-top: 11px;
+    padding-bottom: 10px;
 }
 .ItemMenuBar:hover{
     color:#006D5C;
