@@ -151,14 +151,16 @@
                     <span class="ItemMenuProduto">Jornal Folha</span>
                     <span class="ItemMenuProduto">Revista Courrier Internacional</span>
                     <span class="ItemMenuProduto">Revista Veja</span>
-                    <span class="ItemMenuProduto">Revista Veja</span>
-                    <span class="ItemMenuProduto">Jornal Folha</span>
-                    <span class="ItemMenuProduto">Revista Courrier Internacional</span>
-                    <span class="ItemMenuProduto">Revista Veja</span>
-                    <span class="ItemMenuProduto">Revista Veja</span>
-                    <span class="ItemMenuProduto">Jornal Folha</span>
-                    <span class="ItemMenuProduto">Revista Courrier Internacional</span>
-                    <span class="ItemMenuProduto">Revista Veja</span>
+                    <span class="ItemMenuProduto">Revista O Clarim</span>
+                    <span class="ItemMenuProduto">Jornal São Paulo</span>
+                    <span class="ItemMenuProduto">Revista REST</span>
+                    <span class="ItemMenuProduto">Revista DELL</span>
+                    <span class="ItemMenuProduto">Revista SAMSUNG</span>
+                    <span class="ItemMenuProduto">Jornal Mirax</span>
+                    <span class="ItemMenuProduto">Revista DOLBY</span>
+                    <span class="ItemMenuProduto">Revista CISCO</span>
+                    <span class="ItemMenuProduto">Revista Hawuei</span>
+                    <span class="ItemMenuProduto">Revista Cloud HPC</span>
                 </div>
                 <div class="cold7 arredonda" data-style="PainelProdutos">
                     <div class="Produto">

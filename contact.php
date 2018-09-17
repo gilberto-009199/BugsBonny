@@ -6,6 +6,11 @@
  * @copyright  unlicense <http://unlicense.org/>
  */
 try {
+    /*echo ":".$_GET['txtFacebook']."";
+    echo"<p></p>";
+    echo ": ".urldecode($_GET['txtFacebook'])."";
+    echo"<p></p>";
+    echo ":".strip_tags(urldecode($_GET['txtFacebook']))."";*/
     if (isset($_GET['btnEnviar'])) {// Verifica se o formulario foi submetido
         // Usando strip_tags para remover possiveis tags html dentro do formulario
         $nome = strip_tags($_GET['txtNome']);
@@ -13,7 +18,7 @@ try {
         $celular = strip_tags($_GET['txtCelular']);
         $email = strip_tags($_GET['txtEmail']);
         $website = strip_tags($_GET['txtHomePage']);
-        $facebook = strip_tags($_GET['txtFacebook']);
+        $facebook = strip_tags(urldecode($_GET['txtFacebook']));
         $critica = strip_tags($_GET['ariaCritica']);
         $produto = strip_tags($_GET['txtProduto']);
         $sexo = strip_tags($_GET['slcSexo']);
@@ -23,7 +28,35 @@ try {
         //Valida os Dados caso o usuario esteja usando um browser que não limita campos ou erros Incomuns
         $ValidaTamanho = strlen($nome) <= 100 && strlen($critica) <= 1024 && strlen($telefone) <= 16 && strlen($celular) <= 17 && strlen($email) <= 100 && strlen($website) <= 256 && strlen($facebook) <= 126 && strlen($produto) <= 128;
         //Valida os Dados caso o usuario esteja usando um browser sem patterns
-        $ValidaDados = preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome) && preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone) && preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/', $celular) && preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email) && (trim($website) == "" || preg_match('/^((http://|https://|)([a-z]*)(.[a-z]+)(/|))+$/', $website)) && (trim($facebook) == "" || preg_match('/^((([a-z]{2}.|)facebook.com([.][a-z]*|))/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))+$/', $facebook)) && preg_match('/^[0-9]+$/', $tipo) && preg_match('/^[0-9]+$/', $profissao);
+        //echo "  \n  url: $website, facebook: $facebook \n";
+        /*if((trim($website) == "" || preg_match('((http://|https://|)[a-z]*(.[a-z]+)(/|))', $website))){
+            echo " \n Website ok!!";
+        }else{
+            echo "\n Website errado!!";
+        }*/
+       //echo "\n (facebook:".trim($facebook).")";
+       /*if((trim($facebook) == "" || preg_match('(([a-z]{2}\.|)facebook.com([.][a-z]*|)/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))', $facebook))){
+         echo "Facebook OK!!";  
+       }
+       if(preg_match('/^[0-9]+$/', $profissao)){
+         echo "\n Profissoes OK!!";  
+       }*/
+       //if(preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome)){
+       //  echo "\n Nome OK!!";  
+       //}
+       /*if(preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone)){
+         echo "\n Telefone OK!!";  
+       }
+       if(preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/', $celular)){
+         echo "\n Celular OK!!";  
+       }
+       if(preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email) ){
+         echo "\n E-mail OK!!";  
+       }else{
+           echo "\n Email: $email";
+       }*/
+        
+        $ValidaDados = preg_match('/[a-z A-Z ã ç á é í õ ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*/', $nome) && preg_match('/^(|\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)([0-9]{4}[-][0-9]{4}))+$/', $telefone) && preg_match('/^(\((1[1-9]|2[12478]|3[1234578]|4[1-9]|5[1345]|6[1-9]|7[134579]|8[1-9]|9[1-9])\)(9[0-9]{4}[-][0-9]{4}))+$/', $celular) && preg_match('/^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$/', $email) && (trim($website) == "" || preg_match('((http://|https://|)[a-z]*(\.[a-z]+)(/|))', $website)) && (trim($facebook) == "" || preg_match('(([a-z]{2}\.|)facebook.com([.][a-z]*|)/([a-z A-Z 0-9. ã ç á é í õ ô ó ê è ì Ç Ã Õ Á É Ó À È Ò Ù ú ù]*))', $facebook)) && preg_match('/^[0-9]+$/', $tipo) && preg_match('/^[0-9]+$/', $profissao);
        // Cria o Formulario caso o tamanho e os dados estiverem de acordo
         if ($ValidaTamanho && $ValidaDados) { //Inicia o Processo de gravação do formulario caso o formulario seja formado corretamente 
             $frmChamado['nome'] = $nome;
@@ -172,7 +205,7 @@ try {
                             </tr>
                             <tr>
                                 <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
-                                <td> <input id="txtEmail" maxlength="100" type="email" name="txtEmail" value="<?= @$email ?>" required/> </td>
+                                <td> <input id="txtEmail" maxlength="100" type="email" pattern="^([a-z._\-0-9áéíóúàèìòùâêîôûãẽĩõũç]*@+([a-z0-9]+.+[a-z0-9])*)+$" name="txtEmail" value="<?= @$email ?>" required/> </td>
                             </tr>
                             <tr>
                                 <td><label for="txtHomePage">Home Page:</label></td>
