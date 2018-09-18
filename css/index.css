@@ -33,7 +33,6 @@ div[data-style="ProductBox"]{
     margin-bottom: 2px;
     border-bottom: solid 2px black;
     background: rgb(255,255,255);
-    background: linear-gradient(18deg, rgba(255,255,255,1) 21%, rgba(210,242,244,1) 77%);
 }
 .ItemSlider{
     padding-top: 10px;
@@ -65,16 +64,18 @@ div[data-style="ProductBox"]{
     position: relative;
     margin-top: 140px;
     background:transparent;
-    color: #F207F3;
+    color: #FFDC02;
     border: 0;
     opacity: 0.7;
     border-radius: 47px;
 }
 #prev{
+    margin-left: -57px;
     float: left;
 }
 #next{
     float: right;
+    margin-right: -57px;
 }
 #btnLogin{
     width: 50px;
@@ -102,9 +103,9 @@ div[data-style="ProductBox"]{
     display: block;
     color: black;
     font-weight: bold;
-    font-size: 39px;
-    padding-top: 11px;
-    padding-bottom: 10px;
+    font-size: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 .ItemMenuBar:hover{
     color:#006D5C;

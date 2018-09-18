@@ -70,6 +70,9 @@
             <div class="ItemRedeSocial">
                 <p>Orkut</p>
             </div>
+            <div class="ItemRedeSocial">
+                <p>TWITER</p>
+            </div>
         </div>
         <div id="CaixaSite" class="arredonda">
             <div role="banner">
@@ -120,9 +123,9 @@
                     </div>
                     <div class="cold7" data-style="ProductBox">
                         <div class="Produto">
-                            <div class="Titulo">Titulo</div>
+                            <div class="Titulo">Revista Veja</div>
                             <div class="Imagem">
-                                <img alt="Imagem de Produto" src="img/assents/user32x32.png">
+                                <img alt="Imagem de Produto" src="img/assents/computer64x64.png">
                             </div>
                             <div class="Descricao">Descrição</div>
                             <div class="Preco"><span class="destaque">R$8,00</span></div>

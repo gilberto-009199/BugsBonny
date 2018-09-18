@@ -28,6 +28,7 @@ header{
     margin-right: auto;
     min-width: 300px;
     width: 90%;
+    max-width:1246px;
     height: auto;
     text-align: center;
 }
