@@ -6,7 +6,9 @@
 package onion.server.tmp.util;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,10 +17,8 @@ import java.util.logging.Logger;
  * @author administrador
  */
 public final class SocketConnect{
-    private static ServerSocket server;
-    private static int port;
-    
-    public static boolean executeServer(){
+    public static ServerSocket server;
+    public static boolean executeServer(int port){
         try {
             server = new ServerSocket(port);
         } catch (IOException ex) {
