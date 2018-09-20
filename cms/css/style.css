@@ -1,0 +1,92 @@
+/* 
+    Created on : 09/08/2018, 10:25:19
+    Author     : 16254850
+*/
+
+/*	Propriedades pertencentes ao estilo default dos itens das paginas do site.	*/
+* {
+  font-family: Verdana,Helvetica,comic;
+}
+
+.row{
+    width: 100%;
+}
+.cold10,.cold9,.cold8,.cold7,.cold6,.cold5,.cold4,.cold3,.cold2,.cold1{
+    display: inline-block;
+}
+.cold10{
+    width: 95%;
+}
+.cold9{
+    width: 85%;
+}
+.cold8{
+    width: 75%;
+}
+.cold7{
+    width: 65%;
+}
+.cold6{
+    width: 55%;
+}
+.cold5{
+    width: 45%;
+}
+.cold4{
+    width: 35%;
+}
+.cold3{
+    width: 25%;
+}
+.cold2{
+    width: 15%;
+}
+.cold1{
+    width: 5%;
+}
+.BordaDireita{
+    border-right: solid 2px black;
+    border-right-width: 3px;
+}
+.Obrigatorio{
+    color: blue;
+}
+.btn{
+    border:solid 1px #D2D2D2;
+    color: #006D5C;
+    font-weight: 500;
+    margin-right: 1em;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    font-size: 0.7em;
+    background-color: white;
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+.riscado{
+    text-decoration: line-through;
+}
+.sublinhado{
+    text-decoration: underline;
+}
+.Direita{
+    float:right;
+}
+.Esquerda{
+    float:left;
+}
+.arredonda{
+    border-radius: 7px;
+}
+.hidden{
+    display:none;
+}
+a:hover,:focus{
+    color: #006D5C;
+}
+.btn:hover,:focus{
+    color: black;
+}
