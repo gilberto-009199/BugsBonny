@@ -73,8 +73,7 @@ insert into tbl_usuarios(nome,email,senha,dataEmissao,telefone)values(
 insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values(
 1,3,'2018-09-25');
 insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values(
-1,1,'2018-09-25'
-);
+1,1,'2018-09-25');
 
 /* Tipos de Tickets*/
 insert into tbl_tipos_tickets(tipo)values('Consulta');
