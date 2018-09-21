@@ -65,7 +65,16 @@ insert into tbl_usuario_cargos(nome)values('Operador');
 insert into tbl_usuario_estados(nome)values('suspenso');
 insert into tbl_usuario_estados(nome)values('desativado');
 insert into tbl_usuario_estados(nome)values('ativo');
-
+/* Inserindo  um usuario */
+insert into tbl_usuarios(nome,email,senha,dataEmissao,telefone)values(
+'administrador','root@bugbunny.com',
+'$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy',/*12345*/
+'2018-09-25','(11)4826-5847');
+insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values(
+1,3,'2018-09-25');
+insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values(
+1,1,'2018-09-25'
+);
 
 /* Tipos de Tickets*/
 insert into tbl_tipos_tickets(tipo)values('Consulta');
