@@ -40,9 +40,9 @@ email varchar(128) not null, senha varchar(64) not null,dataEmissao datetime not
 telefone varchar(18) not null
 );
 
-CREATE TABLE IF NOT EXISTS tbl_usuario_estados(id int primary key auto_increment,nome varchar(45) not null);
+CREATE TABLE IF NOT EXISTS  tbl_usuario_estados(id int primary key auto_increment,nome varchar(45) not null);
 
-CREATE TABLE IF NOT EXISTS tbl_usuario_cargos(id int primary key auto_increment,nome varchar(45) not null);
+CREATE TABLE IF NOT EXISTS  tbl_usuario_cargos(id int primary key auto_increment,nome varchar(45) not null);
 
 /* Tabelas Relacionamento  para ligação Tabela Usuarios = Tabela Estados */
 CREATE TABLE IF NOT EXISTS tbl_estados_usuarios(id int primary key auto_increment,
