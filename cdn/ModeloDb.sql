@@ -5,7 +5,6 @@
 */ 
 
 /* Banco de dados Modelo */
-
 CREATE DATABASE IF NOT EXISTS bugbunny;
 
 CREATE USER 'userbugbunny'@'%' IDENTIFIED BY 'abracadabra127';
@@ -47,24 +46,24 @@ CREATE TABLE IF NOT EXISTS tbl_usuario_cargos(id int primary key auto_increment,
 
 /* Tabelas Relacionamento  para ligação Tabela Usuarios = Tabela Estados */
 CREATE TABLE IF NOT EXISTS tbl_estados_usuarios(id int primary key auto_increment,
-idUsuario int not null, idEstado int not null, dataEmissao datatime not null,
-FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuario`(`id`),
+idUsuario int not null, idEstado int not null, dataEmissao datetime not null,
+FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuarios`(`id`),
 FOREIGN KEY (`idEstado`) REFERENCES `tbl_usuario_estados`(`id`)    
 );
 
 CREATE TABLE IF NOT EXISTS tbl_cargos_usuarios(id int primary key auto_increment,
-idUsuario int not null, idCargo int not null, dataEmissao datatime not null,
-FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuario`(`id`),
+idUsuario int not null, idCargo int not null, dataEmissao datetime not null,
+FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuarios`(`id`),
 FOREIGN KEY (`idCargo`) REFERENCES `tbl_usuario_cargos`(`id`)    
 );
 /* Inserindo os estilos de usuarios do sistema  */
-insert into tbl_cargos(nome)values('Administrador');
-insert into tbl_cargos(nome)values('Cataloguista');
-insert into tbl_cargos(nome)values('Operador');
+insert into tbl_usuario_cargos(nome)values('Administrador');
+insert into tbl_usuario_cargos(nome)values('Cataloguista');
+insert into tbl_usuario_cargos(nome)values('Operador');
 /* Inserindo os estados que um usuario pode possuir */
-insert into tbl_estados(nome)values('suspenso');
-insert into tbl_estados(nome)values('desativado');
-insert into tbl_estados(nome)values('ativo');
+insert into tbl_usuario_estados(nome)values('suspenso');
+insert into tbl_usuario_estados(nome)values('desativado');
+insert into tbl_usuario_estados(nome)values('ativo');
 
 
 /* Tipos de Tickets*/
@@ -231,9 +230,9 @@ insert into tbl_profissao(profissao)values('Webmaster');
 
 
 
-
+/*
 select * from tbl_profissao;
-
+*/
 INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES
 (1,'João Paulo','(11)4368-8975','(11)97589-6587','joaopaulo19@mail.com','webtmpXP2.net','facebook.com/joaopaulo19','Acresentar a Revista SOAP','Revistas','M','19','2018-09-04 10:10:01');
 
@@ -243,19 +242,19 @@ INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,crit
 INSERT INTO tbl_tickets(idTipo,nome,telefone,celular,email,website,facebook,critica,infoPedido,sexo,idProfissao,dataCriacao)VALUES
 (4,'Elizabeth Alves de Moraes','(11)4588-8541','(11)98298-5617','elizabeth58@reno.com','','en.facebook.com/elizabeth58','Adicionar Jornal New York Times','Jornal','M','43','2018-09-03 10:10:18');
 
-
+/*
 select * from tbl_tickets;
 
 select t.*, p.profissao, tt.tipo from tbl_tickets as t, tbl_profissao as p, tbl_tipos_tickets as tt where t.idProfissao=p.id and t.idTipo=tt.id;
-
+*/
 
 insert into tbl_donos(nome,telefone,email)values('Gilberto Ramos','(11)4303-6947','gilberto.tec@vivaldi.net');
 insert into tbl_donos(nome,telefone,email)values('Daffy Duck','(11)4868-8961','daffy_duck@bugbunny.net');
 insert into tbl_donos(nome,telefone,email)values('João faret','(11)4988-4308','joao.off@gmail.com');
 
-
+/*
 select * from tbl_donos;
-
+*/
 insert into tbl_bancas(nome,uf,cidade,
 bairro,logradouro,descrisao,
 horario,location,telefone,idDono
@@ -300,5 +299,6 @@ horario,location,telefone,idDono
 '8:30 ate 18:00',
 '-23.536222, -46.808528','(11)4958-4957',
 3);
-
+/*
 select * from tbl_bancas;
+*/
