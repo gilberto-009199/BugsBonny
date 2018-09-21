@@ -56,6 +56,7 @@ idUsuario int not null, idCargo int not null, dataEmissao datetime not null,
 FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuarios`(`id`),
 FOREIGN KEY (`idCargo`) REFERENCES `tbl_usuario_cargos`(`id`)    
 );
+
 /* Inserindo os estilos de usuarios do sistema  */
 insert into tbl_usuario_cargos(nome)values('Administrador');
 insert into tbl_usuario_cargos(nome)values('Cataloguista');
