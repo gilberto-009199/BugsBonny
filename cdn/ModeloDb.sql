@@ -41,27 +41,27 @@ email varchar(128) not null, senha varchar(64) not null,dataEmissao datetime not
 telefone varchar(18) not null
 );
 
-CREATE TABLE IF NOT EXISTS tbl_estados(id int primary key auto_increment,nome varchar(45) not null);
+CREATE TABLE IF NOT EXISTS tbl_usuario_estados(id int primary key auto_increment,nome varchar(45) not null);
 
-CREATE TABLE IF NOT EXISTS tbl_cargos(id int primary key auto_increment,nome varchar(45) not null);
+CREATE TABLE IF NOT EXISTS tbl_usuario_cargos(id int primary key auto_increment,nome varchar(45) not null);
 
-/* Tabelas Relacionamento  Para a Tabela Usuarios*/
-CREATE TABLE IF NOT EXISTS tbl_estado_usuario(id int primary key auto_increment,
+/* Tabelas Relacionamento  para ligação Tabela Usuarios = Tabela Estados */
+CREATE TABLE IF NOT EXISTS tbl_estados_usuarios(id int primary key auto_increment,
 idUsuario int not null, idEstado int not null, dataEmissao datatime not null,
 FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuario`(`id`),
-FOREIGN KEY (`idEstado`) REFERENCES `tbl_estados`(`id`)    
+FOREIGN KEY (`idEstado`) REFERENCES `tbl_usuario_estados`(`id`)    
 );
 
-CREATE TABLE IF NOT EXISTS tbl_usuarios_cargos(id int primary key auto_increment,
+CREATE TABLE IF NOT EXISTS tbl_cargos_usuarios(id int primary key auto_increment,
 idUsuario int not null, idCargo int not null, dataEmissao datatime not null,
 FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuario`(`id`),
-FOREIGN KEY (`idCargo`) REFERENCES `tbl_cargo`(`id`)    
+FOREIGN KEY (`idCargo`) REFERENCES `tbl_usuario_cargos`(`id`)    
 );
-
+/* Inserindo os estilos de usuarios do sistema  */
 insert into tbl_cargos(nome)values('Administrador');
 insert into tbl_cargos(nome)values('Cataloguista');
 insert into tbl_cargos(nome)values('Operador');
-
+/* Inserindo os estados que um usuario pode possuir */
 insert into tbl_estados(nome)values('suspenso');
 insert into tbl_estados(nome)values('desativado');
 insert into tbl_estados(nome)values('ativo');
