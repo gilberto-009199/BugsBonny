@@ -64,15 +64,48 @@ CREATE TABLE IF NOT EXISTS tbl_noticia_categorias(id int primary key auto_increm
 nome varchar(45) not null unique);
 
 CREATE TABLE IF NOT EXISTS tbl_noticias(id int primary key auto_increment,
-idCategoria int not null, titulo varchar(128) not null,conteudo text(2028) not null, estado enum('V','F') not null,
-dtCriacao date not null, FOREIGN KEY (`idCategoria`) REFERENCES `tbl_noticia_categorias`(`id`));
+idCategoria int not null, titulo varchar(128) not null,conteudo text(2028) not null,dtCriacao date not null,
+estado enum('V','F') not null, FOREIGN KEY (`idCategoria`) REFERENCES `tbl_noticia_categorias`(`id`));
 
 CREATE TABLE IF NOT EXISTS tbl_autores_noticias(id int primary key auto_increment,
 idNoticia int not null,idAutor int not null,dtEmissao datetime not null,
 FOREIGN KEY (`idNoticia`) REFERENCES `tbl_noticias`(`id`),
 FOREIGN KEY (`idAutor`) REFERENCES `tbl_autores`(`id`));
 
+CREATE TABLE IF NOT EXISTS tbl_artigos(id int primary key auto_increment,
+titulo varchar(128) not null, conteudo text(2028) not null,
+dtCriacao date not null, estado enum('V','F') not null);
+
+CREATE TABLE IF NOT EXISTS tbl_autores_artigos(
+id int primary key auto_increment,
+idArtigo int not null, idAutor int not null,
+dtEmissao datetime not null,
+foreign key(`idArtigo`) references `tbl_artigos`(`id`),
+foreign key(`idAutor`) references `tbl_autores`(`id`));
+
+
+insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
+'Fundação da Bugsbunny','[justificado]A origem da nossa empresa vem de um banca de jornal criada em 1990, nessa época a empresa era dirigida somente pelo nosso amado Daffy Duck, fundador e dono da empresa.[/justificado][justificado]Depois da morte da sua esposa e filhos se dedicou as empresas de sua região, fornecendo aos administradores assinaturas de revistas e jornais para seus empregados. Com crescimento brasileiro de 2006, abriu mais 3 bancas de jornal na Zona Oeste de São Paulo.[/justificado]',
+'2007-06-02','V');
+
 insert into tbl_autores(nome,email,sexo)values("João Paulo","joao.office@gmail.com","M");
+
+insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
+1,1,'2007-06-02 19:30:00');
+
+/*###################################*/
+/*       Aviso! ainda falta          */
+/*      FALTA TABELA ENTREVISTAS     */
+/*###################################*/
+
+
+/*## Area do Artigos -_- Autores  ##*/
+/* Visualiza os titulo dos artigos e seus autores com a data de registo e a de criacao*/
+select a.titulo as noticia, au.nome as autor, aa.dtEmissao as dtRegisto, a.dtCriacao as Escrito from tbl_artigos as a, tbl_autores_artigos as aa, tbl_autores as au
+where aa.idArtigo=a.id and aa.idAutor = au.id;
+
+
+
 insert into tbl_autores(nome,email,sexo)values("Cristiane Rocha","cris.rocha@mail.com","F");
 insert into tbl_autores(nome,email,sexo)values("Douglas da Silva Oliveira","douglas@live.com","M");
 insert into tbl_autores(nome,email,sexo)values("Mayra da Silva","mayra@hotmail.com","F");
@@ -88,15 +121,13 @@ insert into tbl_noticias(idCategoria,titulo,conteudo,estado,dtCriacao)values(1,"
 
 insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(1,1,'2000-08-08 19:30:00');
 
-/*## Area do Usuario -_- Estados  ##*/
+/*## Area do Noticias -_- Autores  ##*/
 /* Visualiza as noticias e seus autores */
 select n.titulo as noticia, a.nome as autor from tbl_noticias as n,tbl_autores as a, tbl_autores_noticias as an
 where an.idNoticia = n.id and an.idAutor = a.id;
 /* Visualiza as noticias e autores e a categoria */
 select n.titulo as noticia,a.nome as nome, nc.nome as categoria from tbl_noticias as n, tbl_noticia_categorias as nc,tbl_autores as a,tbl_autores_noticias as an
 where an.idNoticia= n.id and an.idAutor= a.id and n.idCategoria= nc.id;
-
-
 
 select * from tbl_noticias;
 
