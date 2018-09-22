@@ -83,6 +83,35 @@ dtEmissao datetime not null,
 foreign key(`idArtigo`) references `tbl_artigos`(`id`),
 foreign key(`idAutor`) references `tbl_autores`(`id`));
 
+CREATE TABLE IF NOT EXISTS tbl_entrevistas(id int primary key auto_increment,
+titulo varchar(128) not null,conteudo text(2028) not null,celebridade varchar(64) not null,
+url varchar(64) not null,dtCriacao date not null,img varchar(80) null,
+estado enum('V','F') not null);
+
+CREATE TABLE IF NOT EXISTS tbl_autores_entrevistas(id int primary key auto_increment,
+idEntrevista int not null,idAutor int not null,dtEmissao datetime not null,
+foreign key (`idEntrevista`) references `tbl_entrevistas`(`id`),
+foreign key (`idAutor`) references `tbl_autores`(`id`));
+
+/* Anotação verificar se o arquivo de imagem existe atraves do php */
+
+insert into tbl_entrevistas(titulo,conteudo,celebridade,url,dtCriacao,estado)values(
+'Entrevista com Roberto Justos',
+'[justificado]Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário.[/justificado][justificado] Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.[/justificado]',
+'Roberto Justus','http://globo.com/aprendiz.html','2017-06-20',
+'V');
+
+insert into tbl_autores(nome,email,sexo)values("Cristiane Rocha","cris.rocha@mail.com","F");
+
+insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
+1,1,'2017-06-20 19:30:00'
+);
+
+/*## Area das entrevistas -_- Autores  ##*/
+/* Visualiza os titulo das entrevistas e seus autores com a data de registo e a de criacao*/
+select e.titulo, e.celebridade,a.nome as autor from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a
+where ae.idEntrevista=e.id and ae.idAutor = a.id;
+
 
 insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
 'Fundação da Bugsbunny','[justificado]A origem da nossa empresa vem de um banca de jornal criada em 1990, nessa época a empresa era dirigida somente pelo nosso amado Daffy Duck, fundador e dono da empresa.[/justificado][justificado]Depois da morte da sua esposa e filhos se dedicou as empresas de sua região, fornecendo aos administradores assinaturas de revistas e jornais para seus empregados. Com crescimento brasileiro de 2006, abriu mais 3 bancas de jornal na Zona Oeste de São Paulo.[/justificado]',
@@ -90,13 +119,8 @@ insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
 
 insert into tbl_autores(nome,email,sexo)values("João Paulo","joao.office@gmail.com","M");
 
-insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
-1,1,'2007-06-02 19:30:00');
-
-/*###################################*/
-/*       Aviso! ainda falta          */
-/*      FALTA TABELA ENTREVISTAS     */
-/*###################################*/
+insert into tbl_autores_entrevistas(idArtigo,idAutor,dtEmissao)values(
+1,2,'2007-06-02 19:30:00');
 
 
 /*## Area do Artigos -_- Autores  ##*/
@@ -106,7 +130,7 @@ where aa.idArtigo=a.id and aa.idAutor = au.id;
 
 
 
-insert into tbl_autores(nome,email,sexo)values("Cristiane Rocha","cris.rocha@mail.com","F");
+
 insert into tbl_autores(nome,email,sexo)values("Douglas da Silva Oliveira","douglas@live.com","M");
 insert into tbl_autores(nome,email,sexo)values("Mayra da Silva","mayra@hotmail.com","F");
 
@@ -119,7 +143,7 @@ insert into tbl_noticias(idCategoria,titulo,conteudo,estado,dtCriacao)values(1,"
 '[justificado]Um enorme asteroide passará perto da Terra em 29 de agosto a uma velocidade de nove quilômetros por segundo, informou o Laboratório de Propulsão a Jato da NASA.[/justificado][justificado]O corpo celeste, denominado 2016 NF23, é considerado pela agência espacial como "potencialmente perigoso" devido a seu tamanho: seu diâmetro pode atingir entre 70 e 160 metros. O tamanho do asteroide pode ser comparado, dependendo de suas dimensões definitivas, com um avião Boeing 747 ou com a Grande Pirâmide de Giza (139 metros de altura).[/justificado][justificado]A agência estima que o asteroide passará a 4,8 milhões de quilômetros da Terra o que equivale a três vezes a distância entre a Terra e a Lua, segundo o Fox News.[/justificado][justificado]Segundo a classificação da NASA, qualquer corpo celeste que passe a uma distância menor que 7,5 milhões de quilômetros da Terra e tenha um diâmetro superior a 140 metros está na lista de corpos perigosos.[/justificado][justificado]O asteroide deverá passar pelo nosso planeta por volta da meia-noite, horário GMT, na próxima quarta-feira (29) (21h00, horário de Brasília).[/justificado]',
 'V',"2000-08-08");
 
-insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(1,1,'2000-08-08 19:30:00');
+insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(1,2,'2000-08-08 19:30:00');
 
 /*## Area do Noticias -_- Autores  ##*/
 /* Visualiza as noticias e seus autores */
