@@ -36,7 +36,7 @@ location varchar(24) not null, telefone varchar(45) not null, idDono int not nul
 FOREIGN KEY (`idDono`) references `tbl_donos` (`id`));
 
 CREATE TABLE IF NOT EXISTS tbl_usuarios(id int primary key auto_increment, nome varchar(45) not null,
-email varchar(128) not null, senha varchar(64) not null,dataEmissao datetime not null,
+email varchar(128) unique not null, senha varchar(64) not null,dataEmissao datetime not null,
 telefone varchar(18) not null
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS  tbl_usuario_cargos(id int primary key auto_increment
 CREATE TABLE IF NOT EXISTS tbl_estados_usuarios(id int primary key auto_increment,
 idUsuario int not null, idEstado int not null, dataEmissao datetime not null,
 FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuarios`(`id`),
-FOREIGN KEY (`idEstado`) REFERENCES `tbl_usuario_estados`(`id`)    
+FOREIGN KEY (`idEstado`) REFERENCES `tbl_usuario_estados`(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS tbl_cargos_usuarios(id int primary key auto_increment,
@@ -67,13 +67,40 @@ insert into tbl_usuario_estados(nome)values('desativado');
 insert into tbl_usuario_estados(nome)values('ativo');
 /* Inserindo  um usuario */
 insert into tbl_usuarios(nome,email,senha,dataEmissao,telefone)values(
-'administrador','root@bugbunny.com',
+'admin','root@bugbunny.com',
 '$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy',/*12345*/
 '2018-09-25','(11)4826-5847');
+
 insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values(
-1,3,'2018-09-25');
+1,3,'2018-09-27 00:00:00');
+
 insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values(
-1,1,'2018-09-25');
+1,1,'2018-09-27 00:00:00');
+
+insert into tbl_usuarios(nome,email,senha,dataEmissao,telefone)values(
+'administrador','admin@bugbunny.com',
+'$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy',/*12345*/
+'2018-09-27','(11)4826-5847');
+
+insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values(
+2,3,'2018-09-25 00:00:00');
+
+insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values(
+2,1,'2018-09-25 00:00:00');
+
+
+select * from tbl_usuarios;
+
+/*## Area do Usuario -_- Estados  ##*/
+/* Visualiza os estados em que cada usuario ja esteve */
+select u.nome as nome, ue.nome as estado, eu.dataEmissao as desde from tbl_usuarios as u, tbl_estados_usuarios  as eu,tbl_usuario_estados as ue where eu.idUsuario= u.id and eu.idEstado=ue.id;
+/* Visualiza o estado atual de cada usuario  o nome e a data de emissao */
+select u.nome as nome, ue.nome as estado, eu.dataEmissao as desde from tbl_usuarios as u, tbl_estados_usuarios  as eu,tbl_usuario_estados as ue where
+eu.idUsuario= u.id and eu.idEstado=ue.id
+and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
+
+/*## Area do Usuario -_- cargo  ##*/
+
 
 /* Tipos de Tickets*/
 insert into tbl_tipos_tickets(tipo)values('Consulta');
