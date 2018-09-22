@@ -57,6 +57,53 @@ FOREIGN KEY (`idUsuario`) REFERENCES `tbl_usuarios`(`id`),
 FOREIGN KEY (`idCargo`) REFERENCES `tbl_usuario_cargos`(`id`)    
 );
 
+CREATE TABLE IF NOT EXISTS tbl_autores(id int primary key auto_increment,
+nome varchar(45) not null, email varchar(128) null,sexo enum('M','F') not null);
+
+CREATE TABLE IF NOT EXISTS tbl_noticia_categorias(id int primary key auto_increment,
+nome varchar(45) not null unique);
+
+CREATE TABLE IF NOT EXISTS tbl_noticias(id int primary key auto_increment,
+idCategoria int not null, titulo varchar(128) not null,conteudo text(2028) not null, estado enum('V','F') not null,
+dtCriacao date not null, FOREIGN KEY (`idCategoria`) REFERENCES `tbl_noticia_categorias`(`id`));
+
+CREATE TABLE IF NOT EXISTS tbl_autores_noticias(id int primary key auto_increment,
+idNoticia int not null,idAutor int not null,dtEmissao datetime not null,
+FOREIGN KEY (`idNoticia`) REFERENCES `tbl_noticias`(`id`),
+FOREIGN KEY (`idAutor`) REFERENCES `tbl_autores`(`id`));
+
+insert into tbl_autores(nome,email,sexo)values("João Paulo","joao.office@gmail.com","M");
+insert into tbl_autores(nome,email,sexo)values("Cristiane Rocha","cris.rocha@mail.com","F");
+insert into tbl_autores(nome,email,sexo)values("Douglas da Silva Oliveira","douglas@live.com","M");
+insert into tbl_autores(nome,email,sexo)values("Mayra da Silva","mayra@hotmail.com","F");
+
+insert into tbl_noticia_categorias(nome)values("Ciência");
+insert into tbl_noticia_categorias(nome)values("Política");
+insert into tbl_noticia_categorias(nome)values("Economia");
+insert into tbl_noticia_categorias(nome)values("Segurança");
+
+insert into tbl_noticias(idCategoria,titulo,conteudo,estado,dtCriacao)values(1,"Asteroide maior do que Grande Pirâmide egípcia está se aproximando da Terra",
+'[justificado]Um enorme asteroide passará perto da Terra em 29 de agosto a uma velocidade de nove quilômetros por segundo, informou o Laboratório de Propulsão a Jato da NASA.[/justificado][justificado]O corpo celeste, denominado 2016 NF23, é considerado pela agência espacial como "potencialmente perigoso" devido a seu tamanho: seu diâmetro pode atingir entre 70 e 160 metros. O tamanho do asteroide pode ser comparado, dependendo de suas dimensões definitivas, com um avião Boeing 747 ou com a Grande Pirâmide de Giza (139 metros de altura).[/justificado][justificado]A agência estima que o asteroide passará a 4,8 milhões de quilômetros da Terra o que equivale a três vezes a distância entre a Terra e a Lua, segundo o Fox News.[/justificado][justificado]Segundo a classificação da NASA, qualquer corpo celeste que passe a uma distância menor que 7,5 milhões de quilômetros da Terra e tenha um diâmetro superior a 140 metros está na lista de corpos perigosos.[/justificado][justificado]O asteroide deverá passar pelo nosso planeta por volta da meia-noite, horário GMT, na próxima quarta-feira (29) (21h00, horário de Brasília).[/justificado]',
+'V',"2000-08-08");
+
+insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(1,1,'2000-08-08 19:30:00');
+
+/*## Area do Usuario -_- Estados  ##*/
+/* Visualiza as noticias e seus autores */
+select n.titulo as noticia, a.nome as autor from tbl_noticias as n,tbl_autores as a, tbl_autores_noticias as an
+where an.idNoticia = n.id and an.idAutor = a.id;
+/* Visualiza as noticias e autores e a categoria */
+select n.titulo as noticia,a.nome as nome, nc.nome as categoria from tbl_noticias as n, tbl_noticia_categorias as nc,tbl_autores as a,tbl_autores_noticias as an
+where an.idNoticia= n.id and an.idAutor= a.id and n.idCategoria= nc.id;
+
+
+
+select * from tbl_noticias;
+
+select*from tbl_autores;
+
+
+
 /* Inserindo os estilos de usuarios do sistema  */
 insert into tbl_usuario_cargos(nome)values('Administrador');
 insert into tbl_usuario_cargos(nome)values('Cataloguista');
@@ -94,12 +141,22 @@ select * from tbl_usuarios;
 /*## Area do Usuario -_- Estados  ##*/
 /* Visualiza os estados em que cada usuario ja esteve */
 select u.nome as nome, ue.nome as estado, eu.dataEmissao as desde from tbl_usuarios as u, tbl_estados_usuarios  as eu,tbl_usuario_estados as ue where eu.idUsuario= u.id and eu.idEstado=ue.id;
+
 /* Visualiza o estado atual de cada usuario  o nome e a data de emissao */
 select u.nome as nome, ue.nome as estado, eu.dataEmissao as desde from tbl_usuarios as u, tbl_estados_usuarios  as eu,tbl_usuario_estados as ue where
 eu.idUsuario= u.id and eu.idEstado=ue.id
 and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
 
 /*## Area do Usuario -_- cargo  ##*/
+/* Visualiza os cargos em que cada usuario ja esteve */
+select u.nome as nome, uc.nome as cargos, cu.dataEmissao as desde from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc where cu.idUsuario= u.id and cu.idCargo=uc.id;
+
+/* Visualiza o cargo atual de cada usuario */
+select u.nome as nome, uc.nome as cargos, cu.dataEmissao as desde from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc where
+cu.idUsuario= u.id and cu.idCargo=uc.id
+and cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id);
+
+
 
 
 /* Tipos de Tickets*/

@@ -53,7 +53,7 @@
                                 <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" data-style="margenIcone"></i>Política</div>
                                 <div class="ItemMenuPesquisa"><i class="far fa-money-bill-alt" data-style="margenIcone" ></i>Economia</div>
                                 <div class="ItemMenuPesquisa"><i class="fas fa-globe" data-style="margenIcone"></i>Internacional</div>
-                                <div class="ItemMenuPesquisa"><i class="fas fa-cogs" data-style="margenIcone"></i>Tecnologia</div>
+                                <div class="ItemMenuPesquisa"><i class="fas fa-cogs" data-style="margenIcone"></i>Ciência</div>
                                 <div class="ItemMenuPesquisa"><i class="fas fa-dove" data-style="margenIcone"></i>Segurança</div>
                             </div>
                         </nav>
