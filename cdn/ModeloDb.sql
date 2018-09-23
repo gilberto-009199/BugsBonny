@@ -119,9 +119,8 @@ insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
 
 insert into tbl_autores(nome,email,sexo)values("João Paulo","joao.office@gmail.com","M");
 
-insert into tbl_autores_entrevistas(idArtigo,idAutor,dtEmissao)values(
+insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
 1,2,'2007-06-02 19:30:00');
-
 
 /*## Area do Artigos -_- Autores  ##*/
 /* Visualiza os titulo dos artigos e seus autores com a data de registo e a de criacao*/
