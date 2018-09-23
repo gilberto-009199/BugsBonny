@@ -104,8 +104,7 @@ insert into tbl_entrevistas(titulo,conteudo,celebridade,url,dtCriacao,estado)val
 insert into tbl_autores(nome,email,sexo)values("Cristiane Rocha","cris.rocha@mail.com","F");
 
 insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
-1,1,'2017-06-20 19:30:00'
-);
+1,1,'2017-06-20 19:30:00');
 
 /*## Area das entrevistas -_- Autores  ##*/
 /* Visualiza os titulo das entrevistas e seus autores com a data de registo e a de criacao*/
