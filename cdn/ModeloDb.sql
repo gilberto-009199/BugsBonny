@@ -101,6 +101,10 @@ insert into tbl_entrevistas(titulo,conteudo,celebridade,url,dtCriacao,estado)val
 'Roberto Justus','http://globo.com/aprendiz.html','2017-06-20',
 'V');
 
+select  from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a where ae.idEntrevista= e.id and ae.idAutor = a.id;
+
+
+
 insert into tbl_autores(nome,email,sexo)values("Cristiane Rocha","cris.rocha@mail.com","F");
 
 insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
@@ -115,6 +119,15 @@ where ae.idEntrevista=e.id and ae.idAutor = a.id;
 insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
 'Fundação da Bugsbunny','[justificado]A origem da nossa empresa vem de um banca de jornal criada em 1990, nessa época a empresa era dirigida somente pelo nosso amado Daffy Duck, fundador e dono da empresa.[/justificado][justificado]Depois da morte da sua esposa e filhos se dedicou as empresas de sua região, fornecendo aos administradores assinaturas de revistas e jornais para seus empregados. Com crescimento brasileiro de 2006, abriu mais 3 bancas de jornal na Zona Oeste de São Paulo.[/justificado]',
 '2007-06-02','V');
+insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
+'Bugsbunny na grande São Paulo','[justificado]Em 2012 nossa empresa alcançou a marca de 32 bancas de jornal, arrecadando R$ 1.000.00,00 por ano. O abrangente portfólio da empresa inclui mais de 1.000 revistas e jornais nacionais e internacionais, graças a preferencia das empresas por distribuidoras licenciadas.[/justificado][justificado]Hoje a empresa possui o Prêmio MPE Brasil, ganho pela excelência na gestão e logística da nossa empresa.[/justificado]',
+'2007-06-20','V');
+
+insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
+1,1,'2016-06-20 19:30:00');
+
+insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
+2,1,'2016-06-20 19:30:00');
 
 insert into tbl_autores(nome,email,sexo)values("João Paulo","joao.office@gmail.com","M");
 
@@ -123,11 +136,10 @@ insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
 
 /*## Area do Artigos -_- Autores  ##*/
 /* Visualiza os titulo dos artigos e seus autores com a data de registo e a de criacao*/
-select a.titulo as noticia, au.nome as autor, aa.dtEmissao as dtRegisto, a.dtCriacao as Escrito from tbl_artigos as a, tbl_autores_artigos as aa, tbl_autores as au
+select a.titulo as artigo, au.nome as autor, aa.dtEmissao as dtRegisto, a.dtCriacao as Escrito from tbl_artigos as a, tbl_autores_artigos as aa, tbl_autores as au
 where aa.idArtigo=a.id and aa.idAutor = au.id;
 
-
-
+select * from tbl_artigos where estado = 'V' order by dtCriacao asc;
 
 insert into tbl_autores(nome,email,sexo)values("Douglas da Silva Oliveira","douglas@live.com","M");
 insert into tbl_autores(nome,email,sexo)values("Mayra da Silva","mayra@hotmail.com","F");
@@ -141,7 +153,25 @@ insert into tbl_noticias(idCategoria,titulo,conteudo,estado,dtCriacao)values(1,"
 '[justificado]Um enorme asteroide passará perto da Terra em 29 de agosto a uma velocidade de nove quilômetros por segundo, informou o Laboratório de Propulsão a Jato da NASA.[/justificado][justificado]O corpo celeste, denominado 2016 NF23, é considerado pela agência espacial como "potencialmente perigoso" devido a seu tamanho: seu diâmetro pode atingir entre 70 e 160 metros. O tamanho do asteroide pode ser comparado, dependendo de suas dimensões definitivas, com um avião Boeing 747 ou com a Grande Pirâmide de Giza (139 metros de altura).[/justificado][justificado]A agência estima que o asteroide passará a 4,8 milhões de quilômetros da Terra o que equivale a três vezes a distância entre a Terra e a Lua, segundo o Fox News.[/justificado][justificado]Segundo a classificação da NASA, qualquer corpo celeste que passe a uma distância menor que 7,5 milhões de quilômetros da Terra e tenha um diâmetro superior a 140 metros está na lista de corpos perigosos.[/justificado][justificado]O asteroide deverá passar pelo nosso planeta por volta da meia-noite, horário GMT, na próxima quarta-feira (29) (21h00, horário de Brasília).[/justificado]',
 'V',"2000-08-08");
 
+
+insert into tbl_noticias(idCategoria,titulo,conteudo,estado,dtCriacao)values(1,"Motores da epidemia de obesidade no Brasil",
+'[justificado]Se o ritmo atual de crescimento da obesidade no Brasil for mantido, o país poderá apresentar em 2020 uma tendência de prevalência semelhante à dos Estados Unidos e do México, com excesso de peso em 35% da população.[/justificado]
+[justificado]A avaliação foi feita por pesquisadores participantes do evento com o tema “Obesidade” no Ciclo de Palestras ILP-FAPESP, realizado no dia 20 de agosto na Assembleia Legislativa do Estado de São Paulo (Alesp).[/justificado]
+[justificado]A prevalência de obesidade no Brasil se intensificou a partir dos anos 2000 e mudanças no padrão alimentar da população contribuem para a escalada do problema. Nas últimas décadas, o brasileiro passou a substituir alimentos tradicionais, como arroz, feijão e salada, por preparações multiprocessadas.[/justificado]
+[justificado]“Houve uma intensificação de um ambiente alimentar obesogênico [que causa obesidade] que influenciou o estilo de vida e contribuiu para o aumento do problema no país”, disse Patricia Constante Jaime, professora do Departamento de Nutrição da Faculdade de Saúde Pública da Universidade de São Paulo (FSP-USP).[/justificado]
+[justificado]De acordo com a mais recente Pesquisa Nacional de Saúde publicada pelo Instituto Brasileiro de Geografia e Estatística (IBGE), 20,8% da população adulta brasileira – 26 milhões de pessoas – está obesa. A prevalência desse problema de saúde tem sido registrada em todas as faixas etárias e níveis de renda e em maior proporção em mulheres do que homens.[/justificado]',
+'V',"2000-08-08");
+
 insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(1,2,'2000-08-08 19:30:00');
+insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(2,2,'2000-08-08 19:30:00');
+
+select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc
+
+
+
+
+select n.titulo,n.conteudo,nc.nome as caegoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc
+where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc;
 
 /*## Area do Noticias -_- Autores  ##*/
 /* Visualiza as noticias e seus autores */

@@ -1,9 +1,21 @@
+<?php require_once "./cdn/resorces.php" ?>
+<?php require_once './libs/libsphp/BBcode/bbcode.php'; ?>
 <?php
 /**
 * @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
 * @version 1.0 
 * @copyright  unlicense <http://unlicense.org/>
 */ 
+?>
+<?php
+try{
+    
+    $entrevistas= getEntrevistas(conect());
+    
+} catch (Exception $e){
+    $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
@@ -82,13 +94,15 @@
         <div id="main" role="main" class="arredonda">
             <section aria-label="Entrevistas da BugBunny">
                 <h1>Entrevistas</h1>
+                <?php for($i =1;$i < count($entrevistas);$i++){?>
                 <article tabindex="0">
-                    <h2>Entrevista com Roberto Justos</h2>
+                    <h2><?=$entrevistas[$i]->titulo?></h2>
                     <div class="CaixaTexto"> 
-                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
-                        <button class="Direita">Ver Mais+</button>
+                        <?=BBcode($entrevistas[$i]->conteudo) ?>
+                        <button class="Direita" data-url="<?=$entrevistas[$i]->url?>">Ver Mais+</button>
                     </div>
                 </article>
+                <?php } ?>
                 <article tabindex="0">
                     <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
                     <div class="CaixaTexto"> 

@@ -1,9 +1,19 @@
+<?php require_once "./cdn/resorces.php"?>
+<?php require_once "./libs/libsphp/BBcode/bbcode.php"?>
 <?php
 /**
 * @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
 * @version 1.0 
 * @copyright  unlicense <http://unlicense.org/>
 */ 
+?>
+<?php
+try{
+    $noticias = getNoticias(conect());
+}catch(Exception $e){
+    $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
+    throw Exception("Erro na pagina de noticia news.php!!");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
@@ -122,14 +132,36 @@
                     <div class="cold4" data-style="CaixaTopicos">
                         <section>
                             <h1> Últimos tópicos!</h1>
-                            <p><i class="fas fa-balance-scale"></i>Lula perde julgamento</p>
+                            <?php for($i=1;($i<count($noticias) && $i < 7);$i++){?>
+                                <p>
+                                    <?php
+                                        switch ($noticias[$i]->categoria){
+                                            case "Ciência":
+                                               echo '<i class="fas fa-flask"></i>';
+                                              break;
+                                            case "Economia":
+                                                echo '<i class="far fa-money-bill-alt"></i>';
+                                                break;
+                                            case "Politica":
+                                                echo '<i class="fas fa-balance-scale">';
+                                                break;
+                                            case "Segurança":
+                                                echo '<i class="fas fa-lock"></i>';
+                                                break;
+                                            default:
+                                               echo '<i class="fas fa-globe"></i>';
+                                        }
+                                        echo $noticias[$i]->titulo;
+                                    ?>
+                                </p>
+                            <?php } ?>
+                            <!--<p><i class="fas fa-balance-scale"></i>Lula perde julgamento</p>
                             <p><i class="fas fa-balance-scale"></i>Bolsonaro perde para Ciro Gomes</p>
                             <p><i class="far fa-money-bill-alt"></i>Banco Central declara falência!!</p>
                             <p><i class="far fa-money-bill-alt"></i>Numero de Desempregados sobe para 19 milhões</p>
                             <p><i class="fas fa-balance-scale"></i>Donald Tramp é morto por milicia norte-coreana</p>
-                            <p><i class="fas fa-balance-scale"></i>Ditador Chichaum e morto por ministro das armas</p>
+                            <p><i class="fas fa-balance-scale"></i>Ditador Chichaum e morto por ministro das armas</p>-->
                         </section>
-
                     </div>
                 </div>
             </div>
@@ -137,17 +169,15 @@
         <div id="main" role="main" class="arredonda">
             <section class="arredonda">
                 <h1>Ultimas Notícias</h1>
+                <?php for($i =1; $i< count($noticias) && $i < 10 ;$i++){?>
                 <article>
-                    <h2>Asteroide maior do que Grande Pirâmide egípcia está se aproximando da Terra</h2>
-                    <div class="CaixaTexto"> 
-                        <p>Um enorme asteroide passará perto da Terra em 29 de agosto a uma velocidade de nove quilômetros por segundo, informou o Laboratório de Propulsão a Jato da NASA.</p>
-                        <p>O corpo celeste, denominado 2016 NF23, é considerado pela agência espacial como "potencialmente perigoso" devido a seu tamanho: seu diâmetro pode atingir entre 70 e 160 metros. O tamanho do asteroide pode ser comparado, dependendo de suas dimensões definitivas, com um avião Boeing 747 ou com a Grande Pirâmide de Giza (139 metros de altura).</p>
-                        <p>A agência estima que o asteroide passará a 4,8 milhões de quilômetros da Terra o que equivale a três vezes a distância entre a Terra e a Lua, segundo o Fox News.</p>
-                        <p>Segundo a classificação da NASA, qualquer corpo celeste que passe a uma distância menor que 7,5 milhões de quilômetros da Terra e tenha um diâmetro superior a 140 metros está na lista de corpos perigosos.</p>
-                        <p>O asteroide deverá passar pelo nosso planeta por volta da meia-noite, horário GMT, na próxima quarta-feira (29) (21h00, horário de Brasília).</p>
+                    <h2><?=$noticias[$i]->titulo?></h2>
+                    <div class="CaixaTexto">
+                        <?= BBcode($noticias[$i]->conteudo)?>
                     </div>
                 </article>
-                <article>
+                <?php }?>
+                <!--<article>
                     <h2>Motores da epidemia de obesidade no Brasil</h2>
                     <div class="CaixaTexto"> 
                         <p>Se o ritmo atual de crescimento da obesidade no Brasil for mantido, o país poderá apresentar em 2020 uma tendência de prevalência semelhante à dos Estados Unidos e do México, com excesso de peso em 35% da população.</p>
@@ -156,7 +186,7 @@
                         <p>“Houve uma intensificação de um ambiente alimentar obesogênico [que causa obesidade] que influenciou o estilo de vida e contribuiu para o aumento do problema no país”, disse Patricia Constante Jaime, professora do Departamento de Nutrição da Faculdade de Saúde Pública da Universidade de São Paulo (FSP-USP).</p>
                         <p>De acordo com a mais recente Pesquisa Nacional de Saúde publicada pelo Instituto Brasileiro de Geografia e Estatística (IBGE), 20,8% da população adulta brasileira – 26 milhões de pessoas – está obesa. A prevalência desse problema de saúde tem sido registrada em todas as faixas etárias e níveis de renda e em maior proporção em mulheres do que homens.</p>
                     </div>
-                </article>
+                </article>-->
             </section>  
         </div>
         <footer>
