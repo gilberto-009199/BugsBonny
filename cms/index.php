@@ -1,6 +1,22 @@
+<?php require_once "app/resorces.php" ?>
+<?php require_once "app/autenticacao.php" ?>
 <?php
+$username="Default";
 session_start();
-    echo ($_SESSION['token']);
+   // echo ($_SESSION['token']);
+if(autentica('verificar')){
+    //echo "Token Ok!!";
+    $token =$_SESSION['token'];
+    $sql="SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
+    $con = conect();
+    $query = mysqli_query($con,$sql);
+    
+    if($rsUser= mysqli_fetch_object($query)){
+        $username=$rsUser->nome;
+    }
+
+}
+
     
 ?>
 
@@ -8,7 +24,7 @@ session_start();
 <html lang="pt-br" dir="ltr">
     <head>
         <?php require_once("./head.php") ?>
-        <title></title>
+        <title>CMS</title>
     </head>
     <body>
         <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
@@ -16,7 +32,7 @@ session_start();
                 <div style="width:7%; display:inline-block;">
                     <h1 style="text-shadow: -3px 1px 1px #000000;">CMS</h1>
                 </div>
-                <div class="cold4">
+                <div class="cold5">
                      <p style="font-size: 23px; text-shadow: -3px 1px 1px #000000;">- Sistema de Gerenciamento do Site</p>
                 </div>
                 <div class="cold4 Direita" style="background: transparent; height: 77px; width: 231px; margin-top: 13px; margin-right: 78px;">
@@ -55,7 +71,7 @@ session_start();
                      </nav>
                     <div class="cold3 Esquerda" style="height: 85px; outline: #0078A8 solid 1px">
                         <div class="row" style="padding-left: 27px; font-weight: bolder;">
-                            <p>Bem vindo, UserDefult.</p>
+                            <p>Bem vindo, <?=@$username?>.</p>
                         </div>
                         <div class="row">
                             <div class="cold7" style="float: left; height: 31px;"></div>

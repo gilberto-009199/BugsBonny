@@ -1,8 +1,11 @@
 <?php
 session_start();
-if(!isset($_GET['txtEmail']) && !isset($_GET['txtPassword'])){
-    header("relocation:index.php?msg=falha ao logar senha e email não preenchidos");
+if(!isset($_POST['txtEmail']) || !isset($_POST['txtPassword'])){
+    header("location:../index.php?msg=falha senha ou usuario incorreto");
+    echo"Redirecionador";
 }
+/*echo ($_POST['txtEmail']);*/
+/*echo ($_POST['txtPassword']);*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
@@ -16,16 +19,31 @@ if(!isset($_GET['txtEmail']) && !isset($_GET['txtPassword'])){
         <p id="msg" style="text-align: center; color:black; font-size: 17px; font-weight: bolder;">Gerando Token..</p>
         <script>
         $(function(){
+            
             $.ajax({
                 method:"POST",
-                url:"app/autenticacao.php",
-                data:{txtEmail:'<?=$_GET['txtEmail']?>',txtPassword:'<?=$_GET['txtPassword']?>'},
+                url:"./app/autenticacao.php",
+                data:{txtEmail:'<?=$_POST['txtEmail']?>',txtPassword:'<?=$_POST['txtPassword']?>',action:'gerar'},
                 success:function(msg){
-                    alert(msg);
+                    switch(msg*1){
+                        case 0:
+                            /*alert('token gerado com sucesso!!');*/
+                            window.location.href ="./index.php";
+                            break;
+                        case 1:
+                            alert('Usuario não existe!!');
+                            break;
+                        case 2:
+                            alert('Senha ou Usuario incorreto!!')
+                            break;
+                            
+
+                    }
                    /*window.location.replace("index.php");
-                   window.location.href ="index.php";*/
+                   window.location.href ="./index.php";*/
               }
             });
+
         });
         
         </script>

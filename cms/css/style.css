@@ -87,6 +87,9 @@ a{
 a:hover,:focus{
     color: #006D5C;
 }
+a[href^="mailto:"]:hover,:focus{
+    color: #faff00;
+}
 .btn:hover,:focus{
     color: black;
 }

@@ -39,19 +39,18 @@
                     </nav>
                 </div>
                 <div class="ItemCaixaHeader" id="CaixaLogin">
-                    <form accept-charset="utf-8" method="post" action="#">
+                    <form accept-charset="utf-8" method="post" action="./cms/login.php">
                         <div class="row">
                             <div class="cold4">
-
                                 <label for="txtUser"><i class="fas fa-user">Usuario:</i></label>
                                 <div class="row">
-                                    <input id="txtUser" type="text">
+                                    <input id="txtUser" name="txtEmail" required type="text">
                                 </div>
                             </div>
                             <div class="cold4">
                                 <label for="txtPasswrd"><i class="fas fa-key">Senha:</i></label>
                                 <div class="row">
-                                    <input id="txtPasswrd" type="password">
+                                    <input id="txtPasswrd" name="txtPassword" required type="password">
                                 </div>
                             </div>
                             <div class="cold1">

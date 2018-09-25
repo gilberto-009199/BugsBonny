@@ -7,7 +7,7 @@
 /* Banco de dados Modelo */
 CREATE DATABASE IF NOT EXISTS bugbunny;
 
-CREATE USER 'userbugbunny'@'%' IDENTIFIED BY 'abracadabra127';
+/*CREATE USER 'userbugbunny'@'%' IDENTIFIED BY 'abracadabra127';*/
 
 GRANT INSERT, SELECT, UPDATE, DELETE ON bugbunny.* TO 'userbugbunny'@'%'; 
 
@@ -112,7 +112,7 @@ insert into tbl_entrevistas(titulo,conteudo,celebridade,url,dtCriacao,estado)val
 'Roberto Justus','http://globo.com/aprendiz.html','2017-06-20',
 'V');
 
-select  from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a where ae.idEntrevista= e.id and ae.idAutor = a.id;
+select * from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a where ae.idEntrevista= e.id and ae.idAutor = a.id;
 
 
 
@@ -123,8 +123,8 @@ insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
 
 /*## Area das entrevistas -_- Autores  ##*/
 /* Visualiza os titulo das entrevistas e seus autores com a data de registo e a de criacao*/
-select e.titulo, e.celebridade,a.nome as autor from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a
-where ae.idEntrevista=e.id and ae.idAutor = a.id;
+/*select e.titulo, e.celebridade,a.nome as autor from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a
+where ae.idEntrevista=e.id and ae.idAutor = a.id;*/
 
 
 insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
@@ -176,27 +176,27 @@ insert into tbl_noticias(idCategoria,titulo,conteudo,estado,dtCriacao)values(1,"
 insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(1,2,'2000-08-08 19:30:00');
 insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(2,2,'2000-08-08 19:30:00');
 
-select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc
+/*select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc*/
 
 
 
 
-select n.titulo,n.conteudo,nc.nome as caegoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc
-where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc;
+/*select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc
+where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc;*/
 
 /*## Area do Noticias -_- Autores  ##*/
 /* Visualiza as noticias e seus autores */
-select n.titulo as noticia, a.nome as autor from tbl_noticias as n,tbl_autores as a, tbl_autores_noticias as an
-where an.idNoticia = n.id and an.idAutor = a.id;
+/*select n.titulo as noticia, a.nome as autor from tbl_noticias as n,tbl_autores as a, tbl_autores_noticias as an
+where an.idNoticia = n.id and an.idAutor = a.id;*/
 /* Visualiza as noticias e autores e a categoria */
-select n.titulo as noticia,a.nome as nome, nc.nome as categoria from tbl_noticias as n, tbl_noticia_categorias as nc,tbl_autores as a,tbl_autores_noticias as an
+/*select n.titulo as noticia,a.nome as nome, nc.nome as categoria from tbl_noticias as n, tbl_noticia_categorias as nc,tbl_autores as a,tbl_autores_noticias as an
 where an.idNoticia= n.id and an.idAutor= a.id and n.idCategoria= nc.id;
 
 select * from tbl_noticias;
 
 select*from tbl_autores;
 
-
+*/
 
 /* Inserindo os estilos de usuarios do sistema  */
 insert into tbl_usuario_cargos(nome)values('Administrador');
