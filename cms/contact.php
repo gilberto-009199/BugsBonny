@@ -1,6 +1,8 @@
 <?php require_once "app/resorces.php" ?>
 <?php require_once "app/autenticacao.php" ?>
+<?php require_once "app/tickets.php" ?>
 <?php
+$TicketsRecebidos;
 $username="Default";
 session_start();
    // echo ($_SESSION['token']);
@@ -13,6 +15,7 @@ if(autentica('verificar')){
     
     if($rsUser= mysqli_fetch_object($query)){
         $username=$rsUser->nome;
+        $TicketsRecebidos=tickets("listar");
     }
 
 }
@@ -24,7 +27,7 @@ if(autentica('verificar')){
 <html lang="pt-br" dir="ltr">
     <head>
         <?php require_once("./head.php") ?>
-        <title>CMS</title>
+        <title>Adm. Fale Conosco</title>
     </head>
     <body>
         <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
@@ -50,7 +53,7 @@ if(autentica('verificar')){
                                 </a>
                             </div>
                             <div class="cold3 Esquerda" style="height: 85px; background: transparent; outline: #0078A8 solid 1px">
-                                <a href="./contact.php" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                                <a href="" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
                                     <img style="display: block; margin-left: auto; margin-right: auto;" src="img/User-Chat-icon.png" alt="Imagem Contêudo">
                                     Adm. Fale Conosco
                                 </a>
@@ -81,7 +84,48 @@ if(autentica('verificar')){
                 </div>
                 <div class="row">
                     <div class="cold3 Esquerda" style="min-height: 500px; background: #5bc0de;"></div>
-                    <div class="cold8 Esquerda" style="min-height: 500px; background:yellow;"></div>
+                    <div class="cold8 Esquerda" style="min-height: 500px; background:white;">
+                        <label>CMS/ADM. Fale Conosco</label>
+                        <table  cellspacing="0" cellpadding="0" style="border:solid 1px black; border-radius:10px; display:block;">
+                            <thead style="display:block; border-bottom: solid 1px black;">
+                                <tr>
+                                    <th style="padding:7px; border-right:solid 1px black; display:inline-block;"><label>id</label></th>
+                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Nome</th>
+                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Sexo</th>
+                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">data </th>
+                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Profissão</th>
+                                    <th style="padding:7px; display:inline-block;">Opções:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: solid 1px black; display: inline-flex;">
+                                    <td style="padding:7px; display:inline-block;"><label>id</label></td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Nome</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Sexo</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">22/12/2018</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Profissão</td>
+                                    <td style="margin-left:16px; padding:7px; width:90px; display:inline-block;">v d e</td>
+                                </tr>
+                                <tr style="border-bottom: solid 1px black; display: inline-flex;">
+                                    <td style="padding:7px; display:inline-block;"><label>id</label></td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Nome</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Sexo</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">22/12/2018</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Profissão</td>
+                                    <td style="margin-left:16px; padding:7px; width:90px; display:inline-block;">v d e</td>
+                                </tr>
+                                <tr style="border-bottom: solid 1px black; display: inline-flex;">
+                                    <td style="padding:7px; display:inline-block;"><label>id</label></td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Nome</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Sexo</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">22/12/2018</td>
+                                    <td style="padding:7px; width:90px; display:inline-block;">Profissão</td>
+                                    <td style="margin-left:16px; padding:7px; width:90px; display:inline-block;">v d e</td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
              </div>
             <footer>
