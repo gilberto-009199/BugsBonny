@@ -15,7 +15,7 @@
                 break;
             case "listar":
                $Tickets[] = array();
-                $sqlQuery = "SELECT * FROM tbl_tickets;";
+                $sqlQuery = "SELECT * FROM tbl_tickets as t, tbl_profissao as p where t.idProfissao= p.id;";
                 $query = mysqli_query($con, $sqlQuery);
                 while ($rsTicket = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
                     $Tickets [] = $rsTicket;

@@ -85,43 +85,29 @@ if(autentica('verificar')){
                 <div class="row">
                     <div class="cold3 Esquerda" style="min-height: 500px; background: #5bc0de;"></div>
                     <div class="cold8 Esquerda" style="min-height: 500px; background:white;">
-                        <label>CMS/ADM. Fale Conosco</label>
-                        <table  cellspacing="0" cellpadding="0" style="border:solid 1px black; border-radius:10px; display:block;">
+                        <label style="font-size: 22px; margin: 14px; border-bottom: solid 1px black; display: block; width: 258px; margin-left: 625px;">CMS/ADM. Fale Conosco</label>
+                        <table  width="890px" cellspacing="0" cellpadding="0" style="margin-top:64px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px;display:block;">
                             <thead style="display:block; border-bottom: solid 1px black;">
                                 <tr>
                                     <th style="padding:7px; border-right:solid 1px black; display:inline-block;"><label>id</label></th>
-                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Nome</th>
-                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Sexo</th>
-                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">data </th>
+                                    <th style="padding:7px; width:232px; border-right:solid 1px black; display:inline-block;">Nome</th>
+                                    <th style="padding:7px; width:46px; border-right:solid 1px black; display:inline-block;">Sexo</th>
+                                    <th style="padding:7px; width:157px; border-right:solid 1px black; display:inline-block;">data </th>
                                     <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Profissão</th>
                                     <th style="padding:7px; display:inline-block;">Opções:</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="border-bottom: solid 1px black; display: inline-flex;">
-                                    <td style="padding:7px; display:inline-block;"><label>id</label></td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Nome</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Sexo</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">22/12/2018</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Profissão</td>
-                                    <td style="margin-left:16px; padding:7px; width:90px; display:inline-block;">v d e</td>
+                                <?php for($i=1; $i<count($TicketsRecebidos);$i++){?>
+                                    <tr style="border-bottom: solid 1px black; display: inline-flex; width: 100%;">
+                                    <td style="padding:7px; display:inline-block; width: 30px; text-align: center;"><?=$TicketsRecebidos[$i]->id?></td>
+                                    <td style="padding:7px; width:232px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->nome?></td>
+                                    <td style="padding:7px; width:46px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->sexo?></td>
+                                    <td style="padding:7px; width:157px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->dataCriacao?></td>
+                                    <td style="padding:7px; width:90px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->profissao?></td>
+                                    <td style="margin-left:16px; padding:7px; width:232px; text-align: center; display:inline-block;"><i class="far fa-eye"></i>Ver <i class="far fa-trash-alt"></i>Deletar </td>
                                 </tr>
-                                <tr style="border-bottom: solid 1px black; display: inline-flex;">
-                                    <td style="padding:7px; display:inline-block;"><label>id</label></td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Nome</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Sexo</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">22/12/2018</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Profissão</td>
-                                    <td style="margin-left:16px; padding:7px; width:90px; display:inline-block;">v d e</td>
-                                </tr>
-                                <tr style="border-bottom: solid 1px black; display: inline-flex;">
-                                    <td style="padding:7px; display:inline-block;"><label>id</label></td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Nome</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Sexo</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">22/12/2018</td>
-                                    <td style="padding:7px; width:90px; display:inline-block;">Profissão</td>
-                                    <td style="margin-left:16px; padding:7px; width:90px; display:inline-block;">v d e</td>
-                                </tr>                                
+                                <?php }?>                              
                             </tbody>
                         </table>
 
