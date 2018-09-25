@@ -93,6 +93,17 @@ idEntrevista int not null,idAutor int not null,dtEmissao datetime not null,
 foreign key (`idEntrevista`) references `tbl_entrevistas`(`id`),
 foreign key (`idAutor`) references `tbl_autores`(`id`));
 
+CREATE TABLE IF NOT EXISTS tbl_token(id int primary key auto_increment,
+token varchar(64) not null,idUsuario int not null,dtEmissao datetime not null,
+foreign key (`idUsuario`) references `tbl_usuarios`(`id`));
+
+create table if not exists tbl_logs(id int primary key,
+action varchar(64) not null,idToken int not null,
+dtEmissao datetime not null,ip varchar(12) null,
+foreign key (`idToken`) references `tbl_token`(`id`));
+
+
+
 /* Anotação verificar se o arquivo de imagem existe atraves do php */
 
 insert into tbl_entrevistas(titulo,conteudo,celebridade,url,dtCriacao,estado)values(
