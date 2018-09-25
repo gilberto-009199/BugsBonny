@@ -3,30 +3,27 @@
 <?php require_once "app/tickets.php" ?>
 <?php
 $TicketsRecebidos;
-$username="Default";
+$username = "Default";
 session_start();
-   // echo ($_SESSION['token']);
-if(autentica('verificar')){
+// echo ($_SESSION['token']);
+if (autentica('verificar')) {
     //echo "Token Ok!!";
-    $token =$_SESSION['token'];
-    $sql="SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
+    $token = $_SESSION['token'];
+    $sql = "SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
     $con = conect();
-    $query = mysqli_query($con,$sql);
-    
-    if($rsUser= mysqli_fetch_object($query)){
-        $username=$rsUser->nome;
-        $TicketsRecebidos=tickets("listar");
+    $query = mysqli_query($con, $sql);
+
+    if ($rsUser = mysqli_fetch_object($query)) {
+        $username = $rsUser->nome;
+        $TicketsRecebidos = tickets("listar");
     }
-
 }
-
-    
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
     <head>
-        <?php require_once("./head.php") ?>
+<?php require_once("./head.php") ?>
         <title>Adm. Fale Conosco</title>
     </head>
     <body>
@@ -36,7 +33,7 @@ if(autentica('verificar')){
                     <h1 style="text-shadow: -3px 1px 1px #000000;">CMS</h1>
                 </div>
                 <div class="cold5">
-                     <p style="font-size: 23px; text-shadow: -3px 1px 1px #000000;">- Sistema de Gerenciamento do Site</p>
+                    <p style="font-size: 23px; text-shadow: -3px 1px 1px #000000;">- Sistema de Gerenciamento do Site</p>
                 </div>
                 <div class="cold4 Direita" style="background: transparent; height: 77px; width: 231px; margin-top: 13px; margin-right: 78px;">
                     <img alt="Logo" class="Direita" src="./img/tool-box-icon.png" width="64" height="64">
@@ -71,10 +68,10 @@ if(autentica('verificar')){
                                 </a>
                             </div>
                         </div>
-                     </nav>
+                    </nav>
                     <div class="cold3 Esquerda" style="height: 85px; outline: #0078A8 solid 1px">
                         <div class="row" style="padding-left: 27px; font-weight: bolder;">
-                            <p>Bem vindo, <?=@$username?>.</p>
+                            <p>Bem vindo, <?= @$username ?>.</p>
                         </div>
                         <div class="row">
                             <div class="cold7" style="float: left; height: 31px;"></div>
@@ -98,25 +95,70 @@ if(autentica('verificar')){
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php for($i=1; $i<count($TicketsRecebidos);$i++){?>
+<?php for ($i = 1; $i < count($TicketsRecebidos); $i++) { ?>
                                     <tr style="border-bottom: solid 1px black; display: inline-flex; width: 100%;">
-                                    <td style="padding:7px; display:inline-block; width: 30px; text-align: center;"><?=$TicketsRecebidos[$i]->id?></td>
-                                    <td style="padding:7px; width:232px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->nome?></td>
-                                    <td style="padding:7px; width:46px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->sexo?></td>
-                                    <td style="padding:7px; width:157px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->dataCriacao?></td>
-                                    <td style="padding:7px; width:90px; display:inline-block; text-align: center;"><?=$TicketsRecebidos[$i]->profissao?></td>
-                                    <td style="margin-left:16px; padding:7px; width:232px; text-align: center; display:inline-block;"><i class="far fa-eye"></i>Ver <i class="far fa-trash-alt"></i>Deletar </td>
-                                </tr>
-                                <?php }?>                              
+                                        <td style="padding:7px; display:inline-block; width: 30px; text-align: center;"><?= $TicketsRecebidos[$i]->id ?></td>
+                                        <td style="padding:7px; width:232px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->nome ?></td>
+                                        <td style="padding:7px; width:46px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->sexo ?></td>
+                                        <td style="padding:7px; width:157px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->dataCriacao ?></td>
+                                        <td style="padding:7px; width:90px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->profissao ?></td>
+                                        <td style="margin-left:16px; padding:7px; width:232px; text-align: center; display:inline-block;">
+                                            <a href="#" class="btnVer" style="cursor: pointer;" data-ticket="<?= $TicketsRecebidos[$i]->id ?>"><i class="far fa-eye"></i>Ver</a>
+                                            <a href="#" class="btnDeletar" style="cursor: pointer;" data-ticket="<?= $TicketsRecebidos[$i]->id ?>"><i class="far fa-trash-alt"></i>Deletar</a>
+                                        </td>
+                                    </tr>
+<?php } ?>                              
                             </tbody>
                         </table>
 
                     </div>
                 </div>
-             </div>
+            </div>
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
+            <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
+            </div>
+            <div id="modal" style="position: fixed; top: 9%; display:none;background-color: white; border: solid 1px black; height: 496px; width:393px; z-index:999; opacity: 1;margin-left: auto; margin-right: auto; left: 30%;border-radius: 21px; padding-left: 45px;">
+                    
+            </div>
+            <script>
+                $('#container').click(function(){
+                    $('#container').css('display','none');
+                    $('#modal').css('display','none');
+                });
+                $('.btnVer').click(function () {
+                    $.ajax({
+                        method: "POST",
+                        url: "./app/tickets.php",
+                        data: {action:'ver',idTicket:$(this).attr('data-ticket')},
+                        success: function (msg) {
+                            $('#container').css('display','block');
+                            $('#modal').css('display','block');
+                            $('#modal').html(msg)
+                        }
+                    });
+                });
+                $('.btnDeletar').click(function () {
+                    //alert('Deletar: ' + $(this).attr('data-ticket'));
+                    $.ajax({
+                        method: "POST",
+                        url: "./app/tickets.php",
+                        data: {action:'deletar',idTicket:$(this).attr('data-ticket')},
+                        success: function (msg) {
+                            switch(msg*1){
+                                case 0:
+                                    window.location.href ="./contact.php";
+                                    break;
+                                case 1:
+                                    alert("Um erro ocorreu ao excluir o ticket");
+                                    break;
+                            }
+                        }
+                    });
+                });
+
+            </script>
         </div>
     </body>
 </html>
