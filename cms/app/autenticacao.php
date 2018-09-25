@@ -1,46 +1,55 @@
-<?php require_once"./resorces.php"?>
+<?php require_once"./resorces.php" ?>
 <?php
 
-function autentica(){
+function autentica() {
     $con = conect();
     if (!$con) {
         echo "Erro ao gerar token!!";
-        throw Exception("Um erro Ocorreu ao gerar o Token de acesso!!".date('Y-m-d H:i:s'));
+        throw Exception("Um erro Ocorreu ao gerar o Token de acesso!!" . date('Y-m-d H:i:s'));
     }
     $email = $_POST["txtEmail"];
     $sql = "select * from tbl_usuarios where email='$email'";
     $query = mysqli_query($con, $sql);
     if ($rsUser = mysqli_fetch_object($query)) {
         //echo " Usuario =" . $rsUser->nome . ".";
-        if(password_verify("12345", $rsUser->senha)) {
+        if (password_verify($_POST["txtPassword"], $rsUser->senha)) {
             //echo "senha compativel";
             session_destroy();
             //echo"<p>Sessao destruida!!</p>";
             session_start();
             /* entropia = 12 numeros aleatorios + data atual + 12 numeros aleatorios */
             $entropia = "" . rand(1, 9) . "" . rand(1, 9) . "" .
-                    rand(1, 9) ."". rand(1, 9) . "" . rand(1, 9) . "" .
-                    rand(1, 9) ."". rand(1, 9) . "" . rand(1, 9) . "" .
-                    rand(1, 9) ."". rand(1, 9) . "" . rand(1, 9) . "" .
-                    rand(1, 9) ."". date('Y-m-d H:i:s') . "" . rand(1, 9)
-                    . "" . rand(1, 9) . "" . rand(1, 9) ."". rand(1, 9)
-                    . "" . rand(1, 9) . "" . rand(1, 9) ."". rand(1, 9)
-                    . "" . rand(1, 9) . "" . rand(1, 9) ."". rand(1, 9)
+                    rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9) . "" .
+                    rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9) . "" .
+                    rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9) . "" .
+                    rand(1, 9) . "" . date('Y-m-d H:i:s') . "" . rand(1, 9)
+                    . "" . rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9)
+                    . "" . rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9)
+                    . "" . rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9)
                     . "" . rand(1, 9) . "" . rand(1, 9) . "";
             //echo "<p>Entropia: $entropia</p>";
             $token = md5($entropia);
             $idUsuario = $rsUser->id;
             $dataAtual = date('Y-m-d H:i:s');
-            $sql="insert into tbl_token(token,idUsuario,dtEmissao)values('$token',$idUsuario,'$dataAtual')";
-            $_SESSION['token']=$token;
+            $sql = "insert into tbl_token(token,idUsuario,dtEmissao)values('$token',$idUsuario,'$dataAtual')";
+            echo "SQL: $sql";
+            mysqli_query($con, $sql);
+            $_SESSION['token'] = $token;
             //echo "<p>  Hash: $hash</p>";
-            sleep(4);
-            echo"<p>Token ok!</p>";
+            sleep(3);
+            echo"Token gerado!!";
+            echo"token:".$_SESSION['token'];
             //echo"<pre>data depois:" . date('Y-m-d H:i:s') . "</pre>";
         }
     } ELSE {
         echo "Erro usuario ou senha incorreta";
     }
 }
+
+if (isset($_POST['txtEmail']) && isset($_POST['txtPassword'])) {
+    session_start();
+    autentica();
+}
+
 ?>
 

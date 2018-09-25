@@ -1,3 +1,9 @@
+<?php
+session_start();
+    echo ($_SESSION['token']);
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
     <head>
@@ -8,7 +14,7 @@
         <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
             <header>
                 <div style="width:7%; display:inline-block;">
-                    <h1 style="text-shadow: -3px 1px 1px #000000;">CMS<h1>
+                    <h1 style="text-shadow: -3px 1px 1px #000000;">CMS</h1>
                 </div>
                 <div class="cold4">
                      <p style="font-size: 23px; text-shadow: -3px 1px 1px #000000;">- Sistema de Gerenciamento do Site</p>
