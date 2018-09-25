@@ -1,5 +1,7 @@
 <?php require_once"resorces.php" ?>
+<?php require_once"logs.php" ?>
 <?php
+session_start();
 
 function tickets($action) {
     $con = conect();
@@ -15,6 +17,7 @@ function tickets($action) {
             $sql = "delete from tbl_tickets where id =$idTicket";
             if (mysqli_query($con, $sql)) {
                 echo '0';
+                geralog($sql);
                 return true;
             }
             echo '1';

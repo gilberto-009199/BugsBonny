@@ -97,12 +97,10 @@ CREATE TABLE IF NOT EXISTS tbl_token(id int primary key auto_increment,
 token varchar(64) not null,idUsuario int not null,dtEmissao datetime not null,
 foreign key (`idUsuario`) references `tbl_usuarios`(`id`));
 
-create table if not exists tbl_logs(id int primary key,
+create table if not exists tbl_logs(id int primary key auto_increment,
 action varchar(64) not null,idToken int not null,
 dtEmissao datetime not null,ip varchar(12) null,
 foreign key (`idToken`) references `tbl_token`(`id`));
-
-
 
 /* Anotação verificar se o arquivo de imagem existe atraves do php */
 

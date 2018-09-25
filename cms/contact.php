@@ -9,6 +9,7 @@ session_start();
 if (autentica('verificar')) {
     //echo "Token Ok!!";
     $token = $_SESSION['token'];
+    ECHO "<p>$token</p>";
     $sql = "SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
     $con = conect();
     $query = mysqli_query($con, $sql);
@@ -17,6 +18,8 @@ if (autentica('verificar')) {
         $username = $rsUser->nome;
         $TicketsRecebidos = tickets("listar");
     }
+} else {
+    echo"Token não existente";
 }
 ?>
 
@@ -44,7 +47,7 @@ if (autentica('verificar')) {
                     <nav class="cold8 Esquerda" style="min-height: 85px; background: rgb(255,255,255); background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);">
                         <div class="row">
                             <div class="cold3 Esquerda" style="height: 85px; background: transparent; outline: #0078A8 solid 1px">
-                                <a href="" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                                <a href="index.php" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
                                     <img style="display: block; margin-left: auto; margin-right: auto;" src="img/content-icon.png" alt="Imagem Contêudo">
                                     Adm. Conteúdo
                                 </a>
