@@ -1,7 +1,7 @@
 <?php require_once"./resorces.php"?>
 <?php
 
-function autentica() {
+function autentica(){
     $con = conect();
     if (!$con) {
         echo "Erro ao gerar token!!";
@@ -29,6 +29,9 @@ function autentica() {
                     . "" . rand(1, 9) . "" . rand(1, 9) . "";
             //echo "<p>Entropia: $entropia</p>";
             $token = md5($entropia);
+            $idUsuario = $rsUser->id;
+            $dataAtual = date('Y-m-d H:i:s');
+            $sql="insert into tbl_token(token,idUsuario,dtEmissao)values('$token',$idUsuario,'$dataAtual')";
             $_SESSION['token']=$token;
             //echo "<p>  Hash: $hash</p>";
             sleep(4);
