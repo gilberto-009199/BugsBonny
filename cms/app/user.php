@@ -50,6 +50,14 @@ function user($action){
         case "deletar":
             echo "deletar usuario";
             break;
+        case "listar":
+            $Usuarios[] = array();
+            $sqlQuery = "select * from vwUsuarios limit 100;";
+            $query = mysqli_query($con, $sqlQuery);
+            while ($rsUsuario = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
+                $Usuarios [] = $rsUsuario;
+            }
+            return $Usuarios;
     }
     
 }

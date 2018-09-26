@@ -248,8 +248,21 @@ select u.nome as nome, uc.nome as cargos, cu.dataEmissao as desde from tbl_usuar
 cu.idUsuario= u.id and cu.idCargo=uc.id
 and cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id);
 
+/*####  Seleciona o cargo e o estado dos usuario  ####*/
+select u.nome as nome,u.email as email, uc.nome as cargos, cu.dataEmissao as desde,ue.nome as estado
+from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc,tbl_estados_usuarios  as eu,tbl_usuario_estados as ue
+where cu.idUsuario= u.id and cu.idCargo=uc.id and
+cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id)
+and eu.idUsuario= u.id and eu.idEstado= ue.id and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
+
+CREATE VIEW vwUsuarios AS select u.id ,u.nome as nome,u.email as email, uc.nome as cargos, cu.dataEmissao as desde,ue.nome as estado
+from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc,tbl_estados_usuarios  as eu,tbl_usuario_estados as ue
+where cu.idUsuario= u.id and cu.idCargo=uc.id and
+cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id)
+and eu.idUsuario= u.id and eu.idEstado= ue.id and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
 
 
+select * from vwUsuarios limit 100;
 
 /* Tipos de Tickets*/
 insert into tbl_tipos_tickets(tipo)values('Consulta');
