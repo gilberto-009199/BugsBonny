@@ -7,13 +7,13 @@ function user($action){
     switch($action){
         case "criar":
             echo "criar usuario";
-            $nome=$_GET['nome'];
-            $email=$_GET['email'];
-            $senha = password_hash($_GET['senha'],CRYPT_BLOWFISH,['cost'=>12]);
+            $nome=$_GET['txtNome'];
+            $email=$_GET['txtEmail'];
+            $senha = password_hash($_GET['txtPassword'],CRYPT_BLOWFISH,['cost'=>12]);
             $dataEmissao=date('Y-m-d H:i:s');
-            $telefone=$_GET['telefone'];
+            $telefone=$_GET['txtTelefone'];
             $sql="insert into tbl_usuarios(nome,email,senha,dataEmissao,telefone)values('$nome','$email','$senha','$dataEmissao','$telefone');";
-            //echo '<p>'.$sql.'</p>';
+            echo '<p>'.$sql.'</p>';
             mysqli_query($con,$sql);
             geralog("Criando usuario: $nome,$email");
             $sql="select u.id from tbl_usuarios as u order by id desc limit 1;";

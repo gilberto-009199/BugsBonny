@@ -44,7 +44,7 @@ if(autentica('verificar')){
                     <nav class="cold8 Esquerda" style="min-height: 85px; background: rgb(255,255,255); background: linear-gradient(265deg, rgba(255,255,255,1) 38%, rgba(231,227,227,1) 67%);">
                         <div class="row">
                             <div class="cold3 Esquerda" style="height: 85px; background: transparent; outline: #0078A8 solid 1px">
-                                <a href="" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                                <a href="index.php" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
                                     <img style="display: block; margin-left: auto; margin-right: auto;" src="img/content-icon.png" alt="Imagem Contêudo">
                                     Adm. Conteúdo
                                 </a>
@@ -62,7 +62,7 @@ if(autentica('verificar')){
                                 </a>
                             </div>
                             <div class="cold3 Esquerda" style="height: 85px; background: transparent; outline: #0078A8 solid 1px">
-                                <a href="" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                                <a href="user.php" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
                                     <img style="display: block; margin-left: auto; margin-right: auto;" src="img/Windows-Messenger-icon.png" alt="Imagem Contêudo">
                                     Adm. Usuarios
                                 </a>
