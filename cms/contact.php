@@ -65,7 +65,7 @@ if (autentica('verificar')) {
                                 </a>
                             </div>
                             <div class="cold3 Esquerda" style="height: 85px; background: transparent; outline: #0078A8 solid 1px">
-                                <a href="" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
+                                <a href="user.php" style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; display: block;">
                                     <img style="display: block; margin-left: auto; margin-right: auto;" src="img/Windows-Messenger-icon.png" alt="Imagem Contêudo">
                                     Adm. Usuarios
                                 </a>
