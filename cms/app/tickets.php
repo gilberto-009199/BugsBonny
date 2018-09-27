@@ -1,7 +1,9 @@
 <?php require_once"resorces.php" ?>
 <?php require_once"logs.php" ?>
 <?php
-session_start();
+if(!isset($_SESSION))session_start(); 
+
+
 
 function tickets($action) {
     $con = conect();
@@ -51,32 +53,32 @@ if (isset($_POST['action'])) {
         case "ver":
             $ticket = tickets('ver');
             ?>
-            <table>
-                <tr>
-                    <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
-                    <td> <input value="<?=$ticket->nome?>"/> </td>
-                </tr>
-                <tr>
-                    <td><label  for="txtTelefone">Telefone:</label></td>
-                    <td> <input value="<?=$ticket->telefone?>"/> </td>
-                </tr>
-                <tr>
-                    <td> <label class="Obrigatorio" for="txtCelular"> Celular:*</label> </td>
-                    <td> <input value="<?=$ticket->celular?>"/> </td>
-                </tr>
-                <tr>
+            <div class="row">
+                <div class="row">
+                    <div class="3"><label  class="Obrigatorio" for="txtNome">Nome:*</label></div>
+                    <div class="3"><input  class="row" value="<?=$ticket->nome?>" disabled/> </div>
+                </div>
+                <div class="row">
+                    <div class="3"><label  for="txtTelefone">Telefone:</label></div>
+                    <div class="3"><input value="<?=$ticket->telefone?>" disabled/> </div>
+                </div>
+                <div class="row">
+                    <div class="3"><label class="Obrigatorio" for="txtCelular"> Celular:*</label> </div>
+                    <div class="3"> <input value="<?=$ticket->celular?>" disabled/> </div>
+                </div>
+                <div class="row">
                     <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
-                    <td> <input value="<?=$ticket->email?>"/> </td>
-                </tr>
-                <tr>
+                    <td> <input value="<?=$ticket->email?>" disabled/> </td>
+                </div>
+                <div class="row">
                     <td><label for="txtHomePage">Home Page:</label></td>
-                    <td><input  value="<?=$ticket->website?>"/> </td>
-                </tr>
-                <tr>
+                    <td><input  value="<?=$ticket->website?>" disabled/> </td>
+                </div>
+                <div class="row">
                     <td><label for="txtFcebook"> Link no Facebook:</label></td>
-                    <td> <input value="<?=$ticket->facebook?>"/> </td>
-                </tr>
-                <tr>
+                    <td> <input value="<?=$ticket->facebook?>" disabled/> </td>
+                </div>
+                <div class="row">
                     <td colspan="2">
                         <table>
                             <tr>
@@ -84,25 +86,25 @@ if (isset($_POST['action'])) {
                             </tr>
                             <tr>
                                 <td> 
-                                    <textarea style="width: 356px; border: 1px solid black; height: 113px; resize: none;" id="areaCritica" name="ariaCritica" rows="6" ><?=$ticket->critica?></textarea>
+                                    <textarea disabled style="width: 356px; border: 1px solid black; height: 113px; resize: none;" id="areaCritica" name="ariaCritica" rows="6" ><?=$ticket->critica?></textarea>
                                 </td>
                             </tr>
                         </table>
                     </td>                               
-                </tr>
-                <tr>
+                </div>
+                <div class="row">
                     <td><label for="txtProduto">Informações de Produto </label></td>
-                    <td><input value="<?=$ticket->infoPedido?>"/> </td>
-                </tr>
-                <tr>
+                    <td><input value="<?=$ticket->infoPedido?>" disabled/> </td>
+                </div>
+                <div class="row">
                     <td><label class="Obrigatorio" for="slcSexo">Sexo:*</label></td>
-                    <td><input value="<?=$ticket->sexo?>"/> </td>
-                </tr>
-                <tr>
+                    <td><input value="<?=$ticket->sexo?>" disabled/> </td>
+                </div>
+                <div class="row">
                     <td><label class="Obrigatorio" for="slcProfissao">Profissão:*</label></td>
-                    <td><input value="<?=$ticket->profissao?>"/> </td>
-                </tr>
-            </table>
+                    <td><input disabled value="<?=$ticket->profissao?>"/> </td>
+                </div>
+            </div>
 
             <?php
             break;

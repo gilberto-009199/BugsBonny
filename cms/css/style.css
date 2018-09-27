@@ -4,6 +4,9 @@
 */
 
 /*	Propriedades pertencentes ao estilo default dos itens das paginas do site.	*/
+
+@import "./elements.css";
+
 * {
   font-family: Verdana,Helvetica,comic;
 }

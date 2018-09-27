@@ -3,7 +3,7 @@
 <?php require_once "app/user.php" ?>
 <?php
 $username = "Default";
-session_start();
+if(!isset($_SESSION))session_start();
 // echo ($_SESSION['token']);
 if (autentica('verificar')) {
     //echo "Token Ok!!";
@@ -115,7 +115,9 @@ $Usuarios = user('listar');
                     </div>
                     <div class="cold8 Esquerda" style="min-height: 500px; background:white;">
                         <label style="font-size: 22px; margin: 14px; border-bottom: solid 1px black; display: block; width: 258px; margin-left: 625px;">CMS/ADM. Usuarios</label>
-                        <span id="btnadduser" class="btnaction">Adicionar </span>
+                        <a href="./views/frmUserAdicionar.php">
+                        <span style="display:inline-table; display: contents;" id="btnadduser" class="btnaction">Adicionar </span>
+                        </a>
                         <table  width="990px" cellspacing="0" cellpadding="0" style="margin-top:64px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
                             <thead style="display:block; border-bottom: solid 1px black;">
                                 <tr>
@@ -153,9 +155,36 @@ $Usuarios = user('listar');
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
+            <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
+            </div>
+            <div id="modal">
+                    
+            </div>
             <script>
+             $('#container').click(function(){
+                    $('#container').css('display','none');
+                    $('#modal').css('display','none');
+                });
                 $('.btnVer').click(function () {
-                    alert('Ver id' + $(this).attr('data-user'));
+                    $('.Alert').remove();
+                     $.ajax({
+                        method: "GET",
+                        url: "./app/user.php",
+                        data: {action:'ver',idUser:$(this).attr('data-user')},
+                        success: function (msg) {
+                            $('#container').css('display','block');
+                            $('#modal').css('display','block');
+                            $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
+                             
+                                if (statusText == "success") {
+                                    $('.msgConteudo').html(msg);     
+                                }
+                            });
+
+                            //$('#modal').html(msg);
+
+                        }
+                    });
                 });
                 $('.btnDeletar').click(function () {
                     alert('Deletar id' + $(this).attr('data-user'));

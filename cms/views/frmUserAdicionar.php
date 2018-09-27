@@ -157,18 +157,6 @@ if (autentica('verificar')) {
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
-            <script>
-                $('.btnVer').click(function () {
-                    alert('Ver id' + $(this).attr('data-user'));
-                });
-                $('.btnDeletar').click(function () {
-                    alert('Deletar id' + $(this).attr('data-user'));
-                });
-                $('.btnEditar').click(function () {
-                    alert('Deletar id' + $(this).attr('data-user'));
-                });
-
-            </script>
         </div>
     </body>
 </html>

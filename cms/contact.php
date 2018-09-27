@@ -4,7 +4,7 @@
 <?php
 $TicketsRecebidos;
 $username = "Default";
-session_start();
+if(!isset($_SESSION))session_start();
 // echo ($_SESSION['token']);
 if (autentica('verificar')) {
     //echo "Token Ok!!";
@@ -16,11 +16,12 @@ if (autentica('verificar')) {
 
     if ($rsUser = mysqli_fetch_object($query)) {
         $username = $rsUser->nome;
-        $TicketsRecebidos = tickets("listar");
+        
     }
 } else {
     echo"Token não existente";
 }
+$TicketsRecebidos = tickets("listar");
 ?>
 
 <!DOCTYPE html>
@@ -92,8 +93,8 @@ if (autentica('verificar')) {
                                     <th style="padding:7px; border-right:solid 1px black; display:inline-block;"><label>id</label></th>
                                     <th style="padding:7px; width:232px; border-right:solid 1px black; display:inline-block;">Nome</th>
                                     <th style="padding:7px; width:46px; border-right:solid 1px black; display:inline-block;">Sexo</th>
-                                    <th style="padding:7px; width:157px; border-right:solid 1px black; display:inline-block;">data </th>
-                                    <th style="padding:7px; width:90px; border-right:solid 1px black; display:inline-block;">Profissão</th>
+                                    <th style="padding:7px; width:168px; border-right:solid 1px black; display:inline-block;">data </th>
+                                    <th style="padding:7px; width:164px; border-right:solid 1px black; display:inline-block;">Profissão</th>
                                     <th style="padding:7px; display:inline-block;">Opções:</th>
                                 </tr>
                             </thead>
@@ -103,7 +104,7 @@ if (autentica('verificar')) {
                                         <td style="padding:7px; display:inline-block; width: 30px; text-align: center;"><?= $TicketsRecebidos[$i]->id ?></td>
                                         <td style="padding:7px; width:232px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->nome ?></td>
                                         <td style="padding:7px; width:46px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->sexo ?></td>
-                                        <td style="padding:7px; width:157px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->dataCriacao ?></td>
+                                        <td style="padding:7px; width:178px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->dataCriacao ?></td>
                                         <td style="padding:7px; width:90px; display:inline-block; text-align: center;"><?= $TicketsRecebidos[$i]->profissao ?></td>
                                         <td style="margin-left:16px; padding:7px; width:232px; text-align: center; display:inline-block;">
                                             <a href="#" class="btnVer" style="cursor: pointer;" data-ticket="<?= $TicketsRecebidos[$i]->id ?>"><i class="far fa-eye"></i>Ver</a>
@@ -122,7 +123,7 @@ if (autentica('verificar')) {
             </footer>
             <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
             </div>
-            <div id="modal" style="position: fixed; top: 9%; display:none;background-color: white; border: solid 1px black; height: 496px; width:393px; z-index:999; opacity: 1;margin-left: auto; margin-right: auto; left: 30%;border-radius: 21px; padding-left: 45px;">
+            <div id="modal">
                     
             </div>
             <script>
@@ -138,7 +139,15 @@ if (autentica('verificar')) {
                         success: function (msg) {
                             $('#container').css('display','block');
                             $('#modal').css('display','block');
-                            $('#modal').html(msg)
+                            $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
+                                if (statusText == "success") {
+                                    $('.msgConteudo').html(msg);     
+                                }
+                            });
+
+                            
+
+                            
                         }
                     });
                 });
@@ -156,6 +165,8 @@ if (autentica('verificar')) {
                                 case 1:
                                     alert("Um erro ocorreu ao excluir o ticket");
                                     break;
+                                default:
+                                    window.location.href ="./contact.php";
                             }
                         }
                     });

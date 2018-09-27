@@ -102,6 +102,8 @@ action varchar(64) not null,idToken int not null,
 dtEmissao datetime not null,ip varchar(12) null,
 foreign key (`idToken`) references `tbl_token`(`id`));
 
+
+
 /* Anotação verificar se o arquivo de imagem existe atraves do php */
 
 insert into tbl_entrevistas(titulo,conteudo,celebridade,url,dtCriacao,estado)values(
@@ -123,7 +125,6 @@ insert into tbl_autores_entrevistas(idEntrevista,idAutor,dtEmissao)values(
 /* Visualiza os titulo das entrevistas e seus autores com a data de registo e a de criacao*/
 /*select e.titulo, e.celebridade,a.nome as autor from tbl_entrevistas as e, tbl_autores_entrevistas as ae, tbl_autores as a
 where ae.idEntrevista=e.id and ae.idAutor = a.id;*/
-
 
 insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
 'Fundação da Bugsbunny','[justificado]A origem da nossa empresa vem de um banca de jornal criada em 1990, nessa época a empresa era dirigida somente pelo nosso amado Daffy Duck, fundador e dono da empresa.[/justificado][justificado]Depois da morte da sua esposa e filhos se dedicou as empresas de sua região, fornecendo aos administradores assinaturas de revistas e jornais para seus empregados. Com crescimento brasileiro de 2006, abriu mais 3 bancas de jornal na Zona Oeste de São Paulo.[/justificado]',
@@ -177,6 +178,11 @@ insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(2,2,'2000-08
 /*select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc*/
 
 
+CREATE VIEW vwUsuarios AS select u.id ,u.nome as nome,u.email as email, uc.nome as cargos, cu.dataEmissao as desde,ue.nome as estado, u.telefone
+from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc,tbl_estados_usuarios  as eu,tbl_usuario_estados as ue
+where cu.idUsuario= u.id and cu.idCargo=uc.id and
+cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id)
+and eu.idUsuario= u.id and eu.idEstado= ue.id and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
 
 
 /*select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc
@@ -248,21 +254,8 @@ select u.nome as nome, uc.nome as cargos, cu.dataEmissao as desde from tbl_usuar
 cu.idUsuario= u.id and cu.idCargo=uc.id
 and cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id);
 
-/*####  Seleciona o cargo e o estado dos usuario  ####*/
-select u.nome as nome,u.email as email, uc.nome as cargos, cu.dataEmissao as desde,ue.nome as estado
-from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc,tbl_estados_usuarios  as eu,tbl_usuario_estados as ue
-where cu.idUsuario= u.id and cu.idCargo=uc.id and
-cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id)
-and eu.idUsuario= u.id and eu.idEstado= ue.id and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
-
-CREATE VIEW vwUsuarios AS select u.id ,u.nome as nome,u.email as email, uc.nome as cargos, cu.dataEmissao as desde,ue.nome as estado
-from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc,tbl_estados_usuarios  as eu,tbl_usuario_estados as ue
-where cu.idUsuario= u.id and cu.idCargo=uc.id and
-cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id)
-and eu.idUsuario= u.id and eu.idEstado= ue.id and eu.dataEmissao=(select max(tbl_estados_usuarios.dataEmissao) from tbl_estados_usuarios where tbl_estados_usuarios.idUsuario=u.id);
 
 
-select * from vwUsuarios limit 100;
 
 /* Tipos de Tickets*/
 insert into tbl_tipos_tickets(tipo)values('Consulta');

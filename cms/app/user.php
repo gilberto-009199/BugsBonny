@@ -1,7 +1,8 @@
 <?php require_once"resorces.php" ?>
 <?php require_once"logs.php" ?>
 <?php
-session_start();
+
+if(!isset($_SESSION))session_start();
 function user($action){
     $con = conect();
     switch($action){
@@ -41,8 +42,14 @@ function user($action){
             
             /*insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values(999,999,'dataemissao');
             insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values(999,999,'dataemissao');*/
+            header("location:../user.php");
             
-            
+            break;
+        case "ver":
+            $idUsuario = $_GET['idUser'];
+            $sql="select * from vwUsuarios where id =$idUsuario;";
+            $rsUsuario = mysqli_fetch_object(mysqli_query($con,$sql));
+            return $rsUsuario;
             break;
         case "editar":
             echo "editar usuario";
@@ -62,7 +69,33 @@ function user($action){
     
 }
 if(isset($_GET['action'])){
-    user($_GET['action']);
+    if($_GET['action']=="ver"){
+       $Usuario =user($_GET['action']);
+?>      <table>
+                <tr>
+                    <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
+                    <td> <input value="<?=$Usuario->nome?>" disabled/> </td>
+                </tr>
+                <tr>
+                    <td><label  for="txtTelefone">Telefone:</label></td>
+                    <td> <input value="<?=$Usuario->telefone?>" disabled/> </td>
+                </tr>
+                <tr>
+                    <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
+                    <td> <input value="<?=$Usuario->email?>" disabled/> </td>
+                </tr>
+                <tr>
+                    <td><label class="Obrigatorio" for="slcProfissao">Cargo:</label></td>
+                    <td><input disabled value="<?=$Usuario->cargos?>"/> </td>
+                </tr>
+            </table>
+       
+       
+<?php
+    }else{
+        user($_GET['action']); 
+    }
+
 }
 
 ?>
