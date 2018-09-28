@@ -27,7 +27,7 @@ $Usuarios = user('listar');
     <head>
         <?php require_once("./head.php") ?>
         <title>Adm. Fale Conosco</title>
-        <script src="libs/jquery/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="css/animate.min.css">
     </head>
     <body>
         <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
@@ -177,6 +177,8 @@ $Usuarios = user('listar');
                             $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
                              
                                 if (statusText == "success") {
+                                    $('.Alert').addClass('animated zoomInUp');
+                                    $('.Alert').draggable();
                                     $('.msgConteudo').html(msg);     
                                 }
                             });

@@ -29,6 +29,7 @@ $TicketsRecebidos = tickets("listar");
     <head>
 <?php require_once("./head.php") ?>
         <title>Adm. Fale Conosco</title>
+        <link rel="stylesheet" href="css/animate.min.css">
     </head>
     <body>
         <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
@@ -141,7 +142,10 @@ $TicketsRecebidos = tickets("listar");
                             $('#modal').css('display','block');
                             $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
                                 if (statusText == "success") {
-                                    $('.msgConteudo').html(msg);     
+                                    $('.Alert').addClass('animated zoomInUp');
+                                    $('.Alert').css('','');
+                                    $('.Alert').draggable();
+                                    $('.msgConteudo').html(msg);    
                                 }
                             });
 

@@ -53,32 +53,32 @@ if (isset($_POST['action'])) {
         case "ver":
             $ticket = tickets('ver');
             ?>
-            <div class="row">
-                <div class="row">
-                    <div class="3"><label  class="Obrigatorio" for="txtNome">Nome:*</label></div>
-                    <div class="3"><input  class="row" value="<?=$ticket->nome?>" disabled/> </div>
-                </div>
-                <div class="row">
-                    <div class="3"><label  for="txtTelefone">Telefone:</label></div>
-                    <div class="3"><input value="<?=$ticket->telefone?>" disabled/> </div>
-                </div>
-                <div class="row">
-                    <div class="3"><label class="Obrigatorio" for="txtCelular"> Celular:*</label> </div>
-                    <div class="3"> <input value="<?=$ticket->celular?>" disabled/> </div>
-                </div>
-                <div class="row">
+            <table>
+                <tr>
+                    <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
+                    <td><input  class="row" value="<?=$ticket->nome?>" disabled/> </td>
+                </tr>
+                <tr>
+                    <td><label  for="txtTelefone">Telefone:</label></td>
+                    <td><input value="<?=$ticket->telefone?>" disabled/></td>
+                </tr>
+                <tr>
+                    <td><label class="Obrigatorio" for="txtCelular"> Celular:*</label></td>
+                    <td><input value="<?=$ticket->celular?>" disabled/></td>
+                </tr>
+                <tr>
                     <td><label  class="Obrigatorio" for="txtEmail">E-mail:*</label></td>
                     <td> <input value="<?=$ticket->email?>" disabled/> </td>
-                </div>
-                <div class="row">
+                </tr>
+                <tr>
                     <td><label for="txtHomePage">Home Page:</label></td>
                     <td><input  value="<?=$ticket->website?>" disabled/> </td>
-                </div>
-                <div class="row">
+                </tr>
+                <tr>
                     <td><label for="txtFcebook"> Link no Facebook:</label></td>
                     <td> <input value="<?=$ticket->facebook?>" disabled/> </td>
-                </div>
-                <div class="row">
+                </tr>
+                <tr>
                     <td colspan="2">
                         <table>
                             <tr>
@@ -91,20 +91,20 @@ if (isset($_POST['action'])) {
                             </tr>
                         </table>
                     </td>                               
-                </div>
-                <div class="row">
+                </tr>
+                <tr>
                     <td><label for="txtProduto">Informações de Produto </label></td>
                     <td><input value="<?=$ticket->infoPedido?>" disabled/> </td>
-                </div>
-                <div class="row">
+                </tr>
+                <tr>
                     <td><label class="Obrigatorio" for="slcSexo">Sexo:*</label></td>
                     <td><input value="<?=$ticket->sexo?>" disabled/> </td>
-                </div>
-                <div class="row">
+                </tr>
+                <tr>
                     <td><label class="Obrigatorio" for="slcProfissao">Profissão:*</label></td>
                     <td><input disabled value="<?=$ticket->profissao?>"/> </td>
-                </div>
-            </div>
+                </tr>
+            </table>
 
             <?php
             break;
