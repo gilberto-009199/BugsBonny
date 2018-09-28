@@ -20,8 +20,8 @@ function user($action){
             $sql="select u.id from tbl_usuarios as u order by id desc limit 1;";
             $Userid = mysqli_fetch_object(mysqli_query($con,$sql))->id;
             //echo "<p>Novo Usuario: id= $Userid </p>";            
-            if(isset($_GET['idEstado'])){
-                $idEstado=$_GET['idEstado'];
+            if(isset($_GET['slcEstado'])){
+                $idEstado=$_GET['slcEstado'];
             }else{
                 $idEstado=1;
             }
@@ -29,8 +29,8 @@ function user($action){
             //echo '<p>'.$sql.'</p>';
             mysqli_query($con,$sql);
             geralog("Criando user > estado: $nome,$idEstado ");
-            if(isset($_GET['idCargo'])){
-                $idCargo= $_GET['idCargo'];
+            if(isset($_GET['slcCargo'])){
+                $idCargo= $_GET['slcCargo'];
             }else{
                 $idCargo=3;
             }
@@ -52,7 +52,30 @@ function user($action){
             return $rsUsuario;
             break;
         case "editar":
-            echo "editar usuario";
+            $nome = $_GET['txtNome'];
+            $email= $_GET['txtEmail'];
+            $senha = password_hash($_GET['txtPassword'],CRYPT_BLOWFISH,['cost'=>12]);
+            $telefone= $_GET['txtTelefone'];
+            $idUsuario= $_GET['idUsuario'];
+            $dataEmissao= date('Y-m-d H:i:s');
+            $sql="UPDATE tbl_usuarios SET nome='$nome', email='$email',"
+                . "senha='$senha',telefone='$telefone' where id = $idUsuario;";
+            echo " SQL: $sql <p>";
+            mysqli_query($con,$sql);
+            geralog("Alterando user : $nome, $idUsuario");
+            $idCargo = $_GET['slcCargo'];
+            $sql = "insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values"
+                    . "($idUsuario,$idCargo,'$dataEmissao');";
+            echo " SQL: $sql<p>";
+            mysqli_query($con,$sql);
+            geralog("Alterando user > cargo : $nome, $idCargo");
+            $idEstado=$_GET['slcEstado'];
+            $sql = "insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values"
+                    . "($idUsuario,$idEstado,'$dataEmissao');";
+            echo " SQL: $sql <p>";
+            mysqli_query($con,$sql);
+            geralog("Alterando user > estado  : $nome, $idEstado");
+            header("location:../user.php");
             break;
         case "deletar":
             echo "deletar usuario";

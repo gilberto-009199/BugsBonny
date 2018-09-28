@@ -2,7 +2,7 @@
 <?php require_once "app/autenticacao.php" ?>
 <?php
 $username="Default";
-session_start();
+if(!isset($_SESSION))session_start();
    // echo ($_SESSION['token']);
 if(autentica('verificar')){
     //echo "Token Ok!!";

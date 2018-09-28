@@ -178,7 +178,7 @@ insert into tbl_autores_noticias(idNoticia,idAutor,dtEmissao)values(2,2,'2000-08
 /*select n.titulo,n.conteudo,nc.nome as categoria from tbl_noticias as n,tbl_autores_noticias as an, tbl_noticia_categorias as nc where estado='V' and an.idNoticia=n.id and nc.id = n.idCategoria order by an.dtEmissao asc*/
 
 
-CREATE VIEW vwUsuarios AS select u.id ,u.nome as nome,u.email as email, uc.nome as cargos, cu.dataEmissao as desde,ue.nome as estado, u.telefone
+CREATE VIEW vwUsuarios AS select u.id ,u.nome as nome,u.email as email,uc.nome as cargos,cu.idCargo as idCargo,eu.idEstado, cu.dataEmissao as desde,ue.nome as estado, u.telefone
 from tbl_usuarios as u, tbl_cargos_usuarios  as cu,tbl_usuario_cargos as uc,tbl_estados_usuarios  as eu,tbl_usuario_estados as ue
 where cu.idUsuario= u.id and cu.idCargo=uc.id and
 cu.dataEmissao=(select max(tbl_cargos_usuarios.dataEmissao) from tbl_cargos_usuarios where tbl_cargos_usuarios.idUsuario=u.id)

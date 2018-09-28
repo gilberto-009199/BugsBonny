@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!isset($_SESSION))session_start();
 if(!isset($_POST['txtEmail']) || !isset($_POST['txtPassword'])){
     header("location:../index.php?msg=falha senha ou usuario incorreto");
     echo"Redirecionador";

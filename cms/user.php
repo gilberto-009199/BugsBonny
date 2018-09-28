@@ -25,7 +25,7 @@ $Usuarios = user('listar');
 <html lang="pt-br" dir="ltr">
     <head>
         <?php require_once("./head.php") ?>
-        <title>Adm. Fale Conosco</title>
+        <title>Adm. Usuarios</title>
         <link rel="stylesheet" href="css/animate.min.css">
     </head>
     <body>
@@ -141,7 +141,7 @@ $Usuarios = user('listar');
                                         <td style="border-left:solid 1px black; padding:7px; width:243px; text-align: center; display:inline-block;">
                                             <a class="btnVer" style=" margin-left: 10px; cursor: pointer;" data-user="<?= $Usuarios[$i]->id ?>"><i class="far fa-eye"></i>Ver</a>
                                             <a class="btnDeletar" style=" margin-left: 10px; cursor: pointer;" data-user="<?= $Usuarios[$i]->id ?>"><i class="far fa-trash-alt"></i>Deletar</a>
-                                            <a class="btnEditar" style=" margin-left: 10px; cursor: pointer;" data-user="<?= $Usuarios[$i]->id ?>"><i class="fas fa-edit"></i>Editar</a>
+                                            <a href="views/frmUserEditar.php?idUsuario=<?= $Usuarios[$i]->id ?>" class="btnEditar" style=" margin-left: 10px; cursor: pointer;"><i class="fas fa-edit"></i>Editar</a>
                                         </td>
                                     </tr>
                                 <?php } ?>                              
@@ -190,10 +190,6 @@ $Usuarios = user('listar');
                 $('.btnDeletar').click(function () {
                     alert('Deletar id' + $(this).attr('data-user'));
                 });
-                $('.btnEditar').click(function () {
-                    alert('Deletar id' + $(this).attr('data-user'));
-                });
-
             </script>
         </div>
     </body>
