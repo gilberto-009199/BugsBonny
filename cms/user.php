@@ -8,7 +8,6 @@ if(!isset($_SESSION))session_start();
 if (autentica('verificar')) {
     //echo "Token Ok!!";
     $token = $_SESSION['token'];
-    ECHO "<p>$token</p>";
     $sql = "SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
     $con = conect();
     $query = mysqli_query($con, $sql);
@@ -77,7 +76,7 @@ $Usuarios = user('listar');
                             <p>Bem vindo, <?= @$username ?>.</p>
                         </div>
                         <div class="row">
-                            <div class="cold7" style="float: left; height: 31px;"></div>
+                            <div class="cold7" style="float: left; height: 31px;"><p style="margin-top:-18px;"><?=@$token?></p></div>
                             <div class="cold4" style="float: left;"><a href="./app/null.php" style="font-size: 23px;"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
                         </div>
                     </div>

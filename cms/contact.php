@@ -9,7 +9,6 @@ if(!isset($_SESSION))session_start();
 if (autentica('verificar')) {
     //echo "Token Ok!!";
     $token = $_SESSION['token'];
-    ECHO "<p>$token</p>";
     $sql = "SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
     $con = conect();
     $query = mysqli_query($con, $sql);
@@ -79,7 +78,7 @@ $TicketsRecebidos = tickets("listar");
                             <p>Bem vindo, <?= @$username ?>.</p>
                         </div>
                         <div class="row">
-                            <div class="cold7" style="float: left; height: 31px;"></div>
+                            <div class="cold7" style="float: left; height: 31px;"><p style="margin-top:-18px;"><?=@$token?></p></div>
                             <div class="cold4" style="float: left;"><a href="./app/null.php" style="font-size: 23px;"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
                         </div>
                     </div>
@@ -99,7 +98,7 @@ $TicketsRecebidos = tickets("listar");
                                     <th style="padding:7px; display:inline-block;">Opções:</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="display: block;">
 <?php for ($i = 1; $i < count($TicketsRecebidos); $i++) { ?>
                                     <tr style="border-bottom: solid 1px black; display: inline-flex; width: 100%;">
                                         <td style="padding:7px; display:inline-block; width: 30px; text-align: center;"><?= $TicketsRecebidos[$i]->id ?></td>
@@ -142,10 +141,9 @@ $TicketsRecebidos = tickets("listar");
                             $('#modal').css('display','block');
                             $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
                                 if (statusText == "success") {
-                                    $('.Alert').addClass('animated zoomInUp');
-                                    $('.Alert').css('','');
+                                    $('.msgConteudo').html(msg);
+                                    $('.Alert').addClass('animated zoomIn');
                                     $('.Alert').draggable();
-                                    $('.msgConteudo').html(msg);    
                                 }
                             });
 
