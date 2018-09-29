@@ -46,7 +46,6 @@ function autentica($action) {
                 }
             } ELSE {
                 echo '2';
-                echo "Erro usuario ou senha incorreta";
             }
             break;
         case "verificar":

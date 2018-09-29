@@ -78,7 +78,31 @@ function user($action){
             header("location:../user.php");
             break;
         case "deletar":
-            echo "deletar usuario";
+            $idUsuario= $_GET['idUsuario'];
+            $sql="select * from tbl_token where idUsuario=$idUsuario;";
+            echo " SQL: $sql <p>";
+            $Tokens = array();
+            $Tokens []= mysqli_fetch_object(mysqli_query($con,$sql));
+            var_dump($Tokens);
+            for($i=1; $i <= count($Tokens) ;$i++){
+                $idToken =$Tokens[$i]->id;
+                $sql="delete  from tbl_logs where idToken=$idToken;";
+                mysqli_query($con,$sql);
+                //echo"<p> Apagado o log $i</p>";
+            }
+            $sql="delete  from tbl_token where idUsuario=$idUsuario;";
+            mysqli_query($con,$sql);
+            
+            $sql="delete  from tbl_estados_usuarios where idUsuario=$idUsuario;";
+            mysqli_query($con,$sql);
+            $sql="delete  from tbl_cargos_usuarios where idUsuario=$idUsuario;";
+            mysqli_query($con,$sql);
+            
+            $sql="delete from tbl_usuarios where id=$idUsuario;";
+            mysqli_query($con,$sql);
+            
+            
+            //header("location:../user.php");
             break;
         case "listar":
             $Usuarios[] = array();

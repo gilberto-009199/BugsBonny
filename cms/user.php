@@ -188,7 +188,29 @@ $Usuarios = user('listar');
                     });
                 });
                 $('.btnDeletar').click(function () {
-                    alert('Deletar id' + $(this).attr('data-user'));
+                    
+                    $('.Alert').remove();
+                     $.ajax({
+                        method: "GET",
+                        url: "./app/user.php",
+                        data: {action:'deletar',idUsuario:$(this).attr('data-user')},
+                        success: function (msg) {
+                            alert(msg);
+                            $('#container').css('display','block');
+                            $('#modal').css('display','block');
+                            $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
+                             
+                                if (statusText == "success") {
+                                    $('.Alert').addClass('animated zoomInUp');
+                                    $('.Alert').draggable();
+                                    $('.msgConteudo').html(msg);     
+                                }
+                            });
+
+                            //$('#modal').html(msg);
+
+                        }
+                    });
                 });
             </script>
         </div>

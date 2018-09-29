@@ -4,8 +4,6 @@ if(!isset($_POST['txtEmail']) || !isset($_POST['txtPassword'])){
     header("location:../index.php?msg=falha senha ou usuario incorreto");
     echo"Redirecionador";
 }
-/*echo ($_POST['txtEmail']);*/
-/*echo ($_POST['txtPassword']);*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
@@ -31,10 +29,12 @@ if(!isset($_POST['txtEmail']) || !isset($_POST['txtPassword'])){
                             window.location.href ="./index.php";
                             break;
                         case 1:
-                            alert('Usuario não existe!!');
+                            alert('Senha ou Usuario incorreto!!');
+                            window.location.href ="../index.php";
                             break;
                         case 2:
-                            alert('Senha ou Usuario incorreto!!')
+                            alert('Usuario não existe!!');
+                            window.location.href ="../index.php";
                             break;
                             
 
