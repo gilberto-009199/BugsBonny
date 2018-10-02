@@ -17,8 +17,6 @@ if (autentica('verificar')) {
 } else {
     echo"Token não existente";
 }
-$UsuarioEstados = getUsuarioEstados(conect());
-$UsuarioCargos = getUsuarioCargos(conect());
 ?>
 
 <!DOCTYPE html>
@@ -90,8 +88,8 @@ $UsuarioCargos = getUsuarioCargos(conect());
                                 content: url(../img/logs24x24.png);
                                 padding:2px;
                             }
-                            #btnadduser:before{
-                                content: url(../img/user_add27x27.png);
+                            #btnaddlevel:before{
+                                content: url(../img/level24x24.png);
                                 padding:2px;
                             }
                             .btnaction{
@@ -99,54 +97,30 @@ $UsuarioCargos = getUsuarioCargos(conect());
                                 margin-right: auto;
                                 margin-left: 50px;
                                 margin-top: 10px;
-                                width: 97px;
+                                width: 152px;
                                 float: left;
                                 cursor: pointer;
                             }
                             .btnaction:hover{
                                 color: #006D5C;
                             }
-
+                            button[type="submit"]{
+                                height:52px;
+                                width:92px;
+                                font-size:22px;
+                            }
                         </style>
                     </div>
                     <div class="cold8 Esquerda" style="min-height: 500px; background:white;">
                         <label style="font-size: 22px; margin: 14px; border-bottom: solid 1px black; display: block; width: 258px; margin-left: 625px;">CMS/ADM. Usuarios</label>
-                        <span id="btnadduser" class="btnaction">Adicionar </span>
+                        <span id="btnaddlevel" class="btnaction">Adicionar Level</span>
                         <div class="row cold9" style="margin-top: 18px;">
-                            <form method="get" action="../app/user.php">
+                            <form method="post" action="../app/nivel.php">
                                 <div class="row">
-                                    <div class="cold2"><label for="txtNome">Nome:</label></div>
-                                    <div class="cold8"><input type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold3"><label for="txtNome">Nome do Level:</label></div>
+                                    <div class="cold7"><input type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
-                                <div class="row">
-                                    <div class="cold2"><label for="txtEmail">E-mail:</label></div>
-                                    <div class="cold8"><input type="text" id="txtEmail" name="txtEmail" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
-                                </div>
-                                <div class="row">
-                                    <div class="cold2"><label for="txtPassword">Senha:</label></div>
-                                    <div class="cold8"><input type="password" id="txtPassword" name="txtPassword" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
-                                </div>
-                                <div class="row">
-                                    <div class="cold2"><label for="txtTelefone">Telefone:</label></div>
-                                    <div class="cold8"><input type="text" id="txtTelefone" name="txtTelefone" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
-                                </div>
-                                <div class="row">
-                                    <div class="cold2"><label>Cargo:</label></div>
-                                            <div class="cold8"><select name="slcCargo">
-                                                    <?php for($i=0;$i<count($UsuarioCargos);$i++){ ?>
-                                                    <option value="<?=$UsuarioCargos[$i]->id?>"><?=$UsuarioCargos[$i]->nome?></option>
-                                                    <?php } ?>
-                                        </select></div>
-                                </div>
-                                <div class="row">
-                                    <div class="cold2"><label>Estado:</label></div>
-                                            <div class="cold8"><select name="slcEstado">
-                                                  <?php for($i=0;$i<count($UsuarioEstados);$i++){ ?>
-                                                    <option value="<?=$UsuarioEstados[$i]->id?>"><?=$UsuarioEstados[$i]->nome?></option>
-                                                   <?php } ?>
-                                        </select></div>
-                                </div>
-                                <div class="row">
+                                <div class="row" style="margin-top:32px;">
                                     <input class="hidden" name="action" value="criar">
                                     <button class="btn Direita" type="submit">Salvar</button>
                                 </div>

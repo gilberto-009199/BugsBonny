@@ -18,6 +18,16 @@ function conect() {
     }
     return $con;
 }
+function getLogs(& $conexao){
+    $Logs= array();
+    $sqlQuery = "select u.nome as usuario,l.action as op, l.dtEmissao as em, l.ip as ip from tbl_token as t, tbl_logs as l ,tbl_usuarios as u where t.idUsuario= u.id and t.id=l.idToken;";
+    $query = mysqli_query($conexao, $sqlQuery);
+    while ($rsLogs = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
+        //exemplo $rsContatos
+        $Logs [] = $rsLogs;
+    }
+    return $Logs;
+}
 function getUsuarioCargos(& $conexao){
     $Cargos= array();
     $sqlQuery = "select * from tbl_usuario_cargos;";

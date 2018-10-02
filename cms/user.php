@@ -84,6 +84,9 @@ $Usuarios = user('listar');
                 <div class="row">
                     <div class="cold2 Esquerda" style="min-height: 500px; background: white;">
                         <span class="btnaction" id="btnlogs"> Logs </span>
+                        <a href="./views/frmNiveisAdicionar.php"><span class="btnaction" id="btnlogs">Criar Nivel</span></a>
+                        <span class="btnaction" id="btnlogs">Deletar Nivel</span>
+                        <a href="./views/frmNiveisEditar.php"><span class="btnaction" id="btnlogs">Editar Nivel</span>
                         <style>
                             #btnlogs:before{
                                 content: url(./img/logs24x24.png);
@@ -91,7 +94,7 @@ $Usuarios = user('listar');
                             }
                             #btnadduser:before{
                                 content: url(./img/user_add27x27.png);
-                                padding:2px;
+                                padding:1px;
                             }
                             #btnremoveuser:before{
                                 content: url(./img/user_remove24x24.png);
@@ -100,9 +103,9 @@ $Usuarios = user('listar');
                             .btnaction{
                                 display: block;
                                 margin-right: auto;
-                                margin-left: 50px;
-                                margin-top: 10px;
-                                width: 97px;
+                                margin-left: 20px;
+                                margin-top: 14px;
+                                width: 133px;
                                 float: left;
                                 cursor: pointer;
                             }
@@ -117,7 +120,7 @@ $Usuarios = user('listar');
                         <a href="./views/frmUserAdicionar.php">
                         <span style="display:inline-table; display: contents;" id="btnadduser" class="btnaction">Adicionar </span>
                         </a>
-                        <table  width="990px" cellspacing="0" cellpadding="0" style="margin-top:64px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
+                        <table  width="990px" cellspacing="0" cellpadding="0" style="margin-top:22px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
                             <thead style="display:block; border-bottom: solid 1px black;">
                                 <tr>
                                     <th style="padding:7px; border-right:solid 1px black; display:inline-block;"><label>id</label></th>
