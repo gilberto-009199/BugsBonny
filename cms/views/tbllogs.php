@@ -18,10 +18,10 @@ if (autentica('verificar')) {
     echo"Token não existente";
 }
     $logs= getLogs(conect());
-    var_dump($logs);   
     
 ?>
-<table  width="990px" cellspacing="0" cellpadding="0" style="margin-top:22px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
+<div style="max-height:300px; overflow-x: scroll; overflow-x: hidden;">
+<table  width="804px" cellspacing="0" cellpadding="0" style="margin-top:22px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
                             <thead style="display:block; border-bottom: solid 1px black;">
                                 <tr>
                                     <th style="padding:7px; width:157px; border-right:solid 1px black; display:inline-block;">Usuario</th>
@@ -43,3 +43,4 @@ if (autentica('verificar')) {
                             </tbody>
                         </table>
 
+</div>

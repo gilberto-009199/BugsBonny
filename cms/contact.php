@@ -31,7 +31,7 @@ $TicketsRecebidos = tickets("listar");
         <link rel="stylesheet" href="css/animate.min.css">
     </head>
     <body>
-        <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
+        <div id="CaixaSite" class=" animated fadeInLeft"><!-- Caixa que contem o conteudo do site -->
             <header>
                 <div style="width:7%; display:inline-block;">
                     <h1 style="text-shadow: -3px 1px 1px #000000;">CMS</h1>
@@ -84,10 +84,12 @@ $TicketsRecebidos = tickets("listar");
                     </div>
                 </div>
                 <div class="row">
-                    <div class="cold3 Esquerda" style="min-height: 500px; background: #5bc0de;"></div>
-                    <div class="cold8 Esquerda" style="min-height: 500px; background:white;">
-                        <label style="font-size: 22px; margin: 14px; border-bottom: solid 1px black; display: block; width: 258px; margin-left: 625px;">CMS/ADM. Fale Conosco</label>
-                        <table  width="890px" cellspacing="0" cellpadding="0" style="margin-top:64px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px;display:block;">
+                    <!--<div class="cold3 Esquerda" style="min-height: 500px; background: #eee;">
+                        <a href="#"><span> Criar Categoria de Ticket</span></a>
+                    </div>-->
+                    <div class="cold10 Esquerda" style="min-height: 500px; background:white;">
+                        <label style="font-size: 22px; margin: 14px; border-bottom: solid 1px black; display: block; width: 325px; margin-left: 625px;">CMS/ADM. Fale Conosco</label>
+                        <table  width="890px" cellspacing="0" cellpadding="0" style="margin-left: auto; margin-right: auto; margin-top:64px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px;display:block;">
                             <thead style="display:block; border-bottom: solid 1px black;">
                                 <tr>
                                     <th style="padding:7px; border-right:solid 1px black; display:inline-block;"><label>id</label></th>

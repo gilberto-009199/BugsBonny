@@ -29,7 +29,7 @@ $Usuarios = user('listar');
         <link rel="stylesheet" href="css/animate.min.css">
     </head>
     <body>
-        <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
+        <div id="CaixaSite" class=" animated fadeInLeft"><!-- Caixa que contem o conteudo do site -->
             <header>
                 <div style="width:7%; display:inline-block;">
                     <h1 style="text-shadow: -3px 1px 1px #000000;">CMS</h1>
@@ -83,12 +83,12 @@ $Usuarios = user('listar');
                 </div>
                 <div class="row">
                     <div class="cold2 Esquerda" style="min-height: 500px; background: white;">
-                        <span class="btnaction" id="btnlogs"> Logs </span>
-                        <a href="./views/frmNiveisAdicionar.php"><span class="btnaction" id="btnlogs">Criar Nivel</span></a>
-                        <span class="btnaction" id="btnlogs">Deletar Nivel</span>
-                        <a href="./views/frmNiveisEditar.php"><span class="btnaction" id="btnlogs">Editar Nivel</span>
+                        <span class="btnaction btnlogs" tbllogs> Logs </span>
+                        <a href="./views/frmNiveisAdicionar.php"><span class="btnaction btnlogs">Criar Nivel</span></a>
+                        <span class="btnaction btnlogs">Deletar Nivel</span>
+                        <a href="./views/frmNiveisEditar.php"><span class="btnaction btnlogs">Editar Nivel</span></a>
                         <style>
-                            #btnlogs:before{
+                            .btnlogs:before{
                                 content: url(./img/logs24x24.png);
                                 padding:2px;
                             }
@@ -125,10 +125,10 @@ $Usuarios = user('listar');
                                 <tr>
                                     <th style="padding:7px; border-right:solid 1px black; display:inline-block;"><label>id</label></th>
                                     <th style="padding:7px; width:136px; border-right:solid 1px black; display:inline-block;">Nome</th>
-                                    <th style="padding:7px; width:156px; border-right:solid 1px black; display:inline-block;">Email</th>
+                                    <th style="padding:7px; width:167px; border-right:solid 1px black; display:inline-block;">Email</th>
                                     <th style="padding:7px; width:100px; border-right:solid 1px black; display:inline-block;">Cargo</th>
-                                    <th style="padding:7px; width:150px; border-right:solid 1px black; display:inline-block;">Desde</th>
-                                    <th style="padding:7px; width:65px; border-right:solid 1px black; display:inline-block;">Estado</th>
+                                    <th style="padding:7px; width:121px; border-right:solid 1px black; display:inline-block;">Desde</th>
+                                    <th style="padding:7px; width:100px; border-right:solid 1px black; display:inline-block;">Estado</th>
                                     <th style="padding:7px; display:inline-block;">Opções:</th>
                                 </tr>
                             </thead>
@@ -163,11 +163,36 @@ $Usuarios = user('listar');
                     
             </div>
             <script>
+            $('span[tbllogs]').click(function(){
+                    $('.Alert').remove();
+                     $.ajax({
+                        method: "GET",
+                        url: "./views/tbllogs.php",
+                        data: {},
+                        success: function (msg) {
+                            $('#container').css('display','block');
+                            $('#modal').css('display','block');
+                            $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){
+                             
+                                if (statusText == "success") {
+                                    $('.Alert').addClass('animated zoomInUp');
+                                    $('.Alert').draggable();
+                                    $('.Alert').css('min-width','804px');
+                                    $('.msgConteudo').html(msg);     
+                                }
+                            });
+
+                            //$('#modal').html(msg);
+
+                        }
+                    });
+            });
+
              $('#container').click(function(){
                     $('#container').css('display','none');
                     $('#modal').css('display','none');
                 });
-                $('.btnVer').click(function () {
+             $('.btnVer').click(function () {
                     $('.Alert').remove();
                      $.ajax({
                         method: "GET",
@@ -198,7 +223,6 @@ $Usuarios = user('listar');
                         url: "./app/user.php",
                         data: {action:'deletar',idUsuario:$(this).attr('data-user')},
                         success: function (msg) {
-                            alert(msg);
                             $('#container').css('display','block');
                             $('#modal').css('display','block');
                             $('#modal').load('./elements/AlertaDefault.php', function (sresponseText, statusText, xhr){

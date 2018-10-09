@@ -15,7 +15,7 @@ function user($action){
             $telefone=$_GET['txtTelefone'];
             $sql="insert into tbl_usuarios(nome,email,senha,dataEmissao,telefone)values('$nome','$email','$senha','$dataEmissao','$telefone');";
             echo '<p>'.$sql.'</p>';
-            mysqli_query($con,$sql);
+            if(mysqli_query($con,$sql)){
             geralog("Criando usuario: $nome,$email");
             $sql="select u.id from tbl_usuarios as u order by id desc limit 1;";
             $Userid = mysqli_fetch_object(mysqli_query($con,$sql))->id;
@@ -42,8 +42,10 @@ function user($action){
             
             /*insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values(999,999,'dataemissao');
             insert into tbl_cargos_usuarios(idUsuario,idCargo,dataEmissao)values(999,999,'dataemissao');*/
-            header("location:../user.php");
-            
+            header("location:../user.php?msgsucess=Sucesso Usuario gravado com sucesso!!");
+            }else{
+                header("location:../user.php?msgsucess=Um erro ocorreu ao gerar o usuario!!");    
+            }
             break;
         case "ver":
             $idUsuario = $_GET['idUser'];
@@ -80,12 +82,14 @@ function user($action){
         case "deletar":
             $idUsuario= $_GET['idUsuario'];
             $sql="select * from tbl_token where idUsuario=$idUsuario;";
-            echo " SQL: $sql <p>";
             $Tokens = array();
-            $Tokens []= mysqli_fetch_object(mysqli_query($con,$sql));
-            var_dump($Tokens);
-            for($i=1; $i <= count($Tokens) ;$i++){
-                $idToken =$Tokens[$i]->id;
+            $query = mysqli_query($con,$sql);
+            while($rsTokens = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
+                $Tokens [] = $rsTokens;
+            }
+            //var_dump($Tokens);
+            for($i=0; $i < count($Tokens) ;$i++){
+                $idToken =$Tokens[$i]->id;//erro
                 $sql="delete  from tbl_logs where idToken=$idToken;";
                 mysqli_query($con,$sql);
                 //echo"<p> Apagado o log $i</p>";
@@ -101,7 +105,7 @@ function user($action){
             $sql="delete from tbl_usuarios where id=$idUsuario;";
             mysqli_query($con,$sql);
             
-            
+            echo " Usuario Deletado com sucesso!!";
             //header("location:../user.php");
             break;
         case "listar":

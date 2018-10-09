@@ -8,7 +8,6 @@
 CREATE DATABASE IF NOT EXISTS bugbunny;
 
 /*CREATE USER 'userbugbunny'@'%' IDENTIFIED BY 'abracadabra127';*/
-
 GRANT INSERT, SELECT, UPDATE, DELETE ON bugbunny.* TO 'userbugbunny'@'%'; 
 
 Use bugbunny;

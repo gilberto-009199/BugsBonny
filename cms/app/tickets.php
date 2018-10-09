@@ -27,7 +27,7 @@ function tickets($action) {
             break;
         case "ver":
             $idTicket = $_POST['idTicket'];
-            $sql = "select t.*, p.profissao from tbl_tickets as t,tbl_profissao as p where t.id =$idTicket and t.idProfissao = p.id";
+            $sql = "select t.*, p.profissao, tt.tipo as tipo from tbl_tickets as t,tbl_profissao as p, tbl_tipos_tickets as tt where t.id=$idTicket and t.idProfissao = p.id and t.idTipo= tt.id;";
             $query = mysqli_query($con, $sql);
             if ($rsTicket = mysqli_fetch_object($query)) {
                 return $rsTicket;
@@ -53,6 +53,7 @@ if (isset($_POST['action'])) {
         case "ver":
             $ticket = tickets('ver');
             ?>
+            <label  class="Obrigatorio" style="font-size: 22px; "><?=$ticket->tipo?></label>
             <table>
                 <tr>
                     <td><label  class="Obrigatorio" for="txtNome">Nome:*</label></td>
