@@ -116,6 +116,17 @@ function user($action){
                 $Usuarios [] = $rsUsuario;
             }
             return $Usuarios;
+       case "AlterarEstado":
+            $idEstado=$_GET['Estado'];
+            $idUsuario = $_GET['idUsuario'];
+            $dataEmissao=  date('Y-m-d H:i:s');
+            $sql = "insert into tbl_estados_usuarios(idUsuario,idEstado,dataEmissao)values"
+                    . "($idUsuario,$idEstado,'$dataEmissao');";
+            echo " SQL: $sql <p>";
+            mysqli_query($con,$sql);
+            geralog("Alterando user > estado  : $idUsuario, $idEstado");
+            echo "OK";
+            break;
     }
     
 }

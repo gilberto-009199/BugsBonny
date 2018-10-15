@@ -9,7 +9,8 @@
 ?>
 <?php
 try {
-    $artigos = getArtigo(conect());
+     $con = conect();
+    $artigos = getArtigo($con);
 } catch (Exception $e) {
     $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
 }

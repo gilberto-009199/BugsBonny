@@ -80,13 +80,86 @@ if(autentica('verificar')){
                     </div>
                 </div>
                 <div class="row">
-                    <div class="cold3 Esquerda" style="min-height: 500px; background: #5bc0de;"></div>
+                <style>
+                    ul li:hover>ul{
+                        display: block;
+                    }
+                    ul li ul{
+                        display: none;
+                    }
+                    ul li:before{
+                        position: absolute;
+                        margin-left: -27px;
+                        margin-right: 10px;
+                        content: url('./img/scroll-down-icon.png');
+                    }
+
+                    ul li.scrollUp:before{
+                        margin-right: 10px;
+                        content: url('./img/scroll-up-icon.png');
+                    }
+                    ul li.scrollDown:before{
+                        margin-right: 10px;
+                        content: url('./img/scroll-down-icon.png');
+                    }
+                    ul li.add:before{
+                        margin-right: 10px;
+                        content: url('./img/Accept-icon.png');
+                    }
+                    ul li.info:before{
+                        margin-right: 10px;
+                        content: url('./img/Info-icon.png');
+                    }
+                    ul li.remove:before{
+                        margin-right: 10px;
+                        content: url('./img/remove-icon.png');
+                    }
+                    ul li{
+                        margin-top:10px;
+                        list-style-type:none;
+                        font-size: 21px;
+                    }
+                </style>
+                    <div class="cold3 Esquerda" style="min-height: 500px; background: #eee;">
+                        <ul class="listPg">
+                            <li class="scrollDown">Sobre</li>
+                            <li class="scrollDown">Celebridades</li>
+                            <li class="scrollDown">Noticias</li>
+                            <li class="scrollDown">Ofertas</li>
+                            <li class="scrollUp">Bancas
+                                <ul>
+                                    <li class="add">Add. Donos</li>
+                                    <li class="remove">Del. Donos</li>
+                                    <li class="add">Add. Banca</li>
+                                    <li class="remove">Del. Banca</li>
+                                    <li class="info">Ver Bancas</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    
+                    </div>
                     <div class="cold8 Esquerda" style="min-height: 500px; background:yellow;"></div>
                 </div>
              </div>
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
+            <script>
+                /*$('.listPg li[class*="scroll"]').click(function(){
+                    alert('oi');
+                    if($(this).hasClass('scrollDown')){
+                        $(this).removeClass('scrollDown');
+                        $(this).addClass('scrollUp');
+                        $(this).children("ul li").css('display','block');
+                    }else if($(this).hasClass('scrollUp')){
+                        $(this).removeClass('scrollUp');
+                        $(this).addClass('scrollDown');
+                        $(this).children("li").css('display','none');
+                    }
+                })*/
+                
+
+            </script>
         </div>
     </body>
 </html>

@@ -123,7 +123,8 @@ $TicketsRecebidos = tickets("listar");
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
-            <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
+        </div>
+        <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
             </div>
             <div id="modal">
                     
@@ -177,6 +178,5 @@ $TicketsRecebidos = tickets("listar");
                 });
 
             </script>
-        </div>
     </body>
 </html>

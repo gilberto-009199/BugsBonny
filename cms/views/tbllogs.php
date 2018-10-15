@@ -1,6 +1,7 @@
 <?php require_once "../app/resorces.php" ?>
 <?php require_once "../app/autenticacao.php" ?>
 <?php
+$con = conect();
 $username = "Default";
 if(!isset($_SESSION))session_start();
 // echo ($_SESSION['token']);
@@ -8,7 +9,7 @@ if (autentica('verificar')) {
     //echo "Token Ok!!";
     $token = $_SESSION['token'];
     $sql = "SELECT t.token,u.nome,t.dtEmissao FROM tbl_token as t,tbl_usuarios as u where t.idUsuario= u.id and t.token='$token';";
-    $con = conect();
+    
     $query = mysqli_query($con, $sql);
 
     if ($rsUser = mysqli_fetch_object($query)) {
@@ -17,7 +18,7 @@ if (autentica('verificar')) {
 } else {
     echo"Token não existente";
 }
-    $logs= getLogs(conect());
+    $logs= getLogs($con);
     
 ?>
 <div style="max-height:300px; overflow-x: scroll; overflow-x: hidden;">

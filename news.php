@@ -9,7 +9,8 @@
 ?>
 <?php
 try{
-    $noticias = getNoticias(conect());
+    $con = conect();
+    $noticias = getNoticias($con);
 }catch(Exception $e){
     $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
     throw Exception("Erro na pagina de noticia news.php!!");

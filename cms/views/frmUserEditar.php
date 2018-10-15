@@ -1,6 +1,7 @@
 <?php require_once "../app/resorces.php" ?>
 <?php require_once "../app/autenticacao.php" ?>
 <?php
+$con = conect();
 $username = "Default";
 session_start();
 // echo ($_SESSION['token']);
@@ -19,11 +20,11 @@ if (autentica('verificar')) {
 }
 if (isset($_GET['idUsuario'])) {
     $id = $_GET['idUsuario'];
-    $Usuario = getUsuario($id, conect());
+    $Usuario = getUsuario($id, $con);
 }
 
-$UsuarioEstados = getUsuarioEstados(conect());
-$UsuarioCargos = getUsuarioCargos(conect());
+$UsuarioEstados = getUsuarioEstados($con);
+$UsuarioCargos = getUsuarioCargos($con);
 ?>
 
 <!DOCTYPE html>

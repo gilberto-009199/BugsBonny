@@ -140,7 +140,20 @@ $Usuarios = user('listar');
                                         <td style="padding:2px; width:190px; display:inline-block; text-align: center;"><?= $Usuarios[$i]->email ?></td>
                                         <td style="padding:2px; width:100px; display:inline-block; text-align: center;"><?= $Usuarios[$i]->cargos ?></td>
                                         <td style="padding:2px; width:150px; display:inline-block; text-align: center;"><?= $Usuarios[$i]->desde ?></td>
-                                        <td style="padding:2px; width:100px; display:inline-block; text-align: center;"><?= $Usuarios[$i]->estado ?></td>
+                                        <td style="padding:2px; width:100px; display:inline-block; text-align: center;">
+                                        <?php
+
+                                            echo"<a href='#' class='btnEstado' data-iduser='".$Usuarios[$i]->id."'>";
+                                         if($Usuarios[$i]->estado=="ativo"){
+                                            echo "<img data-state='active'  src='./img/Accept-icon.png'>";   
+                                         }else{
+                                             echo "<img data-state='disabled' src='./img/disable.png'>";   
+                                         }
+                                         echo "</a>";
+                                          ?>
+
+
+                                        </td>
                                         <td style="border-left:solid 1px black; padding:7px; width:243px; text-align: center; display:inline-block;">
                                             <a class="btnVer" style=" margin-left: 10px; cursor: pointer;" data-user="<?= $Usuarios[$i]->id ?>"><i class="far fa-eye"></i>Ver</a>
                                             <a class="btnDeletar" style=" margin-left: 10px; cursor: pointer;" data-user="<?= $Usuarios[$i]->id ?>"><i class="far fa-trash-alt"></i>Deletar</a>
@@ -157,7 +170,8 @@ $Usuarios = user('listar');
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
-            <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
+        </div>
+        <div id="container" style="position:fixed; display:none; z-index:990; top:0; left:0; width: 100%; height: 100%; background-color: black; opacity:0.4;">
             </div>
             <div id="modal">
                     
@@ -187,6 +201,52 @@ $Usuarios = user('listar');
                         }
                     });
             });
+            $('.btnEstado').click(function(){
+                
+                //alert('IdUser:'+$(this).attr('data-iduser'));
+                //alert(" "+$(this).children().first().attr('data-state'));
+                var imgEstado = $(this).children().first();
+                var estado = $(this).children().first().attr('data-state');
+                if(estado=="active"){
+                    //alert('esta ativo');
+                    $.ajax({
+                        method: "GET",
+                        url: "./app/user.php",
+                        data: { action:'AlterarEstado',
+                                Estado:2,
+                                idUsuario:$(this).attr('data-iduser')
+                               },
+                        success: function (msg) {
+                                
+                                    //alert(msg);
+                                    imgEstado.attr('src','./img/disable.png');
+                                    imgEstado.attr('data-state','disable');
+                                
+                            //$('#modal').html(msg);
+
+                        }
+                    });
+                    
+                }else{
+                    //alert('esta desativado');
+                    $.ajax({
+                        method: "GET",
+                        url: "./app/user.php",
+                        data: { action:'AlterarEstado',
+                                Estado:3,
+                                idUsuario:$(this).attr('data-iduser')
+                               },
+                        success: function (msg) {                                
+                                    //alert(msg);
+                                    imgEstado.attr('src','./img/Accept-icon.png');
+                                    imgEstado.attr('data-state','disable');
+                                
+                            //$('#modal').html(msg);
+
+                        }
+                    });
+                }
+            })
 
              $('#container').click(function(){
                     $('#container').css('display','none');
@@ -240,6 +300,5 @@ $Usuarios = user('listar');
                     });
                 });
             </script>
-        </div>
     </body>
 </html>

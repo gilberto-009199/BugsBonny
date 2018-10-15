@@ -6,6 +6,7 @@
  * @copyright  unlicense <http://unlicense.org/>
  */
 try {
+     $con = conect();
     /*echo ":".$_GET['txtFacebook']."";
     echo"<p></p>";
     echo ": ".urldecode($_GET['txtFacebook'])."";
@@ -95,7 +96,7 @@ try {
         }
     } else {
         $msgAlertaSucess = "<div class='DialogoEscolha'><h3>Por favor, escolha o tipo de consulta</h3>";
-        $ListaTickets = getTickets(conect());
+        $ListaTickets = getTickets($con);
 
         for ($i = 1; $i < count($ListaTickets); $i++) {
             $ListaId = $ListaTickets[$i]->id;
@@ -249,7 +250,7 @@ try {
                                     <select id="slcProfissao" name="slcProfissao" required>
                                         <option value="" selected>Profissão</option>
                                         <?php
-                                        $ListaProfissoes = getProfissoes(conect());
+                                        $ListaProfissoes = getProfissoes($con);
                                         for ($i = 1; $i < count($ListaProfissoes); $i++) {
                                             ?>
                                             <option value="<?= $ListaProfissoes[$i]->id ?>"><?= $ListaProfissoes[$i]->profissao ?></option>
@@ -273,7 +274,7 @@ try {
 
                     </script>
                     <?php
-                    $ListaTickets = getTickets(conect());
+                    $ListaTickets = getTickets($con);
                     for ($i = 1; $i < count($ListaTickets); $i++) {
                         ?>
                         <span class="ItemTicket" tabindex="0" data-tipo-id="<?= $ListaTickets[$i]->id ?>"><?= $ListaTickets[$i]->tipo ?></span>

@@ -1,6 +1,7 @@
 <?php require_once "../app/resorces.php" ?>
 <?php require_once "../app/autenticacao.php" ?>
 <?php
+$con= conect();
 $username = "Default";
 if(!isset($_SESSION))session_start();
 // echo ($_SESSION['token']);
@@ -17,8 +18,8 @@ if (autentica('verificar')) {
 } else {
     echo"Token não existente";
 }
-$UsuarioEstados = getUsuarioEstados(conect());
-$UsuarioCargos = getUsuarioCargos(conect());
+$UsuarioEstados = getUsuarioEstados($con);
+$UsuarioCargos = getUsuarioCargos($con);
 ?>
 
 <!DOCTYPE html>
