@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="./vue.js"></script>
+</head>
+<body>
+<fieldset>
+<legend>Exemplo basico</legend>
+<div id="primeiroApp">
+   Contador: {{ contador }}
+</div>
+<script>
+var appcontador= new Vue({
+   el: '#primeiroApp',
+   data: {
+   contador: 0
+ }
+});
+/*setInterval(function() { primeiroApp.contador += 1;}, 1000);*/
+</script>
+</fieldset>
+<fieldset>
+<legend>Função ocorrida quando altera algo</legend>
+<div id="appAlteracao">
+	<input type="text"  v-model="palavras">
+	<label>Valor: {{palavras}}</label>
+</div>
+<script>
+var appAlteracao= new Vue({
+   el: '#appAlteracao',
+   data: {
+   palavras:'digite algo!!'
+ }
+});
+
+appAlteracao.$watch('palavras', function (newValue, oldValue) {
+	alert('vc alterou o atributo');
+})
+</script>
+</fieldset>
+<fieldset>
+<legend>Criando Componente</legend>
+<script>
+Vue.component('progressbar', {
+  props:['progresso'],
+  template: "<div style='width:100%; text-align:center; height:32px; background-color:#eee;'>{{progresso}}%</div>"
+})
+</script>
+<div id="appComponente">
+	<progressbar v-bind:progresso='30'></progressbar>
+</div>
+<script>
+var appAlteracao= new Vue({
+   el: '#appComponente',
+   data: {
+   palavras:'digite algo!!'
+ }
+});
+</script>
+</fieldset>
+<fieldset>
+ <legend> reagir a mudanças de dados em uma instância: observadores </legend>
+ <div id="demo">
+
+{{ fullName }}
+<button @click="alterarnome">alterar o primerio nome</button>
+</div>
+
+ <script>
+//Exemplo antigo  
+ var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  methods: {
+	alterarnome: function(){
+		alert('Nome Alterado');
+		this.firstName= ' NoMe ';
+		console.log('Nome alterado mantendo a reatividade');
+	}
+
+
+  },
+  watch: {//chma sempre quando eles forem mudados(alterados)
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+})
+
+ </script>
+</fieldset>
+<fieldset>
+<legend>Versão anterior usando o computed (evitando colocar fullname='firstname e lastname' no começo)</legend>
+<div id="demo2">
+{{ fullName }}
+<button @click="alterarnome">Alterar Nome</button>
+</div>
+<script>
+var vm2 = new Vue({
+  el: '#demo2',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar'
+  },methods: {
+	alterarnome: function(){
+		alert('Nome Alterado');
+		this.firstName= ' NoMe ';
+		console.log('Nome alterado mantendo a reatividade');
+	}
+
+
+  },
+  computed: {//gerando fullname
+    fullName: function () {
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+})
+</script>
+</fieldset>
+<fieldset>
+<legend>Criando getters e setters</legend>
+<div id="demo3">
+{{ fullName }}
+
+<button @click="alterarnome">Alterar Nome completo</button>
+
+</div>
+<script>
+var vm2 = new Vue({
+  el: '#demo3',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar'
+  },methods: {
+	alterarnome: function(){
+		this.fullName = 'NoMe NoVo';//invoca o setter
+	}
+  },
+  computed: {//gerando fullname
+    fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')//divide o texto em sddasd sadasd ataves do char ' ' para obter uma array e 2 elementos
+      this.firstName = names.shift()
+      this.lastName = names.pop()
+    }
+  }
+  }
+})
+</script>
+</fieldset>
+<fieldset>
+<legend>Alterando o atributo class de um elemento html reativamente</legend>
+<style>
+.active{
+	border:solid 1px #0e2e;
+}
+.info{
+	border:solid 1px blue;
+}
+.danger{
+	background-color: red;
+}
+</style>
+<!-- Altera a classe se isDanger for ou retornar verdadeiro e 
+retorna o conteudo a activeClass e errorClass -->
+<div id="appClasses" style="height:32px; width:64px;" v-bind:class="[activeClass, { [errorClass]: isDanger }]">
+<button @click="info"> Alterar </button>
+
+</div>
+<script>
+var appcontador= new Vue({
+   el: '#appClasses',
+   data: {
+   activeClass: 'active',
+   errorClass: 'danger'
+ },
+ methods:{
+	isDanger:function(){
+		return true;
+	},
+	info:function(){
+		this.activeClass="info";
+	}
+ },
+computed: {
+  classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal'
+    }
+  }}
+});
+/*setInterval(function() { primeiroApp.contador += 1;}, 1000);*/
+</script>
+</fieldset>
+<fieldset >
+<legend> eventos </legend>
+<div id="example-1">
+  <button @click="contador += 1">Adiciona 1</button>
+  <p>Quantas vezes o botão acima foi clicado: {{ contador }}</p>
+</div>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    contador: 0
+  }
+})
+</script>
+</fieldset>
+<fieldset >
+<legend> chamada direta de metodos </legend>
+<div id="example-3">
+  <button v-on:click="say('oi')">Diga oi</button>
+  <button v-on:click="say('tchau')">Diga tchau</button>
+  <button v-on:click.ctrl="say('Clicou com o ctrl')">click com o ctrl presionado</button>
+
+</div>
+<script>
+new Vue({
+  el: '#example-3',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
+})
+</script>
+</fieldset>
+<fieldset >
+<legend>Componentizando </legend>
+<div id="blog-post-demo">
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title">
+</blog-post>
+<alertbox>
+Falha no sistema!!
+</alertbox>
+
+</div>
+<script>
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+// usar <slot> para encaixar o conteudo dentro do teplate
+Vue.component('alertbox', {
+  template: `
+    <div>
+      <strong>Erro!</strong><slot></slot>
+    </div>
+  `
+})
+new Vue({
+  el: '#blog-post-demo',
+  data: {
+    posts: [
+      { id: 1, title: 'Minha jornada com Vue' },
+      { id: 2, title: 'Postagens com Vue' },
+      { id: 3, title: 'Porque Vue é tão divertido' }
+    ]
+  }
+})
+</script>
+</fieldset>
+</body>
+</html>

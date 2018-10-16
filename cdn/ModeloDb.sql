@@ -31,7 +31,7 @@ telefone varchar(45) not null,email varchar(128));
 CREATE TABLE IF NOT EXISTS tbl_bancas(id int primary key auto_increment, nome varchar(100) not null,
 uf char(2) not null, cidade varchar(100) not null, bairro varchar(45) not null,
 logradouro varchar(100) not null, descrisao varchar(1024) not null,horario varchar(40) not null,
-location varchar(24) not null, telefone varchar(45) not null, idDono int not null,
+location varchar(24) not null, telefone varchar(45) not null, idDono int not null, estado enum('V','F') not null,
 FOREIGN KEY (`idDono`) references `tbl_donos` (`id`));
 
 CREATE TABLE IF NOT EXISTS tbl_usuarios(id int primary key auto_increment, nome varchar(45) not null,
@@ -445,10 +445,10 @@ insert into tbl_donos(nome,telefone,email)values('João faret','(11)4988-4308','
 /*
 select * from tbl_donos;
 */
-insert into tbl_bancas(nome,uf,cidade,
+insert into tbl_bancas(estado,nome,uf,cidade,
 bairro,logradouro,descrisao,
 horario,location,telefone,idDono
-)values(
+)values('V',
 'BugBunny Official ','SP','Osasco',
 'Aliança','Av. Brasil n°187',
 '[titulo]BugBunny[/titulo][justificado]Nossa banca contém todas as opções para o leitor moderno.[/justificado][justificado]Lorem Ipsum tem sido o padrão desde a Idade Média. Um pintor teria peças mistas de texto em um livro exemplar e é este texto que nós usamos hoje. Outra versão diz que este é um trecho do livro de Cícero: "" De Finibus Bonorum e malorum "" seções 1.10.32 / 1.10.33. Este livro, muito popular durante a Renascença, é um tratado sobre a teoria da ética.
@@ -457,10 +457,10 @@ Parece que apenas alguns trechos do texto original aparecem no Lipsum comumente 
 '-23.510439, -46.777768','(11)4579-6584',
 2);
 
-insert into tbl_bancas(nome,uf,cidade,
+insert into tbl_bancas(estado,nome,uf,cidade,
 bairro,logradouro,descrisao,
 horario,location,telefone,idDono
-)values(
+)values('V',
 ' Santa Fé ','SP','Osasco',
 'Quitaúna','Av. Carlos de Oliveira Silva n°21',
 '[titulo]Santa Fé[/titulo][center]A banca fica localizada no centro do parque, temos de jornais ate revistas de mangas[/center]',
@@ -468,10 +468,10 @@ horario,location,telefone,idDono
 '-23.527556, -46.814482','(11)4874-2014',
 1);
 
-insert into tbl_bancas(nome,uf,cidade,
+insert into tbl_bancas(estado,nome,uf,cidade,
 bairro,logradouro,descrisao,
 horario,location,telefone,idDono
-)values(
+)values('V',
 ' Olimpica ','SP','Osasco',
 'Centro','Av. Dos Autonomistas n°28',
 '[titulo]Olimpia[/titulo][center]Visite a nossa amada banca, temos Chaveiros e lembrancinhas[/center]',
@@ -479,10 +479,10 @@ horario,location,telefone,idDono
 '-23.526454, -46.798282','(11)4899-3000',
 3);
 
-insert into tbl_bancas(nome,uf,cidade,
+insert into tbl_bancas(estado,nome,uf,cidade,
 bairro,logradouro,descrisao,
 horario,location,telefone,idDono
-)values(
+)values('V',
 'Banca das Flores ','SP','Osasco',
 'Cidade das Flores','Av. PAU-BRASIL',
 '[titulo]Banca das Flores[/titulo][center]Visite a nossa amada banca, Estamos no centro da praça[/center]',

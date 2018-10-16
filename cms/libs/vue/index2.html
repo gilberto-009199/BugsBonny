@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Teste de json </title>
+<script src="./vue.js"></script>
+</head>
+<body>
+<?php
+$idades = array("Jason"=>38, "Ada"=>35, "Delphino"=>26);
+$usuarios =array();
+$usuarios[]=array("id"=>1,"nome"=>"Gilberto");
+$usuarios[]=array("id"=>2,"nome"=>"Ramos");
+$usuarios[]=array("id"=>3,"nome"=>"Claudio");
+$usuarios[]=array("id"=>4,"nome"=>"Livreo");
+$usuarios[]=array("id"=>5,"nome"=>"Force");
+$usuarios[]=array("id"=>6,"nome"=>"Quarquer nome");
+$usuarios[]=array("id"=>7,"nome"=>"BASE
+");
+//converte o conteúdo do array associativo para uma string JSON
+//$json_str = json_encode($idade);
+$jsonUsuarios =  json_encode($usuarios);
+//imprime a string JSON
+//echo "$json_str";
+//echo "  JSON: <PRE> $jsonUsuarios ";
+//echo "oi";
+
+?>
+<div id="appUsuarios">
+    <input type="text" v-model="addswapUser">
+    <p></p>
+    <button @click="addUser" v-bind:style="btnAddStyle"> + ADD +</button>
+    <button @click="searchUser()">Pesquisar</button>
+    <button @click="saveUser(user)" v-bind:style="btnEditStyle">Salvar</button>
+    <p></p>
+    <table cellpadding="7" border="1" cellspacing="4" style=" border:solid 1px black;">
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Nome:</th>
+                <th>Deletar:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(usuario,index) in usuarios">
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nome | Estado() }}</td>
+                <td><button @click="delUser(index)">X</button>
+                    <button @click="editUser(index)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+/*var appUsers = new Vue({
+  el: '#appUsuarios',
+  data: {
+    id:1,
+    nome:"gilberto",
+    usuarios:[{id:1,nome:"Gilberto"},
+              {id:2,nome:" Ramos "},
+              {id:3,nome:" Claudio"}]
+  }
+})*/
+var appUsers = new Vue({
+  el: '#appUsuarios',
+  data: {
+    filter:"",
+    user:0,
+    btnAddStyle:"",
+    btnEditStyle:"display:none;",
+    addswapUser:"",
+    usuarios:[{id:1,nome:"Gilberto"},
+              {id:2,nome:" Ramos "},
+              {id:3,nome:" Claudio"}]
+  },filters:{
+      Estado:function(nm){
+        var img =document.createElement('img');
+        img.src="ddsfsf";
+        return img;
+      }
+  },
+  methods:{
+      addUser:function(){
+          this.usuarios.push({id:this.usuarios.length+1,nome:this.addswapUser});
+      },
+      delUser:function(posicao){
+          //alert("Posição :" +posicao);
+          this.usuarios.splice(posicao, 1);
+      },
+      editUser:function(posicao){
+          //alert("Editar usuario "+posicao);
+          //alert(" Usuario: "+this.usuarios[posicao].nome);
+          this.addswapUser= this.usuarios[posicao].nome;
+          this.user=this.usuarios[posicao];
+          this.btnEditStyle="display:inline-block";
+
+      },
+      saveUser:function(userswap){
+          //alert("Editar usuario "+userswap);
+          userswap.nome= this.addswapUser;
+          this.addswapUser="";
+          this.btnEditStyle="display:none";
+      },
+      searchUser:function(){
+        
+      }
+  }
+
+})
+</script>
+
+
+</body>
+</html>

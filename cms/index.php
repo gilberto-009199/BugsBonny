@@ -126,7 +126,7 @@ if(autentica('verificar')){
                             <li class="scrollDown">Celebridades</li>
                             <li class="scrollDown">Noticias</li>
                             <li class="scrollDown">Ofertas</li>
-                            <li class="scrollUp">Bancas
+                            <li class="scrollUp" data-compoment="./views/tblBancas.vue.php">Bancas
                                 <ul>
                                     <li class="add">Add. Donos</li>
                                     <li class="remove">Del. Donos</li>
@@ -138,13 +138,25 @@ if(autentica('verificar')){
                         </ul>
                     
                     </div>
-                    <div class="cold8 Esquerda" style="min-height: 500px; background:yellow;"></div>
+                    <div class="cold8 Esquerda" id="conteudo" style="min-height: 500px; background:white;"></div>
                 </div>
              </div>
             <footer>
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
             <script>
+                $('li[class*=scroll]').click(function(){
+                     var compoment = $(this).attr('data-compoment');
+                    $('#conteudo').children().remove();
+                    $.ajax({
+                        method: "GET",
+                        url: compoment,
+                        data: {},
+                        success: function (msg) {
+                            $('#conteudo').html(msg);
+                        }
+                    });
+                });
                 /*$('.listPg li[class*="scroll"]').click(function(){
                     alert('oi');
                     if($(this).hasClass('scrollDown')){
