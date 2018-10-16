@@ -120,7 +120,7 @@ if(autentica('verificar')){
                         font-size: 21px;
                     }
                 </style>
-                    <div class="cold3 Esquerda" style="min-height: 500px; background: #eee;">
+                    <div class="Esquerda" style="width: 21%; min-height: 500px; background: #eee;">
                         <ul class="listPg">
                             <li class="scrollDown">Sobre</li>
                             <li class="scrollDown">Celebridades</li>
