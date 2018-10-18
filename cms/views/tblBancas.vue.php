@@ -1,39 +1,64 @@
 <script src="./libs/vue/vue.js"></script>
 <script src="./libs/vue/vue-resource.js"></script>
-<template id="msgadd">
+<template id='msgaddbanca'>
 <div>
-<div role="dialog" v-show="mostrar" class="Alert">
-    <div class="AlertTitulo">Add. Usuario</div>
+
+<div role="dialog" class="Alert">
+    <div class="AlertTitulo">Atenção</div>
     <div class="Alertcontent">
       <div class="msgConteudo">
-            
+            <table>
+              <tr>
+                <td><label>Nome:</label></td>
+                <td><input  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Estado:</label></td>
+                <td><input  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Cidade:</label></td>
+                <td><input  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Telefone:</label></td>
+                <td><input  type="text"></td>
+              </tr>
+              <tr>
+                <td><label>Dono:</label></td>
+                <td><input  type="text"></td>
+              </tr>
+              <tr>
+                <td><label>Endereço:</label></td>
+                <td><input  type="text"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div ></div>
+                </td>
+              </tr>
+              
+            </table>
       </div>
       <button @click="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
     </div>
 </div>
-<div>
+
+
+</div>
 </template>
 <script>
-Vue.component('msgadd',{
-  template:'#msgadd',
-  props:['status'],
-  data:function(){
-    return{
-      mostrar:true
-    }
-  },
+Vue.component('msgaddbanca',{
+  template:'#msgaddbanca',
   methods:{
     fechar:function(){
-      this.mostrar=false;
-    }
-  },
-  watch:{
-    status:function(Novostatus){
-      console.log('Alterado: '+Novostatus);
-      this.mostrar=Novostatus.status;
+      alert('Fechar');
+      this.$emit('fecharAddBanca');
     }
   }
-})
+
+});
+
 </script>
 
 <template id="msgver">
@@ -115,8 +140,8 @@ Vue.component('msgver',{
 
 <template id="tblbancas">
 <div>
-<msgver :msg="msg.msg" ></msgver>
-<msgadd :status="add"/>
+<msgaddbanca @emit-fecharAddBanca('closeAddBanca()')/>
+<msgver :msg="msg.msg"></msgver>
 <span  @click="addBanca()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Banca </span>
 
 <table cellpadding="5" width="942" style="margin-top:22px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
@@ -149,7 +174,6 @@ Vue.component('msgver',{
 </tbody>
 </table>
 </div>
-
 </template>
 <script>
 Vue.component('tblbancas', {
@@ -160,10 +184,6 @@ Vue.component('tblbancas', {
           msg:{
             estado:false,
             msg:'oi',
-          },
-          add:{
-            status:false,
-            data:0;
           },
       }
   },
@@ -181,6 +201,10 @@ Vue.component('tblbancas', {
               }
           });
       },
+      closeAddBanca:function(){
+        alert('Chegou em min');
+      }
+      ,
       editBanca:function(index){
         alert('Editar banca');  
       },
