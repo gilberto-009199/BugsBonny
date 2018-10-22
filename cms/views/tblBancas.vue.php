@@ -1,5 +1,7 @@
 <script src="./libs/vue/vue.js"></script>
 <script src="./libs/vue/vue-resource.js"></script>
+<script src='./libs/leaflet/leaflet.js'></script>
+<link rel="stylesheet" href="./libs/leaflet/leaflet.css">
 <template id='msgaddbanca'>
 <div>
 
@@ -21,6 +23,14 @@
                 <td><input  type="text" ></td>
               </tr>
               <tr>
+                <td><label>Bairro:</label></td>
+                <td><input  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Endereço:</label></td>
+                <td><input  type="text"></td>
+              </tr>
+              <tr>
                 <td><label>Telefone:</label></td>
                 <td><input  type="text"></td>
               </tr>
@@ -29,16 +39,27 @@
                 <td><input  type="text"></td>
               </tr>
               <tr>
-                <td><label>Endereço:</label></td>
+                <td><label>Horario:</label></td>
+                <td><input  type="text"></td>
+              </tr>
+              <tr>
+                <td><label>Estado:</label></td>
                 <td><input  type="text"></td>
               </tr>
               <tr>
                 <td colspan="2">
-                  <div ></div>
+                  <div><textarea></textarea></div>
                 </td>
               </tr>
-              
+              <tr>
+                <td colspan="2">
+                <button @click='mapa'> Carregar mapa </button>
+                </td>
+              </tr>
             </table>
+            <div style='background-color:#eee; height:256px; width:100%;' id="mapaBanca">
+                      
+            </div>
       </div>
       <button @click="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
     </div>
@@ -52,10 +73,38 @@ Vue.component('msgaddbanca',{
   template:'#msgaddbanca',
   methods:{
     fechar:function(){
-      alert('Fechar');
-      this.$emit('fecharAddBanca');
+      //alert('Fechar');
+      this.$emit('emit-fecharaddbanca');
+    },
+    definelocalizacao:function(local){
+      alert('oi '+local);
+    },
+    mapa:function(){
+      var funcao = this.definelocalizacao;
+      //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
+            var map = L.map('mapaBanca').setView([-23.53755, -46.802616], 13);
+            //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
+                    {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ',
+                        maxZoom: 18, /* mandando o zom padrão como parametro*/
+                        id: 'mapbox.streets-satellite', /* Passado como parametro ao mapbox.com  o tipo de mapa que nos queremos
+                         https://www.mapbox.com/api-documentation/#maps   */
+                        accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(map);
+
+
+
+      var popup = L.popup();
+
+      function onMapClick(e) {
+          popup
+              .setLatLng(e.latlng)
+              .setContent("Localização: " + e.latlng.toString())
+              .openOn(map);
+              funcao(e.latlng.toString());
+      }
+      map.on('click', onMapClick);
     }
-  }
+  },
 
 });
 
@@ -133,14 +182,14 @@ Vue.component('msgver',{
           this.status=false;
           //this.estado=false;
       }
-  }
+  },
 })
 
 </script>
 
 <template id="tblbancas">
 <div>
-<msgaddbanca @emit-fecharAddBanca('closeAddBanca()')/>
+<msgaddbanca v-show='msgaddbancastatus' @emit-fecharaddbanca='closeAddBanca' ></msgaddbanca>
 <msgver :msg="msg.msg"></msgver>
 <span  @click="addBanca()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Banca </span>
 
@@ -165,7 +214,7 @@ Vue.component('msgver',{
             <img style="display:block; margin-left:auto; margin-right:auto;" v-if="banca.estado=='V'" @click="activeBanca(index)" src='./img/Accept-icon.png'>
             <img style="display:block; margin-left:auto; margin-right:auto;" v-else @click="activeBanca(index)" src='./img/disable.png'>
         </td>
-        <td style="padding:2px; width: 300px; display:inline-block; text-align: center;">
+        <td style="padding:2px; width: 274px; display:inline-block; text-align: center;">
             <a href="#"><label @click="exibirBanca(index)"><i class="far fa-eye"></i>Exibir</label></a>
             <a href="#"><label @click="delBanca(index)"><i class="far fa-trash-alt"></i>Deletar</label></a>
             <a href="#"><label @click="editBanca(index)"><i class="fas fa-edit"></i>Editar</label></a>
@@ -185,6 +234,7 @@ Vue.component('tblbancas', {
             estado:false,
             msg:'oi',
           },
+          msgaddbancastatus:false,
       }
   },
   methods:{
@@ -197,12 +247,12 @@ Vue.component('tblbancas', {
               if(response.data=="true"){
                   this.Bancas.splice(index, 1);
               }else{
-                  alert('Erro ao Deletar usuario');
+                  alert('Erro ao Deletar Banca');
               }
           });
       },
       closeAddBanca:function(){
-        alert('Chegou em min');
+        this.msgaddbancastatus= false;
       }
       ,
       editBanca:function(index){
@@ -215,7 +265,7 @@ Vue.component('tblbancas', {
       },
       addBanca:function(){
           //alert(" Adicionar Banca");  
-          this.add={status:true,data:new Date};
+          this.msgaddbancastatus= true;
       },
       activeBanca:function(index){
           var Banca = this.Bancas[index];
