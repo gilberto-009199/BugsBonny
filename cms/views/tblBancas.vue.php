@@ -5,10 +5,11 @@
 <template id='msgaddbanca'>
 <div>
 
-<div role="dialog" class="Alert">
+<div role="dialog" style='min-width:502px;' class="Alert">
     <div class="AlertTitulo">ADD. Banca</div>
     <div class="Alertcontent">
       <div class="msgConteudo">
+      <form>
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Nome:</label></td>
@@ -16,7 +17,13 @@
               </tr>
               <tr>
                 <td><label>Estado:</label></td>
-                <td><input v-model='banca.uf' type="text" ></td>
+                <td><select v-model='banca.uf'>
+                      <option value='SP'>São Paulo</option>
+                      <option value='RJ'>Rio de Janeiro</option>
+                      <option value='MG'>Minas Gerais</option>
+                      <option value='ES'>Espirito Santo</option>
+                    </select>
+                </td>
               </tr>
               <tr>
                 <td><label>Cidade:</label></td>
@@ -53,20 +60,24 @@
               <tr>
                 <td colspan="2">
                   <div>
-                    <button @click='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
-                    <textarea title='[titulo][/titulo],[center][/center],[justificado][/justificado]' v-model='banca.descrisao' v-show='descrisaotexto' style="background-color:#eee; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
-                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px;"></div>
+                    <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
+                    <textarea 
+                    title='[titulo][/titulo],[center][/center],[justificado][/justificado]'
+                     v-model='banca.descrisao' v-show='descrisaotexto' 
+                     style="display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
+                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px; background-color:#eee;"></div>
                   </div>
                 </td>
               </tr>
             </table>
-            <button @click='mapa()' class="btn Esquerda"> Refresh MAPA </button>
+            <button @click.stop.prevent='mapa()' class="btn Esquerda"> Refresh MAPA </button>
             <div style='height:259px; width:100%;' id="mapaBanca">
                       
             </div>
       </div>
-      <button @click="cadastrar()" class="Esquerda btn" style="height:32px; margin:8px; margin-right:16px;">Salvar</button>
-      <button @click="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
+      <button type='submit' @click.stop.prevent="cadastrar()" class="Esquerda btn" style="height:32px; margin:8px; margin-right:16px;">Salvar</button>
+      <button @click.stop.prevent="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
+      </form>
     </div>
 </div>
 
@@ -89,11 +100,11 @@ Vue.component('msgaddbanca',{
         horario:'',
         estado:'',
         descrisao:'',
+        location:'',
         action:'criar',
       },
       descrisaotexto:true,
       descrisaoview:'',
-      location:'',
       donos:[],
       map:0,
     }
@@ -101,12 +112,28 @@ Vue.component('msgaddbanca',{
   methods:{
     cadastrar:function(){
        var novaBanca =   this.banca;
-       console.log(novaBanca);
+       if(novaBanca.location==null || novaBanca.location==''){
+         alert('Localização Não preenhida!!');
+         this.mapa();
+         return;
+       }
+       if(novaBanca.descrisao==null || novaBanca.descrisao==''){
+         alert('Descrição Não preenchida!!');
+         this.banca.descrisao='PREENCHAME!!';
+         return;
+       }
+       var elemento = this;
     $.ajax({
           method: "post",
-          url: "./app/bancasDonos.php",
+          url: "./app/bancas.php",
           data: novaBanca,
           success: function (msg) {
+              if(msg=='true'){
+                alert('Banca gravada com sucesso!!');
+                elemento.$emit('emit-addBanca',novaBanca);
+              }else{
+                alert('Um erro ocorreu ao Gravar a Banca');
+              }
                alert(msg);
                console.log(msg);
           }
@@ -155,7 +182,7 @@ Vue.component('msgaddbanca',{
   mounted:function(){
         this.$http.get('./app/bancasDonos.php?action=listar').then(function(response) {
            this.donos=response.data;
-
+           console.log(response.data);
    });
   }
 });
@@ -241,7 +268,7 @@ Vue.component('msgver',{
 
 <template id="tblbancas">
 <div>
-<msgaddbanca v-show='msgaddbancastatus' @emit-fecharaddbanca='closeAddBanca' ></msgaddbanca>
+<msgaddbanca v-show='msgaddbancastatus' @emit-addBanca='novaBanca' @emit-fecharaddbanca='closeAddBanca' ></msgaddbanca>
 <msgver :msg="msg.msg"></msgver>
 <span  @click="addBanca()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Banca </span>
 
@@ -318,6 +345,9 @@ Vue.component('tblbancas', {
       addBanca:function(){
           //alert(" Adicionar Banca");  
           this.msgaddbancastatus= true;
+      },
+      novaBanca:function(banca){
+        alert('oi');
       },
       activeBanca:function(index){
           var Banca = this.Bancas[index];

@@ -5,7 +5,24 @@ function bancas($action){
    $con = conect();
    switch($action){
         case "criar":
-            
+            $nome = $_POST['nome'];
+            $uf = $_POST['uf'];
+            $cidade = $_POST['cidade'];
+            $bairro = $_POST['bairro'];
+            $logradouro = $_POST['endereco'];
+            $telefone = $_POST['telefone'];
+            $dono = $_POST['dono'];
+            $horario = $_POST['horario'];
+            $estado = $_POST['estado'];
+            $descrisao = $_POST['descrisao'];
+            $localizacao = $_POST['location'];
+            $sql = "insert into tbl_bancas(estado,nome,uf,cidade,bairro,logradouro,descrisao,horario,location,telefone,idDono)
+                    values('$estado','$nome','$uf','$cidade','$bairro','$logradouro','$descrisao','$horario','$localizacao','$telefone',$dono);";
+            if(mysqli_query($con,$sql)){
+                echo 'true';
+            }else{
+                echo 'false';
+            }
             break;
         case "ver":
             
@@ -58,5 +75,9 @@ if(isset($_GET['action'])){
           bancas($action);
     }
 }
+if(isset($_POST['action'])){
+    bancas($_POST['action']);
+}
+
 
 ?>

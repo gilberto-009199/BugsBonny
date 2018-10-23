@@ -59,6 +59,6 @@ if(isset($_GET['action'])){
     }
 }
 if(isset($_POST)){
-    echo 'ok sadasdasdss';
+    
 }
 ?>
