@@ -20,9 +20,10 @@ Atenção!!O projeto esta em desenvolvimento!
 
 ## Bibliotecas
 
-* [Chart.js]() - Biblioteca de js para criação de gráficos 
-* [JQuery]() - Biblioteca de js que serve como Utilitários(Ajax e etc) 
-* [Leaflet.js]() - Biblioteca de js para trabalhar com mapas
+* [Chart.js](https://www.chartjs.org/) - Biblioteca de js para criação de gráficos 
+* [JQuery](https://jquery.com/) - Biblioteca de js que serve como Utilitários(Ajax e etc) 
+* [Leaflet.js](https://leafletjs.com/) - Biblioteca de js para trabalhar com mapas
+* [Vue.js](https://vuejs.org/) - Framework para criar e tabalhar com web-compoment e criação de SPA(aplicações de uma pagina):cms/views/tblBancas.vue.php
 
 "Quanto mais sofisticado é o jogo mais sofisticado e o oponente"
 Filme: Revolver 2015
