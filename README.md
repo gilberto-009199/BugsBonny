@@ -11,8 +11,8 @@ Atenção!!O projeto esta em desenvolvimento!
 
 ### Pré-requisitos Dependências
 
-* Para instalar e necessário um servidor http com php(Wamp,Lamp,Mamp)
-* Para instalar e necessário um servidor mysql rodando em localhost:80
+* Para instalar e necessário um servidor http na porta 80 com php(Wamp,Lamp,Mamp)
+* Para instalar e necessário um servidor mysql rodando em localhost:3306
 
 ## Authors
 
