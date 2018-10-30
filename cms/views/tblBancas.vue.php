@@ -2,9 +2,238 @@
 <script src="./libs/vue/vue-resource.js"></script>
 <script src='./libs/leaflet/leaflet.js'></script>
 <link rel="stylesheet" href="./libs/leaflet/leaflet.css">
+
+<template id='msgeditbanca'>
+<div>
+<div role="dialog" style='min-width:502px;' class="Alert">
+    <div class="AlertTitulo">Editar Banca</div>
+    <div class="Alertcontent">
+      <div class="msgConteudo">
+      <form>
+            <table  style="min-width: 100%;">
+              <tr>
+                <td><label>Nome:</label></td>
+                <td><input  v-model='banca.nome' type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Estado:</label></td>
+                <td><select v-model='banca.uf'>
+                      <option value='SP'>São Paulo</option>
+                      <option value='RJ'>Rio de Janeiro</option>
+                      <option value='MG'>Minas Gerais</option>
+                      <option value='ES'>Espirito Santo</option>
+                    </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Cidade:</label></td>
+                <td><input  v-model='banca.cidade' type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Bairro:</label></td>
+                <td><input v-model='banca.bairro' type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Endereço:</label></td>
+                <td><input  v-model='banca.logradouro' type="text"></td>
+              </tr>
+              <tr>
+                <td><label>Telefone:</label></td>
+                <td><input v-model='banca.telefone'  type="text"></td>
+              </tr>
+              <tr>
+                <td><label>Dono:</label></td>
+                <td><select v-model='banca.idDono'>
+                    <option>Selecine um Dono</option>
+                    <option :value='item.id' :title='item.email' v-for='(item,index) in donos'> {{item.nome}}</option>
+                    </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Horario:</label></td>
+                <td><input v-model='banca.horario' type="text"></td>
+              </tr>
+              <tr>
+                <td><label>Estado:</label></td>
+                <td><select v-model='banca.estado'>
+                          <option value="V">Ativo</option>
+                          <option value="F">Desativado</option>
+                    </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div>
+                    <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
+                    <textarea 
+                    title='[titulo][/titulo],[center][/center],[justificado][/justificado]'
+                     v-model='banca.descrisao' v-show='descrisaotexto' 
+                     style="display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
+                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px; background-color:#eee;"></div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <button @click.stop.prevent='mapa()' class="btn Esquerda"> Refresh MAPA </button>
+            <div style='height:259px; width:100%;' id="mapaBanca2">
+                      
+            </div>
+      </div>
+      <button type='submit' @click.stop.prevent="cadastrar()" class="Esquerda btn" style="height:32px; margin:8px; margin-right:16px;">Salvar</button>
+      <button @click.stop.prevent="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
+      </form>
+    </div>
+</div>
+</div>
+</template>
+<script>
+Vue.component('msgeditbanca',{
+  template:'#msgeditbanca',
+  props: ['msg'],
+  data: function () {
+    return {
+      banca:{
+        nome:'',
+        uf:'',
+        cidade:'',
+        bairro:'',
+        logradouro:'',
+        telefone:'',
+        dono:'',
+        horario:'',
+        estado:'',
+        descrisao:'',
+        location:'',
+      },
+      descrisaotexto:true,
+      descrisaoview:'',
+      donos:[],
+      local:0,
+      map:0,
+    }
+  },
+  methods:{
+    cadastrar:function(){
+      var novaBanca =   this.banca;
+      novaBanca.action = "editar";
+       if(novaBanca.location==null || novaBanca.location==''){
+         alert('Localização Não preenhida!!');
+         this.mapa();
+         return;
+       }
+       if(novaBanca.descrisao==null || novaBanca.descrisao==''){
+         alert('Descrição Não preenchida!!');
+         this.banca.descrisao='PREENCHAME!!';
+         return;
+       }
+       var elemento = this;
+    $.ajax({
+          method: "post",
+          url: "./app/bancas.php",
+          data: novaBanca,
+          success: function (msg) {
+              if(msg=="true"){
+                alert('Banca editada com sucesso!! :)');
+                elemento.nova(novaBanca);
+              }else{
+                alert('Há banca não foi editada!! :(');
+              }
+          }
+      });
+      console.log(novaBanca);
+    },
+    nova:function(novaBanca){
+      this.$emit('emit-novabanca',novaBanca);
+    },
+    fechar:function(){
+      //alert('Fechar');
+
+      this.local=1;
+      this.$emit('emit-fechareditbanca');
+    },
+    definelocalizacao:function(local){
+      var location = local.replace('LatLng(','').replace(')','');//salvando somente a localização no mapa
+      //alert('location: '+location);
+      this.banca.location = location;
+    },
+    desview:function() { 
+         this.$http.get('./libs/bbcode.php?transformar='+this.banca.descrisao).then(function(response){
+            this.descrisaoview=response.data;
+          });
+      },
+    mapa:function(){
+
+
+      var funcao = this.definelocalizacao;
+      var popup = L.popup();
+      if(this.local==0){
+      //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
+            this.map = L.map('mapaBanca2').setView([-23.53755, -46.802616], 13);
+            //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
+                    {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> ',
+                        maxZoom: 18, /* mandando o zom padrão como parametro*/
+                        id: 'mapbox.streets-satellite', /* Passado como parametro ao mapbox.com  o tipo de mapa que nos queremos
+                         https://www.mapbox.com/api-documentation/#maps   */
+                        accessToken: 'pk.eyJ1IjoiZ2lsYmVydG90ZWMiLCJhIjoiY2psMnF0eHNsMXRhODNrbDd5aGF3OXVwbiJ9.JUWwKVV_ZA-xNQFsIuvwQQ'}).addTo(this.map);
+
+
+
+      var popup = L.popup();
+      var map = this.map;
+      
+           
+      var longitudeLatitude =  this.banca.location.split(",");
+      var popup = L.popup()
+      .setLatLng(longitudeLatitude)
+      .setContent('<h4> Localização </h4>')
+      .openOn(map);
+      }else{
+          var map = this.map;
+          var longitudeLatitude =  this.banca.location.split(",");
+          popup
+          .setLatLng(longitudeLatitude)
+          .setContent('<h4> Localização </h4>')
+          .openOn(map);
+
+      }
+      function onMapClick(e) {
+          popup.setLatLng(e.latlng)
+              .setContent("<h4> Nova Localização: " + e.latlng.toString()+"</h4>")
+              .openOn(map);
+              funcao(e.latlng.toString());
+      }
+
+      this.map.on('click', onMapClick);
+
+    }
+  },
+   watch: { 
+      msg:function(novaBanca) {
+         console.log(novaBanca);
+         //alert('Novo Valor');
+         this.banca= novaBanca;
+         if(this.local!==0){
+          this.mapa();  
+         }
+         
+      }
+   },
+   mounted:function(){
+       this.$http.get('./app/bancasDonos.php?action=listar').then(function(response) {
+          this.donos=response.data;
+          console.log(response.data);
+        });
+  },
+});
+</script>
+
+
+
+
+
 <template id='msgaddbanca'>
 <div>
-
 <div role="dialog" style='min-width:502px;' class="Alert">
     <div class="AlertTitulo">ADD. Banca</div>
     <div class="Alertcontent">
@@ -55,7 +284,11 @@
               </tr>
               <tr>
                 <td><label>Estado:</label></td>
-                <td><input v-model='banca.estado'  type="text"></td>
+                <td><select v-model='banca.estado'>
+                          <option value="V">Ativo</option>
+                          <option value="F">Desativado</option>
+                    </select>
+                </td>
               </tr>
               <tr>
                 <td colspan="2">
@@ -80,8 +313,6 @@
       </form>
     </div>
 </div>
-
-
 </div>
 </template>
 <script>
@@ -130,14 +361,16 @@ Vue.component('msgaddbanca',{
           success: function (msg) {
               if(msg=='true'){
                 alert('Banca gravada com sucesso!!');
-                elemento.$emit('emit-addBanca',novaBanca);
+                elemento.nova(novaBanca);
               }else{
                 alert('Um erro ocorreu ao Gravar a Banca');
               }
-               alert(msg);
-               console.log(msg);
           }
-           });
+      });
+    },
+    nova:function(novaBanca){
+      //alert('Chegou no nova');
+      this.$emit('emit-novabanca',novaBanca);
     },
     fechar:function(){
       //alert('Fechar');
@@ -154,7 +387,7 @@ Vue.component('msgaddbanca',{
           });
       },
     mapa:function(){
-      var funcao = this.definelocalizacao;
+       var funcao = this.definelocalizacao;
       //setando o ponto de visualização de inicio do mapa para as cordenadas barueri
             this.map = L.map('mapaBanca').setView([-23.53755, -46.802616], 13);
             //passando o parametro accesstoken com o token da minha conta para que o leaflet possa acessar o mapa do mapbox, alem de dar os direitos autoraris merecidos ao pessoal mantenedor do projeto!!
@@ -268,7 +501,9 @@ Vue.component('msgver',{
 
 <template id="tblbancas">
 <div>
-<msgaddbanca v-show='msgaddbancastatus' @emit-addBanca='novaBanca' @emit-fecharaddbanca='closeAddBanca' ></msgaddbanca>
+<msgeditbanca :msg="msgedit" @emit-novabanca='novaBanca' @emit-fechareditbanca='closeEditBanca' v-show="msgeditbancastatus"></msgeditbanca>
+
+<msgaddbanca v-show='msgaddbancastatus' @emit-novabanca='novaBanca' @emit-fecharaddbanca='closeAddBanca'></msgaddbanca>
 <msgver :msg="msg.msg"></msgver>
 <span  @click="addBanca()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Banca </span>
 
@@ -314,6 +549,8 @@ Vue.component('tblbancas', {
             msg:'oi',
           },
           msgaddbancastatus:false,
+          msgeditbancastatus:false,
+          msgedit:'oi',
       }
   },
   methods:{
@@ -332,22 +569,24 @@ Vue.component('tblbancas', {
       },
       closeAddBanca:function(){
         this.msgaddbancastatus= false;
-      }
-      ,
+      },
+      closeEditBanca:function(){
+        this. msgeditbancastatus = false;
+      },
       editBanca:function(index){
-        alert('Editar banca');  
+        this.msgedit={...this.Bancas[index]}; 
+         this. msgeditbancastatus = true;
       },
       exibirBanca:function(index){
         //alert('Exibir banca');
         this.msg.msg={...this.Bancas[index]};
-
       },
       addBanca:function(){
           //alert(" Adicionar Banca");  
           this.msgaddbancastatus= true;
       },
-      novaBanca:function(banca){
-        alert('oi');
+      novaBanca:function(novaBanca){
+        this.$emit('emit-update');
       },
       activeBanca:function(index){
           var Banca = this.Bancas[index];
@@ -371,13 +610,20 @@ Vue.component('tblbancas', {
 })
 </script>
 <div id="appTbl">
-<tblbancas :Bancas="Bancas"></tblbancas>
+<tblbancas :Bancas="Bancas" @emit-update="update"></tblbancas>
 </div>
 <script>
 var appTbl = new Vue({
     el:"#appTbl",
     data:{
         Bancas:[]
+    },
+    methods:{
+      update:function(){
+        this.$http.get('./app/bancas.php?action=list').then(function(response) {
+           this.Bancas = response.data;
+        });
+      }
     },
     beforeMount:function(){
         this.$http.get('./app/bancas.php?action=list').then(function(response) {

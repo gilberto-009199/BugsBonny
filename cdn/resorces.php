@@ -44,7 +44,7 @@ function getTickets(& $conexao) {
 function getBancas(& $conexao){
     /* Função responsavel por fornecer uma array contendo as Bancas existentes sistema */
     $bancas[] = array();
-    $sqlQuery = "Select b.*,d.nome as dono from tbl_bancas as b, tbl_donos as d where b.idDono = d.id;";
+    $sqlQuery = "Select b.*,d.nome as dono from tbl_bancas as b, tbl_donos as d where b.idDono = d.id and b.estado='V';";
     $query = mysqli_query($conexao, $sqlQuery);
     while($rsBancas= mysqli_fetch_object($query)){
         $bancas []= $rsBancas;
