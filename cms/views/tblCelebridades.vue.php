@@ -1,6 +1,6 @@
 <script src="./libs/vue/vue.js"></script>
 <script src="./libs/vue/vue-resource.js"></script>
-
+<script src="./libs/jqueryForm/form.js"></script>
 
 <template id='msgaddCelebridade'>
 <div>
@@ -8,36 +8,44 @@
     <div class="AlertTitulo">ADD. Celebridade</div>
     <div class="Alertcontent">
       <div class="msgConteudo">
-      <form>
+      <form id='formaddCelebridade' method='post' enctype="multipart/form-data" action='./app/celebridades.php'>
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label></td>
-                <td><input v-model='celebridade.titulo' type="text" ></td>
+                <td><input name="titulo" v-model='celebridade.titulo' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Celebridade:</label></td>
-                <td><input v-model='celebridade.nome' type="text" ></td>
+                <td><input name="nome" v-model='celebridade.nome' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Url:</label></td>
-                <td><input v-model='celebridade.url' type="text" ></td>
+                <td><input name="url" v-model='celebridade.url' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Imagem:</label></td>
-                <td><input type="file" @change='processFile($event)' ></td>
+                <td><input name="Imagem" type="file" @change='processFile($event)' ></td>
               </tr>
               <tr>
                 <td><label>Estado: </label></td>
-                <td><select v-model='celebridade.estado'>
+                <td><select name="estado" v-model='celebridade.estado'>
                       <option value='V'>Ativo</option>
                       <option value='F'>Desativado</option>
                     </select></td>
               </tr>
               <tr>
+                  <td colspan="2">
+                    <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
+                    <input type="text" class='hidden' name="action" value='criar'>
+                  </td>
+              </tr>
+              <tr>
                 <td colspan="2">
-                  <div>
-                    
-                  </div>
+                  <textarea name="conteudo"
+                    title='[titulo][/titulo],[center][/center],[justificado][/justificado]'
+                     v-model='celebridade.conteudo' v-show='descrisaotexto' 
+                     style="display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
+                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px; background-color:#eee;"></div>
                 </td>
               </tr>
             </table>
@@ -59,31 +67,41 @@ Vue.component('msgadd-celebridades',{
         nome:'',
         url:'',
         estado:'',
+        conteudo:'',
         Imagem:'',
         action:'criar',
       },
       descrisaotexto:true,
       descrisaoview:'',
-      donos:[],
-      map:0,
     }
   },
   methods:{
     cadastrar:function(){
       console.log(this.celebridade);
+      let celebridade = {...this.celebridade};
+      var nova = this.nova;
+     $('#formaddCelebridade').ajaxForm({
+        success:function(msg){
+          if(msg=="true"){
+            alert("Entrevista/Celebridade Gravada com sucesso");
+            nova();
+          }else{
+            alert("Um erro Ocorreu:"+msg);
+          }
+        },
+     }).submit();
     },
     processFile(event) {
       this.celebridade.Imagem = event.target.files[0]
-      console.log(this.celebridade.Imagem);
     },
-    nova:function(novaBanca){
-      this.$emit('emit-novabanca',novaBanca);
+    nova:function(){
+      this.$emit('emit-novacelebridade');
     },
     fechar:function(){
       this.$emit('emit-addcelebridadefechar');
     },
     desview:function() {
-         this.$http.get('./libs/bbcode.php?transformar='+this.banca.descrisao).then(function(response){
+         this.$http.get('./libs/bbcode.php?transformar='+this.celebridade.conteudo).then(function(response){
             this.descrisaoview=response.data;
           });
       },
@@ -167,7 +185,7 @@ Vue.component('msgver',{
 
 <template id="tblbancas">
 <div>
-<msgadd-celebridades v-show='msgaddcelebridadestatus' @emit-addcelebridadefechar='fecharAddCelebridade'></msgadd-celebridades>
+<msgadd-celebridades @emit-novacelebridade='update' v-show='msgaddcelebridadestatus' @emit-addcelebridadefechar='fecharAddCelebridade'></msgadd-celebridades>
 <msgver :msg='msg'></msgver>
 <span  @click="addCelebridade()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar celebridade/entrevista</span>
 
@@ -218,6 +236,20 @@ Vue.component('tbl-celebridades', {
       }
   },
   methods:{
+      delCelebridade:function(index){
+        var celebridade = this.celebridades[index];
+        var update = this.update;
+        this.$http.get("./app/celebridades.php?"+
+              `action=deletar&idCelebridade=${celebridade.id}`).then(function(response){
+              if(response.data=="true"){
+                  alert('Celebridade/Entrevista Deletada!!');
+                  update();
+              }else{
+                alert(response.data);
+                console.log(response.data);
+              }
+          });
+      },
       addCelebridade:function(){
         this.msgaddcelebridadestatus= true;
       },
@@ -239,6 +271,9 @@ Vue.component('tbl-celebridades', {
               }
           });
 
+      },
+      update:function(){
+        this.$emit('emit-update');
       }
   },
   

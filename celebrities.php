@@ -62,12 +62,16 @@ try{
                     <button id="prev" aria-label="voltar Imagem"><i class="far fa-arrow-alt-circle-left"></i></button>
                     <button id="next" aria-label="proxima Imagem"><i class="far fa-arrow-alt-circle-right"></i></button>
                     <div class="blink-view" id="blink" aria-live="polite" aria-relevant="all">
-                        <div class="viewSlide">
-                            <div class="ItemSlider" style="background-repeat: no-repeat; background-size: cover; height: 500px; background-image: url(img/celebridades/aprendiz_RobertoJusto.png);">
+                        <?php for($i =1;$i < count($entrevistas);$i++){ ?>
 
-                            </div>
-                        </div>
-
+                            <?php if($entrevistas[$i]->img !== null and $entrevistas[$i]->img !==""){?>
+                                <div class="viewSlide">
+                                    <div class="ItemSlider" style="background-repeat: no-repeat; background-size: cover; height: 500px; background-image: url(imgup/<?=@$entrevistas[$i]->img?>);">
+                                    </div>
+                                </div>
+                            <?php }?>
+                        
+                        <?php } ?>
                         <div class="viewSlide">
                             <div class="ItemSlider" style="background-repeat: no-repeat; background-size: cover;  height: 500px;  background-image:url(img/celebridades/Capturadetela_2018-08-29_12-41-50.png);">
 
