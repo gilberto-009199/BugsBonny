@@ -5,6 +5,7 @@ if(!isset($_POST['txtEmail']) || !isset($_POST['txtPassword'])){
     echo"Redirecionador";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
     <head>

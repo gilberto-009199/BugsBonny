@@ -28,7 +28,24 @@ function bancas($action){
             
             break;
         case "editar":
-            
+            $id=$_POST['id'];
+            $nome = $_POST['nome'];
+            $uf = $_POST['uf'];
+            $cidade = $_POST['cidade'];
+            $bairro = $_POST['bairro'];
+            $logradouro = $_POST['logradouro'];
+            $telefone = $_POST['telefone'];
+            $dono = $_POST['idDono'];
+            $horario = $_POST['horario'];
+            $estado = $_POST['estado'];
+            $descrisao = $_POST['descrisao'];
+            $localizacao = $_POST['location'];
+            $sql = "UPDATE tbl_bancas SET location= '$localizacao', nome = '$nome', uf='$uf', cidade= '$cidade', bairro = '$bairro',logradouro= '$logradouro',telefone='$telefone',idDono= $dono, estado='$estado' where id=$id";
+            if(mysqli_query($con,$sql)){
+                echo "true";
+            }else{
+                echo "false";
+            }
             break;
         case "deletar":
             $idBanca = $_GET['idBanca'];

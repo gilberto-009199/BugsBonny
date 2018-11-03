@@ -123,7 +123,7 @@ if(autentica('verificar')){
                     <div class="Esquerda" style="width: 21%; min-height: 500px; background: #eee;">
                         <ul class="listPg">
                             <li class="scrollDown">Sobre</li>
-                            <li class="scrollDown">Celebridades</li>
+                            <li class="scrollDown" data-compoment="./views/tblCelebridades.vue.php">Celebridades</li>
                             <li class="scrollDown">Noticias</li>
                             <li class="scrollDown">Ofertas</li>
                             <li class="scrollUp" data-compoment="./views/tblBancas.vue.php">Bancas
