@@ -50,7 +50,7 @@ function bancasDono($action){
 if(isset($_GET['action'])){
     $action=$_GET['action'];
     switch($action){
-        case "list":
+        case "listar":
         //echo"Quer listar";
         bancasDono("listar");
         break;

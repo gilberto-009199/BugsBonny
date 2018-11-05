@@ -59,6 +59,15 @@ function celebridades($action){
             
             break;
         case "editar":
+            $arquivo = $_FILES['Imagem'];
+            if($arquivo['size']>0){
+                echo "Tem arquivo!!";
+                
+            }else{
+                echo "Não tem arquivo";
+                
+
+            }
             
             break;
         case "deletar":

@@ -2,6 +2,101 @@
 <script src="./libs/vue/vue-resource.js"></script>
 <script src="./libs/jqueryForm/form.js"></script>
 
+<template id="msgeditcelebridade">
+<div>
+<div role="dialog" style='min-width:502px;' class="Alert">
+    <div class="AlertTitulo">ADD. Celebridade</div>
+    <div class="Alertcontent">
+      <div class="msgConteudo">
+      <form id='formeditCelebridade' method='post' enctype="multipart/form-data" action='./app/celebridades.php'>
+            <table  style="min-width: 100%;">
+              <tr>
+                <td><label>Titulo:</label><input type="hidden" v-model="celebridade.id" name="idCelebridade"></td>
+                <td><input name="titulo" v-model='celebridade.titulo' type="text" ></td>
+              </tr>
+              <tr>
+
+                <td><label>Celebridade:</label></td>
+                <td><input name="nome" v-model='celebridade.celebridade' type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Url:</label></td>
+                <td><input name="url" v-model='celebridade.url' type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Imagem:</label></td>
+                <td>
+                    <table>
+                        <tr><td><img height="128" width="128" :src="'../imgup/'+celebridade.img"></td></tr>
+                        <tr><td><input  name="Imagem" type="file" @change='processFile($event)' ></td></tr>
+                    </table>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Estado: </label></td>
+                <td><select name="estado" v-model='celebridade.estado'>
+                      <option value='V'>Ativo</option>
+                      <option value='F'>Desativado</option>
+                    </select></td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                    <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
+                    <input type="text" class='hidden' name="action" value='editar'>
+                  </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <textarea name="conteudo"
+                    title='[titulo][/titulo],[center][/center],[justificado][/justificado]'
+                     v-model='celebridade.conteudo' v-show='descrisaotexto' 
+                     style="display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
+                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px; background-color:#eee;"></div>
+                </td>
+              </tr>
+            </table>
+      </div>
+      <button type='submit' @click.stop.prevent="cadastrar()" class="Esquerda btn" style="height:32px; margin:8px; margin-right:16px;">Salvar</button>
+      <button @click.stop.prevent="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
+      </form>
+    </div>
+</div>
+</div>
+</template>
+<script>
+Vue.component('msgedit-celebridade',{
+  template:'#msgeditcelebridade',
+  props:['celebridade'],
+  data(){
+    return{
+      oi:'OLá',
+      descrisaotexto:true,
+      descrisaoview:'',
+    }
+  },
+  methods:{
+    cadastrar:function(){
+      console.log(this.celebridade.img);
+      $('#formeditCelebridade').ajaxForm({
+        success:function(msg){
+          alert("Msg: "+msg);
+          console.log(msg);
+        },
+     }).submit();
+    },
+    fechar:function(){
+      this.$emit("emit-fechar");
+    },
+    desview:function() {
+         this.$http.get('./libs/bbcode.php?transformar='+this.celebridade.conteudo).then(function(response){
+            this.descrisaoview=response.data;
+         });
+    },
+  }
+});
+
+</script>
+
 <template id='msgaddCelebridade'>
 <div>
 <div role="dialog" style='min-width:502px;' class="Alert">
@@ -185,6 +280,7 @@ Vue.component('msgver',{
 
 <template id="tblbancas">
 <div>
+<msgedit-celebridade :celebridade='msgedit' @emit-fechar='fecharEditCelebridade' v-show="msgeditcelebridadestatus"></msgedit-celebridade>
 <msgadd-celebridades @emit-novacelebridade='update' v-show='msgaddcelebridadestatus' @emit-addcelebridadefechar='fecharAddCelebridade'></msgadd-celebridades>
 <msgver :msg='msg'></msgver>
 <span  @click="addCelebridade()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar celebridade/entrevista</span>
@@ -232,10 +328,18 @@ Vue.component('tbl-celebridades', {
           },
           msgaddcelebridadestatus:false,
           msgeditcelebridadestatus:false,
-          msgedit:'oi',
+          msgedit:new Object(),
       }
   },
   methods:{
+      fecharEditCelebridade:function(){
+        this.msgeditcelebridadestatus=false;
+      },
+      editCelebridade:function(index){
+        this.msgeditcelebridadestatus=true;
+        console.log(this.celebridades[index]);
+        this.msgedit= this.celebridades[index];
+      },
       delCelebridade:function(index){
         var celebridade = this.celebridades[index];
         var update = this.update;
