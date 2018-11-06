@@ -59,14 +59,70 @@ function celebridades($action){
             
             break;
         case "editar":
-            $arquivo = $_FILES['Imagem'];
+            $arquivo = @$_FILES['Imagem'];
             if($arquivo['size']>0){
-                echo "Tem arquivo!!";
+                
+                $arquivosPermitidos=array(".jpg",".png",".jpeg",".svg");
+                $nomeArquivo = pathinfo($arquivo['name'], PATHINFO_FILENAME);
+                $ext_arquivo= strrchr($arquivo['name'],".");
+                if(in_array($ext_arquivo,$arquivosPermitidos)){
+                    $tamanho = round(($arquivo['size'])/1024);
+
+                    if($tamanho<=2048){
+                        $entropia = rand(1, 9) . "" . rand(1, 9) . "" .rand(1, 9) . "" . date('Y-m-d H:i:s')
+                                . "" . rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9) . "";
+                        $nomeEncrip= (md5($entropia.$nomeArquivo))."".$ext_arquivo;
+
+                        $imagem = "../../imgup/".$nomeEncrip;
+
+                        if(move_uploaded_file($arquivo['tmp_name'],$imagem)){
+                            
+                            $idCelebridade= $_POST['idCelebridade'];
+                            $titulo = $_POST['titulo'];
+                            $nome = $_POST['nome'];
+                            $url = $_POST['url'];
+                            $estado = $_POST['estado'];
+                            $conteudo = $_POST['conteudo'];
+
+                            $sql="UPDATE tbl_entrevistas SET img='$nomeEncrip',titulo='$titulo',conteudo='$conteudo',celebridade='$nome',url='$url',estado='$estado' where id= $idCelebridade";
+
+                            
+                            
+                            if(mysqli_query($con,$sql)){
+                                echo "true";    
+                            }else{
+                                echo "Um erro Ocorreu ao gravar no banco!!";
+                            }
+                            
+                        }else{
+                            echo "Algo deu Errado!!Ao mover o Arquivo";
+                        }
+
+                    }else{
+                        echo "Arquivo Grande Demais!!";    
+                    }                    
+                }else{
+                    echo "Arquivo não permitido!!";
+                }
                 
             }else{
-                echo "Não tem arquivo";
                 
-
+                $idCelebridade= $_POST['idCelebridade'];
+                $titulo = $_POST['titulo'];
+                $nome = $_POST['nome'];
+                $url = $_POST['url'];
+                $estado = $_POST['estado'];
+                $conteudo = $_POST['conteudo'];
+                
+                $sql="UPDATE tbl_entrevistas SET titulo='$titulo',conteudo='$conteudo',celebridade='$nome',url='$url',estado='$estado' where id= $idCelebridade";
+                
+                if(mysqli_query($con,$sql)){
+                    echo "true";
+                }else{
+                    echo "Erro ao salvar no banco";
+                }
+                
+                                
             }
             
             break;

@@ -78,6 +78,15 @@ function getEntrevistas(& $conexao){
     }
     return $Entrevistas;
 }
+function getOfertas(& $conexao){
+    $Ofertas []= array();
+    $sqlQuery="SELECT * FROM bugbunny.tbl_ofertas;";
+    $query = mysqli_query($conexao,$sqlQuery);
+    while($rsOfertas = mysqli_fetch_object($query)){
+        $Ofertas[]= $rsOfertas;
+    }
+    return $Ofertas;
+}
 
 function gravarPedido($frmPedidoTmp) {
     /* Função responsavel por gravar no db do sistema os tickets(chamandos) */

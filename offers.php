@@ -1,9 +1,17 @@
+<?php require_once './cdn/resorces.php'; ?>
+<?php require_once './libs/libsphp/BBcode/bbcode.php'; ?>
 <?php
 /**
 * @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
 * @version 1.0 
 * @copyright  unlicense <http://unlicense.org/>
 */ 
+try{
+    $con = conect();
+    $ofertas= getOfertas($con);
+}catch(Exception $e){
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
@@ -163,6 +171,17 @@
                     <span class="ItemMenuProduto">Revista Cloud HPC</span>
                 </div>
                 <div class="cold7 arredonda" data-style="PainelProdutos">
+                    <?php for($i=1;$i < count($ofertas);$i++){?>
+                        <div class="Produto">
+                                <div class="Titulo"><?=@$ofertas[$i]->titulo?></div>
+                                <div class="Imagem">
+                                    <img alt="Imagem de Produto" width='80px' height='100' src="./imgup/<?=@$ofertas[$i]->img?>">
+                                </div>
+                                <div class="Descricao"><?=@$ofertas[$i]->descricao?></div>
+                                <div class="Preco"><span class="riscado">R$<?=@$ofertas[$i]->vlAnterior?></span> por <span class="destaque">R$ <?=@$ofertas[$i]->vlPosterior?></span></div>
+                                <div class="Detalhes"><a href="#">Detalhes</a></div>
+                          </div>         
+                    <?php } ?>
                     <div class="Produto">
                         <div class="Titulo">Titulo</div>
                         <div class="Imagem">

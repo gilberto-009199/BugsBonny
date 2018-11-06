@@ -28,7 +28,7 @@
                 <td>
                     <table>
                         <tr><td><img height="128" width="128" :src="'../imgup/'+celebridade.img"></td></tr>
-                        <tr><td><input  name="Imagem" type="file" @change='processFile($event)' ></td></tr>
+                        <tr><td><input  name="Imagem" type="file" ></td></tr>
                     </table>
                 </td>
               </tr>
@@ -77,12 +77,20 @@ Vue.component('msgedit-celebridade',{
   methods:{
     cadastrar:function(){
       console.log(this.celebridade.img);
+      var nova = this.nova;
       $('#formeditCelebridade').ajaxForm({
         success:function(msg){
-          alert("Msg: "+msg);
-          console.log(msg);
+          if(msg=="true"){
+            alert('Entrevista/Celebridade Gravado com sucesso');
+            nova();
+          }else{
+            alert('Erro:'+msg);
+          }
         },
      }).submit();
+    },
+    nova:function(){
+      this.$emit('emit-update');
     },
     fechar:function(){
       this.$emit("emit-fechar");
@@ -233,6 +241,9 @@ Vue.component('msgadd-celebridades',{
                 <td><input disabled type="text" :value="msg.dtCriacao"></td>
               </tr>
               <tr>
+                <td colspan="2"><img height="128" width="128" :src="'../imgup/'+msg.img"></td>
+              </tr>
+              <tr>
                 <td colspan="2">
                   <label> Conteudo: </label>
                   <div style="border:solid 1px black; margin:2px; padding:2px;" v-html="msg.conteudo"></div>
@@ -280,7 +291,7 @@ Vue.component('msgver',{
 
 <template id="tblbancas">
 <div>
-<msgedit-celebridade :celebridade='msgedit' @emit-fechar='fecharEditCelebridade' v-show="msgeditcelebridadestatus"></msgedit-celebridade>
+<msgedit-celebridade @emit-update="update" :celebridade='msgedit' @emit-fechar='fecharEditCelebridade' v-show="msgeditcelebridadestatus"></msgedit-celebridade>
 <msgadd-celebridades @emit-novacelebridade='update' v-show='msgaddcelebridadestatus' @emit-addcelebridadefechar='fecharAddCelebridade'></msgadd-celebridades>
 <msgver :msg='msg'></msgver>
 <span  @click="addCelebridade()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar celebridade/entrevista</span>

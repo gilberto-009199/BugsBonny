@@ -24,6 +24,11 @@ CREATE TABLE IF NOT EXISTS tbl_tickets(id int primary key auto_increment,idTipo 
  FOREIGN KEY (`idTipo`) REFERENCES `tbl_tipos_tickets` (`id`),
  FOREIGN KEY (`idProfissao`) REFERENCES `tbl_profissao` (`id`));
  
+ CREATE TABLE IF NOT EXISTS tbl_ofertas(id int primary key auto_increment,titulo varchar(20)not null,descricao varchar(32) not null,
+vlAnterior varchar(10), vlPosterior varchar(10),img varchar(128),estado enum('V','F') not null);
+
+INSERT INTO `bugbunny`.`tbl_ofertas` (`titulo`, `descricao`, `vlAnterior`, `vlPosterior`, `img`,estado) VALUES ('tHE New Work Times', 'Revisão de novembro:2018', '10', '7', 'fd9f5720958c5127c64cbb386dec1cde.jpg','V');
+ 
 
 CREATE TABLE IF NOT EXISTS tbl_donos(id int primary key auto_increment, nome varchar(45) not null,
 telefone varchar(45) not null,email varchar(128));
@@ -132,11 +137,11 @@ insert into tbl_artigos(titulo,conteudo,dtCriacao,estado)values(
 'Bugsbunny na grande São Paulo','[justificado]Em 2012 nossa empresa alcançou a marca de 32 bancas de jornal, arrecadando R$ 1.000.00,00 por ano. O abrangente portfólio da empresa inclui mais de 1.000 revistas e jornais nacionais e internacionais, graças a preferencia das empresas por distribuidoras licenciadas.[/justificado][justificado]Hoje a empresa possui o Prêmio MPE Brasil, ganho pela excelência na gestão e logística da nossa empresa.[/justificado]',
 '2007-06-20','V');
 
-insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
+/*insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
 1,1,'2016-06-20 19:30:00');
 
 insert into tbl_autores_artigos(idArtigo,idAutor,dtEmissao)values(
-2,1,'2016-06-20 19:30:00');
+2,1,'2016-06-20 19:30:00');*/
 
 insert into tbl_autores(nome,email,sexo)values("João Paulo","joao.office@gmail.com","M");
 

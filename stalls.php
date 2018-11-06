@@ -9,7 +9,7 @@
 ?>
 <?php
 try {
-     $con = conect();
+    $con = conect();
     $bancas = getBancas($con);
 } catch (Exception $e) {
     $msgAlertaErro = " Erro Catastrofico no Sistema!!!" . $e->getMessage();
