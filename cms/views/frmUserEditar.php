@@ -33,7 +33,7 @@ $UsuarioCargos = getUsuarioCargos($con);
         <link rel="stylesheet" href="../css/estruturadefault.css">
         <link rel="stylesheet" href="../css/style.css">
         <title>Adm. Fale Conosco</title>
-        <script src="libs/jquery/jquery-3.3.1.js"></script>
+        <script src="../libs/jquery/jquery-3.3.1.js"></script>
     </head>
     <body>
         <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
@@ -122,23 +122,23 @@ $UsuarioCargos = getUsuarioCargos($con);
                             <form method="get" action="../app/user.php">
                                 <div class="row">
                                     <div class="cold2"><label for="txtNome">Nome:</label></div>
-                                    <div class="cold8"><input value="<?= $Usuario->nome ?>" type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="40" value="<?= $Usuario->nome ?>" type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label for="txtEmail">E-mail:</label></div>
-                                    <div class="cold8"><input value="<?= $Usuario->email ?>" type="text" id="txtEmail" name="txtEmail" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="120" value="<?= $Usuario->email ?>" type="text" id="txtEmail" name="txtEmail" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label for="txtPassword">Senha:</label></div>
-                                    <div class="cold8"><input type="password" id="txtPassword" name="txtPassword" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="22" type="password" id="txtPassword" name="txtPassword" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label for="txtTelefone">Telefone:</label></div>
-                                    <div class="cold8"><input value="<?= $Usuario->telefone ?>" type="text" id="txtTelefone" name="txtTelefone" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="13" value="<?= $Usuario->telefone ?>" type="text" id="txtTelefone" name="txtTelefone" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label>Cargo:</label></div>
-                                    <div class="cold8"><select name="slcCargo">
+                                    <div class="cold8"><select name="slcCargo" required>
                                             <?php
                                             for ($i = 0; $i < count($UsuarioCargos); $i++) {
                                                 if ($UsuarioCargos[$i]->id == $Usuario->idCargo) {
@@ -153,7 +153,7 @@ $UsuarioCargos = getUsuarioCargos($con);
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label>Estado:</label></div>
-                                    <div class="cold8"><select name="slcEstado">
+                                    <div class="cold8"><select name="slcEstado" required>
                                             <?php
                                             for ($i = 0; $i < count($UsuarioEstados); $i++) {
                                                 if ($UsuarioEstados[$i]->id == $Usuario->idEstado) {

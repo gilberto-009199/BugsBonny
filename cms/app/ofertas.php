@@ -30,7 +30,14 @@ function sobre($action){
             echo json_encode($Ofertas);
             break;
        case "AlterarEstado":
-            
+            $estado = $_GET['Estado'];
+            $idOferta = $_GET['idOferta'];
+            $sql="UPDATE tbl_ofertas SET estado='$estado' where id =$idOferta;";
+            if(mysqli_query($con,$sql)){
+               echo 'true';
+            }else{
+                echo 'false';
+            }
             break;
     }
 

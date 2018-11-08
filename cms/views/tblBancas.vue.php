@@ -13,11 +13,11 @@
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Nome:</label></td>
-                <td><input  v-model='banca.nome' type="text" ></td>
+                <td><input maxlength="30" v-model='banca.nome' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Estado:</label></td>
-                <td><select v-model='banca.uf'>
+                <td><select v-model='banca.uf' required>
                       <option value='SP'>São Paulo</option>
                       <option value='RJ'>Rio de Janeiro</option>
                       <option value='MG'>Minas Gerais</option>
@@ -27,19 +27,19 @@
               </tr>
               <tr>
                 <td><label>Cidade:</label></td>
-                <td><input  v-model='banca.cidade' type="text" ></td>
+                <td><input maxlength="30" v-model='banca.cidade' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Bairro:</label></td>
-                <td><input v-model='banca.bairro' type="text" ></td>
+                <td><input maxlength="30" v-model='banca.bairro' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Endereço:</label></td>
-                <td><input  v-model='banca.logradouro' type="text"></td>
+                <td><input maxlength="40" v-model='banca.logradouro' type="text"></td>
               </tr>
               <tr>
                 <td><label>Telefone:</label></td>
-                <td><input v-model='banca.telefone'  type="text"></td>
+                <td><input maxlength="13" placeholder="(11)4321-6342" v-model='banca.telefone'  type="text"></td>
               </tr>
               <tr>
                 <td><label>Dono:</label></td>
@@ -51,7 +51,7 @@
               </tr>
               <tr>
                 <td><label>Horario:</label></td>
-                <td><input v-model='banca.horario' type="text"></td>
+                <td><input maxlength="20" placeholder="09:00 ate 15:00" v-model='banca.horario' type="text"></td>
               </tr>
               <tr>
                 <td><label>Estado:</label></td>
@@ -242,7 +242,7 @@ Vue.component('msgeditbanca',{
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Nome:</label></td>
-                <td><input  v-model='banca.nome' type="text" ></td>
+                <td><input maxlength="30" v-model='banca.nome' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Estado:</label></td>
@@ -256,19 +256,19 @@ Vue.component('msgeditbanca',{
               </tr>
               <tr>
                 <td><label>Cidade:</label></td>
-                <td><input  v-model='banca.cidade' type="text" ></td>
+                <td><input maxlength="30" v-model='banca.cidade' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Bairro:</label></td>
-                <td><input v-model='banca.bairro' type="text" ></td>
+                <td><input maxlength="30" v-model='banca.bairro' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Endereço:</label></td>
-                <td><input  v-model='banca.endereco' type="text"></td>
+                <td><input maxlength="40" v-model='banca.endereco' type="text"></td>
               </tr>
               <tr>
                 <td><label>Telefone:</label></td>
-                <td><input v-model='banca.telefone'  type="text"></td>
+                <td><input maxlength="13" placeholder="(11)4321-6342" v-model='banca.telefone'  type="text"></td>
               </tr>
               <tr>
                 <td><label>Dono:</label></td>
@@ -280,7 +280,7 @@ Vue.component('msgeditbanca',{
               </tr>
               <tr>
                 <td><label>Horario:</label></td>
-                <td><input v-model='banca.horario' type="text"></td>
+                <td><input maxlength="17" placeholder="09:00 ate 17:00" v-model='banca.horario' type="text"></td>
               </tr>
               <tr>
                 <td><label>Estado:</label></td>

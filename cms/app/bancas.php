@@ -16,6 +16,7 @@ function bancas($action){
             $estado = $_POST['estado'];
             $descrisao = $_POST['descrisao'];
             $localizacao = $_POST['location'];
+
             $sql = "insert into tbl_bancas(estado,nome,uf,cidade,bairro,logradouro,descrisao,horario,location,telefone,idDono)
                     values('$estado','$nome','$uf','$cidade','$bairro','$logradouro','$descrisao','$horario','$localizacao','$telefone',$dono);";
             if(mysqli_query($con,$sql)){
@@ -40,7 +41,7 @@ function bancas($action){
             $estado = $_POST['estado'];
             $descrisao = $_POST['descrisao'];
             $localizacao = $_POST['location'];
-            $sql = "UPDATE tbl_bancas SET location= '$localizacao', nome = '$nome', uf='$uf', cidade= '$cidade', bairro = '$bairro',logradouro= '$logradouro',telefone='$telefone',idDono= $dono, estado='$estado' where id=$id";
+            $sql = "UPDATE tbl_bancas SET horario='$horario',location= '$localizacao', nome = '$nome', uf='$uf', cidade= '$cidade', bairro = '$bairro',logradouro= '$logradouro',telefone='$telefone',idDono= $dono, estado='$estado' where id=$id";
             if(mysqli_query($con,$sql)){
                 echo "true";
             }else{

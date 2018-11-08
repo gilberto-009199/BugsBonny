@@ -117,23 +117,23 @@ $UsuarioCargos = getUsuarioCargos($con);
                             <form method="get" action="../app/user.php">
                                 <div class="row">
                                     <div class="cold2"><label for="txtNome">Nome:</label></div>
-                                    <div class="cold8"><input type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="40" type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label for="txtEmail">E-mail:</label></div>
-                                    <div class="cold8"><input type="text" id="txtEmail" name="txtEmail" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="120" type="text" id="txtEmail" name="txtEmail" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label for="txtPassword">Senha:</label></div>
-                                    <div class="cold8"><input type="password" id="txtPassword" name="txtPassword" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="22" type="password" id="txtPassword" name="txtPassword" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label for="txtTelefone">Telefone:</label></div>
-                                    <div class="cold8"><input type="text" id="txtTelefone" name="txtTelefone" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold8"><input required maxlength="13" placeholder="(11)4587-5468" type="text" id="txtTelefone" name="txtTelefone" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label>Cargo:</label></div>
-                                            <div class="cold8"><select name="slcCargo">
+                                            <div class="cold8"><select name="slcCargo" required>
                                                     <?php for($i=0;$i<count($UsuarioCargos);$i++){ ?>
                                                     <option value="<?=$UsuarioCargos[$i]->id?>"><?=$UsuarioCargos[$i]->nome?></option>
                                                     <?php } ?>
@@ -141,7 +141,7 @@ $UsuarioCargos = getUsuarioCargos($con);
                                 </div>
                                 <div class="row">
                                     <div class="cold2"><label>Estado:</label></div>
-                                            <div class="cold8"><select name="slcEstado">
+                                            <div class="cold8"><select name="slcEstado" required>
                                                   <?php for($i=0;$i<count($UsuarioEstados);$i++){ ?>
                                                     <option value="<?=$UsuarioEstados[$i]->id?>"><?=$UsuarioEstados[$i]->nome?></option>
                                                    <?php } ?>

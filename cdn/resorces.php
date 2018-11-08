@@ -80,7 +80,7 @@ function getEntrevistas(& $conexao){
 }
 function getOfertas(& $conexao){
     $Ofertas []= array();
-    $sqlQuery="SELECT * FROM bugbunny.tbl_ofertas;";
+    $sqlQuery="SELECT * FROM bugbunny.tbl_ofertas as o where o.estado='V';";
     $query = mysqli_query($conexao,$sqlQuery);
     while($rsOfertas = mysqli_fetch_object($query)){
         $Ofertas[]= $rsOfertas;

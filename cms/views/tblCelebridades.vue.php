@@ -12,16 +12,16 @@
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label><input type="hidden" v-model="celebridade.id" name="idCelebridade"></td>
-                <td><input name="titulo" v-model='celebridade.titulo' type="text" ></td>
+                <td><input maxlength="64" name="titulo" v-model='celebridade.titulo' type="text" ></td>
               </tr>
               <tr>
 
                 <td><label>Celebridade:</label></td>
-                <td><input name="nome" v-model='celebridade.celebridade' type="text" ></td>
+                <td><input maxlength="64" name="nome" v-model='celebridade.celebridade' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Url:</label></td>
-                <td><input name="url" v-model='celebridade.url' type="text" ></td>
+                <td><input maxlength="100" name="url" v-model='celebridade.url' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Imagem:</label></td>
@@ -115,15 +115,15 @@ Vue.component('msgedit-celebridade',{
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label></td>
-                <td><input name="titulo" v-model='celebridade.titulo' type="text" ></td>
+                <td><input maxlength="64" name="titulo" v-model='celebridade.titulo' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Celebridade:</label></td>
-                <td><input name="nome" v-model='celebridade.nome' type="text" ></td>
+                <td><input maxlength="64" name="nome" v-model='celebridade.nome' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Url:</label></td>
-                <td><input name="url" v-model='celebridade.url' type="text" ></td>
+                <td><input maxlength="64" name="url" v-model='celebridade.url' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Imagem:</label></td>

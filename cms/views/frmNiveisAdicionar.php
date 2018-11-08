@@ -118,7 +118,7 @@ if (autentica('verificar')) {
                             <form method="post" action="../app/nivel.php">
                                 <div class="row">
                                     <div class="cold3"><label for="txtNome">Nome do Level:</label></div>
-                                    <div class="cold7"><input type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
+                                    <div class="cold7"><input maxlength="40" type="text" id="txtNome" name="txtNome" style="border: solid 1px; padding: 4px; margin-bottom: 4px;" class="row"/></div>
                                 </div>
                                 <div class="row" style="margin-top:32px;">
                                     <input class="hidden" name="action" value="criar">

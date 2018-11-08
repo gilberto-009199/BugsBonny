@@ -75,7 +75,7 @@ if(autentica('verificar')){
                         </div>
                         <div class="row">
                             <div class="cold7" style="float: left; height: 31px;"></div>
-                            <div class="cold4" style="float: left;"><a style="font-size: 23px;"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
+                            <div class="cold4" style="float: left;"><a href="./app/null.php" style="font-size: 23px;"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
                         </div>
                     </div>
                 </div>

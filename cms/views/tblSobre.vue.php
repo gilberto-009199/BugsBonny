@@ -11,7 +11,7 @@
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label></td>
-                <td><input name="titulo" v-model='artigo.titulo' type="text" ></td>
+                <td><input  maxlength="64" name="titulo" v-model='artigo.titulo' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Estado: </label></td>
@@ -104,7 +104,7 @@ Vue.component('msgaedit-artigo',{
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label></td>
-                <td><input name="titulo" v-model='artigo.titulo' type="text" ></td>
+                <td><input maxlength="64" name="titulo" v-model='artigo.titulo' type="text" ></td>
               </tr>
               <tr>
                 <td><label>Estado: </label></td>

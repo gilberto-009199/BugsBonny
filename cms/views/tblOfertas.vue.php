@@ -277,7 +277,7 @@ Vue.component('msgver',{
         <td style="padding:2px; width: 130px; display:inline-block; text-align: center;">R$ {{oferta.vlPosterior}}</td>
         <td style="padding:2px; width: 70px; display:inline-block; text-align: center;">
             <img style="display:block; margin-left:auto; margin-right:auto;" v-if="oferta.estado=='V'" @click="activeOferta(index)" src='./img/Accept-icon.png'>
-            <img style="display:block; margin-left:auto; margin-right:auto;" v-else @click="activeArtigo(index)" src='./img/disable.png'>
+            <img style="display:block; margin-left:auto; margin-right:auto;" v-else @click="activeOferta(index)" src='./img/disable.png'>
         </td>
         <td style="padding:2px; width: 264px; display:inline-block; text-align: center;">
             <a href="#"><label @click="exibirArtigo(index)"><i class="far fa-eye"></i>Exibir</label></a>
@@ -344,16 +344,15 @@ Vue.component('tbl-ofertas', {
           var oferta = this.ofertas[index];
           var novoEstado = (oferta.estado=="V") ? "F":"V";
           
-          this.$http.get("./app/sobre.php?"+
-          `action=AlterarEstado&idOferta=${artigo.id}&Estado=${novoEstado}`)
+          this.$http.get("./app/ofertas.php?"+
+          `action=AlterarEstado&idOferta=${oferta.id}&Estado=${novoEstado}`)
             .then(function(response){
-              
               if(response.data=="true"){
                   
-                  artigo.estado=`${novoEstado}`;
+                  oferta.estado=novoEstado;
                   
               }else{
-                  alert('Erro ao Alterar estado do artigo'+response.data);
+                  alert('Erro ao Alterar estado da Oferta'+response.data);
               }
           });
       },
