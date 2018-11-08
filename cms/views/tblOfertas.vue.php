@@ -44,6 +44,7 @@
 </div>
 </template>
 <script>
+//Compomente necessario para editar os artigos
 Vue.component('msgaedit-artigo',{
   template:'#msgeditArtigo',
   props:['artigo'],
@@ -138,6 +139,7 @@ Vue.component('msgaedit-artigo',{
 </div>
 </template>
 <script>
+//Compomente necessario para adicionar o artigo
 Vue.component('msgadd-artigo',{
   template:'#msgaddArtigo',
   data(){
@@ -223,6 +225,7 @@ Vue.component('msgadd-artigo',{
 <div>
 </template>
 <script>
+//Compomente necessario para ver o artigo
 Vue.component('msgver',{
   template: "#msgver",
   props: ['msg'],
@@ -260,7 +263,7 @@ Vue.component('msgver',{
 <msgaedit-artigo :artigo="msg.msgedit" @emit-update="update" @emit-fechar="fecharEditArtigo" v-show="msgeditartigostatus"></msgaedit-artigo>
 <msgadd-artigo @emit-update="update" @emit-fechar="fecharAddArtigo" v-show="msgaddartigostatus"></msgadd-artigo>
 <msgver v-show="msg.estado" :msg="msg.msg"></msgver>
-<span  @click="addArtigo()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Artigo no Sobre </span>
+<span  @click="addArtigo()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Oferta </span>
 
 <table cellpadding="5" width="942" style="margin-top:22px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
 <thead style="display:block; border-bottom: solid 1px black;">

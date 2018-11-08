@@ -44,6 +44,7 @@
 </div>
 </template>
 <script>
+//Compomente necessario editar o artigo
 Vue.component('msgaedit-artigo',{
   template:'#msgeditArtigo',
   props:['artigo'],
@@ -138,6 +139,7 @@ Vue.component('msgaedit-artigo',{
 </div>
 </template>
 <script>
+//Compomente necessario adicionar o artigo
 Vue.component('msgadd-artigo',{
   template:'#msgaddArtigo',
   data(){
@@ -290,6 +292,7 @@ Vue.component('msgver',{
 </div>
 </template>
 <script>
+//Compomente necessario visualizar os artigos
 Vue.component('tbl-artigos', {
   template: "#tblArtigo",
   props: ['artigos'],
