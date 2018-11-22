@@ -25,9 +25,10 @@ if(autentica('verificar')){
     <head>
         <?php require_once("./head.php") ?>
         <title>CMS</title>
+        <link rel="stylesheet" href="css/animate.min.css">
     </head>
     <body>
-        <div id="CaixaSite"><!-- Caixa que contem o conteudo do site -->
+        <div id="CaixaSite" class=" animated fadeInLeft"><!-- Caixa que contem o conteudo do site -->
             <header>
                 <div style="width:7%; display:inline-block;">
                     <h1 style="text-shadow: -3px 1px 1px #000000;">CMS</h1>
@@ -145,8 +146,9 @@ if(autentica('verificar')){
                 <p style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 0px; padding-top: 44px;">Desenvolvido por: <a href="mailto:gilberto.tec@vivaldi.net">Gilberto Ramos de Oliveira</a></p>
             </footer>
             <script>
+                //Chama a pagina baseada no elmento clicado pelo usuario
                 $('li[class*=scroll]').click(function(){
-                     var compoment = $(this).attr('data-compoment');
+                    var compoment = $(this).attr('data-compoment');
                     $('#conteudo').children().remove();
                     $.ajax({
                         method: "GET",
@@ -157,6 +159,16 @@ if(autentica('verificar')){
                         }
                     });
                 });
+                //chama a pagia de bancas por padrão
+                $('#conteudo').children().remove();
+                    $.ajax({
+                        method: "GET",
+                        url: './views/tblBancas.vue.php',
+                        data: {},
+                        success: function (msg) {
+                            $('#conteudo').html(msg);
+                        }
+                    });
                 /*$('.listPg li[class*="scroll"]').click(function(){
                     alert('oi');
                     if($(this).hasClass('scrollDown')){

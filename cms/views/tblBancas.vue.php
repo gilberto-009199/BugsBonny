@@ -87,7 +87,6 @@
 </div>
 </template>
 <script>
-//Compomente necessario para editar as bancas
 Vue.component('msgeditbanca',{
   template:'#msgeditbanca',
   props: ['msg'],
@@ -317,7 +316,6 @@ Vue.component('msgeditbanca',{
 </div>
 </template>
 <script>
-//Compomente necessario para adicionar bancas
 Vue.component('msgaddbanca',{
   template:'#msgaddbanca',
   data(){
@@ -541,7 +539,6 @@ Vue.component('msgver',{
 </div>
 </template>
 <script>
-//Compomente necessario visualizar os dados
 Vue.component('tblbancas', {
   template: "#tblbancas",
   props: ['Bancas'],

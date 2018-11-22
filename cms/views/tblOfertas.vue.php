@@ -1,17 +1,32 @@
 <script src="./libs/vue/vue.js"></script>
 <script src="./libs/vue/vue-resource.js"></script>
+<script src="./libs/jqueryForm/form.js"></script>
 
 <template id='msgeditArtigo'>
 <div>
 <div role="dialog" style='min-width:502px;' class="Alert">
-    <div class="AlertTitulo">Edit. Artigo</div>
+    <div class="AlertTitulo">Edit. Oferta</div>
     <div class="Alertcontent">
       <div class="msgConteudo">
-      <form id='formaddCelebridade' method='post' enctype="multipart/form-data" action='./app/celebridades.php'>
+      <form id='formeditOferta' method='post' enctype="multipart/form-data" action='./app/ofertas.php'>
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label></td>
                 <td><input name="titulo" v-model='artigo.titulo' type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Valor atual:</label></td>
+                <td><input  type="text" :value="artigo.vlPosterior"></td>
+              </tr>
+              <tr>
+                <td><label>Valor Anterior:</label></td>
+                <td><input  type="text" :value="artigo.vlAnterior"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><img height="128" width="128" :src="'../imgup/'+artigo.img"></td>
+              </tr>
+              <tr>
+                <td><input type="file" name="Imagem"></td>
               </tr>
               <tr>
                 <td><label>Estado: </label></td>
@@ -22,21 +37,21 @@
               </tr>
               <tr>
                   <td colspan="2">
-                    <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
-                    <input type="text" class='hidden' name="action" value='criar'>
+                    <input type="hidden" name="action" value="editar">
+                    <input type="hidden" name="idOferta" v-model="artigo.id">
                   </td>
               </tr>
               <tr>
                 <td colspan="2">
-                  <textarea v-model="artigo.conteudo"
+                  <textarea name='conteudo' v-model="artigo.descricao"
                     title='[titulo][/titulo],[center][/center],[justificado][/justificado]' v-show='descrisaotexto' 
                      style="display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
-                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px; background-color:#eee;"></div>
+                    
                 </td>
               </tr>
             </table>
       </div>
-      <button type='submit' @click.stop.prevent="cadastrar()" class="Esquerda btn" style="height:32px; margin:8px; margin-right:16px;">Salvar</button>
+      <button type='submit' @click.stop.prevent="editar()" class="Esquerda btn" style="height:32px; margin:8px; margin-right:16px;">Salvar</button>
       <button @click.stop.prevent="fechar()" class="Direita btn" style="height:32px; margin:8px; margin-right:16px;">Fechar</button>
       </form>
     </div>
@@ -44,7 +59,6 @@
 </div>
 </template>
 <script>
-//Compomente necessario para editar os artigos
 Vue.component('msgaedit-artigo',{
   template:'#msgeditArtigo',
   props:['artigo'],
@@ -55,32 +69,28 @@ Vue.component('msgaedit-artigo',{
     }
   },
   methods:{
-    cadastrar:function(){
-        var novoArtigo = this.artigo;
-        novoArtigo.action="editar";
-        var elemento = this;
-      $.ajax({
-          method: "post",
-          url: "./app/sobre.php",
-          data: novoArtigo,
-          success: function (msg) {
-              if(msg=="true"){
-                alert("Artigo Editado com sucesso");
-              }else{
-                  alert("Erro:"+msg);
-              }
+    editar:function(){
+      var elemento = this;
+      $('#formeditOferta').ajaxForm({
+        success:function(msg){
+          if(msg.indexOf("true")){
+            alert('Oferta Gravado com sucesso');
+            elemento.nova();
+          }else{
+            alert('Erro:'+msg);
           }
-      });
+        },
+     }).submit();
       
     },
     nova:function(){
       this.$emit('emit-update');
     },
     fechar:function(){
+      console.log("Oferta Editada ",this.artigo);
       this.$emit('emit-fechar');
     },
     desview:function() {
-
          this.$http.get('./libs/bbcode.php?transformar='+this.artigo.conteudo).then(function(response){
             this.descrisaoview=response.data;
           });
@@ -98,25 +108,36 @@ Vue.component('msgaedit-artigo',{
 <template id='msgaddArtigo'>
 <div>
 <div role="dialog" style='min-width:502px;' class="Alert">
-    <div class="AlertTitulo">ADD. Artigo</div>
+    <div class="AlertTitulo">ADD. oferta</div>
     <div class="Alertcontent">
       <div class="msgConteudo">
-      <form id='formaddCelebridade' method='post' enctype="multipart/form-data" action='./app/celebridades.php'>
+      <form id='formaddOferta' method='post' enctype="multipart/form-data" action='./app/ofertas.php'>
             <table  style="min-width: 100%;">
               <tr>
                 <td><label>Titulo:</label></td>
-                <td><input name="titulo" v-model='artigo.titulo' type="text" ></td>
+                <td><input maxlength="15" name="titulo"  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Valor Anterior:</label></td>
+                <td><input maxlength="10" name="valoranterior"  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Valor Posterior:</label></td>
+                <td><input maxlength="10" name="valorposterior"  type="text" ></td>
+              </tr>
+              <tr>
+                <td><label>Imagem:</label></td>
+                <td><input name="Imagem"  type="file" ></td>
               </tr>
               <tr>
                 <td><label>Estado: </label></td>
-                <td><select name="estado" v-model='artigo.estado' require>
+                <td><select name="estado"  require>
                       <option value='V' selected>Ativo</option>
                       <option value='F'>Desativado</option>
                     </select></td>
               </tr>
               <tr>
                   <td colspan="2">
-                    <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
                     <input type="text" class='hidden' name="action" value='criar'>
                   </td>
               </tr>
@@ -126,7 +147,6 @@ Vue.component('msgaedit-artigo',{
                     title='[titulo][/titulo],[center][/center],[justificado][/justificado]'
                      v-model='artigo.conteudo' v-show='descrisaotexto' 
                      style="display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px;"></textarea>
-                    <div  v-html='descrisaoview' v-show='!descrisaotexto' style="font-size: 16px; display: inline-block; margin-top:10px; resize: none; border: solid 1px black; padding: 4px; width: 482px; height:137px; overflow: auto; padding-bottom:10px; background-color:#eee;"></div>
                 </td>
               </tr>
             </table>
@@ -139,7 +159,6 @@ Vue.component('msgaedit-artigo',{
 </div>
 </template>
 <script>
-//Compomente necessario para adicionar o artigo
 Vue.component('msgadd-artigo',{
   template:'#msgaddArtigo',
   data(){
@@ -147,7 +166,7 @@ Vue.component('msgadd-artigo',{
       artigo:{
         estado:'',
         titulo:'',
-        conteudo:'',
+        descrisao:'',
         action:'criar',
       },
       descrisaotexto:true,
@@ -156,21 +175,17 @@ Vue.component('msgadd-artigo',{
   },
   methods:{
     cadastrar:function(){
-        var novoArtigo = this.artigo;
         var elemento = this;
-      $.ajax({
-          method: "post",
-          url: "./app/sobre.php",
-          data: novoArtigo,
-          success: function (msg) {
-              if(msg=="true"){
-                alert('Novo Artigo Adicionado');
-                elemento.nova();
-              }else{
-                alert('O artigo não pode ser salvo!! :(');
-              }
+        $('#formaddOferta').ajaxForm({
+        success:function(msg){
+          if(msg=="true"){
+            alert('Oferta Gravado com sucesso');
+            elemento.nova();
+          }else{
+            alert('Erro:'+msg);
           }
-      });
+        },
+     }).submit();
       
     },
     nova:function(){
@@ -208,13 +223,20 @@ Vue.component('msgadd-artigo',{
                 <td><input disabled type="text" :value="msg.titulo"></td>
               </tr>
               <tr>
-                <td><label>Criado em:</label></td>
-                <td><input disabled type="text" :value="msg.dtCriacao"></td>
+                <td><label>Valor atual:</label></td>
+                <td><input disabled type="text" :value="msg.vlPosterior"></td>
+              </tr>
+              <tr>
+                <td><label>Valor Anterior:</label></td>
+                <td><input disabled type="text" :value="msg.vlAnterior"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><img height="64" width="128" :src="'../imgup/'+msg.img"></td>
               </tr>
               <tr>
                 <td colspan="2">
                   <label> Conteudo: </label>
-                  <div style="border:solid 1px black; margin:2px; padding:2px;" v-html="msg.conteudo"></div>
+                  <div style="border:solid 1px black; margin:2px; padding:2px;" v-html="msg.descricao"></div>
                 </td>
               </tr>
             </table>
@@ -225,7 +247,6 @@ Vue.component('msgadd-artigo',{
 <div>
 </template>
 <script>
-//Compomente necessario para ver o artigo
 Vue.component('msgver',{
   template: "#msgver",
   props: ['msg'],
@@ -263,7 +284,7 @@ Vue.component('msgver',{
 <msgaedit-artigo :artigo="msg.msgedit" @emit-update="update" @emit-fechar="fecharEditArtigo" v-show="msgeditartigostatus"></msgaedit-artigo>
 <msgadd-artigo @emit-update="update" @emit-fechar="fecharAddArtigo" v-show="msgaddartigostatus"></msgadd-artigo>
 <msgver v-show="msg.estado" :msg="msg.msg"></msgver>
-<span  @click="addArtigo()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Oferta </span>
+<span  @click="addOferta()" style="display: block; margin: 4px; font-size: 22px; padding-top: 10px; padding-left: 10px;"><i class="fas fa-store-alt"></i>Adicionar Oferta </span>
 
 <table cellpadding="5" width="942" style="margin-top:22px; border:solid 1px black;border-top-left-radius: 10px; border-top-right-radius: 10px; display:block; margin-bottom: 32px;">
 <thead style="display:block; border-bottom: solid 1px black;">
@@ -283,9 +304,9 @@ Vue.component('msgver',{
             <img style="display:block; margin-left:auto; margin-right:auto;" v-else @click="activeOferta(index)" src='./img/disable.png'>
         </td>
         <td style="padding:2px; width: 264px; display:inline-block; text-align: center;">
-            <a href="#"><label @click="exibirArtigo(index)"><i class="far fa-eye"></i>Exibir</label></a>
-            <a href="#"><label @click="delArtigo(index)"><i class="far fa-trash-alt"></i>Deletar</label></a>
-            <a href="#"><label @click="editArtigo(index)"><i class="fas fa-edit"></i>Editar</label></a>
+            <a href="#"><label @click="exibirOferta(index)"><i class="far fa-eye"></i>Exibir</label></a>
+            <a href="#"><label @click="delOferta(index)"><i class="far fa-trash-alt"></i>Deletar</label></a>
+            <a href="#"><label @click="editOferta(index)"><i class="fas fa-edit"></i>Editar</label></a>
         </td> 
     </tr>
 </tbody>
@@ -308,9 +329,9 @@ Vue.component('tbl-ofertas', {
       }
   },
   methods:{
-      editArtigo:function(index){
+      editOferta:function(index){
           
-        this.msg.msgedit=this.artigos[index];
+        this.msg.msgedit=this.ofertas[index];
        
         this.msgeditartigostatus=true; 
       },
@@ -320,18 +341,18 @@ Vue.component('tbl-ofertas', {
       fecharAddArtigo:function(){
           this.msgaddartigostatus=false;
       },
-      addArtigo:function(){
+      addOferta:function(){
           this.msgaddartigostatus=true;
       },
-      delArtigo:function(index){
-          var artigo = this.artigos[index];
+      delOferta:function(index){
+          var artigo = this.ofertas[index];
            var update = this.update;
-          this.$http.get("./app/sobre.php?"+
-          `action=deletar&idArtigo=${artigo.id}`)
+          this.$http.get("./app/ofertas.php?"+
+          `action=deletar&idOferta=${artigo.id}`)
             .then(function(response){
               
               if(response.data=="true"){
-                  alert('Artigo deletado');
+                  alert('Oferta deletado');
                   update();
               }else{
                   alert('Erro:'+response.data);
@@ -339,8 +360,8 @@ Vue.component('tbl-ofertas', {
               }
           });
       },
-      exibirArtigo:function(index){
-          this.msg.msg=this.artigos[index];
+      exibirOferta:function(index){
+          this.msg.msg=this.ofertas[index];
           this.msg.estado=true;
       },
       activeOferta:function(index){

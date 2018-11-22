@@ -107,55 +107,7 @@ try{
                     </div>
                 </article>
                 <?php } ?>
-                <article tabindex="0">
-                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
-                    <div class="CaixaTexto"> 
-                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Em breve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
-                <article tabindex="0">
-                    <h2>Entrevista com Roberto Justos</h2>
-                    <div class="CaixaTexto"> 
-                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
-                <article tabindex="0">
-                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
-                    <div class="CaixaTexto"> 
-                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Em breve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
-                <article tabindex="0">
-                    <h2>Entrevista com Roberto Justos</h2>
-                    <div class="CaixaTexto"> 
-                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
-                <article tabindex="0">
-                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
-                    <div class="CaixaTexto"> 
-                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Em breve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
-                <article tabindex="0">
-                    <h2>Entrevista com Roberto Justos</h2>
-                    <div class="CaixaTexto"> 
-                        <p>Roberto Justus, um dos publicitários mais bem-sucedidos do país, O Aprendiz encalhou justamente no mercado publicitário. Sem anunciantes que viabilizassem a produção do programa, a Band decidiu adiar para 2019 a sua reestreia, prevista inicialmente para o final de setembro. A decisão foi tomada na (21) e confirmada em nota oficial da emissora.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
-                <article tabindex="0">
-                    <h2> Entrevista com Carlos Alberto de Nóbrega antes do casamento.</h2>
-                    <div class="CaixaTexto"> 
-                        <p>O humorista Carlos Alberto de Nóbrega está feliz da vida. Em breve se casará com a médica Renata Domingues no civil, o apresentador comemorará a união em uma cerimônia íntima no restaurante Trio Dezenove, localizado na Vila Olímpia.</p>
-                        <button class="Direita">Ver Mais+</button>
-                    </div>
-                </article>
+                
             </section>
         </div>
         <footer>

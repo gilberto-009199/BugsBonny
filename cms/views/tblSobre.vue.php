@@ -23,7 +23,7 @@
               <tr>
                   <td colspan="2">
                     <button @click.stop.prevent='descrisaotexto=true' class="btn Esquerda"> Descrição </button><button @click.stop.prevent='descrisaotexto=false|desview()' class="btn Direita"> Ver </button>
-                    <input type="text" class='hidden' name="action" value='criar'>
+                    <input type="text" class='hidden' name="action" value='editar'>
                   </td>
               </tr>
               <tr>
@@ -44,7 +44,6 @@
 </div>
 </template>
 <script>
-//Compomente necessario editar o artigo
 Vue.component('msgaedit-artigo',{
   template:'#msgeditArtigo',
   props:['artigo'],
@@ -139,7 +138,6 @@ Vue.component('msgaedit-artigo',{
 </div>
 </template>
 <script>
-//Compomente necessario adicionar o artigo
 Vue.component('msgadd-artigo',{
   template:'#msgaddArtigo',
   data(){
@@ -292,7 +290,6 @@ Vue.component('msgver',{
 </div>
 </template>
 <script>
-//Compomente necessario visualizar os artigos
 Vue.component('tbl-artigos', {
   template: "#tblArtigo",
   props: ['artigos'],
