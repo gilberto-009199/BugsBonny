@@ -58,22 +58,27 @@ function sobre($action){
             break;
         case "editar":            
                /*...*/
-               if(!$arquivo = $_FILES['Imagem']){
+               try{
+                        $arquivo = $_FILES['imagem'];
+                        
+               }catch(Exception $e){
                     $titulo = $_POST['titulo'];
-                            $conteudo = $_POST['conteudo'];
-                            $vlAnterior = $_POST['valoranterior'];
-                            $vlPosterior = $_POST['valorposterior'];
-                            $estado= $_POST['estado'];
-                            $idOferta= $_POST['idOferta'];
-                            
-                            $sql ="UPDATE tbl_ofertas SET titulo='$titulo',descricao='$conteudo',vlAnterior='$vlAnterior',vlPosterior='$vlPosterior',estado='$estado' where id=$idOferta";
-                            
-                            if(mysqli_query($con,$sql)){
-                                echo "true";    
-                            }else{
-                                echo "Um erro Ocorreu ao gravar no banco!!";
-                            }
+                    $conteudo = $_POST['conteudo'];
+                    $vlAnterior = $_POST['valoranterior'];
+                    $vlPosterior = $_POST['valorposterior'];
+                    $estado= $_POST['estado'];
+                    $idOferta= $_POST['idOferta'];
+
+                    $sql ="UPDATE tbl_ofertas SET titulo='$titulo',descricao='$conteudo',vlAnterior='$vlAnterior',vlPosterior='$vlPosterior',estado='$estado' where id=$idOferta";
+
+                    if(mysqli_query($con,$sql)){
+                        echo "true";    
+                    }else{
+                        echo "Um erro Ocorreu ao gravar no banco!!";
+                    }
+                    return;   
                }
+               
                
 
                 $arquivosPermitidos=array(".jpg",".png",".jpeg",".svg");

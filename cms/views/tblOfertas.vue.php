@@ -16,17 +16,17 @@
               </tr>
               <tr>
                 <td><label>Valor atual:</label></td>
-                <td><input  type="text" :value="artigo.vlPosterior"></td>
+                <td><input  type="text"  name="valorposterior" :value="artigo.vlPosterior"></td>
               </tr>
               <tr>
                 <td><label>Valor Anterior:</label></td>
-                <td><input  type="text" :value="artigo.vlAnterior"></td>
+                <td><input  type="text" name="valoranterior" :value="artigo.vlAnterior"></td>
               </tr>
               <tr>
                 <td colspan="2"><img height="128" width="128" :src="'../imgup/'+artigo.img"></td>
               </tr>
               <tr>
-                <td><input type="file" name="Imagem"></td>
+                <td><input type="file" name="imagem"></td>
               </tr>
               <tr>
                 <td><label>Estado: </label></td>
@@ -73,7 +73,9 @@ Vue.component('msgaedit-artigo',{
       var elemento = this;
       $('#formeditOferta').ajaxForm({
         success:function(msg){
-          if(msg.indexOf("true")){
+          console.log(msg);
+          console.log("Retornou :",(msg+" ").search("true"));
+          if((msg+" ").indexOf("true")>=0){
             alert('Oferta Gravado com sucesso');
             elemento.nova();
           }else{
