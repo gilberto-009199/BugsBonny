@@ -29,7 +29,7 @@ try {
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav aria-label="main navigation">
+                <nav aria-label="main navigation" data-display='block'>
                     <div class="CaixaMenu" role="menu">
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
@@ -43,7 +43,7 @@ try {
             </div>
             <div class="ItemCaixaHeader">
                     <div class="Logo">
-                        <img alt=" Logo do site" title="logo" height="32" width="32" src="img/logo2.png">
+                        <img alt="Logo do site" title="logo" height="32" width="32" src="img/logo2.png">
                        <p>BugBunny</p>
                     </div>
                 </div>
@@ -72,5 +72,17 @@ try {
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
+         <script>
+            if(window.innerWidth<958){
+                $('nav[aria-label^="main"]').click(function(){
+                    $(this).find('.CaixaMenu').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+            }
+        </script>
     </body>
 </html>

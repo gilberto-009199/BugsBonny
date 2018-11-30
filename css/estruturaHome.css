@@ -13,7 +13,8 @@ header{
     margin: 0;
     width: 100%;
     min-height: 80px;
-    height: auto;
+    height: vmax;
+    /* height: auto; */
     /*background: rgb(222,218,218);
     background: linear-gradient(0deg, rgba(222,218,218,1) 31%, rgba(245,243,243,0.9398407668210147) 73%);*/
     background: rgb(232,232,232);

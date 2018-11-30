@@ -6,6 +6,41 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+@media screen and (max-width: 300px){
+	div[data-style="CaixaBancas"]{
+        min-width: 75px;
+        float:left;
+        display:none;
+    }
+}
+@media screen and (min-width: 300px) and (max-width:700px){
+    div[data-style="CaixaBancas"]{
+        min-width: 75px;
+        float:left;
+        overflow:none;
+        display:block;
+        width:100%;
+    }
+    div[data-style="CaixaBancas"]:before{
+         content: "\f039";
+         font-family: 'Font Awesome 5 Free';
+         font-weight: 600;
+         font-size:2em;
+         /* text-align: -webkit-auto; */
+         margin-left:10px;
+         float: left;
+    }
+    div[data-style="CaixaBancas"]  .ItemMenuBanca {
+             display:none;
+    }
+    div[data-style="CaixaBancas"] .primeira-response{
+       border-top: 1px solid;
+       margin-top: 38px;
+    }
+    div[data-style="CaixaBancasSelect"]{
+        width:inherit;
+    }
+}
 div[role="banner"]{
     margin-top: 80px;
     height: 300px;
@@ -13,12 +48,12 @@ div[role="banner"]{
     background-image:url(../img/mapa.png);
 }
 div[data-style="CaixaBancas"]{
-    overflow-y: scroll;
-    min-width: 230px;
+    min-width: 75px;
     float:left;
-    padding-top:10px;
+    padding-top: 8px;
     background: linear-gradient(197deg, rgba(255,255,255,1) 25%, rgba(228,228,246,1) 68%);
-    height:490px;
+    /*height:490px;*/
+    padding-bottom: 10px;
 }
 div[data-style="CaixaBancasSelect"]{
     background: linear-gradient(141deg, rgba(255,255,255,1) 90%, rgba(0,0,255,1) 93%); 

@@ -6,18 +6,122 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+
+
+@media screen and (max-width: 300px){
+	div[role="banner"]{
+	   min-height: 380px;
+	}
+	#Grafico{
+	     height: 112px;
+	}
+	#main{
+		width: 100%;
+		min-height:300px;
+	}
+}
+@media screen and (min-width: 301px) and (max-width:500px){
+	div[role="banner"]{
+	   min-height: 200px;
+	}
+	#main{
+		width: 100%;
+		min-height:300px;
+	}
+	.BordaDireita{
+    	border-right: none;
+    	border-right-width: none;
+	}
+	form[role='search']{
+		margin-left: -7vmax;
+	}
+}
+@media screen and (min-width: 500px) and (max-width:600px){
+	div[role="banner"]{
+	   min-height: 420px;
+	}
+	#main{
+		width: 100%;
+		min-height:300px;
+	}
+	.BordaDireita{
+    	border-right: none;
+    	border-right-width: none;
+	}
+	form[role='search']{
+		margin-left: -7vmax;
+	}
+}
+@media screen and (min-width: 600px) and (max-width:700px){
+	div[role="banner"]{
+	   min-height: 440px;
+	}
+	#main{
+		width: 100%;
+		min-height:300px;
+	}
+	.BordaDireita{
+    	border-right: none;
+    	border-right-width: none;
+	}
+}
+@media screen and (min-width: 700px) and (max-width:800px){
+	div[role="banner"]{
+	   min-height: 460px;
+	}
+	#main{
+		width:100%
+		min-height:300px;
+	}
+	.BordaDireita{
+    	border-right: solid 1px black;
+    	border-right-width: 1px;
+	}
+	form[role='search']{
+		margin-left: -7vmax;
+	}
+}
+@media screen and (min-width: 800px) and (max-width:900px){
+	div[role="banner"]{
+	   min-height: 495px;
+	}
+	#main{
+		width: 800px;
+		min-height:300px;
+	}
+	form[role='search']{
+		margin-left: -7vmax;
+	}
+}
+@media screen and (min-width: 901px){
+	div[role="banner"]{
+	   min-height: 500px;
+	}
+	#main{
+		width: 1167px;
+		min-height:300px;
+	}
+	form[role='search']{
+		margin-right: 8vmax;
+	}
+}
+
+
 div[role="banner"]{
     width: 100%;
     margin-top: 62px;
-    min-height: 500px;
+    /* max-height: 700px; */
     height: auto;
+    padding-bottom: 7px;
+    /* padding-bottom: 9vmin; */
+    /* overflow: auto; */
     background-color: black;
 }
 .ItemMenuPesquisa{
     width: 100%;
     border-bottom: solid 1px;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 0.7em;
     padding-top: 4px;
     padding-bottom: 2px;
     color:black;
@@ -31,8 +135,8 @@ div[role="banner"]{
     margin-left:auto;
     margin-right: auto;
     background-color: white;
-    width: 1200px;
-    min-height:300px; 
+    /*width: 1167px;*/
+    min-height:300px;
 }
 .ItemMenuProduto{
     width: 100%;
@@ -51,8 +155,10 @@ div[data-style="MenuProdutos"]{
     float: left;
     border-bottom: solid 1px #000000;
     border-top:solid 2px #000000;
-    overflow: scroll;
+    /* overflow: scroll; */
     max-height: 300px;
+    height: auto;
+    overflow: auto;
 }
 div[data-style="PainelProdutos"]{
     align-items: center;
@@ -70,7 +176,9 @@ div[data-style="BarraPesquisa"]{
 div[data-style="CaixaPesquisa"]{
     margin-left: auto;
     margin-right: auto;
-    width: 1000px;
+    width: 100%;
+    /* padding-right: 194px; */
+    /* display: inline-block; */
     height: auto;
 }
 i[data-style="margenIcone"]{
@@ -80,33 +188,38 @@ nav[data-style="MenuPesquisa"]{
     border-radius: 14px;
     width: 26px;
     font-size: 28px;
-    margin-top: 8px; 
-    margin-left:20px; 
-    padding: 4px; 
+    margin-top: 8px;
+    margin-left: 26px;
+    padding: 4px;
     background-color: white;
 }
 nav[data-style="MenuPesquisa"] div[data-style="SubMenu"]{
     display:none;
+    position: absolute;
+    max-width: 100%;
+    margin-left: -30px;
+    width: 100%;
+    z-index: 998;
+    border-top: solid 2px;
+    box-shadow: 2px 2px 2px black;
+    background-color: white;
 }
 div[data-style="CaixaGrafico"]{
-    height: 300px;
-    width: 860px; 
+    width: 100%;
+    margin-left:-2px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    /* padding: 1px; */
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
 }
 nav[data-style="MenuPesquisa"]:hover{
     color:#006D5C;
 }
 nav[data-style="MenuPesquisa"]:hover>div[data-style="SubMenu"]{
     display:block;
-    position: absolute;
-    max-width: 100%;
-    margin-left: -24px;
-    width: 100%;
-    z-index: 999;
-    border-top: solid 2px;
-    box-shadow: 2px 2px 2px black;
-    background-color: white;
 }
 .ItemMenuPesquisa:hover{
     color: #006D5C;

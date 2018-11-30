@@ -125,7 +125,7 @@ try {
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav aria-label="main navigation">
+                <nav aria-label="main navigation" data-display='block'>
                     <div class="CaixaMenu" role="menu">
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
@@ -159,16 +159,16 @@ try {
                 var myChart = new Chart(canvas, {
                     type: 'line',
                     data: {
-                        labels: ["janeiro", "fevereiro", "março", "abril", "maio", "Junho", "Julho", "Agosto"],
+                        labels: ["janeiro", "fevereiro", "março", "abril", "maio", "Junho"],
                         datasets: [{
-                                label: "Ultimos envios - 5 meses",
-                                data: [12, 24, 13, 9, 10, 16, 7, 17],
+                                label: "Ultimos envios",
+                                data: [12, 24, 13, 9, 10, 16,],
                                 borderWidth: 7,
                                 borderColor: "#454df0",
                                 backgroundColor: "transparent",
                             }, {
-                                label: "Atentimentos - 5 meses",
-                                data: [12, 10, 13, 8, 11, 10, 2, 15],
+                                label: "Atentimentos",
+                                data: [12, 10, 13, 8, 11, 10,],
                                 borderWidth: 7,
                                 borderColor: "#006D5C",
                                 backgroundColor: "#00ffeb",
@@ -331,6 +331,16 @@ try {
                 /* Mostra o Dialogo de Confirmação que possu o botão ok e cancelar */
                 DialogoConfirmacao.view(msgDialog,'Confirme a Opção: ');
             });
+            if(window.innerWidth<958){
+                $('nav[aria-label^="main"]').click(function(){
+                    $(this).find('.CaixaMenu').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+            }
         </script>
     </body>
 </html>

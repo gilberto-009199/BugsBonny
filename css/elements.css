@@ -2,6 +2,38 @@
     Created on : 09/08/2018, 11:16:40
     Author     : 16254850
 */
+
+@media screen and (max-width: 300px){
+	.Alert {
+        top: 10%;
+        width: 93%;
+        margin-left: -47%;
+        margin-right: -10%;
+        min-width: auto;
+	}
+}
+@media screen and (min-width: 301px) and (max-width:530px){
+   .Alert {
+        top: 10%;
+        width: 91%;
+        margin-left: 3%;
+        margin-right: -10%;
+        min-width: auto;
+    }
+}
+@media screen and (min-width: 530px){
+	.Alert{
+        position: fixed;
+        left:50%;
+        top: 32%;
+        margin-top:-25px;
+        margin-left: -25%;
+        min-width: 40%;
+        min-height: 150px;
+        width: 50%;
+    }
+}
+
 /*	CSS dos elemetos	*/
 #main section{
     background-color: white;
@@ -12,7 +44,7 @@
 section h1{
     text-align: center;
     font-weight: bolder;
-    font-size: 32px;
+    font-size: 1.5em;
     padding-top: 7px;
     padding-bottom: 3px;
 }
@@ -23,7 +55,7 @@ article{
 }
 article h1,h2,h3,h4{
     border-bottom: solid 1px #0b2144;
-    margin-left: 17px;
+    margin-left: auto;
     padding-top: 7px;
     padding-bottom: 3px;
 }
@@ -103,13 +135,13 @@ article .CaixaTexto{
 /*  CSS do elemento Alerta */
 .Alert{
     position: fixed;
-    left:50%;
+    /*left:50%;
     top: 32%;
     margin-top:-25px;
     margin-left: -25%;
     min-width: 40%;
     min-height: 150px;
-    width: 50%;
+    width: 50%;*/
     border: solid 2px black;
     border-radius: 4px;
     z-index: 998;

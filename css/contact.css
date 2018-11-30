@@ -6,6 +6,45 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+@media screen and (max-width: 300px){
+	#tipoFrm{
+	    width: 100%;
+        margin-left: auto;
+        position: initial;
+    }
+    div[data-style="CaixaDireita"]{
+        width:100%;
+        border:none;
+    }
+    #main{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 301px) and (max-width:900px){
+    #tipoFrm{
+        width: 100%;
+        margin-left: auto;
+        position: initial;
+    }
+    #main{
+        width: 100%;
+    }
+    div[data-style="CaixaDireita"]{
+        width:100%;
+        border:none;
+    }
+}
+@media screen and (min-width: 900px){
+    #tipoFrm{
+        margin-left: 516px;
+        position: absolute;
+        width: 212px;
+    }
+    #main{
+        width: 1000px;
+    }
+}
+
 div[role="banner"]{
     margin-top: 60px;
     width: 100%;
@@ -13,11 +52,9 @@ div[role="banner"]{
     background: linear-gradient(265deg, rgba(104,110,110,1) 38%, rgba(74,88,88,1) 67%);
 }
 #tipoFrm{
-    margin-left: 516px;
-    position: absolute;
-    font-size: 18px; 
+    font-size: 1.3em;
+    margin-bottom: 19px;
     border-bottom: solid 1px;
-    width: 212px; 
     text-align: center;
 }
 div[role="banner"] canvas{
@@ -33,7 +70,6 @@ div[role="banner"] canvas{
     min-height: 440px;
     height: auto;
     overflow: hidden;
-    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 17px;

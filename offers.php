@@ -27,8 +27,20 @@ try{
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav>
+                <nav aria-label="main navigation" data-display='block'>
                     <div class="CaixaMenu" role="menu">
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./about.php">Sobre</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./offers.php">Promoções</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./celebrities.php">Celebridades</a></div>
+                        <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
+                        <div class="ItemMenu"   role="menuitem"><a href="contact.php">Fale Conosco</a></div>
+                    </div>                    
+                </nav>
+                
+                <!--<nav>
+                    <div class="CaixaMenu" role="menu" data-display='block'>
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./index.php">Home</a></div>
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./news.php">Notícias</a></div>
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./about.php">Sobre</a></div>
@@ -37,7 +49,7 @@ try{
                         <div class="ItemMenu BordaDireita" role="menuitem"><a href="./stalls.php">Nossas Bancas</a></div>
                         <div class="ItemMenu" role="menuitem"><a href="contact.php">Fale Conosco</a></div>
                     </div>                    
-                </nav>
+                </nav>-->
             </div>
             <div class="ItemCaixaHeader">
                 <div class="Logo">
@@ -55,7 +67,7 @@ try{
             <div class="row">
                 <div class="row" data-style="BarraPesquisa">
                     <div class="cold3 Esquerda">
-                        <nav data-style="MenuPesquisa">
+                        <nav data-style="MenuPesquisa" data-display='block'>
                             <i class="fas fa-align-justify"></i>
                             <div data-style="SubMenu">
                                 <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" data-style="margenIcone"></i>Política</div>
@@ -190,5 +202,25 @@ try{
         <footer>
             <p>Copyright© Senai 2018</p>
         </footer>
+        <script>
+            if(window.innerWidth<958){
+                $('nav[aria-label^="main"]').click(function(){
+                    $(this).find('.CaixaMenu').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+                $('nav[data-style="MenuPesquisa"]').click(function(){
+                    $(this).find('div[data-style="SubMenu"]').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+            }
+        </script>
     </body>
 </html>

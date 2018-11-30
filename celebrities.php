@@ -31,7 +31,7 @@ try{
     <body>
         <header>
             <div class="ItemCaixaHeader">
-                <nav aria-label="main navigation">
+                <nav aria-label="main navigation" data-display='block'>
                     <div class="CaixaMenu" role="menu">
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
@@ -117,6 +117,16 @@ try{
             $(function () {
                 $("#main").slideUp(1).slideDown(200);
             });
+            if(window.innerWidth<958){
+                $('nav[aria-label^="main"]').click(function(){
+                    $(this).find('.CaixaMenu').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+            }
         </script>
     </body>
 </html>

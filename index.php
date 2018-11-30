@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="ItemCaixaHeader" role="menubar">
-                    <nav aria-label="main navigation">
+                    <nav aria-label="main navigation" data-display='block'>
                         <div class="CaixaMenu" role="menu">
                             <div class="ItemMenu" role="menuitem"><a href="./index.php">Home</a></div>
                             <div class="ItemMenu" role="menuitem"><a href="./news.php">Notícias</a></div>

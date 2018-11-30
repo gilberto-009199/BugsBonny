@@ -6,14 +6,46 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+@media screen and (max-width: 300px){
+	div[role="banner"]{
+	    background-image: url(../img/foto_fundador500.jpg);
+	    background-size:100% 100%;
+	}
+}
+
+@media screen and (min-width: 301px) and (max-width:500px){
+	div[role="banner"]{
+	    background-image: url(../img/foto_fundador500.jpg);
+	    background-size:100% 100%;
+	}
+}
+@media screen and (min-width: 500px) and (max-width:600px){
+	div[role="banner"]{
+	    background-image: url(../img/foto_fundador500.jpg);
+	    background-size:cover;
+	}
+}
+@media screen and (min-width: 600px) and (max-width:955px){
+	div[role="banner"]{
+	    background-image: url(../img/foto_fundador874.jpg);
+	    background-size:cover;
+	}
+}
+@media screen and (min-width: 955px){
+	div[role="banner"]{
+	    background-image: url(../img/foto_fundador.jpg);
+	    background-size:cover;
+	}
+}
+
+
 div[role="banner"]{
     height: 400px;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     margin-top: 60px;
     margin-bottom: 10px;
-    background-image: url(../img/foto_fundador.jpg);
-    background-size: cover;
+    
     background-repeat: no-repeat;
 }
 #main{

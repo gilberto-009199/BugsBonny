@@ -29,7 +29,7 @@ try {
         <header>
             <div class="ItemCaixaHeader">
                 <nav aria-label="main navigation">
-                    <div class="CaixaMenu" role="menu">
+                    <div class="CaixaMenu" role="menu" data-display='block'>
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./index.php">Home</a></div>
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./news.php">Notícias</a></div>
                         <div class="ItemMenu BordaDireita"  role="menuitem"><a href="./about.php">Sobre</a></div>
@@ -77,9 +77,10 @@ try {
         </script>
         <div id="main" role="main" class="arredonda">
             <div class="row">
-                <div class="cold3 arredonda" role="menu" data-style="CaixaBancas" title="Menu da Pagina">
+                <div class="cold3 arredonda" data-display='block' role="menu" data-style="CaixaBancas" title="Menu da Pagina">
                     <?php for ($i = 1; $i < count($bancas); $i++) { ?>
-                        <span class="ItemMenuBanca" role="menuitem"><a href="#banca<?= $bancas[$i]->id ?>"><?= $bancas[$i]->nome ?></a></span>
+                        
+                        <span class="ItemMenuBanca <?php echo ($i==1)?'primeira-response"':''?>" role="menuitem"><a href="#banca<?= $bancas[$i]->id ?>"><?= $bancas[$i]->nome ?></a></span>
                     <?php } ?>
 
                 </div>
@@ -145,6 +146,24 @@ try {
                 //passando as funções 
                 navigator.geolocation.getCurrentPosition(GeoSuccess, GeoError);
             });
+            if(window.innerWidth<958){
+                $('nav[aria-label^="main"]').click(function(){
+                    $(this).find('.CaixaMenu').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+                $('div[data-style="CaixaBancas"]').click(function(){
+                    $(this).find('.ItemMenuBanca').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+            }
         </script>
     </body>
 </html>
