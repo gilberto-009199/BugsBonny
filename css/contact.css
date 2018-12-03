@@ -16,37 +16,142 @@
         width:100%;
         border:none;
     }
+    input[name*="txt"]{
+        width: 100%;
+        border: none;
+        border-bottom: solid 0.23vmin #004B6B;
+    }
+    table{
+        width:100%;
+    }
+
+    tbody td{
+        display:block;
+        padding-top: 4px;
+        padding-bottom: 3px;
+    }
+    div[data-style="CaixaEsquerda"]{
+        width: auto;
+        float: left;
+        padding: 10px;
+        padding-left: 10px;
+        text-align: center;
+        position:fixed;
+        border-radius:10px;
+        margin-bottom: 5px;
+        bottom:0;
+        background:#cdcdcd;
+    }
+    div[data-style="CaixaEsquerda"] *{
+        display:none;
+    }
+    div[data-style="CaixaEsquerda"]:before{
+        content: "\f039";
+    	 font-family: 'Font Awesome 5 Free';
+    	 font-weight: 600;
+    	 font-size:2em;
+    }
+    div[data-style="CaixaEsquerda"]:hover> * {
+        display:block;
+    }
     #main{
         width: 100%;
     }
+    div[data-style="CaixaDireita"]{
+        border-right-style: inset;
+    }
 }
-@media screen and (min-width: 301px) and (max-width:900px){
+@media screen and (min-width: 301px) and (max-width:999px){
     #tipoFrm{
         width: 100%;
         margin-left: auto;
         position: initial;
     }
     #main{
-        width: 100%;
+        width: 98%;
+        border: solid 1px black;
     }
     div[data-style="CaixaDireita"]{
-        width:100%;
+        width: 100%;
         border:none;
     }
+    input[name*="txt"]{
+        width: 100%;
+        border: none;
+        border-bottom: solid 0.23vmin #004B6B;
+    }
+    table{
+        width:100%;
+    }
+
+    tbody td{
+        display:block;
+        padding-top: 4px;
+        padding-bottom: 3px;
+    }
+    tbody td *{
+        width:100%;
+    }
+    div[data-style="CaixaEsquerda"]{
+        width: auto;
+        float: left;
+        padding: 10px;
+        padding-left: 10px;
+        text-align: center;
+        position:fixed;
+        border-radius:10px;
+        margin-bottom: 5px;
+        bottom:0;
+        background:#cdcdcd;
+    }
+    div[data-style="CaixaEsquerda"] *{
+        display:none;
+    }
+    div[data-style="CaixaEsquerda"]:before{
+        content: "\f039";
+    	 font-family: 'Font Awesome 5 Free';
+    	 font-weight: 600;
+    	 font-size:2em;
+    }
+    div[data-style="CaixaEsquerda"]:hover:before{
+        display:none;
+        color:aliceblue;
+    }
+    div[data-style="CaixaEsquerda"]:hover> * {
+        display:block;
+    }
+    div[data-style="CaixaDireita"]{
+        border-right-style: inset;
+    }
 }
-@media screen and (min-width: 900px){
-    #tipoFrm{
+@media screen and (min-width: 1000px){
+    #tipoFrmdisplay{
         margin-left: 516px;
         position: absolute;
         width: 212px;
     }
-    #main{
-        width: 1000px;
+    input[name*="txt"]{
+        width: 180px;
+        border: solid 1px black;
+    }
+    #areaCritica{
+        min-width: 345px;
+    }
+    div[data-style="CaixaEsquerda"]{
+        width: 211px;
+        float: left;
+        padding-left: 20px;
+        text-align: center;
+    }
+     #tipoFrm{
+        display: inline-block;
+        float: right;
+        min-width: 282px;
     }
 }
 
 div[role="banner"]{
-    margin-top: 60px;
+    margin-top: 65px;
     width: 100%;
     background: rgb(104,110,110);
     background: linear-gradient(265deg, rgba(104,110,110,1) 38%, rgba(74,88,88,1) 67%);
@@ -63,7 +168,7 @@ div[role="banner"] canvas{
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    border: solid 4px black;
+    /* border: solid 0px black; */
     border-radius: 10px;
 }
 #main{
@@ -75,20 +180,14 @@ div[role="banner"] canvas{
     padding-top: 17px;
     padding-bottom: 20px;
     padding-left: 10px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: white;
+    max-width:1000px;
 }
 div[data-style="CaixaDireita"]{
-    border-right-style: inset;
     float: left;
-}
-div[data-style="CaixaEsquerda"]{
-    width: 211px;
-    float: left;
-    padding-left: 20px;
-    text-align: center;
 }
 form[name="frmTiket"]{
     padding-left: 20px;
@@ -98,23 +197,21 @@ input[name*="txt"]{
     float: left;
     font-size:15px;
     height: 21px;
-    width: 180px;
-    border: solid 1px black;
 }
 #areaCritica{
     resize: none;
     border: solid 1px black;
     padding: 4px;
-    width: 428px;
+    width: 100%;
 }
 #btnSubmit{
     float: right;
-    height: 40px;
+    height: auto;
     width: 90px;
     font-size: 17px;
     background-color: transparent;
     border: solid 1px #BFBFBF;
-    margin-right: -30px;
+    margin-right: -17px;
     color:#006D5C;
 }
 .ItemTicket{

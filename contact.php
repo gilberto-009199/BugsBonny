@@ -144,7 +144,7 @@ try {
                 </div>
             </div>
         </header>
-        <div role="banner">
+        <div role="banner" style=" margin-top: 65px;">
             <div class="CaixaRedesSociais">
                 <i class="fab fa-twitter"></i>
                 <i class="fab fa-instagram"></i>
