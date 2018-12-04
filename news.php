@@ -58,7 +58,7 @@ try{
             <div class="row">
                 <div class="row" data-style="BarraPesquisa">
                     <div class="cold3" style="float: left;">
-                        <nav data-style="MenuPesquisa">
+                        <nav data-style="MenuPesquisa" data-display='block'>
                             <i class="fas fa-align-justify" data-style="IconMenu"></i>
                             <div data-style="SubMenu">
                                 <div class="ItemMenuPesquisa"><i class="fas fa-balance-scale" data-style="margenIcone"></i>Política</div>
@@ -206,7 +206,21 @@ try{
                         $(this).attr('data-display','block');
                     }
                 })
+                $('nav[data-style="MenuPesquisa"]').click(function(){
+                    $(this).find('div[data-style="SubMenu"]').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+                 $('#CaixaSlider').html('<img  style="display:block; margin-left:auto; margin-right:auto;" src="./img/noticias/24rohingya-rakhine-1-threeByTwoSmallAt2X.jpg" height="300" width="400" alt="foto de jornais">')
             }
+            $( window ).resize(function() {
+              if(window.innerWidth<958){
+                $('#CaixaSlider').html('<img  style="display:block; margin-left:auto; margin-right:auto;" src="./img/noticias/24rohingya-rakhine-1-threeByTwoSmallAt2X.jpg" height="300" width="400" alt="foto de jornais">')
+              }
+            });
         </script>
     </body>
 </html>

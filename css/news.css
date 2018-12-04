@@ -6,8 +6,44 @@
 @import url("style.css");
 @import url("estruturadefault.css");
 
+
+@media screen and (max-width: 300px){
+     div[role="banner"]{
+        width: 100%;
+    }
+    #main{
+        width: 100%;
+    }
+    div[data-style="CaixaPesquisa"]{
+            width: 100%;
+    }
+}
+@media screen and (min-width: 301px) and (max-width:999px){
+    div[role="banner"]{
+        width: 100%;
+    }
+    #main{
+        width: 100%;
+    }
+    div[data-style="CaixaPesquisa"]{
+            width: 100%;
+    }
+}
+@media screen and (min-width: 1000px){
+    div[role="banner"]{
+        width: 1200px;
+    }
+    #main{
+        width: 1200px;
+    }
+    div[data-style="CaixaPesquisa"]{
+            width: 1000px;
+    }
+
+}
+
+
 div[role="banner"]{
-    width: 1200px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 62px;
@@ -16,7 +52,6 @@ div[role="banner"]{
     background-color: #000000;
 }
 #main{
-    width: 1200px;
     margin-left: auto;
     margin-right: auto;
     min-height: 200px;
@@ -50,7 +85,6 @@ div[data-style="BarraPesquisa"]{
 div[data-style="CaixaPesquisa"]{
     margin-left: auto;
     margin-right: auto;
-    width: 1000px;
     height: auto;
 }
 nav[data-style="MenuPesquisa"] div[data-style="SubMenu"]{
@@ -93,11 +127,13 @@ i[data-style="margenIcone"]{
     opacity: 0.2;
 }
 div[data-style="CaixaTopicos"]{
-    padding-left: 10px; 
-    margin-left: 82px;  
-    float:left; 
-    background-color:white; 
+    padding-left: 10px;
+    /* margin-left: 82px; */
+    float: right;
+    /* float:left; */
+    background-color:white;
     height: 330px;
+    margin-right: 10px;
 }
 div[data-style="CaixaTopicos"] i {
     margin-right: 4px;
@@ -115,8 +151,7 @@ div[data-style="CaixaTopicos"] i {
 nav[data-style="MenuPesquisa"]:hover{
     color:#006D5C;
 }
-nav[data-style="MenuPesquisa"]:hover>div[data-style="SubMenu"]{
-    display:block;
+div[data-style="SubMenu"]{
     position: absolute;
     max-width: 100%;
     width: 1200px;
@@ -124,4 +159,7 @@ nav[data-style="MenuPesquisa"]:hover>div[data-style="SubMenu"]{
     border-top: solid 2px;
     box-shadow: 2px 2px 2px black;
     background-color: white;
+}
+nav[data-style="MenuPesquisa"]:hover>div[data-style="SubMenu"]{
+    display:block;
 }

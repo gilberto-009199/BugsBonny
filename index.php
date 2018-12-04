@@ -180,11 +180,33 @@
             </div>
             <footer>
                 <p>Copyright© Senai 2018</p>
+                <div id="CaixaRede"></div>
             </footer>
         </div>
         <script>
             $(function () {
                 $("#CaixaSite").slideUp(1).slideDown(500);
+            });
+            if(window.innerWidth<958){
+                $('nav[aria-label^="main"]').click(function(){
+                    $(this).find('.CaixaMenu').css('display',$(this).attr('data-display'))
+                    if(($(this).attr('data-display')+'').search('block')>=0){
+                        $(this).attr('data-display','none');
+                    }else{
+                        $(this).attr('data-display','block');
+                    }
+                })
+                $('footer #CaixaRede').html('');
+                $('footer #CaixaRede').append($('#CaixaRedeSociais').html());
+                $('div[role="banner"]').html('<img  style="display:block; margin-left:auto; margin-right:auto;" src="./img/slide/banca.jpg" height="300" width="400" alt="foto de jornais">')
+            }
+
+            $( window ).resize(function() {
+              $('footer #CaixaRede').html('');
+              if(window.innerWidth<958){
+                $('footer #CaixaRede').append($('#CaixaRedeSociais').html());
+                $('div[role="banner"]').html('<img  style="display:block; margin-left:auto; margin-right:auto;" src="./img/slide/banca.jpg" height="300" width="400" alt="foto de jornais">')
+              }
             });
         </script>
     </body>
