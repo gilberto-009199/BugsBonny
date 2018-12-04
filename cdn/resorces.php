@@ -5,6 +5,8 @@
 * @copyright  unlicense <http://unlicense.org/>
 */ 
 
+error_reporting(E_WARNING);
+
 /* lib temporario de funções para o funcionamento interno do sistema  */
 function conect() {
     /* Função responsavel por fornecer a conecxão com o banco de dados  */
@@ -14,6 +16,7 @@ function conect() {
     $Db = "bugbunny";
     $con = mysqli_connect($hostname, $user, $password, $Db);
     if (!$con) {
+        echo "Algo De errado ocorreu ao conectar ao banco!";
         return false;
     }
     return $con;
@@ -100,6 +103,40 @@ function gravarPedido($frmPedidoTmp) {
         }
         return true;
     }
+}
+function getSubCategoria(& $conexao,$vetor){
+    
+    for($i=1;$i < count($vetor);$i++){
+        echo ("<p>Pegando as subcategorias de ".$vetor[$i]->categoria." </p>");
+        $id = $vetor[$i]->id;
+        $sql = "Select * from tbl_categoria where herda = $id ";
+        echo "SQL".$sql;    
+        $query = mysqli_query($conexao,$sql);
+        $Categorias2[]=  array();
+        while($rsCategorias = mysqli_fetch_object($query)){
+            $Categorias2[] = $rsCategorias;
+            echo "@ Pegando sub categoria: ".$rsCategorias->categoria;
+        }
+        echo "Categorias  Pegas: <pre>";
+        var_dump($Categorias2);
+        echo "</pre>";
+        if(count($Categorias2)>=1){
+            $vetor[$i]->subCategorias =  $Categorias2;
+            unset($Categorias2);
+            getSubCategoria($conexao,$vetor[$i]->subCategorias);   
+        }            
+    } 
+    return $vetor;
+}
+
+function getAllCategorias(& $conexao){
+    $sql = "Select * from tbl_categoria where herda IS NULL";
+    $query = mysqli_query($conexao,$sql);
+    $Categorias1[]=  array();
+    while($rsCategorias = mysqli_fetch_object($query)){
+        $Categorias1[]= $rsCategorias;
+    }
+    return getSubCategoria($conexao,$Categorias1);
 }
 
 ?>
