@@ -1,9 +1,14 @@
+<?php require_once './cdn/resorces.php'; ?>
 <?php
 /**
 * @author Gilberto Ramos de O. <gilberto.tec@vivaldi.net>
 * @version 1.0 
 * @copyright  unlicense <http://unlicense.org/>
 */ 
+
+$con = conect();
+$PrincipaisCategorias = getAllCategorias($con);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
@@ -91,7 +96,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="viewSlide">
                             <div class="ItemSlider" style="background-image:url(img/slide/tec.jpg);">
                                 <div  class="Painel">
@@ -114,11 +118,21 @@
             </div>
             <div id="main" role="main">
                 <div class="row">
-                    <div class="cold4" data-style="MenuBar" >
-                        <span class="ItemMenuBar">Revistas</span>
-                        <span class="ItemMenuBar">Jornais</span>
-                        <span class="ItemMenuBar">Videos</span>
-                        <span class="ItemMenuBar">Assinaturas</span>
+                    <div class="cold4" data-style="MenuBar">
+                        <?php require('categorias.view.php') ?>
+                        <!--<ol>
+                                <li class="ItemMenuBar"><strong>Revistas</strong>
+                                        <ol>
+                                                <li class="ItemMenuBar">Exemplo</li>
+                                                <li class="ItemMenuBar">Exemplo</li>
+                                                <li class="ItemMenuBar">exemplo</li>
+                                                <li class="ItemMenuBar">exemplo</li>
+                                        </ol>
+                                </li>
+                                <li class="ItemMenuBar">Jornais</li>
+                                <li class="ItemMenuBar">Videos</li>
+                                <li class="ItemMenuBar">Assinaturas</li>
+                        </ol>-->
                     </div>
                     <div class="cold7" data-style="ProductBox">
                         <div class="Produto">

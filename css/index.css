@@ -127,6 +127,22 @@ div[data-style="ProductBox"]{
     padding-top: 7px;
     padding-bottom: 7px;
 }
+ol li.ItemMenuBar ol{
+    opacity: 0.2;
+    border-left:solid 1px black;
+    display:none;
+    margin-top: -28px;
+    margin-left:10%;
+    width:auto;
+    min-width:280px;
+    position:absolute;
+    transition: 1s;
+}
 .ItemMenuBar:hover{
     color:#006D5C;
+}
+li.ItemMenuBar:hover > ol{
+    display:block;
+    opacity:1;
+    margin-left:32%;
 }

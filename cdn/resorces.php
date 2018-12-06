@@ -105,8 +105,35 @@ function gravarPedido($frmPedidoTmp) {
     }
 }
 function getSubCategoria(& $conexao,$vetor){
-    
+
     for($i=1;$i < count($vetor);$i++){
+        //echo ("<p>Pegando as subcategorias de ".$vetor[$i]->categoria." </p>");
+        $id = $vetor[$i]->id;
+        $sql = "Select * from tbl_categoria where herda = $id ";
+        //echo "SQL".$sql;    
+        $query = mysqli_query($conexao,$sql);
+        if($rsCategorias = mysqli_fetch_object($query)){
+            $Categorias2[]=  array();
+            $Categorias2[] = $rsCategorias;
+            while($rsCategorias = mysqli_fetch_object($query)){
+                $Categorias2[] = $rsCategorias;
+                //echo " <br> @ Pegando sub categoria: ".$rsCategorias->categoria;
+            }
+            
+        }
+        //echo "<br> $id = Categorias  Pegas: <pre>";
+        //var_dump($Categorias2);
+        //echo "</pre>";
+        if(count($Categorias2)>=1){
+            //echo "Adicionando SubCategoria  a ".$vetor[$i]->categoria;
+            $vetor[$i]->subCategorias =  $Categorias2;
+            unset($Categorias2);
+            getSubCategoria($conexao,$vetor[$i]->subCategorias);   
+        }            
+    }
+    return $vetor;
+    
+    /*for($i=1;$i < count($vetor);$i++){
         echo ("<p>Pegando as subcategorias de ".$vetor[$i]->categoria." </p>");
         $id = $vetor[$i]->id;
         $sql = "Select * from tbl_categoria where herda = $id ";
@@ -126,7 +153,7 @@ function getSubCategoria(& $conexao,$vetor){
             getSubCategoria($conexao,$vetor[$i]->subCategorias);   
         }            
     } 
-    return $vetor;
+    return $vetor;*/
 }
 
 function getAllCategorias(& $conexao){
