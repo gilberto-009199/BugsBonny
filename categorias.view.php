@@ -11,18 +11,20 @@
         for($i =1 ; $i< count($categorias);$i++){
             $categoria = $categorias[$i]->categoria;
             if($categorias[$i]->subCategorias!==null){
+                $id = $categorias[$i]->id;
                   //'<ul>'.genHtmlCategorias($categorias[$i]->subCategorias).'</ul>';
-                $html.= "<li class='ItemMenuBar'><strong>$categoria</strong>
-                            <ul>".genHtmlCategorias($categorias[$i]->subCategorias)."</ul>
+                $html.= "<li class='ItemMenuBar'><strong data-id='$id'>$categoria</strong>
+                            <ol>".genHtmlCategorias($categorias[$i]->subCategorias)."</ol>
                         </li>";
             }else{
-                    $html.= "<li class='ItemMenuBar'>$categoria</li>";
+                    $id = $categorias[$i]->id;
+                    $html.= "<li class='ItemMenuBar'><strong data-id='$id'>$categoria</strong></li>";
             }
         }
         return $html;
 
     }
 
-echo ('<ul>'.genHtmlCategorias($PrincipaisCategorias).'</ul>');
+echo ('<ol>'.genHtmlCategorias($PrincipaisCategorias).'</ol>');
 
 ?>

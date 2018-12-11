@@ -14,7 +14,7 @@ function DialogConfirm(success, error) {
         //janela.style="position:fixed; height:100px; width:100px; display:block; background-color:black;";
         document.body.appendChild(janela);
         
-        $(janela).load('./elements/ConfirmDialog.php', function (sresponseText, statusText, xhr)
+        $(janela).load('../elements/ConfirmDialog.php', function (sresponseText, statusText, xhr)
         {//função de retorno função callback ocorre quando acaba dando erro ou dando certo
             if (statusText == "success") {
                 $('#btnConfirm').click(success);

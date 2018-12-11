@@ -28,6 +28,16 @@ function getLogs(& $conexao){
     }
     return $Logs;
 }
+function getAllCategorias(& $conexao){
+    $Categorias [] = array();
+    $sqlQuery = "SELECT * FROM tbl_categoria ";
+    $query = mysqli_query($conexao, $sqlQuery);
+    while ($rsCategorias = mysqli_fetch_object($query)) { //rs e uma nomeclatura para uma variavel que contem os registros vindo do bandados ou resultset (rs = record set)
+        //exemplo $rsContatos
+        $Categorias [] = $rsCategorias;
+    }
+    return $Categorias;
+}
 function getUsuarioCargos(& $conexao){
     $Cargos= array();
     $sqlQuery = "select * from tbl_usuario_cargos;";

@@ -135,7 +135,8 @@ $PrincipaisCategorias = getAllCategorias($con);
                         </ol>-->
                     </div>
                     <div class="cold7" data-style="ProductBox">
-                        <div class="Produto">
+                        
+                        <!--<div class="Produto">
                             <div class="Titulo">Revista Veja</div>
                             <div class="Imagem">
                                 <img alt="Imagem de Produto" src="img/assents/computer64x64.png">
@@ -188,7 +189,7 @@ $PrincipaisCategorias = getAllCategorias($con);
                             <div class="Descricao">Descrição</div>
                             <div class="Preco"><span class="destaque">R$8,00</span></div>
                             <div class="Detalhes"><a href="#">Detalhes</a></div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -198,8 +199,30 @@ $PrincipaisCategorias = getAllCategorias($con);
             </footer>
         </div>
         <script>
+            function getDetalhes(idProduto){
+                    alert("Quer o produto de id "+idProduto);
+            }
             $(function () {
                 $("#CaixaSite").slideUp(1).slideDown(500);
+
+                $('li.ItemMenuBar strong').click(function(){
+                  /*console.log('ID Categoria:',$(this).attr('data-id'));*/
+                  /*console.log($(this).html());*/
+                  var idCategoria = $(this).attr('data-id');
+                  $.get('app/getProdutos.view.php?get&idCategoria='+idCategoria).then(function(html){
+                         $('div[data-style="ProductBox"]').html(html);
+                  }).catch(function(e){
+                          alert('um erro ocoreu!!');
+                          console.log(e);
+                  });
+                });
+                var idCategoria = $(this).attr('data-id');
+                $.get('app/getProdutos.view.php?get').then(function(html){
+                         $('div[data-style="ProductBox"]').html(html);
+                }).catch(function(e){
+                          alert('um erro ocoreu!!');
+                          console.log(e);
+                });
             });
             if(window.innerWidth<958){
                 $('nav[aria-label^="main"]').click(function(){

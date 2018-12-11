@@ -121,9 +121,6 @@ function getSubCategoria(& $conexao,$vetor){
             }
             
         }
-        //echo "<br> $id = Categorias  Pegas: <pre>";
-        //var_dump($Categorias2);
-        //echo "</pre>";
         if(count($Categorias2)>=1){
             //echo "Adicionando SubCategoria  a ".$vetor[$i]->categoria;
             $vetor[$i]->subCategorias =  $Categorias2;
@@ -132,28 +129,16 @@ function getSubCategoria(& $conexao,$vetor){
         }            
     }
     return $vetor;
-    
-    /*for($i=1;$i < count($vetor);$i++){
-        echo ("<p>Pegando as subcategorias de ".$vetor[$i]->categoria." </p>");
-        $id = $vetor[$i]->id;
-        $sql = "Select * from tbl_categoria where herda = $id ";
-        echo "SQL".$sql;    
-        $query = mysqli_query($conexao,$sql);
-        $Categorias2[]=  array();
-        while($rsCategorias = mysqli_fetch_object($query)){
-            $Categorias2[] = $rsCategorias;
-            echo "@ Pegando sub categoria: ".$rsCategorias->categoria;
-        }
-        echo "Categorias  Pegas: <pre>";
-        var_dump($Categorias2);
-        echo "</pre>";
-        if(count($Categorias2)>=1){
-            $vetor[$i]->subCategorias =  $Categorias2;
-            unset($Categorias2);
-            getSubCategoria($conexao,$vetor[$i]->subCategorias);   
-        }            
-    } 
-    return $vetor;*/
+}
+
+function getAllProdutos(& $conexao){
+    $sql = "Select * from tbl_produtos order by RAND() limit 0,9";
+    $query = mysqli_query($conexao,$sql);
+    $Produtos[]=  array();
+    while($rsProdutos = mysqli_fetch_object($query)){
+        $Produtos[]= $rsProdutos;
+    }
+    return $Produtos;
 }
 
 function getAllCategorias(& $conexao){
@@ -165,5 +150,64 @@ function getAllCategorias(& $conexao){
     }
     return getSubCategoria($conexao,$Categorias1);
 }
+function getCategoriaById(& $conexao,$idCategoria){
+    $sql = "Select * from tbl_categoria where id = $idCategoria";
+    $query = mysqli_query($conexao,$sql);
+    $Categoria  = array();
+    $Categoria[] = NULL;
+    if($rsCategorias = mysqli_fetch_object($query)){
+        $Categoria[] = $rsCategorias;
+    }
+    return getSubCategoria($conexao,$Categoria);
+}
 
+function getProdutos(& $conexao,$idCategoria){
+    $sql = " Select * from tbl_produtos where idCategoria = $idCategoria";
+    $Query  =  mysqli_query($conexao,$sql);
+    $Produtos = array();
+    while($rsProdutos = mysqli_fetch_object($Query)){
+        $Produtos [] = $rsProdutos;
+    }
+    if(count($Produtos)<1){
+        //echo "Não tem nada Aqui!! \n\n";
+        $Categoria = getCategoriaById($conexao,$idCategoria);
+        //echo "Categoras Achados:\n\n";
+        //var_dump($Categoria[1]);
+        if(isset($Categoria[1]->subCategorias)){
+            $Produtos  = getProdutosSub($conexao,$Categoria[1]->subCategorias,null); 
+            /*echo "Produtos Achados:\n\n";
+            var_dump($Produtos);*/
+        }else{
+            return null;
+            echo " SubCategorias inexitentes ";
+        }
+
+    }
+    return $Produtos;
+}
+
+function getProdutosSub(& $conexao,$vetor,$produtos){
+    if($produtos == null){
+        $produtos = array();
+    }
+    //echo "\n\n Sub Categorias Pegar para pegar produtos \n\n";
+    //var_dump($vetor);
+    //echo " \n\n ------------------- \n\n ";
+    for($i=1; $i<count($vetor);$i++){
+        //var_dump($vetor[$i]);
+        $produtostmp = getProdutos($conexao,$vetor[$i]->id);
+        if($produtostmp == null){
+           // echo " nUlL ";
+        }else{
+            for($j=0;$j<count($produtostmp);$j++){
+                //array dentro de outro  resulva fazendo um vetor se entra r com outro
+                $produtos [] = $produtostmp[$j];
+            }
+            //$produtos [] = $produtostmp;
+        }
+    }
+    //echo " Produtos  Pegos : \n";
+    //var_dump($produtos);
+    return $produtos;
+}
 ?>
