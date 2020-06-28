@@ -1,4 +1,5 @@
 # Projeto BugBunny
+![Tela inicial](./image.png)
 
 Esse projeto se baseia na criação e desenvolvimento de um site para uma rede de bancas de jornal. 
 
@@ -16,10 +17,11 @@ Atenção!!O projeto esta em desenvolvimento!
 
 ## Authors
 
-* **Gilberto Ramos de Oliveira** - * Aluno do SENAI-Jandira*
+* **Gilberto Ramos de Oliveira** - * Desenvolvedor *
 
 ## Bibliotecas
 
+* [PHP](https://www.php.net/manual/pt_BR/intro-whatis.php) - Linguagem de preogramação para desenvolvimento web e muitas outras coisas!
 * [Chart.js](https://www.chartjs.org/) - Biblioteca de js para criação de gráficos 
 * [JQuery](https://jquery.com/) - Biblioteca de js que serve como Utilitários(Ajax e etc) 
 * [Leaflet.js](https://leafletjs.com/) - Biblioteca de js para trabalhar com mapas
