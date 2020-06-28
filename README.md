@@ -8,8 +8,6 @@ Esse projeto se baseia na criação e desenvolvimento de um site para uma rede d
 Para utilizar o projeto e necessário executar o script sql na PATH /cdn/ModeloDb.sql 
 para criar o banco de dados da aplicação, depois coloque o conteúdo do repositório na raiz do site.
 
-Atenção!!O projeto esta em desenvolvimento!
-
 ### Pré-requisitos Dependências
 
 * Para instalar e necessário um servidor http na porta 80 com php(Wamp,Lamp,Mamp)
