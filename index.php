@@ -49,13 +49,13 @@ $PrincipaisCategorias = getAllCategorias($con);
                             <div class="cold4">
                                 <label for="txtUser"><i class="fas fa-user">Usuario:</i></label>
                                 <div class="row">
-                                    <input id="txtUser" name="txtEmail" required type="text">
+                                    <input id="txtUser" name="txtEmail" required type="text" value="root@bugbunny.com">
                                 </div>
                             </div>
                             <div class="cold4">
                                 <label for="txtPasswrd"><i class="fas fa-key">Senha:</i></label>
                                 <div class="row">
-                                    <input id="txtPasswrd" name="txtPassword" required type="password">
+                                    <input id="txtPasswrd" name="txtPassword" required type="password" value="12345">
                                 </div>
                             </div>
                             <div class="cold1">

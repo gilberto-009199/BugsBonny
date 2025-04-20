@@ -1,4 +1,4 @@
-<?php require_once"resorces.php" ?>
+<?php require_once "resorces.php" ?>
 <?php
 
 function autentica($action) {
@@ -6,7 +6,6 @@ function autentica($action) {
     if (!$con) {
         echo "Erro ao gerar token ou verificar token!!";
         throw Exception("Um erro Ocorreu ao gerar ou acessar Token de acesso!!" . date('Y-m-d H:i:s'));
-        echo '1';
         return false;
     }
     switch($action){
@@ -18,9 +17,9 @@ function autentica($action) {
                 //echo " Usuario =" . $rsUser->nome . ".";
                 if (password_verify($_POST["txtPassword"], $rsUser->senha)) {
                     //echo "senha compativel";
-                    session_destroy();
+                    if(isset($_SESSION))session_destroy();
                     //echo"<p>Sessao destruida!!</p>";
-                    session_start();
+                    if(!isset($_SESSION))session_start();
                     /* entropia = 12 numeros aleatorios + data atual + 12 numeros aleatorios */
                     $entropia = "" . rand(1, 9) . "" . rand(1, 9) . "" .
                             rand(1, 9) . "" . rand(1, 9) . "" . rand(1, 9) . "" .
@@ -40,11 +39,11 @@ function autentica($action) {
                     mysqli_query($con, $sql);
                     $_SESSION['token'] = $token;
                     sleep(3);
-                    echo'0';
+                    echo '0';
                 }else{
                     echo '1';
                 }
-            } ELSE {
+            } else {
                 echo '2';
             }
             break;
@@ -80,10 +79,10 @@ if (isset($_POST['txtEmail']) && isset($_POST['txtPassword']) && isset($_POST['a
             autentica('gerar');
             break;
         case "verificar":
-            echo 'Verificar';
+            //echo 'Verificar';
             break;
         default:
-           echo'ação indefinida!!';
+            //echo 'ação indefinida!!';
             throw Exception("Uma solicitação fantasma(vazia) ocorreu ".date('Y-m-d H:i:s'));
            
     }

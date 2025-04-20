@@ -7,13 +7,28 @@
 
 /* lib temporario de funções para o funcionamento interno do sistema CMS */
 function conect() {
+    if (getenv('JAWSDB_URL')) {
+        $url = parse_url(getenv('JAWSDB_URL'));
+        putenv('DB_HOST=' . $url['host']);
+        putenv('DB_USER=' . $url['user']);
+        putenv('DB_PASSWORD=' . $url['pass']);
+        putenv('DB_NAME=' . ltrim($url['path'], '/'));
+    }
+    // Database Config
+    $_ENV['DB_HOST']        =   (getenv('DB_HOST')     ? getenv('DB_HOST')            : '127.0.0.1');
+    $_ENV['DB_NAME']        =   (getenv('DB_NAME')     ? getenv('DB_NAME')            : 'bugbunny');
+    $_ENV['DB_USER']        =   (getenv('DB_USER')     ? getenv('DB_USER')            : 'bugbunny');
+    $_ENV['DB_PASSWORD']    =   (getenv('DB_PASSWORD') ? getenv('DB_PASSWORD')        : 'senha@3214451');
+
     /* Função responsavel por fornecer a conecxão com o banco de dados  */
-    $hostname = "127.0.0.1";
-    $user = "userbugbunny";
-    $password = "abracadabra127";
-    $Db = "bugbunny";
-    $con = mysqli_connect($hostname, $user, $password, $Db);
+    $hostname   = $_ENV['DB_HOST'];
+    $db         = $_ENV['DB_NAME'];
+    $user       = $_ENV['DB_USER'];
+    $password   = $_ENV['DB_PASSWORD'];
+    
+    $con = mysqli_connect($hostname, $user, $password, $db);
     if (!$con) {
+        echo "Algo De errado ocorreu ao conectar ao banco!";
         return false;
     }
     return $con;

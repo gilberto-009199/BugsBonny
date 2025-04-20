@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 8080:80
+    environment:
+      DB_HOST: database.local
+      DB_NAME: bugbunny
+      DB_USER: bugbunny
+      DB_PASSWORD: senha@3214451
+    depends_on:
+      - database.local
+  database.local:
+    image: mariadb:10.5.19
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: senha@3214451
+      MYSQL_DATABASE: bugbunny
+      MYSQL_USER: bugbunny
+      MYSQL_PASSWORD: senha@3214451
+      MYSQL_MAX_CONNECTIONS: 9000
+    volumes:
+      - ./banco.sql:/docker-entrypoint-initdb.d/banco.sql
+      - ./database:/var/lib/mysql
+    command: --init-file /docker-entrypoint-initdb.d/banco.sql

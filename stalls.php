@@ -1,3 +1,4 @@
+<?php echo "oi"; ?>
 <?php require_once './cdn/resorces.php'; ?>
 <?php require_once './libs/libsphp/BBcode/bbcode.php'; ?>
 <?php
