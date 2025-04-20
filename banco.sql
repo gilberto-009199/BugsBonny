@@ -1,20 +1,3 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
---
--- Host: localhost    Database: bugbunny
--- ------------------------------------------------------
--- Server version	5.6.10-log
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 --
 -- Table structure for table `tbl_artigos`
 --
@@ -668,7 +651,9 @@ CREATE TABLE `tbl_usuarios` (
 
 LOCK TABLES `tbl_usuarios` WRITE;
 /*!40000 ALTER TABLE `tbl_usuarios` DISABLE KEYS */;
-INSERT INTO `tbl_usuarios` VALUES (1,'admin','root@bugbunny.com','$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy','2018-09-25 00:00:00','(11)4826-5847'),(2,'administrador','admin@bugbunny.com','$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy','2018-09-27 00:00:00','(11)4826-5847'),(4,'marcel NT','marcel@teste.com','$2y$12$iRuLNhSpEIBEXyN0ofKtIeJhCgiSEWO7bbhsZXmMBFFpm.kw7Roii','2018-11-08 13:41:32','11111112');
+INSERT INTO `tbl_usuarios` VALUES (1,'admin','root@bugbunny.com','$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy','2018-09-25 00:00:00','(11)4826-5847')
+,(2,'administrador','admin@bugbunny.com','$2y$12$EzPo.rP8YafMdXUOjAbW/eyV7ebhiIZX91D8.Ba4l/4lUz.guazIy','2018-09-27 00:00:00','(11)4826-5847')
+,(4,'marcel NT','marcel@teste.com','$2y$12$iRuLNhSpEIBEXyN0ofKtIeJhCgiSEWO7bbhsZXmMBFFpm.kw7Roii','2018-11-08 13:41:32','11111112');
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -692,31 +677,3 @@ SET character_set_client = utf8;
  1 AS `telefone`*/;
 SET character_set_client = @saved_cs_client;
 
---
--- Final view structure for view `vwusuarios`
---
-
-/*!50001 DROP VIEW IF EXISTS `vwusuarios`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8 */;
-/*!50001 SET character_set_results     = utf8 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vwusuarios` AS select `u`.`id` AS `id`,`u`.`nome` AS `nome`,`u`.`email` AS `email`,`uc`.`nome` AS `cargos`,`cu`.`idCargo` AS `idCargo`,`eu`.`idEstado` AS `idEstado`,`cu`.`dataEmissao` AS `desde`,`ue`.`nome` AS `estado`,`u`.`telefone` AS `telefone` from ((((`tbl_usuarios` `u` join `tbl_cargos_usuarios` `cu`) join `tbl_usuario_cargos` `uc`) join `tbl_estados_usuarios` `eu`) join `tbl_usuario_estados` `ue`) where ((`cu`.`idUsuario` = `u`.`id`) and (`cu`.`idCargo` = `uc`.`id`) and (`cu`.`dataEmissao` = (select max(`tbl_cargos_usuarios`.`dataEmissao`) from `tbl_cargos_usuarios` where (`tbl_cargos_usuarios`.`idUsuario` = `u`.`id`))) and (`eu`.`idUsuario` = `u`.`id`) and (`eu`.`idEstado` = `ue`.`id`) and (`eu`.`dataEmissao` = (select max(`tbl_estados_usuarios`.`dataEmissao`) from `tbl_estados_usuarios` where (`tbl_estados_usuarios`.`idUsuario` = `u`.`id`)))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-12-11 10:58:38
