@@ -1,0 +1,16 @@
+{
+    "name": "BugsBunny",
+    "description": "Portal para bancas de jornal",
+    "buildpacks": [
+      {
+        "url": "heroku/php"
+      }
+    ],
+    "addons": [
+      "jawsdb"
+    ],
+    "scripts": {
+      "postdeploy": "php heroku.php"
+    }
+  }
+  
