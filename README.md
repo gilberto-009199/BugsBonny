@@ -2,13 +2,19 @@
 
 ![Tela inicial](./image.png)
 
-Esse projeto se baseia na criação e desenvolvimento de um site para uma rede de bancas de jornal. Usando PHP, JQuey, Vuejs e MariaDB.
 
-## Como usar ou testar?
+<img align="right" src="./assets/php.svg" alt="PHP" width="32px"/>
+<img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
+<img align="right" src="./assets/jquery.svg" alt="JQuery" width="48px"/>
+<img align="right" src="./assets/vuejs.svg" alt="VueJS" width="32px"/>
+<img align="right" src="./assets/mariadb.svg" alt="MariaDB" width="32px"/>
 
-Para utilizar o projeto e necessário executar o script sql na PATH /cdn/ModeloDb.sql 
-para criar o banco de dados da aplicação, depois coloque o conteúdo do repositório na raiz do site.
+Esse projeto se baseia na criação e desenvolvimento de um site para uma rede de bancas de jornal. Usando **PHP**, **JQuery**, **Vuejs** e **MariaDB**.
 
+## How Run:
+```shell
+$ docker compose up
+```
 
 ## Bibliotecas
 
